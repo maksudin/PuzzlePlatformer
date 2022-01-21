@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Layer 1
+  - Layer 2
+  - Ground
+  - Barrel
+  - Interactables
+  - Spikes
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3551799017
+    locked: 0
+  - name: Tiles
+    uniqueID: 3612190983
+    locked: 0
+  - name: Foreground
+    uniqueID: 3960949011
+    locked: 0
+  - name: Characters
+    uniqueID: 1224935473
+    locked: 0
+  - name: Grass
+    uniqueID: 1019281221
+    locked: 0
