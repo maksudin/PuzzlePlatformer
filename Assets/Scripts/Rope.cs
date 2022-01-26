@@ -24,8 +24,6 @@ namespace PixelCrew.Components
         private bool _ropeActivated;
 
         private BoxCollider2D _ropeCollider;
-
-        [SerializeField] private UnityEvent _heroDetached;
         private float _offsetHeroPositionX = -0.04f;
         private float _offsetHeroPositionY = 0.4f;
 
@@ -44,6 +42,7 @@ namespace PixelCrew.Components
 
         public void ActivateRope()
         {
+            _hero.AttachPlayerToRope();
             _ropeActivated = true;
             _ropeCollider.isTrigger = false;
             _hero.HeroCollider.enabled = false;
@@ -63,7 +62,8 @@ namespace PixelCrew.Components
                 if (_hero.Direction.y > 0 && _detachTimer < 0)
                 {
                     SetParamsToDefault();
-                    _heroDetached?.Invoke();
+                    _hero.DetachPlayerFromRope();
+                    //_heroDetached?.Invoke();
                     return;
                 }
 

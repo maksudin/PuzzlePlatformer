@@ -15,6 +15,7 @@ namespace PixelCrew.Components
     [RequireComponent(typeof(SpawnComponent))]
     public class GenerateObjectsComponent : MonoBehaviour
     {
+        [Range (0, 100)]
         [SerializeField] private int _itemAmount;
         [SerializeField] private List<ItemProbability> _itemProbabilityList;
         [SerializeField] private Collider2D _spawnCollider;

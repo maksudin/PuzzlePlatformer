@@ -161,11 +161,11 @@ namespace PixelCrew
         private void FixedUpdate()
         {
             // Движение по оси X.
-            var xVelocity = Direction.x * _speed;
-            float yVelocity;
+            var velocityX = Direction.x * _speed;
+            float velocityY;
 
-            yVelocity = CalculateYVelocity();
-            _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+            velocityY = CalculateYVelocity();
+            _rigidbody.velocity = new Vector2(velocityX, velocityY);
 
             UpdateAnimatorVals();
             UpdateSpriteDirection();
@@ -173,14 +173,14 @@ namespace PixelCrew
 
         private float CalculateYVelocity()
         {
-            var yVelocity = _rigidbody.velocity.y;
+            var velocityY = _rigidbody.velocity.y;
             var isJumpPressing = Direction.y > 0;
 
             if (PlayerAttachedToRope)
             {
                 // Чтобы hero не падал быстро после detach.
-                yVelocity = _rigidbody.velocity.y / 100f;
-                return yVelocity;
+                velocityY = _rigidbody.velocity.y / 100f;
+                return velocityY;
             }
 
             if (_emulateGroundCondition)
@@ -201,12 +201,12 @@ namespace PixelCrew
 
             if (isJumpPressing)
             {
-                yVelocity = CalculateJumpVelocity(yVelocity);
+                velocityY = CalculateJumpVelocity(velocityY);
             }
 
             else if (_rigidbody.velocity.y > 0)
             {
-                yVelocity *= 0.5f;
+                velocityY *= 0.5f;
             }
 
             // Падение с двойного прыжка имеет velocity около -15.
@@ -218,7 +218,7 @@ namespace PixelCrew
             // Гравитация меняется при падении.
             _rigidbody.gravityScale = _rigidbody.velocity.y >= 0 ? _gravityScale : _fallingGravityScale;
 
-            return yVelocity;
+            return velocityY;
         }
 
         private float CalculateJumpVelocity(float yVelocity)
@@ -247,7 +247,6 @@ namespace PixelCrew
             _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
             _animator.SetBool(IsRunning, Direction.x != 0);
             _animator.SetBool(RopeAttached, PlayerAttachedToRope);
-            
         }
 
         private void UpdateSpriteDirection()
@@ -274,7 +273,7 @@ namespace PixelCrew
         private void OnDrawGizmos()
         {
             Handles.color = _isGrounded ? Color.green : Color.red;
-            Handles.DrawSolidDisc(transform.position, Vector3.forward, 0.15f);
+            Handles.DrawSolidDisc(transform.position, Vector3.forward, 0.09f);
         }
 #endif
 
@@ -289,7 +288,7 @@ namespace PixelCrew
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            if (_coinHolder.Coins > 0)
+            if (_coinHolder != null && _coinHolder.Coins > 0)
             {
                 SpawnCoins();
             }
