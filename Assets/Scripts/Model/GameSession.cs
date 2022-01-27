@@ -20,7 +20,7 @@ namespace PixelCrew.Model
         {
             if (IsSessionExit())
             {
-                DestroyImmediate(gameObject);
+                Destroy(gameObject);
             }
             else
             {

@@ -9,7 +9,7 @@ namespace PixelCrew.Components
         public void Reload()
         {
             GameSession session = FindObjectOfType<GameSession>();
-            DestroyImmediate(session);
+            Destroy(session.gameObject);
 
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
