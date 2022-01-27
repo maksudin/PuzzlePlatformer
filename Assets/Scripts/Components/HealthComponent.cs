@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
+        [SerializeField] private HealthChangeEvent _onChange;
 
         private void Awake()
         {
@@ -22,6 +24,7 @@ namespace PixelCrew.Components
         public void ApplyDamage(int damageValue)
         {
             _currentHealth -= damageValue;
+            _onChange?.Invoke(_currentHealth);
             _onDamage?.Invoke();    // Проверка на null
             if (_currentHealth <= 0)
             {
@@ -36,15 +39,24 @@ namespace PixelCrew.Components
             {
                 _currentHealth = _maxHealth;
                 
-            } else
+            } 
+            else
             {
                 _currentHealth += healValue;
             }
 
+            _onChange?.Invoke(_currentHealth);
             _onHeal?.Invoke();
         }
 
+        public void SetHealth(int hp)
+        {
+            _maxHealth = hp;
+            _currentHealth = hp;
+        }
 
+        [Serializable]
+        public class HealthChangeEvent : UnityEvent<int> { }
     }
 }
 

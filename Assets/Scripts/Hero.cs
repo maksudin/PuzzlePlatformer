@@ -1,4 +1,5 @@
 using PixelCrew.Components;
+using PixelCrew.Model;
 using PixelCrew.Utils;
 using UnityEditor;
 using UnityEditor.Animations;
@@ -34,11 +35,9 @@ namespace PixelCrew
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private SpawnComponent _attackParticles;
         [SerializeField] private float _attackParticlesOffset;
-        [Space]
-        [SerializeField] private CoinHolder _coinHolder;
 
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disarmed;
+        [SerializeField] private AnimatorController _animatorArmed;
+        [SerializeField] private AnimatorController _animatorDisarmed;
 
         private Animator _animator;
         private static readonly int IsGround = Animator.StringToHash("is_grounded");
@@ -59,7 +58,7 @@ namespace PixelCrew
         private bool _emulateGroundCondition;
         [SerializeField] private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
-        private bool _isArmed;
+        private GameSession _session;
 
         private void Awake()
         {
@@ -69,6 +68,16 @@ namespace PixelCrew
             _fallIsLongEnough = false;
             PlayerAttachedToRope = false;
             _groundTimer = _groundTime;
+        }
+
+        private void Start()
+        {
+            _session = FindObjectOfType<GameSession>();
+
+            HealthComponent health = GetComponent<HealthComponent>();
+            health.SetHealth(_session.Data.Hp);
+
+            UpdateHeroWeapon();
         }
 
         public void AttachPlayerToRope()
@@ -86,7 +95,7 @@ namespace PixelCrew
 
         public void Attack()
         {
-            if (!_isArmed) return;
+            if (!_session.Data.IsArmed) return;
             _animator.SetTrigger(AttackKey);
             if (Direction.x > 0 || Direction.x < 0)
             {
@@ -101,8 +110,25 @@ namespace PixelCrew
 
         public void ArmHero()
         {
-            _isArmed = true;
-            _animator.runtimeAnimatorController = _armed;
+            _session.Data.IsArmed = true;
+            UpdateHeroWeapon();
+        }
+
+        private void UpdateHeroWeapon()
+        {
+            if (_session.Data.IsArmed)
+            {
+                _animator.runtimeAnimatorController = _animatorArmed;
+            } 
+            else
+            {
+                _animator.runtimeAnimatorController = _animatorDisarmed;
+            }
+        }
+
+        public void OnHealthChange(int currentHealth)
+        {
+            _session.Data.Hp = currentHealth;
         }
 
         public void OnHeroAttack()
@@ -288,7 +314,7 @@ namespace PixelCrew
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            if (_coinHolder != null && _coinHolder.Coins > 0)
+            if (_session.Data.Coins > 0)
             {
                 SpawnCoins();
             }
@@ -296,8 +322,8 @@ namespace PixelCrew
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_coinHolder.Coins, 5);
-            _coinHolder.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
+            _session.Data.Coins -= numCoinsToDispose;
 
 
             Burst burst = _hitParticles.emission.GetBurst(0);

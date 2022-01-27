@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/BarrelsBlock.unity
+    guid: 312b36eae90c9b74d849c6cda74ba582
+  - enabled: 1
+    path: Assets/Scenes/Experiment Scene.unity
+    guid: 3b05daeadcdd5214886f1b225f776510
+  - enabled: 1
+    path: Assets/Scenes/Ropes level.unity
+    guid: 255ceabe3b6217949a9eb2cae0abdf02
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: aab7e4d4965fe0b4c8fdb44275b87f51,
       type: 2}

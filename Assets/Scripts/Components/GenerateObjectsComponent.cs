@@ -62,7 +62,6 @@ namespace PixelCrew.Components
             }
 
             _spawn.SpawnOnRandomPositionRange(_spawnSizeMin, _spawnSizeMax, _generatedCoins);
-
         }
     }
 }
