@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 4
-  _health: 4
+  _currentHealth: 0
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -232,6 +232,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &988590789168144347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -270,10 +273,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 10
+  m_LinearDrag: 4.03
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4.97
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
