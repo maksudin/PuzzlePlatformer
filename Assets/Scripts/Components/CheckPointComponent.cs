@@ -6,23 +6,16 @@ namespace PixelCrew.Components
 {
     public class CheckPointComponent : MonoBehaviour
     {
-        [SerializeField] private Transform _checkPoint;
+        private Transform _checkPoint;
         [SerializeField] private ReloadLevelComponent _reloadLevelComp;
         [SerializeField] private Transform _heroTransform;
 
-        public void InitCheckPoint(Transform checkPoint)
+        public void RestartFromCheckPoint(Transform checkPoint)
         {
-            _checkPoint = checkPoint;
-        }
-
-        public void RestartFromCheckPoint()
-        {
-            if (_checkPoint == null)
+            _reloadLevelComp.Reload();
+            if (checkPoint != null)
             {
-                _reloadLevelComp.Reload();
-            } else
-            {
-                _heroTransform.position = _checkPoint.position;
+                _heroTransform.position = checkPoint.position;
             }
         }
     }

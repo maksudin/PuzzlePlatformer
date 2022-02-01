@@ -7,12 +7,23 @@ namespace PixelCrew.Model
 {
     public class GameSession : MonoBehaviour
     {
-        [SerializeField] private PlayerData _data;
+        [SerializeField] private PlayerData _localData;
+        [SerializeField] private PlayerData _savedData;
 
-        public PlayerData Data
+        public PlayerData LocalData
         {
-            get { return _data; }
-            set { _data = value; }
+            get { return _localData; }
+            set { _localData = value; }
+        }
+
+        public PlayerData SavedData
+        {
+            get { return _localData; }
+        }
+
+        public void SavePlayer()
+        {
+            _savedData = _localData.DeepCopy();
         }
 
 

@@ -11,6 +11,17 @@ namespace PixelCrew.Model
         public int Coins;
         public int Hp;
         public bool IsArmed;
+        public Transform CheckPointPos;
+
+        public PlayerData DeepCopy()
+        {
+            PlayerData other = (PlayerData)this.MemberwiseClone();
+            other.Coins = Coins;
+            other.Hp = Hp;
+            other.IsArmed = IsArmed;
+            other.CheckPointPos = CheckPointPos;
+            return other;
+        }
     }
 }
 

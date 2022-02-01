@@ -59,6 +59,7 @@ namespace PixelCrew
         [SerializeField] private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
         private GameSession _session;
+        private CheckPointComponent _checkPoint;
 
         private void Awake()
         {
@@ -73,11 +74,27 @@ namespace PixelCrew
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+            _checkPoint = FindObjectOfType<CheckPointComponent>();
 
             HealthComponent health = GetComponent<HealthComponent>();
-            health.SetHealth(_session.Data.Hp);
-
+            health.SetHealth(_session.LocalData.Hp);
             UpdateHeroWeapon();
+
+            if (_session.SavedData.CheckPointPos != null)
+            {
+                transform.position = _session.SavedData.CheckPointPos.position;
+            }
+
+        }
+
+        public void SaveSession()
+        {
+            _session.SavePlayer();
+        }
+
+        public void SetCheckPoint(Transform checkPoint)
+        {
+            _session.LocalData.CheckPointPos = checkPoint;
         }
 
         public void AttachPlayerToRope()
@@ -95,7 +112,7 @@ namespace PixelCrew
 
         public void Attack()
         {
-            if (!_session.Data.IsArmed) return;
+            if (!_session.LocalData.IsArmed) return;
             _animator.SetTrigger(AttackKey);
             if (Direction.x > 0 || Direction.x < 0)
             {
@@ -110,13 +127,13 @@ namespace PixelCrew
 
         public void ArmHero()
         {
-            _session.Data.IsArmed = true;
+            _session.LocalData.IsArmed = true;
             UpdateHeroWeapon();
         }
 
         private void UpdateHeroWeapon()
         {
-            if (_session.Data.IsArmed)
+            if (_session.LocalData.IsArmed)
             {
                 _animator.runtimeAnimatorController = _animatorArmed;
             } 
@@ -128,7 +145,7 @@ namespace PixelCrew
 
         public void OnHealthChange(int currentHealth)
         {
-            _session.Data.Hp = currentHealth;
+            _session.LocalData.Hp = currentHealth;
         }
 
         public void OnHeroAttack()
@@ -207,11 +224,6 @@ namespace PixelCrew
                 // Чтобы hero не падал быстро после detach.
                 velocityY = _rigidbody.velocity.y / 100f;
                 return velocityY;
-            }
-
-            if (_emulateGroundCondition)
-            {
-
             }
 
             if (_isGrounded)
@@ -314,7 +326,7 @@ namespace PixelCrew
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            if (_session.Data.Coins > 0)
+            if (_session.LocalData.Coins > 0)
             {
                 SpawnCoins();
             }
@@ -322,8 +334,8 @@ namespace PixelCrew
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
-            _session.Data.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(_session.LocalData.Coins, 5);
+            _session.LocalData.Coins -= numCoinsToDispose;
 
 
             Burst burst = _hitParticles.emission.GetBurst(0);

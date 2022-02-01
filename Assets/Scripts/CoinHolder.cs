@@ -14,13 +14,13 @@ public class CoinHolder : MonoBehaviour
 
     public void PickedSilverCoin()
     {
-        _session.Data.Coins += 1;
-        Debug.Log(_session.Data.Coins);
+        _session.LocalData.Coins += 1;
+        Debug.Log(_session.LocalData.Coins);
     }
 
     public void PickedGoldenCoin()
     {
-        _session.Data.Coins += 10;
-        Debug.Log(_session.Data.Coins);
+        _session.LocalData.Coins += 10;
+        Debug.Log(_session.LocalData.Coins);
     }
 }
