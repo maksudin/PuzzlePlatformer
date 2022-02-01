@@ -23,7 +23,7 @@ namespace PixelCrew.Model
 
         public void SavePlayer()
         {
-            _savedData = _localData.DeepCopy();
+            _savedData = _localData.ShallowCopy();
         }
 
 
