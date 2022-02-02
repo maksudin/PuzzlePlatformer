@@ -18,7 +18,7 @@ namespace PixelCrew.Model
 
         public PlayerData SavedData
         {
-            get { return _localData; }
+            get { return _savedData; }
         }
 
         public void SavePlayer()

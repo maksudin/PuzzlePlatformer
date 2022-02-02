@@ -11,7 +11,7 @@ namespace PixelCrew.Model
         public int Coins;
         public int Hp;
         public bool IsArmed;
-        public Transform CheckPointPos;
+        public Vector3 CheckPointPos;
 
         public PlayerData ShallowCopy()
         {

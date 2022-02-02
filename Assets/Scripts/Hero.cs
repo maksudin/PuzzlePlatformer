@@ -76,13 +76,13 @@ namespace PixelCrew
             _session = FindObjectOfType<GameSession>();
             _checkPoint = FindObjectOfType<CheckPointComponent>();
 
-            HealthComponent health = GetComponent<HealthComponent>();
-            health.SetHealth(_session.LocalData.Hp);
+            UpdateHeroCollectables();
+            UpdateHeroHp();
             UpdateHeroWeapon();
 
-            if (_session.SavedData.CheckPointPos != null)
+            if (_session.SavedData.CheckPointPos != Vector3.zero)
             {
-                transform.position = _session.SavedData.CheckPointPos.position;
+                transform.position = _session.SavedData.CheckPointPos;
             }
 
         }
@@ -94,7 +94,7 @@ namespace PixelCrew
 
         public void SetCheckPoint(Transform checkPoint)
         {
-            _session.LocalData.CheckPointPos = checkPoint;
+            _session.LocalData.CheckPointPos = checkPoint.position;
         }
 
         public void AttachPlayerToRope()
@@ -129,6 +129,19 @@ namespace PixelCrew
         {
             _session.LocalData.IsArmed = true;
             UpdateHeroWeapon();
+        }
+
+        private void UpdateHeroHp()
+        {
+            var savedHp = _session.SavedData.Hp;
+            HealthComponent health = GetComponent<HealthComponent>();
+            health.SetHealth(savedHp);
+            _session.LocalData.Hp = savedHp;
+        }
+
+        private void UpdateHeroCollectables()
+        {
+            _session.LocalData.Coins = _session.SavedData.Coins;
         }
 
         private void UpdateHeroWeapon()
