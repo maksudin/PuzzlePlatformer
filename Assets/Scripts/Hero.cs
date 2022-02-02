@@ -78,7 +78,8 @@ namespace PixelCrew
 
             UpdateHeroCollectables();
             UpdateHeroHp();
-            UpdateHeroWeapon();
+            var isArmed = _session.SavedData.IsArmed;
+            if (isArmed) UpdateHeroWeapon();
 
             if (_session.SavedData.CheckPointPos != Vector3.zero)
             {
@@ -95,6 +96,12 @@ namespace PixelCrew
         public void SetCheckPoint(Transform checkPoint)
         {
             _session.LocalData.CheckPointPos = checkPoint.position;
+        }
+
+        public void ClearCheckPoint()
+        {
+            _session.LocalData.CheckPointPos = Vector3.zero;
+            _session.SavedData.CheckPointPos = Vector3.zero;
         }
 
         public void AttachPlayerToRope()
