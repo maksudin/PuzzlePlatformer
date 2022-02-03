@@ -85,7 +85,6 @@ namespace PixelCrew
             {
                 transform.position = _session.SavedData.CheckPointPos;
             }
-
         }
 
         public void SaveSession()
