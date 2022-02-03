@@ -545,11 +545,21 @@ PrefabInstance:
     - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
         type: 3}
       propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
         type: 3}
       propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
@@ -560,6 +570,16 @@ PrefabInstance:
     - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
         type: 3}
       propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _animationStates.Array.data[1].OnComplete.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874,
@@ -637,6 +657,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 969772491}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1102416632}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ClearCheckPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SavePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67669cca122cc0458d8980543799874, type: 3}
 --- !u!1 &607135965
@@ -665,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607135965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48, y: 0.05, z: 0}
+  m_LocalPosition: {x: -0.48, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 188478796}
@@ -742,7 +817,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607135965}
   serializedVersion: 6
-  lengthInSec: 3
+  lengthInSec: 2.17
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -2244,7 +2319,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2619,7 +2694,7 @@ ParticleSystem:
     orbitalOffsetY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -30.46
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2725,7 +2800,7 @@ ParticleSystem:
     radial:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2778,7 +2853,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -21037,12 +21112,12 @@ PrefabInstance:
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.25
+      value: 50.14
       objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.5
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
@@ -21552,12 +21627,12 @@ PrefabInstance:
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.25
+      value: 50.14
       objectReference: {fileID: 0}
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.3
+      value: -10.3
       objectReference: {fileID: 0}
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
@@ -21616,12 +21691,12 @@ PrefabInstance:
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.25
+      value: 50.14
       objectReference: {fileID: 0}
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.3
+      value: -10.3
       objectReference: {fileID: 0}
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
