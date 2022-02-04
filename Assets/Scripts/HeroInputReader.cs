@@ -22,7 +22,6 @@ namespace PixelCrew
 
         private void OnDestroy()
         {
-            _inputActions.Hero.Attack.canceled -= OnAttack;
             _inputActions.Hero.Movement.performed -= OnMovement;
             _inputActions.Hero.Movement.canceled -= OnMovement;
             _inputActions.Hero.SaySomething.performed -= OnSaySomething;
