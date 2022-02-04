@@ -6595,10 +6595,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3bbcd1c7c3eda4381cd3c4bdb40b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
+  _localData:
+    Coins: 0
+    Hp: 0
+    IsArmed: 0
+    CheckPointPos: {x: 0, y: 0, z: 0}
+  _savedData:
     Coins: 0
     Hp: 1
-    IsArmed: 0
+    IsArmed: 1
+    CheckPointPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1193633138
 Transform:
   m_ObjectHideFlags: 0
