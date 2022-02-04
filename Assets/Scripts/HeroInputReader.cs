@@ -20,6 +20,16 @@ namespace PixelCrew
             _inputActions.Hero.Attack.canceled += OnAttack;
         }
 
+        private void OnDestroy()
+        {
+            _inputActions.Hero.Attack.canceled -= OnAttack;
+            _inputActions.Hero.Movement.performed -= OnMovement;
+            _inputActions.Hero.Movement.canceled -= OnMovement;
+            _inputActions.Hero.SaySomething.performed -= OnSaySomething;
+            _inputActions.Hero.Interact.canceled -= OnInteract;
+            _inputActions.Hero.Attack.canceled -= OnAttack;
+        }
+
         private void OnEnable()
         {
             _inputActions.Enable();
