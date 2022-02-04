@@ -79,6 +79,7 @@ namespace PixelCrew
             UpdateHeroCollectables();
             UpdateHeroHp();
             var isArmed = _session.SavedData.IsArmed;
+            _session.LocalData.IsArmed = isArmed;
             if (isArmed) UpdateHeroWeapon();
 
             if (_session.SavedData.CheckPointPos != Vector3.zero)
