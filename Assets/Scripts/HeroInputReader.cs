@@ -45,7 +45,6 @@ namespace PixelCrew
         {
             if (context.canceled)
             {
-                _hero.SaySomething();
             }
         }
 

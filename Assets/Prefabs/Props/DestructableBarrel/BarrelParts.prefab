@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3298369612457807003}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BarrelParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
