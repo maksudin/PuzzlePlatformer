@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240798277617638905}
   - component: {fileID: 7240798277617638906}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AttackParticlePos
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240798277699467806}
   - component: {fileID: 7240798277699467805}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FallParticlePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7240798277816311836}
   - component: {fileID: 7240798277816311838}
   - component: {fileID: 7240798277816311837}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Coins throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4912,7 +4912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240798278005836664}
   - component: {fileID: 7240798278005836665}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: FootStepPos
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -4958,7 +4958,7 @@ GameObject:
   - component: {fileID: 7240798278031301962}
   - component: {fileID: 7240798278031301963}
   - component: {fileID: 1642628454041782399}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -4994,7 +4994,7 @@ MonoBehaviour:
   _radius: 0.46
   _mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 130871
   _tags:
   - Enemy
   _onOverlap:
@@ -5023,7 +5023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f00aa619c0142b4f99c1ca927fb605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _damage: 1
   _healValue: 0
 --- !u!1 &7240798278071224466
 GameObject:
@@ -5035,7 +5035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7240798278071224467}
   - component: {fileID: 7240798278071224468}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: JumpParticlePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5088,7 +5088,7 @@ GameObject:
   - component: {fileID: 7240798278516988178}
   - component: {fileID: 969772494}
   - component: {fileID: 8400781137852015022}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5195,7 +5195,7 @@ MonoBehaviour:
   _speed: 4
   JumpSpeed: 12.2
   _damageVelocity: 15
-  Damage: 0
+  Damage: 1
   GroundCheck: {fileID: 7240798279233525142}
   AttackRange: {fileID: 7240798278031301963}
   Particles: {fileID: 8400781137852015022}
@@ -5374,7 +5374,7 @@ GameObject:
   - component: {fileID: 7240798279233525140}
   - component: {fileID: 7240798279233525142}
   - component: {fileID: 7240798279233525141}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5438,10 +5438,10 @@ GameObject:
   - component: {fileID: 8528673169942859339}
   - component: {fileID: 3799925290470711437}
   - component: {fileID: 2165407774883167353}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: InteractionCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5453,7 +5453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245425649806190068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.13, y: -0.07, z: 0}
+  m_LocalPosition: {x: 0.473, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7240798278516988268}
@@ -5474,7 +5474,7 @@ MonoBehaviour:
   _radius: 0.43
   _mask:
     serializedVersion: 2
-    m_Bits: 65536
+    m_Bits: 4096
   _tags:
   - Interactable
   _onOverlap:

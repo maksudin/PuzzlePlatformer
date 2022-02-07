@@ -14,7 +14,6 @@ namespace PixelCrew
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
 
-
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private float _interactionRadius;
@@ -167,7 +166,6 @@ namespace PixelCrew
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
-
         }
 
 
@@ -180,16 +178,16 @@ namespace PixelCrew
 
         protected override float CalculateYVelocity()
         {
-            
-            //var velocityY = Rigidbody.velocity.y;
-            //var isJumpPressing = Direction.y > 0;
 
-            //if (PlayerAttachedToRope)
-            //{
-            //    // Чтобы hero не падал быстро после detach.
-            //    velocityY = Rigidbody.velocity.y / 100f;
-            //    return velocityY;
-            //}
+            var velocityY = Rigidbody.velocity.y;
+            var isJumpPressing = Direction.y > 0;
+
+            if (PlayerAttachedToRope)
+            {
+                // Чтобы hero не падал быстро после detach.
+                velocityY = Rigidbody.velocity.y / 100f;
+                return velocityY;
+            }
 
             if (IsGrounded)
             {
@@ -243,22 +241,5 @@ namespace PixelCrew
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
         }
-
-
-
-        //public void SpawnFootDust()
-        //{
-        //    _particles.Spawn("Run");
-        //}
-
-        //public void SpawnJumpDustParticles()
-        //{
-        //    _particles.Spawn("Jump");
-        //}
-
-        //public void SpawnFallParticles()
-        //{
-        //    _particles.Spawn("Fall");
-        //}
     }
 }

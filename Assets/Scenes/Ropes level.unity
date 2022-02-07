@@ -2344,7 +2344,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1690374199}
+      - m_Target: {fileID: 0}
         m_MethodName: InitCheckPoint
         m_Mode: 2
         m_Arguments:
@@ -3831,10 +3831,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3bbcd1c7c3eda4381cd3c4bdb40b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _data:
+  _localData:
     Coins: 0
     Hp: 0
     IsArmed: 0
+    CheckPointPos: {x: 0, y: 0, z: 0}
+  _savedData:
+    Coins: 0
+    Hp: 0
+    IsArmed: 0
+    CheckPointPos: {x: 0, y: 0, z: 0}
 --- !u!4 &951353695
 Transform:
   m_ObjectHideFlags: 0
@@ -20935,18 +20941,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 169796c72eedcdc4da05996e29b52bc5, type: 3}
---- !u!114 &1690374199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8941046686325498442, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8941046684777738877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f506c27ea1a3c4ca90614a65c9f27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1691893542
 GameObject:
   m_ObjectHideFlags: 0
@@ -20981,7 +20975,7 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1690374199}
+      - m_Target: {fileID: 0}
         m_MethodName: InitCheckPoint
         m_Mode: 2
         m_Arguments:
