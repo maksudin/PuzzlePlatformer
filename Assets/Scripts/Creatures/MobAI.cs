@@ -10,29 +10,38 @@ namespace PixelCrew.Creatures
     {
         [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
+
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCooldown = 1f;
+        [SerializeField] private float _missHeroCooldown = 0.5f;
 
 
         private Coroutine _current;
         private GameObject _target;
         private Creature _creature;
-
+        private Animator _animator;
+        private static readonly int isDeadKey = Animator.StringToHash("is_dead");
         private SpawnListComponent _particles;
+
+        private bool _isDead;
+        private Patrol _patrol;
 
         private void Awake()
         {
             _particles = GetComponent<SpawnListComponent>();
             _creature = GetComponent<Creature>();
+            _animator = GetComponent<Animator>();
+            _patrol = GetComponent<Patrol>();
         }
 
         private void Start()
         {
-            StartState(Patrolling());
+            StartState(_patrol.DoPatrol());
         }
 
         public void OnHeroInVision(GameObject go)
         {
+            if (_isDead) return;
             _target = go;
             StartState(AgroToHero());
         }
@@ -69,6 +78,19 @@ namespace PixelCrew.Creatures
                 }
                 yield return null;
             }
+
+            _particles.Spawn("Miss");
+            yield return new WaitForSeconds(_missHeroCooldown);
+        }
+
+        public void OnDie()
+        {
+            _isDead = true;
+            _animator.SetBool(isDeadKey, true);
+            _creature.Direction = Vector3.zero;
+
+            if (_current != null)
+                StopCoroutine(_current);
         }
 
         private void SetDirectionToTarget()
@@ -78,13 +100,10 @@ namespace PixelCrew.Creatures
             _creature.Direction = direction.normalized;
         }
 
-        private IEnumerator Patrolling()
-        {
-            yield return null;
-        }
-
         private void StartState(IEnumerator coroutine)
         {
+            _creature.Direction = Vector3.zero;
+
             if (_current != null)
                 StopCoroutine(_current);
 
