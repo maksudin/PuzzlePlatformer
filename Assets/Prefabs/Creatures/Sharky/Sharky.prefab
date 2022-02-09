@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 4858712523583931046}
-  _prefab: {fileID: 6094341395993138808, guid: 7137654ce848155479cf99e918c6726f, type: 3}
+  _prefab: {fileID: 6094341395993138808, guid: 8db3f1673ab4df34fa49a1479a3b573e, type: 3}
 --- !u!1 &7240798278031301961
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,9 +139,9 @@ MonoBehaviour:
   _radius: 0.48
   _mask:
     serializedVersion: 2
-    m_Bits: 130871
+    m_Bits: 196407
   _tags:
-  - Enemy
+  - Player
   _onOverlap:
     m_PersistentCalls:
       m_Calls:
@@ -261,10 +261,10 @@ GameObject:
   - component: {fileID: 7240798278516988271}
   - component: {fileID: 7240798278516988177}
   - component: {fileID: 7240798278516988178}
-  - component: {fileID: 969772494}
   - component: {fileID: 8400781137852015022}
   - component: {fileID: 2532625500328678766}
   - component: {fileID: 2138622318}
+  - component: {fileID: 2138622312}
   m_Layer: 16
   m_Name: Sharky
   m_TagString: Enemy
@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff8c68f4721f9842986ce829cc4cab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _currentHealth: 5
+  _maxHealth: 1
+  _currentHealth: 1
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -432,9 +432,31 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Reload
+      - m_Target: {fileID: 2138622318}
+        m_MethodName: OnDie
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240798278516988176}
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240798278516988271}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -457,18 +479,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &969772494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240798278516988266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357352c954fc563448f48ac1e7516c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8400781137852015022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 1
-  _speed: 0.88
+  _speed: 1.75
   JumpSpeed: 20
   _damageVelocity: 5
   Damage: 1
@@ -525,6 +535,24 @@ MonoBehaviour:
   _vision: {fileID: 3346941031617964598}
   _canAttack: {fileID: 7517160079599175944}
   _alarmDelay: 0.5
+  _attackCooldown: 1
+  _missHeroCooldown: 1
+--- !u!114 &2138622312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240798278516988266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c3fcafc865a7f47b71cc85b874844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _points:
+  - {fileID: 0}
+  - {fileID: 0}
+  _treshold: 1
 --- !u!1 &7240798279233525139
 GameObject:
   m_ObjectHideFlags: 0
