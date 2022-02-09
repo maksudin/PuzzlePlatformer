@@ -10,12 +10,15 @@ namespace PixelCrew.Creatures
     public class PlatformPatrol : Patrol
     {
         private readonly Collider2D[] _collideResult = new Collider2D[2];
-        [SerializeField] private Vector2 _boxSize;
-        [SerializeField] private Vector2 _groundBoxOneOffset;
-        [SerializeField] private Vector2 _groundBoxTwoOffset;
-        [SerializeField] private float _raycastDistance;
-        [SerializeField] private LayerMask _mask;
-        [SerializeField] private string _tag;
+        [Header("Constraints")]
+        [SerializeField] private Vector2 _boxSize = new Vector2(0.18f, 0.57f);
+        [SerializeField] private Vector2 _leftConstraintOffset = new Vector2(-0.31f, -0.97f);
+        [SerializeField] private Vector2 _rightConstraintOffset = new Vector2(0.31f, -0.97f);
+        [Header("Raycast")]
+        [SerializeField] private float _raycastDistance = 0.49f;
+        [SerializeField] private Vector2 _raycastOffset;
+        [SerializeField] private LayerMask _layer;
+        [SerializeField] private string[] _tags;
 
         private Creature _creature;
 
@@ -28,19 +31,13 @@ namespace PixelCrew.Creatures
         {
             Handles.color = Color.blue;
             Handles.DrawLine(
-                new Vector3(transform.position.x + _groundBoxOneOffset.x, transform.position.y + _groundBoxOneOffset.y, transform.position.z),
-                new Vector3(transform.position.x + _groundBoxOneOffset.x, transform.position.y + _groundBoxOneOffset.y + _boxSize.y, transform.position.z)
+                new Vector3(transform.position.x + _leftConstraintOffset.x, transform.position.y + _leftConstraintOffset.y, transform.position.z),
+                new Vector3(transform.position.x + _leftConstraintOffset.x, transform.position.y + _leftConstraintOffset.y + _boxSize.y, transform.position.z)
             );
             Handles.DrawLine(
-                new Vector3(transform.position.x + _groundBoxTwoOffset.x, transform.position.y + _groundBoxTwoOffset.y, transform.position.z),
-                new Vector3(transform.position.x + _groundBoxTwoOffset.x, transform.position.y + _groundBoxTwoOffset.y + _boxSize.y, transform.position.z)
+                new Vector3(transform.position.x + _rightConstraintOffset.x, transform.position.y + _rightConstraintOffset.y, transform.position.z),
+                new Vector3(transform.position.x + _rightConstraintOffset.x, transform.position.y + _rightConstraintOffset.y + _boxSize.y, transform.position.z)
             );
-
-            //Vector3 raycastDirection = (_creature.Direction.x > 0) ? Vector3.right : Vector3.left;
-            //var hit = Physics2D.Raycast(transform.position, Vector3.left, _raycastDistance, _mask);
-
-            //if (hit.point != Vector2.zero)
-            //    Handles.DrawLine(transform.position, hit.point);
         }
 
         public override IEnumerator DoPatrol()
@@ -56,8 +53,8 @@ namespace PixelCrew.Creatures
 
         private Vector2 ChooseDirection(Vector2 originalDirection)
         {
-            var oneGroundExist = CheckPlatformExists(_groundBoxOneOffset, _boxSize);
-            var twoGroundExist = CheckPlatformExists(_groundBoxTwoOffset, _boxSize);
+            var oneGroundExist = CheckPlatformExists(_leftConstraintOffset, _boxSize);
+            var twoGroundExist = CheckPlatformExists(_rightConstraintOffset, _boxSize);
 
             if (oneGroundExist && twoGroundExist)
             {
@@ -85,15 +82,19 @@ namespace PixelCrew.Creatures
         private bool CheckPlatformExists(Vector2 offset, Vector2 boxSize)
         {
             var boxPosition = new Vector2(transform.position.x + offset.x, transform.position.y + offset.y);
-            var size = Physics2D.OverlapBoxNonAlloc(boxPosition, boxSize, 0, _collideResult, _mask);
+            var size = Physics2D.OverlapBoxNonAlloc(boxPosition, boxSize, 0, _collideResult, _layer);
 
             for (var i = 0; i < size; i++)
             {
                 Collider2D overlapResult = _collideResult[i];
-                if (overlapResult.CompareTag(_tag))
+                foreach (var tag in _tags)
                 {
-                    return true;
+                    if (overlapResult.CompareTag(tag))
+                    {
+                        return true;
+                    }
                 }
+                
             }
 
             return false;
@@ -102,13 +103,18 @@ namespace PixelCrew.Creatures
         private void AvoidWall()
         {
             Vector3 raycastDirection = (_creature.Direction.x > 0) ? Vector3.right : Vector3.left;
-            var hit = Physics2D.Raycast(transform.position, raycastDirection, _raycastDistance, _mask);
+            var rayPosition = new Vector2(transform.position.x + _raycastOffset.x, transform.position.y + _raycastOffset.y);
+            var hit = Physics2D.Raycast(rayPosition, raycastDirection, _raycastDistance, _layer);
             if (hit.collider == null) return;
 
-            if (hit.collider.tag == _tag)
+            foreach (var tag in _tags)
             {
-                InvertDirection();
+                if (hit.collider.tag == tag)
+                {
+                    InvertDirection();
+                }
             }
+            
         }
 
         private void InvertDirection()

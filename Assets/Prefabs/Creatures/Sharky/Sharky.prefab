@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 8400781137852015022}
   - component: {fileID: 2532625500328678766}
   - component: {fileID: 2138622318}
-  - component: {fileID: 2138622312}
+  - component: {fileID: 1123839030}
   m_Layer: 16
   m_Name: Sharky
   m_TagString: Enemy
@@ -537,7 +537,7 @@ MonoBehaviour:
   _alarmDelay: 0.5
   _attackCooldown: 1
   _missHeroCooldown: 1
---- !u!114 &2138622312
+--- !u!114 &1123839030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -546,13 +546,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7240798278516988266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95c3fcafc865a7f47b71cc85b874844e, type: 3}
+  m_Script: {fileID: 11500000, guid: 37d4a1956b62b624cb098d752ef1ac33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _points:
-  - {fileID: 0}
-  - {fileID: 0}
-  _treshold: 1
+  _boxSize: {x: 0.18, y: 0.57}
+  _leftConstraintOffset: {x: -0.31, y: -0.97}
+  _rightConstraintOffset: {x: 0.31, y: -0.97}
+  _raycastDistance: 0.49
+  _raycastOffset: {x: 0, y: -0.21}
+  _layer:
+    serializedVersion: 2
+    m_Bits: 11264
+  _tags:
+  - Ground
+  - Barrel
+  - Spikes
 --- !u!1 &7240798279233525139
 GameObject:
   m_ObjectHideFlags: 0

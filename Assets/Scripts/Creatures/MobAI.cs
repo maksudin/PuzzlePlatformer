@@ -81,6 +81,7 @@ namespace PixelCrew.Creatures
 
             _particles.Spawn("Miss");
             yield return new WaitForSeconds(_missHeroCooldown);
+            StartState(_patrol.DoPatrol());
         }
 
         public void OnDie()
