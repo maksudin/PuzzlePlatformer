@@ -16,8 +16,9 @@ namespace PixelCrew
             _inputActions.Hero.Movement.performed += OnMovement;
             _inputActions.Hero.Movement.canceled += OnMovement;
             _inputActions.Hero.SaySomething.performed += OnSaySomething;
-            _inputActions.Hero.Interact.canceled += OnInteract;
-            _inputActions.Hero.Attack.canceled += OnAttack;
+            _inputActions.Hero.Interact.performed += OnInteract;
+            _inputActions.Hero.Attack.performed += OnAttack;
+            _inputActions.Hero.Throw.performed += OnThrow;
         }
 
         private void OnDestroy()
@@ -25,8 +26,9 @@ namespace PixelCrew
             _inputActions.Hero.Movement.performed -= OnMovement;
             _inputActions.Hero.Movement.canceled -= OnMovement;
             _inputActions.Hero.SaySomething.performed -= OnSaySomething;
-            _inputActions.Hero.Interact.canceled -= OnInteract;
-            _inputActions.Hero.Attack.canceled -= OnAttack;
+            _inputActions.Hero.Interact.performed -= OnInteract;
+            _inputActions.Hero.Attack.performed -= OnAttack;
+            _inputActions.Hero.Throw.performed -= OnThrow;
         }
 
         private void OnEnable()
@@ -43,14 +45,14 @@ namespace PixelCrew
 
         private void OnSaySomething(InputAction.CallbackContext context)
         {
-            if (context.canceled)
+            if (context.performed)
             {
             }
         }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
-            if (context.canceled)
+            if (context.performed)
             {
 
                 _hero.Interact();
@@ -59,10 +61,18 @@ namespace PixelCrew
 
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (context.canceled)
+            if (context.performed)
             {
 
                 _hero.Attack();
+            }
+        }
+
+        public void OnThrow(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.Throw();
             }
         }
     }

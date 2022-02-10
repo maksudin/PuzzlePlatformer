@@ -99,9 +99,25 @@ namespace PixelCrew
             base.Attack();
         }
 
+        public void Throw()
+        {
+            Animator.SetTrigger(ThrowKey);
+        }
+
+        public void OnDoThrow()
+        {
+            Particles.Spawn("Throw");
+        }
+
         public void ArmHero()
         {
             _session.LocalData.IsArmed = true;
+            UpdateHeroWeapon();
+        }
+
+        public void DisArmHero()
+        {
+            _session.LocalData.IsArmed = false;
             UpdateHeroWeapon();
         }
 

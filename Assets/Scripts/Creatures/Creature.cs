@@ -26,12 +26,14 @@ namespace PixelCrew.Creatures
         protected bool FallIsLongEnough;
 
 
-        private static readonly int IsGround = Animator.StringToHash("is_grounded");
-        private static readonly int VerticalVelocity = Animator.StringToHash("vertical_velocity");
-        private static readonly int IsRunning = Animator.StringToHash("is_running");
+        private static readonly int IsGroundKey = Animator.StringToHash("is_grounded");
+        private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical_velocity");
+        private static readonly int IsRunningKey = Animator.StringToHash("is_running");
         private static readonly int AttackKey = Animator.StringToHash("attack");
-        private static readonly int Hit = Animator.StringToHash("hit");
-        
+        private static readonly int HitKey = Animator.StringToHash("hit");
+        protected static readonly int ThrowKey = Animator.StringToHash("throw");
+
+
 
         [SerializeField] protected float AttackParticlesOffset;
 
@@ -108,9 +110,9 @@ namespace PixelCrew.Creatures
 
         protected virtual void UpdateAnimatorVals()
         {
-            Animator.SetBool(IsGround, IsGrounded);
-            Animator.SetFloat(VerticalVelocity, Rigidbody.velocity.y);
-            Animator.SetBool(IsRunning, Direction.x != 0);
+            Animator.SetBool(IsGroundKey, IsGrounded);
+            Animator.SetFloat(VerticalVelocityKey, Rigidbody.velocity.y);
+            Animator.SetBool(IsRunningKey, Direction.x != 0);
 
         }
 
@@ -129,7 +131,7 @@ namespace PixelCrew.Creatures
 
         public virtual void TakeDamage()
         {
-            Animator.SetTrigger(Hit);
+            Animator.SetTrigger(HitKey);
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
         }
 

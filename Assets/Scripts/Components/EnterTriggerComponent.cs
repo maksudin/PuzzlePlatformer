@@ -7,25 +7,16 @@ namespace PixelCrew.Components
     public class EnterTriggerComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;
+        [SerializeField] private LayerMask _layer = ~0;
         [SerializeField] private EnterEvent _action;
-        private bool _passed = false;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!_passed)
-            {
-                if (collision.gameObject.CompareTag(_tag))
-                {
-                    if (_action != null)
-                    {
-                        _action.Invoke(collision.gameObject);
-                    }
-                }
-            }
-            else
-            {
-                return;
-            }
-            
+            var IsInLayer = (_layer.value & (1 << collision.transform.gameObject.layer)) > 0;
+            if (!IsInLayer && _layer != 0) return;
+            if (!string.IsNullOrEmpty(_tag) && !collision.gameObject.CompareTag(_tag)) return;
+
+            _action?.Invoke(collision.gameObject);
         }
     }
 
