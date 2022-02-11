@@ -5250,6 +5250,8 @@ MonoBehaviour:
   AttackParticlesOffset: 0
   _gravityScale: 3.4
   _fallingGravityScale: 5.11
+  _throwCooldown:
+    _value: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 4096

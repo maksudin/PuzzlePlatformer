@@ -19,6 +19,7 @@ namespace PixelCrew
             _inputActions.Hero.Interact.performed += OnInteract;
             _inputActions.Hero.Attack.performed += OnAttack;
             _inputActions.Hero.Throw.performed += OnThrow;
+            _inputActions.Hero.LongPressThrow.performed += OnThrow;
         }
 
         private void OnDestroy()
@@ -29,6 +30,7 @@ namespace PixelCrew
             _inputActions.Hero.Interact.performed -= OnInteract;
             _inputActions.Hero.Attack.performed -= OnAttack;
             _inputActions.Hero.Throw.performed -= OnThrow;
+            _inputActions.Hero.LongPressThrow.performed -= OnThrow;
         }
 
         private void OnEnable()
@@ -72,7 +74,15 @@ namespace PixelCrew
         {
             if (context.performed)
             {
-                _hero.Throw();
+                _hero.Throw(false);
+            }
+        }
+
+        public void OnLongPressThrow(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.ThrowBurst();
             }
         }
     }

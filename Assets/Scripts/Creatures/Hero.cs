@@ -4,6 +4,8 @@ using PixelCrew.Model;
 using PixelCrew.Utils;
 using UnityEditor;
 using UnityEditor.Animations;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 
@@ -13,6 +15,9 @@ namespace PixelCrew
     {
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
+        [SerializeField] private Cooldown _throwCooldown;
+        [SerializeField] private int _swordBurstAmount = 3;
+        
 
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
@@ -23,6 +28,8 @@ namespace PixelCrew
 
         [SerializeField] private AnimatorController _animatorArmed;
         [SerializeField] private AnimatorController _animatorDisarmed;
+
+        private Coroutine _currentCoroutine;
 
         private bool _allowDoubleJump;
         public bool PlayerAttachedToRope;
@@ -52,17 +59,27 @@ namespace PixelCrew
             _session = FindObjectOfType<GameSession>();
             _checkPoint = FindObjectOfType<CheckPointComponent>();
 
+            LoadSession();
+        }
+
+        private void LoadSession()
+        {
             UpdateHeroCollectables();
             UpdateHeroHp();
             var isArmed = _session.SavedData.IsArmed;
             _session.LocalData.IsArmed = isArmed;
             if (isArmed) UpdateHeroWeapon();
+            var swords = _session.SavedData.Swords;
+            _session.LocalData.Swords = swords;
+
 
             if (_session.SavedData.CheckPointPos != Vector3.zero)
             {
                 transform.position = _session.SavedData.CheckPointPos;
             }
         }
+
+
 
         public void SaveSession()
         {
@@ -99,9 +116,54 @@ namespace PixelCrew
             base.Attack();
         }
 
-        public void Throw()
+        public void Throw(bool hasCooldown)
         {
-            Animator.SetTrigger(ThrowKey);
+            if (hasCooldown)
+            {
+                if (_throwCooldown.IsReady && _session.LocalData.Swords > 0)
+                {
+                    Animator.SetTrigger(ThrowKey);
+                    _throwCooldown.Reset();
+                    _session.LocalData.Swords--;
+                    return;
+                }
+            } 
+            else if (_session.LocalData.Swords > 0)
+            {
+                    Animator.SetTrigger(ThrowKey);
+                    _session.LocalData.Swords--;
+            }
+            
+            
+        }
+
+        public void ThrowBurst()
+        {
+            if (_session.LocalData.Swords > 1)
+            {
+                if (_currentCoroutine != null)
+                    StopCoroutine(_currentCoroutine);
+                _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
+            }
+        }
+
+        //private void StartState(IEnumerator coroutine)
+        //{
+        //    if (_current != null)
+        //        StopCoroutine(_current);
+
+        //    _current = StartCoroutine(coroutine);
+        //}
+
+        private IEnumerator ThrowBurstCoroutine()
+        {
+            for (var i = 0; i < _swordBurstAmount; i++)
+            {
+                Throw(false);
+                yield return null;
+            }
+            
+            StopCoroutine(_currentCoroutine);
         }
 
         public void OnDoThrow()
@@ -111,8 +173,16 @@ namespace PixelCrew
 
         public void ArmHero()
         {
-            _session.LocalData.IsArmed = true;
-            UpdateHeroWeapon();
+            if (!_session.LocalData.IsArmed)
+            {
+                _session.LocalData.IsArmed = true;
+                UpdateHeroWeapon();
+            }
+            else
+            {
+                _session.LocalData.Swords++;
+            }
+            
         }
 
         public void DisArmHero()

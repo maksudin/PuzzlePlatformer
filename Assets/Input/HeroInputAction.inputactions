@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LongPressThrow",
+                    "type": "Button",
+                    "id": "5885cad1-d104-4341-8094-8628e6dc5c90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -198,6 +206,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bde6bf9b-1ff6-4e5e-92e2-bf9baeab7935",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "Hold(duration=1,pressPoint=0.5)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LongPressThrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

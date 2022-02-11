@@ -45,6 +45,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1426167678194163971}
   _prefab: {fileID: 6094341395993138808, guid: 7137654ce848155479cf99e918c6726f, type: 3}
+--- !u!1 &3256403480434360992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155697836218686366}
+  - component: {fileID: 3848584958403247773}
+  m_Layer: 0
+  m_Name: FootStepPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155697836218686366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256403480434360992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.359, y: -0.22, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7240798278516988268}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3848584958403247773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3256403480434360992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f54d4189b319344a0e1037e09f1829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 155697836218686366}
+  _prefab: {fileID: 3534118864060757740, guid: c97e057c21dc4c84196c8feb23285c93, type: 3}
 --- !u!1 &6995272451297213487
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +334,7 @@ Transform:
   - {fileID: 8767112856296152941}
   - {fileID: 4858712523583931046}
   - {fileID: 1426167678194163971}
+  - {fileID: 155697836218686366}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -498,6 +544,8 @@ MonoBehaviour:
     Component: {fileID: 4362446465951630924}
   - Id: Exclamation
     Component: {fileID: 8195181641787407444}
+  - Id: Run
+    Component: {fileID: 3848584958403247773}
 --- !u!114 &2532625500328678766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
