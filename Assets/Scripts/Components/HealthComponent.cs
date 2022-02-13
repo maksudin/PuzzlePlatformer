@@ -16,6 +16,16 @@ namespace PixelCrew.Components
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
 
+        public int MaxHealth
+        {
+            get {return _maxHealth;}
+        }
+
+        public int CurrentHealth
+        {
+            get { return _currentHealth;}
+        }
+
         private void Awake()
         {
             _currentHealth = _maxHealth;   
