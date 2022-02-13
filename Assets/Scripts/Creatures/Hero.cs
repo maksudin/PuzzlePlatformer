@@ -79,8 +79,6 @@ namespace PixelCrew
             }
         }
 
-
-
         public void SaveSession()
         {
             _session.SavePlayer();
@@ -133,8 +131,6 @@ namespace PixelCrew
                     Animator.SetTrigger(ThrowKey);
                     _session.LocalData.Swords--;
             }
-            
-            
         }
 
         public void ThrowBurst()
@@ -160,7 +156,9 @@ namespace PixelCrew
             for (var i = 0; i < _swordBurstAmount; i++)
             {
                 Throw(false);
-                yield return null;
+                Direction = Vector2.zero;
+
+                yield return new WaitForSeconds(0.15f);
             }
             
             StopCoroutine(_currentCoroutine);

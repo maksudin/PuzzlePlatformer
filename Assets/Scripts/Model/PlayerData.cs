@@ -9,10 +9,10 @@ namespace PixelCrew.Model
     public class PlayerData
     {
         public int Coins;
+        public int Swords;
         public int Hp;
         public bool IsArmed;
         public Vector3 CheckPointPos;
-        public int Swords;
 
         public PlayerData ShallowCopy()
         {

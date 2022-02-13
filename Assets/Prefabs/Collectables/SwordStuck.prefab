@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5482659390846317428}
   - component: {fileID: 5558842136831313038}
   - component: {fileID: -8045099413700420472}
+  - component: {fileID: 4920156428760232106}
   m_Layer: 0
   m_Name: SwordStuck
   m_TagString: Untagged
@@ -133,9 +134,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091939923184876033}
-        m_MethodName: DestroyObject
-        m_Mode: 1
+      - m_Target: {fileID: 4920156428760232106}
+        m_MethodName: ArmHero
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -144,9 +145,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7240798278516988270, guid: d005d71aa8aa38e43a273a3e7e92843e,
-          type: 3}
-        m_MethodName: ArmHero
+      - m_Target: {fileID: 1091939923184876033}
+        m_MethodName: DestroyObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,3 +178,15 @@ MonoBehaviour:
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4920156428760232106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483112827352108861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac19b626ddf2ec4cb1fb79624734a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

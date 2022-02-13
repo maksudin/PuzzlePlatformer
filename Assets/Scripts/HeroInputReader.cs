@@ -1,6 +1,7 @@
 using PixelCrew.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 namespace PixelCrew
 {
@@ -19,7 +20,6 @@ namespace PixelCrew
             _inputActions.Hero.Interact.performed += OnInteract;
             _inputActions.Hero.Attack.performed += OnAttack;
             _inputActions.Hero.Throw.performed += OnThrow;
-            _inputActions.Hero.LongPressThrow.performed += OnThrow;
         }
 
         private void OnDestroy()
@@ -30,7 +30,6 @@ namespace PixelCrew
             _inputActions.Hero.Interact.performed -= OnInteract;
             _inputActions.Hero.Attack.performed -= OnAttack;
             _inputActions.Hero.Throw.performed -= OnThrow;
-            _inputActions.Hero.LongPressThrow.performed -= OnThrow;
         }
 
         private void OnEnable()
@@ -74,15 +73,15 @@ namespace PixelCrew
         {
             if (context.performed)
             {
-                _hero.Throw(false);
-            }
-        }
+                if (context.interaction is PressInteraction)
+                {
+                    _hero.Throw(true);
+                }
 
-        public void OnLongPressThrow(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                _hero.ThrowBurst();
+                else if (context.interaction is HoldInteraction)
+                {
+                    _hero.ThrowBurst();
+                }
             }
         }
     }
