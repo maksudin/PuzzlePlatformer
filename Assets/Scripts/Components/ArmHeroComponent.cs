@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using PixelCrew.Creatures.Hero;
+
 namespace PixelCrew.Components
 {
     public class ArmHeroComponent : MonoBehaviour

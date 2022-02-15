@@ -1,4 +1,6 @@
 ﻿using PixelCrew.Components;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.GoBased;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

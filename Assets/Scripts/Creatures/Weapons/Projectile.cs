@@ -8,6 +8,7 @@ namespace PixelCrew.Creatures.Weapons
     {
         [SerializeField] private float _speed;
 
+
         private Rigidbody2D _rigidbody;
         private int _direction;
 

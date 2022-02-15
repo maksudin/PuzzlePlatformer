@@ -1,4 +1,4 @@
-﻿using PixelCrew.Components;
+﻿using PixelCrew.Components.ColliderBased;
 using System;
 using System.Collections;
 using System.Collections.Generic;

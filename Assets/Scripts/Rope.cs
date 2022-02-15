@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+using PixelCrew.Creatures.Hero;
+
 namespace PixelCrew.Components
 {
     public class Rope : MonoBehaviour
