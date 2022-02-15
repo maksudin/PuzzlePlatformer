@@ -5003,7 +5003,7 @@ GameObject:
   - component: {fileID: 7240798278031301962}
   - component: {fileID: 7240798278031301963}
   - component: {fileID: 1642628454041782399}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -5426,7 +5426,7 @@ GameObject:
   - component: {fileID: 7240798279233525140}
   - component: {fileID: 7240798279233525142}
   - component: {fileID: 7240798279233525141}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5490,7 +5490,7 @@ GameObject:
   - component: {fileID: 8528673169942859339}
   - component: {fileID: 3799925290470711437}
   - component: {fileID: 2165407774883167353}
-  m_Layer: 17
+  m_Layer: 19
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

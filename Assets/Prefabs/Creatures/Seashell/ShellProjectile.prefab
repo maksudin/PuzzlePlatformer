@@ -292,10 +292,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df099782eca4b048aa69604ef63b846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Player
+  _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 133120
   _action:
     m_PersistentCalls:
       m_Calls:
