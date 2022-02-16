@@ -20,11 +20,10 @@ namespace Assets.Scripts.Creatures.Mobs
         [Header("Range")]
         [SerializeField] private SpawnComponent _projectileAttack;
         [SerializeField] private Cooldown _rangeCooldown;
+
         private Animator _animator;
         private static readonly int MeleeKey = Animator.StringToHash("melee_attack");
         private static readonly int RangeKey = Animator.StringToHash("range_attack");
-
-
 
         private void Awake()
         {
