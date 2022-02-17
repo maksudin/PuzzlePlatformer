@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 19312484852337813}
   - component: {fileID: 8371008999242841218}
   m_Layer: 16
-  m_Name: EagleHeadPartsPos
+  m_Name: ShamanHeadPartsPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

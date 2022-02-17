@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 19312484852337813}
   - component: {fileID: 8371008999242841218}
   m_Layer: 16
-  m_Name: EagleHeadPartsPos
+  m_Name: EagleHeadBoldPartsPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 19312484852337813}
-  _prefab: {fileID: 4487260698814028164, guid: 1f7be6982a9e31c4280b95553765e515, type: 3}
+  _prefab: {fileID: 4487260698814028164, guid: 796bb6f7f78df0f488c67fe323a855c1, type: 3}
 --- !u!1 &4833065553553536917
 GameObject:
   m_ObjectHideFlags: 0
