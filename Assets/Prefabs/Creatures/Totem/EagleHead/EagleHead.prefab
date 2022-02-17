@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8131451597482335316}
   - component: {fileID: 8656239068371695181}
   - component: {fileID: 7411660079888175297}
-  - component: {fileID: 6264062766217045665}
   - component: {fileID: 5225880697934928263}
   - component: {fileID: 5831992301739315212}
+  - component: {fileID: 27822397}
   m_Layer: 16
   m_Name: EagleHead
   m_TagString: Enemy
@@ -149,26 +149,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6264062766217045665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2672252064838407431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b99d1b02da07642abb4472aa871bd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _vision: {fileID: 2125695182485876400}
-  _meleeAttack: {fileID: 0}
-  _meleeCanAttack: {fileID: 0}
-  _meleeCooldown:
-    _value: 4
-  _projectileAttack: {fileID: 8750450697870854315}
-  _rangeCooldown:
-    _value: 4
 --- !u!114 &5225880697934928263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +221,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 2672252064838407431}
+--- !u!114 &27822397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2672252064838407431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60bd6432aed7d14aa4afa04b0f4665c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vision: {fileID: 2125695182485876400}
+  ProjectileAttack: {fileID: 8750450697870854315}
+  RangeCooldown:
+    _value: 2
 --- !u!1 &3571868920174619504
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 467876152175838274}
-  _prefab: {fileID: 7483112827352108861, guid: 1e1c44b732f80914e88acc51aa44e8e7, type: 3}
+  _prefab: {fileID: 7483112827352108861, guid: eca88efd1b41fda4aba90822949fe066, type: 3}
 --- !u!1 &6632573942683553845
 GameObject:
   m_ObjectHideFlags: 0
