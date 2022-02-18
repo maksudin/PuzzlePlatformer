@@ -12,10 +12,12 @@ namespace PixelCrew.Creatures.Mobs
 
         [Header("Range")]
         [SerializeField] protected SpawnComponent ProjectileAttack;
-        [SerializeField] protected Cooldown RangeCooldown;
+        [SerializeField] public Cooldown RangeCooldown;
 
         protected Animator Animator;
         protected static readonly int RangeKey = Animator.StringToHash("range_attack");
+
+        public bool IsTotem;
 
         protected virtual void Awake()
         {
@@ -24,19 +26,20 @@ namespace PixelCrew.Creatures.Mobs
 
         protected virtual void Update()
         {
+            if (!IsTotem)
+                RangeAttack();
+        }
+
+        public virtual void RangeAttack()
+        { 
             if (Vision.IsTouchingLayer)
             {
                 if (RangeCooldown.IsReady)
                 {
-                    RangeAttack();
+                    RangeCooldown.Reset();
+                    Animator.SetTrigger(RangeKey);
                 }
             }
-        }
-
-        protected virtual void RangeAttack()
-        {
-            RangeCooldown.Reset();
-            Animator.SetTrigger(RangeKey);
         }
 
         public void OnRangeAttack()

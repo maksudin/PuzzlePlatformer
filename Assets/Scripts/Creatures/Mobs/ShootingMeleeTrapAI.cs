@@ -31,7 +31,7 @@ namespace PixelCrew.Creatures.Mobs
             }
         }
 
-        protected override void RangeAttack()
+        public override void RangeAttack()
         {
             base.RangeAttack();
             Animator.SetTrigger(RangeKey);
