@@ -46,9 +46,5 @@ namespace PixelCrew.Creatures.Mobs
 
             StopCoroutine(RangeCouroutine());
         }
-
-
-
-
     }
 }
