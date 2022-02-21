@@ -86,6 +86,11 @@ namespace PixelCrew.Creatures.Hero
             _session.SavePlayer();
         }
 
+        public void AddInInventory(string id, int value)
+        {
+
+        }
+
         public void SetCheckPoint(Transform checkPoint)
         {
             _session.LocalData.CheckPointPos = checkPoint.position;
@@ -308,6 +313,9 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+
+            _session.LocalData.Inventory.Count();
+
             if (_session.LocalData.Coins > 0)
             {
                 SpawnCoins();

@@ -7278,12 +7278,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _localData:
+    Inventory:
+      _inventory:
+      - Id: 
+        Value: 0
     Coins: 0
     Swords: 0
     Hp: 0
     IsArmed: 0
     CheckPointPos: {x: 0, y: 0, z: 0}
   _savedData:
+    Inventory:
+      _inventory: []
     Coins: 0
     Swords: 5
     Hp: 100
