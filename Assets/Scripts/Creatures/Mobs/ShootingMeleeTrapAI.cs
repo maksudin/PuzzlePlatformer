@@ -34,7 +34,6 @@ namespace PixelCrew.Creatures.Mobs
         public override void RangeAttack()
         {
             base.RangeAttack();
-            Animator.SetTrigger(RangeKey);
         }
 
         private void MeleeAttack()

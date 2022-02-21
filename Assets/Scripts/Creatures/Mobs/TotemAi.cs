@@ -6,16 +6,16 @@ namespace PixelCrew.Creatures.Mobs
 {
     public class TotemAi : MonoBehaviour
     {
-        BaseShootingTrap[] _traps;
+        BaseShootingTrap[] _totemHeads;
         [SerializeField] private float _cooldown;
         private Coroutine _current;
 
         private void Awake()
         {
-            _traps = GetComponentsInChildren<BaseShootingTrap>();
-            foreach (var trap in _traps)
+            _totemHeads = GetComponentsInChildren<BaseShootingTrap>();
+            foreach (var head in _totemHeads)
             {
-                trap.IsTotem = true;
+                head.IsTotem = true;
             }
         }
 
@@ -36,9 +36,9 @@ namespace PixelCrew.Creatures.Mobs
         {
             while (enabled)
             {
-                foreach (var trap in _traps)
+                foreach (var head in _totemHeads)
                 {
-                    trap.RangeAttack();
+                    head.RangeAttack();
                     yield return new WaitForSeconds(_cooldown);
                 }
 
