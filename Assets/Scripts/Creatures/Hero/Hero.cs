@@ -47,8 +47,8 @@ namespace PixelCrew.Creatures.Hero
 
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
-        private int SwordCount => _session.LocalData.Inventory.Count("Sword");
-        private int CoinCount => _session.LocalData.Inventory.Count("Coin");
+        private int SwordCount => _session.Data.Inventory.Count("Sword");
+        private int CoinCount => _session.Data.Inventory.Count("Coin");
 
         protected override void Awake()
         {
@@ -63,8 +63,8 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             _checkPoint = FindObjectOfType<CheckPointComponent>();
-            _session.LocalData.Inventory.OnChanged += OnInventoryChanged;
-            _session.LocalData.Inventory.OnChanged += AnotherHandler;
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            _session.Data.Inventory.OnChanged += AnotherHandler;
 
 
             LoadSession();
@@ -72,8 +72,8 @@ namespace PixelCrew.Creatures.Hero
 
         private void OnDestroy()
         {
-            _session.LocalData.Inventory.OnChanged -= OnInventoryChanged;
-            _session.LocalData.Inventory.OnChanged -= AnotherHandler;
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+            _session.Data.Inventory.OnChanged -= AnotherHandler;
         }
 
         private void AnotherHandler(string id, int value)
@@ -95,7 +95,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void AddInInventory(string id, int value)
         {
-            _session.LocalData.Inventory.Add(id, value);
+            _session.Data.Inventory.Add(id, value);
         }
 
         public void AttachPlayerToRope()
@@ -125,14 +125,14 @@ namespace PixelCrew.Creatures.Hero
                 {
                     Animator.SetTrigger(ThrowKey);
                     _throwCooldown.Reset();
-                    _session.LocalData.Inventory.Remove("Sword", 1);
+                    _session.Data.Inventory.Remove("Sword", 1);
                     return;
                 }
             } 
             else if (SwordCount > 1)
             {
                     Animator.SetTrigger(ThrowKey);
-                    _session.LocalData.Inventory.Remove("Sword", 1);
+                    _session.Data.Inventory.Remove("Sword", 1);
             }
         }
 
@@ -166,10 +166,10 @@ namespace PixelCrew.Creatures.Hero
 
         private void UpdateHeroHp()
         {
-            var savedHp = _session.LocalData.Hp;
+            var savedHp = _session.Data.Hp;
             HealthComponent health = GetComponent<HealthComponent>();
             health.SetHealth(savedHp);
-            _session.LocalData.Hp = savedHp;
+            _session.Data.Hp = savedHp;
         }
         
         private void UpdateHeroWeapon()
@@ -180,7 +180,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnHealthChange(int currentHealth)
         {
-            _session.LocalData.Hp = currentHealth;
+            _session.Data.Hp = currentHealth;
         }
 
         
@@ -280,7 +280,7 @@ namespace PixelCrew.Creatures.Hero
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(CoinCount, 5);
-            _session.LocalData.Inventory.Remove("Coin", numCoinsToDispose);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
 
             Burst burst = _hitParticles.emission.GetBurst(0);

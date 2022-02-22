@@ -9,7 +9,7 @@ namespace PixelCrew.Model
     {
         [SerializeField] private PlayerData _localData;
 
-        public PlayerData LocalData
+        public PlayerData Data
         {
             get { return _localData; }
             set { _localData = value; }
