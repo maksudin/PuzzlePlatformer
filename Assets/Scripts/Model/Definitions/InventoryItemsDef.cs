@@ -10,6 +10,10 @@ namespace PixelCrew.Model.Definitions
     {
         [SerializeField] private ItemDef[] _items;
 
+#if UNITY_EDITOR
+        public ItemDef[] ItemsForEditor => _items;
+#endif
+
         public ItemDef Get(string id)
         {
             foreach (var itemDef in _items)
@@ -20,6 +24,8 @@ namespace PixelCrew.Model.Definitions
             return default;
         }
     }
+
+
 
     [Serializable]
     public struct ItemDef

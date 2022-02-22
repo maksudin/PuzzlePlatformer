@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Drawing;
-using Assets.Scripts.Components.Movement;
+using PixelCrew.Components.Movement;
 using PixelCrew.Components.GoBased;
 using UnityEngine;
 

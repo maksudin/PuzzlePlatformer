@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using PixelCrew.Creatures.Hero;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 
 namespace PixelCrew.Components
 {
     public class InventoryAddComponent : MonoBehaviour
     {
-        [SerializeField] private string _id;
+        [InventoryId][SerializeField] private string _id;
         [SerializeField] private int _count;
 
         public void Add(GameObject go)
