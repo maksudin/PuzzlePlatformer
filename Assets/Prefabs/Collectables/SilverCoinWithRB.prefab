@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 4161321050608640075}
   - component: {fileID: 4161321050608640078}
   - component: {fileID: 5298528357077854979}
-  - component: {fileID: 3103591485042796509}
   - component: {fileID: -8560333714921378771}
-  - component: {fileID: 7254255166979664212}
+  - component: {fileID: 6293744200371763792}
   m_Layer: 15
-  m_Name: SilverCoinSpawned
+  m_Name: SilverCoinWithRB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,18 +161,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3103591485042796509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161321050608640072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06ad7155eab42d4ca318c3769d1e80b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8560333714921378771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,9 +177,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7254255166979664212}
-        m_MethodName: PickedSilverCoin
-        m_Mode: 1
+      - m_Target: {fileID: 6293744200371763792}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -234,7 +221,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7254255166979664212
+--- !u!114 &6293744200371763792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,9 +230,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4161321050608640072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357352c954fc563448f48ac1e7516c9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 64b0d8ab75a17c04d92776fbb97a76b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1
 --- !u!1 &4161321051601914252
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,9 @@ namespace PixelCrew.Creatures.Hero
 
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
+        private int SwordCount => _session.LocalData.Inventory.Count("Sword");
+        private int CoinCount => _session.LocalData.Inventory.Count("Coin");
+
         protected override void Awake()
         {
             base.Awake();
@@ -60,46 +63,39 @@ namespace PixelCrew.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             _checkPoint = FindObjectOfType<CheckPointComponent>();
+            _session.LocalData.Inventory.OnChanged += OnInventoryChanged;
+            _session.LocalData.Inventory.OnChanged += AnotherHandler;
+
 
             LoadSession();
         }
 
-        private void LoadSession()
+        private void OnDestroy()
         {
-            UpdateHeroCollectables();
-            UpdateHeroHp();
-            var isArmed = _session.SavedData.IsArmed;
-            _session.LocalData.IsArmed = isArmed;
-            if (isArmed) UpdateHeroWeapon();
-            var swords = _session.SavedData.Swords;
-            _session.LocalData.Swords = swords;
-
-
-            if (_session.SavedData.CheckPointPos != Vector3.zero)
-            {
-                transform.position = _session.SavedData.CheckPointPos;
-            }
+            _session.LocalData.Inventory.OnChanged -= OnInventoryChanged;
+            _session.LocalData.Inventory.OnChanged -= AnotherHandler;
         }
 
-        public void SaveSession()
+        private void AnotherHandler(string id, int value)
         {
-            _session.SavePlayer();
+            Debug.Log($"Inventory changed: {id}: {value}");
+        }
+
+        private void OnInventoryChanged(string id, int value)
+        {
+            if (id == "Sword")
+                UpdateHeroWeapon();
+        }
+
+        private void LoadSession()
+        {
+            UpdateHeroHp();
+            UpdateHeroWeapon();
         }
 
         public void AddInInventory(string id, int value)
         {
-
-        }
-
-        public void SetCheckPoint(Transform checkPoint)
-        {
-            _session.LocalData.CheckPointPos = checkPoint.position;
-        }
-
-        public void ClearCheckPoint()
-        {
-            _session.LocalData.CheckPointPos = Vector3.zero;
-            _session.SavedData.CheckPointPos = Vector3.zero;
+            _session.LocalData.Inventory.Add(id, value);
         }
 
         public void AttachPlayerToRope()
@@ -117,7 +113,7 @@ namespace PixelCrew.Creatures.Hero
 
         public override void Attack()
         {
-            if (!_session.LocalData.IsArmed) return;
+            if (SwordCount <= 0) return;
             base.Attack();
         }
 
@@ -125,38 +121,30 @@ namespace PixelCrew.Creatures.Hero
         {
             if (hasCooldown)
             {
-                if (_throwCooldown.IsReady && _session.LocalData.Swords > 0)
+                if (_throwCooldown.IsReady && SwordCount > 1)
                 {
                     Animator.SetTrigger(ThrowKey);
                     _throwCooldown.Reset();
-                    _session.LocalData.Swords--;
+                    _session.LocalData.Inventory.Remove("Sword", 1);
                     return;
                 }
             } 
-            else if (_session.LocalData.Swords > 0)
+            else if (SwordCount > 1)
             {
                     Animator.SetTrigger(ThrowKey);
-                    _session.LocalData.Swords--;
+                    _session.LocalData.Inventory.Remove("Sword", 1);
             }
         }
 
         public void ThrowBurst()
         {
-            if (_session.LocalData.Swords > 1)
+            if (SwordCount > 1)
             {
                 if (_currentCoroutine != null)
                     StopCoroutine(_currentCoroutine);
                 _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
             }
         }
-
-        //private void StartState(IEnumerator coroutine)
-        //{
-        //    if (_current != null)
-        //        StopCoroutine(_current);
-
-        //    _current = StartCoroutine(coroutine);
-        //}
 
         private IEnumerator ThrowBurstCoroutine()
         {
@@ -176,49 +164,18 @@ namespace PixelCrew.Creatures.Hero
             Particles.Spawn("Throw");
         }
 
-        public void ArmHero()
-        {
-            if (!_session.LocalData.IsArmed)
-            {
-                _session.LocalData.IsArmed = true;
-                UpdateHeroWeapon();
-            }
-            else
-            {
-                _session.LocalData.Swords++;
-            }
-            
-        }
-
-        public void DisArmHero()
-        {
-            _session.LocalData.IsArmed = false;
-            UpdateHeroWeapon();
-        }
-
         private void UpdateHeroHp()
         {
-            var savedHp = _session.SavedData.Hp;
+            var savedHp = _session.LocalData.Hp;
             HealthComponent health = GetComponent<HealthComponent>();
             health.SetHealth(savedHp);
             _session.LocalData.Hp = savedHp;
         }
-
-        private void UpdateHeroCollectables()
-        {
-            _session.LocalData.Coins = _session.SavedData.Coins;
-        }
-
+        
         private void UpdateHeroWeapon()
         {
-            if (_session.LocalData.IsArmed)
-            {
-                Animator.runtimeAnimatorController = _animatorArmed;
-            } 
-            else
-            {
-                Animator.runtimeAnimatorController = _animatorDisarmed;
-            }
+            Animator.runtimeAnimatorController = SwordCount > 0 ? _animatorArmed : _animatorDisarmed;
+            
         }
 
         public void OnHealthChange(int currentHealth)
@@ -314,9 +271,7 @@ namespace PixelCrew.Creatures.Hero
         {
             base.TakeDamage();
 
-            _session.LocalData.Inventory.Count();
-
-            if (_session.LocalData.Coins > 0)
+            if (CoinCount > 0)
             {
                 SpawnCoins();
             }
@@ -324,8 +279,8 @@ namespace PixelCrew.Creatures.Hero
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_session.LocalData.Coins, 5);
-            _session.LocalData.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(CoinCount, 5);
+            _session.LocalData.Inventory.Remove("Coin", numCoinsToDispose);
 
 
             Burst burst = _hitParticles.emission.GetBurst(0);

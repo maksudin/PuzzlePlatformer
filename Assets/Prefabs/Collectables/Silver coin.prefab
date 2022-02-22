@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1017918637405517462}
   - component: {fileID: 184766858}
   - component: {fileID: 7336862382786539500}
+  - component: {fileID: -2886818964626557260}
   m_Layer: 0
   m_Name: Silver coin
   m_TagString: Untagged
@@ -108,9 +109,9 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PickedSilverCoin
-        m_Mode: 1
+      - m_Target: {fileID: -2886818964626557260}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -227,6 +228,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 5
   _amplitude: 0.1
+  _randomize: 0
+--- !u!114 &-2886818964626557260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017918637405517456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b0d8ab75a17c04d92776fbb97a76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1
 --- !u!1 &1017918638402461524
 GameObject:
   m_ObjectHideFlags: 0

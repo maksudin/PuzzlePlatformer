@@ -18,13 +18,6 @@ namespace PixelCrew.Model
 
         public InventoryData Inventory => _inventory;
 
-        public Vector3 CheckPointPos;
-
-        public PlayerData ShallowCopy()
-        {
-            return (PlayerData) this.MemberwiseClone();
-        }
-
         public PlayerData Clone()
         {
             var json = JsonUtility.ToJson(this);
