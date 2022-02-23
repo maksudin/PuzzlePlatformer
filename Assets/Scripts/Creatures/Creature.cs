@@ -139,7 +139,7 @@ namespace PixelCrew.Creatures
         public virtual void TakeDamage()
         {
             Animator.SetTrigger(HitKey);
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _damageVelocity);
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + _damageVelocity);
         }
 
         public virtual void Attack()

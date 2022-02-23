@@ -105,7 +105,9 @@ namespace PixelCrew.Creatures.Hero
             {
                 HealthComp.Heal(_potionHeal);
                 _session.Data.Inventory.Remove("Potion", 1);
+                Particles.Spawn("Potion");
             }
+
         }
 
         public void AttachPlayerToRope()
