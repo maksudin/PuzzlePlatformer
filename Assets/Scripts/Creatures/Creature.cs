@@ -1,6 +1,7 @@
 ﻿using PixelCrew.Components;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
+using PixelCrew.Components.Health;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,9 @@ namespace PixelCrew.Creatures
         protected bool IsGrounded;
         protected bool FallIsLongEnough;
 
+        protected HealthComponent HealthComp;
+
+
 
         private static readonly int IsGroundKey = Animator.StringToHash("is_grounded");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical_velocity");
@@ -43,6 +47,7 @@ namespace PixelCrew.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            HealthComp = GetComponent<HealthComponent>();
         }
 
         public void SetDirection(Vector2 direction)

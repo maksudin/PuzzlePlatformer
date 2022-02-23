@@ -16,10 +16,14 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature
     {
+
+        [SerializeField] private int _potionHeal;
+
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
+
 
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
@@ -43,12 +47,11 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
         private GameSession _session;
-        private CheckPointComponent _checkPoint;
-
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
         private int SwordCount => _session.Data.Inventory.Count("Sword");
         private int CoinCount => _session.Data.Inventory.Count("Coin");
+        private int PotionCount => _session.Data.Inventory.Count("Potion");
 
         protected override void Awake()
         {
@@ -62,10 +65,8 @@ namespace PixelCrew.Creatures.Hero
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            _checkPoint = FindObjectOfType<CheckPointComponent>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
             _session.Data.Inventory.OnChanged += AnotherHandler;
-
 
             LoadSession();
         }
@@ -96,6 +97,15 @@ namespace PixelCrew.Creatures.Hero
         public void AddInInventory(string id, int value)
         {
             _session.Data.Inventory.Add(id, value);
+        }
+
+        public void UsePotion()
+        {
+            if (PotionCount > 0)
+            {
+                HealthComp.Heal(_potionHeal);
+                _session.Data.Inventory.Remove("Potion", 1);
+            }
         }
 
         public void AttachPlayerToRope()
