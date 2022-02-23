@@ -22,6 +22,14 @@ namespace PixelCrew.Model.Data
 
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
+            if (!itemDef.ShouldStack)
+            {
+                var newItem = new InventoryItemData(id);
+                _inventory.Add(newItem);
+                newItem.Value += value;
+                OnChanged?.Invoke(id, Count(id));
+                return;
+            }
 
             var item = GetItem(id);
             if (item == null)
@@ -29,6 +37,8 @@ namespace PixelCrew.Model.Data
                 item = new InventoryItemData(id);
                 _inventory.Add(item);
             }
+
+            if (item.Value == itemDef.MaxAmount && itemDef.MaxAmount != 0) return;
 
             item.Value += value;
             OnChanged?.Invoke(id, Count(id));
@@ -38,6 +48,19 @@ namespace PixelCrew.Model.Data
         {
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
+            
+
+            //if (!itemDef.ShouldStack)
+            //{
+            //    for (var i = 0; i < value; i++)
+            //    {
+            //        var item = GetItem(id);
+            //        if (item == null) return;
+            //        _inventory.Remove(item);
+            //    }
+            //    return;
+            //}
+
 
             var item = GetItem(id);
             if (item == null) return;

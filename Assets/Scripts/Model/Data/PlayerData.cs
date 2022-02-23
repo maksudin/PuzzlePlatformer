@@ -13,6 +13,7 @@ namespace PixelCrew.Model
 
         //public int Coins;
         //public int Swords;
+        [Header("Params")]
         public int Hp;
         //public bool IsArmed;
 

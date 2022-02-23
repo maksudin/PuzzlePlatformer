@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _id: Coin
+    _shouldStack: 1
   - _id: Sword
+    _shouldStack: 1
   - _id: Key
+    _shouldStack: 0
   - _id: Potion
+    _shouldStack: 1

@@ -31,7 +31,12 @@ namespace PixelCrew.Model.Definitions
     public struct ItemDef
     {
         [SerializeField] private string _id;
+        [SerializeField] private bool _shouldStack;
+        [SerializeField] private int _maxAmount;
+
         public string Id => _id;
+        public bool ShouldStack => _shouldStack;
+        public int MaxAmount => _maxAmount;
 
         public bool IsVoid => string.IsNullOrEmpty(_id);
     }
