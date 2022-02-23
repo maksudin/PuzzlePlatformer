@@ -18,15 +18,15 @@ namespace PixelCrew.Components.Interactions
         public void Check()
         {
             var session = FindObjectOfType<GameSession>();
-            var areAllReruirenmentsMet = true;
+            var AllReruirenmentsMet = true;
             foreach (var item in _required)
             {
                 var numItems = session.Data.Inventory.Count(item.Id);
                 if (numItems < item.Value)
-                    areAllReruirenmentsMet = false;
+                    AllReruirenmentsMet = false;
             }
 
-            if (areAllReruirenmentsMet)
+            if (AllReruirenmentsMet)
             {
                 if (_removeAfterUse)
                 {
