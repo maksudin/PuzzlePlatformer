@@ -29,7 +29,8 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private float _interactionRadius;
 
-        [Space] [Header("Particles")]
+        [Space]
+        [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
 
         [SerializeField] private AnimatorController _animatorArmed;
@@ -135,16 +136,18 @@ namespace PixelCrew.Creatures.Hero
             {
                 if (_throwCooldown.IsReady && SwordCount > 1)
                 {
+                    Sounds.Play("Range");
                     Animator.SetTrigger(ThrowKey);
                     _throwCooldown.Reset();
                     _session.Data.Inventory.Remove("Sword", 1);
                     return;
                 }
-            } 
+            }
             else if (SwordCount > 1)
             {
-                    Animator.SetTrigger(ThrowKey);
-                    _session.Data.Inventory.Remove("Sword", 1);
+                Sounds.Play("Range");
+                Animator.SetTrigger(ThrowKey);
+                _session.Data.Inventory.Remove("Sword", 1);
             }
         }
 
@@ -167,7 +170,7 @@ namespace PixelCrew.Creatures.Hero
 
                 yield return new WaitForSeconds(0.15f);
             }
-            
+
             StopCoroutine(_currentCoroutine);
         }
 
@@ -183,11 +186,11 @@ namespace PixelCrew.Creatures.Hero
             health.SetHealth(savedHp);
             _session.Data.Hp = savedHp;
         }
-        
+
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = SwordCount > 0 ? _animatorArmed : _animatorDisarmed;
-            
+
         }
 
         public void OnHealthChange(int currentHealth)
@@ -195,15 +198,15 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Hp = currentHealth;
         }
 
-        
+
 
         public void Interact()
         {
             _interactionCheck.Check();
         }
-        
 
-        protected override void Update() 
+
+        protected override void Update()
         {
             if (_emulateGroundCondition)
             {
@@ -270,9 +273,9 @@ namespace PixelCrew.Creatures.Hero
         {
             if (!IsGrounded && _allowDoubleJump)
             {
-                Particles.Spawn("Jump");
                 yVelocity = JumpSpeed;
                 _allowDoubleJump = false;
+                DoJumpVfx();
                 return JumpSpeed;
             }
 

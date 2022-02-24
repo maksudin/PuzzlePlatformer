@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Components;
+using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
@@ -25,6 +26,7 @@ namespace PixelCrew.Creatures
         protected Rigidbody2D Rigidbody;
         public Vector2 Direction;
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         protected bool IsGrounded;
         protected bool FallIsLongEnough;
 
@@ -48,6 +50,7 @@ namespace PixelCrew.Creatures
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
             HealthComp = GetComponent<HealthComponent>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -107,12 +110,17 @@ namespace PixelCrew.Creatures
         {
             if (IsGrounded)
             {
-                //SpawnJumpDustParticles();
-                Particles.Spawn("Jump");
                 yVelocity += JumpSpeed;
+                DoJumpVfx();
             }
 
             return yVelocity;
+        }
+
+        protected void DoJumpVfx()
+        {
+            Particles.Spawn("Jump");
+            Sounds.Play("Jump");
         }
 
         protected virtual void UpdateAnimatorVals()
@@ -145,29 +153,20 @@ namespace PixelCrew.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
-            if (Direction.x > 0 || Direction.x < 0)
-            {
-                //_attackParticles.SpawnWithOffset(new Vector2 (_attackParticlesOffset * Direction.x, 0));
-                Particles.SpawnWithOffset("Attack", new Vector2(AttackParticlesOffset * Direction.x, 0));
-            }
-            else
-            {
-                //_attackParticles.Spawn();
-                Particles.Spawn("Attack");
-            }
+            Sounds.Play("Melee");
         }
 
         public void OnDoAttack()
         {
             AttackRange.Check();
-            //foreach (GameObject go in gameobjects)
-            //{
-            //    HealthComponent hp = go.GetComponent<HealthComponent>();
-            //    if (hp != null && go.CompareTag("Enemy"))
-            //    {
-            //        hp.ApplyDamage(Damage);
-            //    }
-            //}
+            if (Direction.x > 0 || Direction.x < 0)
+            {
+                Particles.SpawnWithOffset("Attack", new Vector2(AttackParticlesOffset * Direction.x, 0));
+            }
+            else
+            {
+                Particles.Spawn("Attack");
+            }
         }
     }
 }
