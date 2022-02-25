@@ -11,19 +11,20 @@ namespace PixelCrew.Creatures
 {
     public class Creature : MonoBehaviour
     {
-        [Header("Params")] [SerializeField] private bool _invertScale;
-        [Header("Params")]
+        [Header("Creature Params")] [SerializeField] private bool _invertScale;
         [SerializeField] private float _speed;
         [SerializeField] protected float JumpSpeed;
         [SerializeField] private float _damageVelocity;
         [SerializeField] protected int Damage;
+        [SerializeField] protected float AttackParticlesOffset;
 
         [Header("Checkers")]
         [SerializeField] private LayerCheck GroundCheck;
         [SerializeField] protected CheckCircleOverlap AttackRange;
         [SerializeField] protected SpawnListComponent Particles;
-
+        [Space]
         protected Rigidbody2D Rigidbody;
+        [HideInInspector]
         public Vector2 Direction;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
@@ -43,7 +44,6 @@ namespace PixelCrew.Creatures
 
 
 
-        [SerializeField] protected float AttackParticlesOffset;
 
         protected virtual void Awake()
         {

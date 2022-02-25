@@ -16,15 +16,14 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature
     {
-
+        [Header("Hero Params")]
         [SerializeField] private int _potionHeal;
-
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
 
-
+        [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private float _interactionRadius;
@@ -39,13 +38,14 @@ namespace PixelCrew.Creatures.Hero
         private Coroutine _currentCoroutine;
 
         private bool _allowDoubleJump;
+        [Header("Rope Params")]
         public bool PlayerAttachedToRope;
         [SerializeField] private float _pushForce;
 
         public CapsuleCollider2D HeroCollider;
 
         private bool _emulateGroundCondition;
-        [SerializeField] private float _groundTime = 0.1f;
+        private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
