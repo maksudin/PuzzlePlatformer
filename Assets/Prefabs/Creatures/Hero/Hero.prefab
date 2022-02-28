@@ -5556,11 +5556,11 @@ MonoBehaviour:
   JumpSpeed: 12.2
   _damageVelocity: 100
   Damage: 1
+  AttackParticlesOffset: 0
   GroundCheck: {fileID: 7240798279233525142}
   AttackRange: {fileID: 7240798278031301963}
   Particles: {fileID: 8400781137852015022}
   Direction: {x: 0, y: 0}
-  AttackParticlesOffset: 0
   _potionHeal: 1
   _gravityScale: 3.4
   _fallingGravityScale: 5.11
@@ -5662,7 +5662,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1026003396}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -5751,6 +5751,8 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: df6d3507e1e2d894f8af1ab9d5f495e6, type: 3}
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 58d96da2c2a88fb44ae0c36554097185, type: 3}
+  - _id: Die
+    _clip: {fileID: 8300000, guid: dfebefdd1dd77f84781ea157b9c57bb0, type: 3}
 --- !u!1 &7240798279233525139
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Utils;
@@ -13,6 +14,8 @@ namespace PixelCrew.Creatures.Mobs
         [Header("Range")]
         [SerializeField] protected SpawnComponent ProjectileAttack;
         [SerializeField] public Cooldown RangeCooldown;
+        protected PlaySoundsComponent Sounds;
+
 
         protected Animator Animator;
         protected static readonly int RangeKey = Animator.StringToHash("range_attack");
@@ -22,6 +25,7 @@ namespace PixelCrew.Creatures.Mobs
         protected virtual void Awake()
         {
             Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         protected virtual void Update()
@@ -38,6 +42,7 @@ namespace PixelCrew.Creatures.Mobs
                 {
                     RangeCooldown.Reset();
                     Animator.SetTrigger(RangeKey);
+                    Sounds?.Play("Range");
                 }
             }
         }

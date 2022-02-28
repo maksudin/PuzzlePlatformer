@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Utils;
 using UnityEngine;
@@ -40,6 +41,7 @@ namespace PixelCrew.Creatures.Mobs
         {
             _meleeCooldown.Reset();
             Animator.SetTrigger(MeleeKey);
+            Sounds?.Play("Melee");
         }
 
         public void OnMeleeAttack()
