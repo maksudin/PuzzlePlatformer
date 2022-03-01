@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using UnityEngine.Events;
+using PixelCrew.Utils;
 
 namespace PixelCrew.Components.ColliderBased
 {
@@ -12,8 +13,8 @@ namespace PixelCrew.Components.ColliderBased
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            var IsInLayer = (_layer.value & (1 << collision.transform.gameObject.layer)) > 0;
-            if (!IsInLayer && _layer != 0) return;
+            var isInLayer = collision.transform.gameObject.IsInLayer(_layer);
+            if (!isInLayer && _layer != 0) return;
             if (!string.IsNullOrEmpty(_tag) && !collision.gameObject.CompareTag(_tag)) return;
 
             _action?.Invoke(collision.gameObject);
