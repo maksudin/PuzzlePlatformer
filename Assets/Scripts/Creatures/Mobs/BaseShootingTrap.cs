@@ -19,7 +19,7 @@ namespace PixelCrew.Creatures.Mobs
 
         protected Animator Animator;
         protected static readonly int RangeKey = Animator.StringToHash("range_attack");
-
+        [Space]
         public bool IsTotem;
 
         protected virtual void Awake()
