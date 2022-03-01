@@ -11,10 +11,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
+using PixelCrew.Model.Data;
 
 namespace PixelCrew.Creatures.Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         [Header("Hero Params")]
         [SerializeField] private int _potionHeal;
