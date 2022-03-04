@@ -116,6 +116,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1349546111117394571}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1349546112354377243
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,9 +142,10 @@ GameObject:
   - component: {fileID: 1349546112354377247}
   - component: {fileID: 1349546112354377233}
   - component: {fileID: 4306346116743019923}
-  - component: {fileID: 2110323746}
   - component: {fileID: 2110323740}
   - component: {fileID: 6676906091625585956}
+  - component: {fileID: 177988806}
+  - component: {fileID: 177988805}
   m_Layer: 0
   m_Name: Potion Small
   m_TagString: Untagged
@@ -219,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bff9fef12fe3e4da298ade97de1d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
+  _frameRate: 20
   _loop: 1
   _sprites:
   - {fileID: 1185527514606905908, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
@@ -245,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1349546112354377243}
+  _audioSource: {fileID: 0}
 --- !u!114 &1349546112354377247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,27 +362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Potion
   _count: 1
---- !u!50 &2110323746
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349546112354377243}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &2110323740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,3 +474,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &177988806
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349546112354377243}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &177988805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349546112354377243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dd1d860fae71e49a0367bf4f194d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 5
+  _amplitude: 0.1
+  _randomize: 0
