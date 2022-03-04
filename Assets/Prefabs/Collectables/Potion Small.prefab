@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bff9fef12fe3e4da298ade97de1d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 5
+  _frameRate: 10
   _loop: 0
   _sprites:
   - {fileID: 6040734443530017722, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bff9fef12fe3e4da298ade97de1d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 20
+  _frameRate: 5
   _loop: 1
   _sprites:
   - {fileID: 1185527514606905908, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
@@ -257,7 +257,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 1349546112354377243}
-  _audioSource: {fileID: 0}
 --- !u!114 &1349546112354377247
 MonoBehaviour:
   m_ObjectHideFlags: 0

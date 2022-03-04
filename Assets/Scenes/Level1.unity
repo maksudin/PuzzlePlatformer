@@ -151,19 +151,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &148543107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8941046686325498443, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
+--- !u!114 &148543111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 148543111, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
     type: 3}
   m_PrefabInstance: {fileID: 7982765588351433308}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &148543111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148543107}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f430405eebef324fb5bb2d033172fbb, type: 3}
@@ -750,7 +744,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d031c411b605aeb4aa3737226b9baeba, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.501
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -17056,46 +17050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 148543111}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 969772491}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Reload
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ResetHeroVars
-      objectReference: {fileID: 0}
-    - target: {fileID: 8941046686325498437, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8941046686325498439, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,
         type: 3}
       propertyPath: m_RootOrder

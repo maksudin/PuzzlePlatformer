@@ -8,17 +8,15 @@ namespace PixelCrew.Components.GoBased
     {
         [SerializeField] private GameObject _objectToDestroy;
         private AudioSource _audioSource;
-        private bool _hasAudio = false;
 
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            _hasAudio = _audioSource? true : false;
         }
 
         public void DestroyObject()
         {
-            if (_hasAudio)
+            if (_audioSource != null)
             {
                 Invoke(nameof(DestroyObjectWithAudio), _audioSource.clip.length);
             }

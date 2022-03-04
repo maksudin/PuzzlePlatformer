@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bff9fef12fe3e4da298ade97de1d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
+  _frameRate: 15
   _loop: 0
   _sprites:
   - {fileID: -4986890610287934012, guid: 881e5734c87caf04d8c25e747fcc6971, type: 3}
