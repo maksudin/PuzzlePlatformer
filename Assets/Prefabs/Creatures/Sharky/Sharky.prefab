@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa93141948527348aeed5baa9c3642e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vision: {fileID: 3346941031617964598}
+  Vision: {fileID: 3346941031617964598}
   _canAttack: {fileID: 7517160079599175944}
   _alarmDelay: 0.5
   _attackCooldown: 1

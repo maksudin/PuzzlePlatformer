@@ -9,10 +9,12 @@ using UnityEngine;
 
 namespace PixelCrew.Creatures
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Creature : MonoBehaviour
     {
-        [Header("Creature Params")] [SerializeField] private bool _invertScale;
-        [SerializeField] private float _speed;
+        [Header("Creature Params")] 
+        [SerializeField] private bool _invertScale;
+        [SerializeField] protected float _speed;
         [SerializeField] protected float JumpSpeed;
         [SerializeField] private float _damageVelocity;
         [SerializeField] protected int Damage;
@@ -33,17 +35,12 @@ namespace PixelCrew.Creatures
 
         protected HealthComponent HealthComp;
 
-
-
         private static readonly int IsGroundKey = Animator.StringToHash("is_grounded");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical_velocity");
         private static readonly int IsRunningKey = Animator.StringToHash("is_running");
         private static readonly int AttackKey = Animator.StringToHash("attack");
         private static readonly int HitKey = Animator.StringToHash("hit");
         protected static readonly int ThrowKey = Animator.StringToHash("throw");
-
-
-
 
         protected virtual void Awake()
         {

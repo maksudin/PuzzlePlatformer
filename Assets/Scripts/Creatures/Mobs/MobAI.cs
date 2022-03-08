@@ -9,30 +9,20 @@ using PixelCrew.Creatures.Mobs.Patrolling;
 
 namespace PixelCrew.Creatures.Mobs
 {
-    public class MobAI : MonoBehaviour
+    public class MobAI : BaseMobAI
     {
-        [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
-
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCooldown = 1f;
         [SerializeField] private float _missHeroCooldown = 0.5f;
 
-        private Coroutine _current;
-        private GameObject _target;
         private Creature _creature;
-        private Animator _animator;
-        private static readonly int isDeadKey = Animator.StringToHash("is_dead");
-        private SpawnListComponent _particles;
-
-        private bool _isDead;
         private Patrol _patrol;
 
-        private void Awake()
+        protected override void Awake()
         {
-            _particles = GetComponent<SpawnListComponent>();
+            base.Awake();
             _creature = GetComponent<Creature>();
-            _animator = GetComponent<Animator>();
             _patrol = GetComponent<Patrol>();
         }
 
@@ -43,8 +33,8 @@ namespace PixelCrew.Creatures.Mobs
 
         public void OnHeroInVision(GameObject go)
         {
-            if (_isDead) return;
-            _target = go;
+            if (IsDead) return;
+            Target = go;
             StartState(AgroToHero());
         }
 
@@ -62,7 +52,7 @@ namespace PixelCrew.Creatures.Mobs
         private IEnumerator AgroToHero()
         {
             LookAtHero();
-            _particles.Spawn("Exclamation");
+            Particles.Spawn("Exclamation");
             yield return new WaitForSeconds(_alarmDelay);
             StartState(GoToHero());
         }
@@ -76,7 +66,7 @@ namespace PixelCrew.Creatures.Mobs
 
         private IEnumerator GoToHero()
         {
-            while(_vision.IsTouchingLayer)
+            while(Vision.IsTouchingLayer)
             {
                 if (_canAttack.IsTouchingLayer)
                 {
@@ -90,19 +80,9 @@ namespace PixelCrew.Creatures.Mobs
             }
 
             _creature.Direction = Vector2.zero;
-            _particles.Spawn("Miss");
+            Particles.Spawn("Miss");
             yield return new WaitForSeconds(_missHeroCooldown);
             StartState(_patrol.DoPatrol());
-        }
-
-        public void OnDie()
-        {
-            _isDead = true;
-            _animator.SetBool(isDeadKey, true);
-            _creature.Direction = Vector3.zero;
-
-            if (_current != null)
-                StopCoroutine(_current);
         }
 
         private void SetDirectionToTarget()
@@ -113,19 +93,20 @@ namespace PixelCrew.Creatures.Mobs
 
         private Vector2 GetDirectionToTarget()
         {
-            var direction = _target.transform.position - transform.position;
+            var direction = Target.transform.position - transform.position;
             direction.y = 0;
             return direction.normalized;
         }
 
-        private void StartState(IEnumerator coroutine)
+        public void OnDie()
         {
+            IsDead = true;
+            Animator.SetBool(IsDeadKey, true);
             _creature.Direction = Vector3.zero;
 
-            if (_current != null)
-                StopCoroutine(_current);
-
-            _current = StartCoroutine(coroutine);
+            if (CurrentCoroutine != null)
+                StopCoroutine(CurrentCoroutine);
         }
+
     }
 }
