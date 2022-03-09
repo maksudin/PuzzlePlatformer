@@ -33,7 +33,7 @@ namespace PixelCrew.Creatures
             var velocityX = Direction.x * _speed;
             var velocityY = Direction.y * _speed;
             Rigidbody.velocity = new Vector2(velocityX, velocityY);
-
+            UpdateSpriteDirection(Direction);
         }
 
         public void UpdateSpriteDirection(Vector2 direction)

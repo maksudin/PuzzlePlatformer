@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using static Cinemachine.CinemachineCore;
 using UnityEngine.InputSystem.HID;
+using PixelCrew.Creatures.Mobs.Patrolling;
 
 namespace PixelCrew.Creatures.Mobs
 {
@@ -13,18 +14,24 @@ namespace PixelCrew.Creatures.Mobs
         private FlyingCreature _creature;
         [SerializeField] private float _scanRadius;
         [SerializeField] private float _scanCooldown;
-        [SerializeField] private string[] _tags;
-        private RaycastHit2D[] _results = new RaycastHit2D[10];
+        [SerializeField] private string _tag;
+        [SerializeField] private string _ignoreTag;
+        [SerializeField] private Vector2 _playerAttackOffset;
+        [SerializeField] private LayerMask _layer;
+
+        private RaycastHit2D[] _results = new RaycastHit2D[25];
+        private Collider2D _collider;
 
         protected override void Awake()
         {
             base.Awake();
             _creature = GetComponent<FlyingCreature>();
+            _collider = GetComponent<Collider2D>();
         }
 
         private void OnDrawGizmos()
         {
-            Handles.color = HandlesUtils.HardlyVisibleGreen;
+            Handles.color = HandlesUtils.TransparentRed;
             Handles.DrawSolidDisc(transform.position, Vector3.forward, _scanRadius);
         }
 
@@ -33,19 +40,28 @@ namespace PixelCrew.Creatures.Mobs
             StartState(Scan());
         }
 
+        //public void OnHeroInVision(GameObject go)
+        //{
+        //    if (IsDead) return;
+        //    Target = go;
+        //    StartState(Scan());
+        //}
+
         private IEnumerator Scan()
         {
             while (enabled)
             {
-                var num = Physics2D.Raycast(transform.position, _creature.Direction, new ContactFilter2D(), _results, _scanRadius);
+                //var filter = new ContactFilter2D() {layerMask = _layer , useLayerMask = true };
+                var num = _collider.Raycast(Target.transform.position, _results, _scanRadius);
+                Debug.DrawLine(transform.position, Target.transform.position, HandlesUtils.TransparentGreen);
 
                 if (num != 0)
                 {
                     foreach (var result in _results)
                     {
-                        if (result.collider.CompareTag(tag))
+                        if (result.collider.CompareTag(_tag))
                         {
-                            Debug.DrawLine(transform.position, result.point, HandlesUtils.TransparentGreen, 0.5f);
+                            //Debug.DrawLine(Target.transform.position, transform.position, HandlesUtils.TransparentGreen, 0.5f);
                             StartState(AgroToHero());
                         }
                     }
@@ -65,7 +81,7 @@ namespace PixelCrew.Creatures.Mobs
         private void SetDirectionToTarget()
         {
             var direction = GetDirectionToTarget();
-            _creature.Direction = direction;
+            _creature.Direction = new Vector2(direction.x + _playerAttackOffset.x, direction.y + _playerAttackOffset.y);
         }
 
         private Vector2 GetDirectionToTarget()
@@ -73,14 +89,6 @@ namespace PixelCrew.Creatures.Mobs
             var direction = Target.transform.position - transform.position;
             return direction.normalized;
         }
-        
-
-        //public void OnHeroInVision(GameObject go)
-        //{
-        //    if (IsDead) return;
-        //    Target = go;
-        //    StartState(AgroToHero());
-        //}
 
         private void LookAtHero()
         {
@@ -100,13 +108,16 @@ namespace PixelCrew.Creatures.Mobs
 
         private IEnumerator GoToHero()
         {
-            SetDirectionToTarget();
-            yield return null;
+            while (Vision.IsTouchingLayer)
+            {
+                SetDirectionToTarget();
+                yield return null;
+            }
 
             _creature.Direction = Vector2.zero;
-            //_particles.Spawn("Miss");
+            //Particles.Spawn("Miss");
             //yield return new WaitForSeconds(_missHeroCooldown);
-            //StartState(_patrol.DoPatrol());
+            //StopCoroutine(CurrentCoroutine);
         }
 
     }
