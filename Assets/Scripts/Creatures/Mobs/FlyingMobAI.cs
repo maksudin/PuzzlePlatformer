@@ -14,8 +14,8 @@ namespace PixelCrew.Creatures.Mobs
         private FlyingCreature _creature;
         [SerializeField] private float _scanRadius;
         [SerializeField] private float _scanCooldown;
+        [SerializeField] private float _missHeroCooldown = 0.2f;
         [SerializeField] private string _tag;
-        [SerializeField] private Vector2 _playerAttackOffset;
         [SerializeField] private LayerMask _layer;
 
         protected override void Awake()
@@ -43,7 +43,8 @@ namespace PixelCrew.Creatures.Mobs
             while (enabled)
             {
                 var direction = ((Vector2)(Target.transform.position - transform.position)).normalized;
-                var hit = Physics2D.Raycast(transform.position, direction);
+                var hit = Physics2D.Raycast(transform.position, direction, _scanRadius, _layer);
+                Debug.DrawLine(transform.position, direction);
                 if (hit.collider != null)
                 {
                     if (hit.collider.CompareTag(_tag))
@@ -72,7 +73,7 @@ namespace PixelCrew.Creatures.Mobs
         private void SetDirectionToTarget()
         {
             var direction = GetDirectionToTarget();
-            _creature.Direction = new Vector2(direction.x + _playerAttackOffset.x, direction.y + _playerAttackOffset.y);
+            _creature.Direction = new Vector2(direction.x, direction.y);
         }
 
         private Vector2 GetDirectionToTarget()
@@ -110,9 +111,9 @@ namespace PixelCrew.Creatures.Mobs
             }
 
             _creature.Direction = Vector2.zero;
-            //Particles.Spawn("Miss");
-            //yield return new WaitForSeconds(_missHeroCooldown);
-            //StopCoroutine(CurrentCoroutine);
+            Vision.enabled = true;
+            yield return new WaitForSeconds(_missHeroCooldown);
+            StopCoroutine(CurrentCoroutine);
         }
 
     }
