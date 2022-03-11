@@ -15,18 +15,13 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _scanRadius;
         [SerializeField] private float _scanCooldown;
         [SerializeField] private string _tag;
-        [SerializeField] private string _ignoreTag;
         [SerializeField] private Vector2 _playerAttackOffset;
         [SerializeField] private LayerMask _layer;
-
-        private RaycastHit2D[] _results = new RaycastHit2D[25];
-        private Collider2D _collider;
 
         protected override void Awake()
         {
             base.Awake();
             _creature = GetComponent<FlyingCreature>();
-            _collider = GetComponent<Collider2D>();
         }
 
         private void OnDrawGizmos()
@@ -35,41 +30,37 @@ namespace PixelCrew.Creatures.Mobs
             Handles.DrawSolidDisc(transform.position, Vector3.forward, _scanRadius);
         }
 
-        private void Start()
+        public void OnHeroInVision(GameObject go)
         {
+            if (IsDead) return;
+            Target = go;
             StartState(Scan());
+            Vision.enabled = false;
         }
-
-        //public void OnHeroInVision(GameObject go)
-        //{
-        //    if (IsDead) return;
-        //    Target = go;
-        //    StartState(Scan());
-        //}
 
         private IEnumerator Scan()
         {
             while (enabled)
             {
-                //var filter = new ContactFilter2D() {layerMask = _layer , useLayerMask = true };
-                var num = _collider.Raycast(Target.transform.position, _results, _scanRadius);
-                Debug.DrawLine(transform.position, Target.transform.position, HandlesUtils.TransparentGreen);
-
-                if (num != 0)
+                var direction = ((Vector2)(Target.transform.position - transform.position)).normalized;
+                var hit = Physics2D.Raycast(transform.position, direction);
+                if (hit.collider != null)
                 {
-                    foreach (var result in _results)
+                    if (hit.collider.CompareTag(_tag))
                     {
-                        if (result.collider.CompareTag(_tag))
-                        {
-                            //Debug.DrawLine(Target.transform.position, transform.position, HandlesUtils.TransparentGreen, 0.5f);
-                            StartState(AgroToHero());
-                        }
+                        AwakeMob();
                     }
                 }
+                
 
                 yield return new WaitForSeconds(_scanCooldown);
             }
             
+        }
+
+        public void OnAwake()
+        {
+            StartState(AgroToHero());
         }
 
         protected override void StartState(IEnumerator coroutine)
@@ -95,6 +86,10 @@ namespace PixelCrew.Creatures.Mobs
             Vector2 direction = GetDirectionToTarget();
             _creature.SetDirection(Vector2.zero);
             _creature.UpdateSpriteDirection(direction);
+        }
+
+        private void AwakeMob()
+        {
             _creature.AwakeFromSleep();
         }
 

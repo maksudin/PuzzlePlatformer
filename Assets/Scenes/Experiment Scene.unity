@@ -1070,19 +1070,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1220539735}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &391159096 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 931336485001384460, guid: c569db130c4559142a4e801607e49ea4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1058793229}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &391159097 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2386066753862341845, guid: c569db130c4559142a4e801607e49ea4,
     type: 3}
   m_PrefabInstance: {fileID: 1058793229}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391159096}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2860d711743e26d448979dc9d444cf04, type: 3}
@@ -1094,22 +1088,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1058793229}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &391159103
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391159096}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.12}
-  serializedVersion: 2
-  m_Radius: 0.36
 --- !u!114 &442506971 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9150871990853611083, guid: 169796c72eedcdc4da05996e29b52bc5,
@@ -7188,7 +7166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905457543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.1204, y: 2.7195797, z: -15.673828}
+  m_LocalPosition: {x: 57.1204, y: 11.719579, z: -15.673828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1017522545}
@@ -7836,7 +7814,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 265228044, guid: c569db130c4559142a4e801607e49ea4, type: 3}
       propertyPath: _speed
-      value: 3.23
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 265228044, guid: c569db130c4559142a4e801607e49ea4, type: 3}
       propertyPath: _invertScale
@@ -7868,13 +7846,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 855601256861815883, guid: c569db130c4559142a4e801607e49ea4,
         type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 855601256861815883, guid: c569db130c4559142a4e801607e49ea4,
+        type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 931336485001384460, guid: c569db130c4559142a4e801607e49ea4,
         type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386066753862341845, guid: c569db130c4559142a4e801607e49ea4,
+        type: 3}
+      propertyPath: _layer.m_Bits
+      value: 131072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386066753862341845, guid: c569db130c4559142a4e801607e49ea4,
+        type: 3}
+      propertyPath: _scanCooldown
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2386066753862341845, guid: c569db130c4559142a4e801607e49ea4,
         type: 3}
@@ -7909,7 +7902,7 @@ PrefabInstance:
     - target: {fileID: 2566151052494869270, guid: c569db130c4559142a4e801607e49ea4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.673828
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2566151052494869270, guid: c569db130c4559142a4e801607e49ea4,
         type: 3}
@@ -23227,7 +23220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810093818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.1204, y: 2.7195797, z: -15.673828}
+  m_LocalPosition: {x: 57.1204, y: 11.719579, z: -15.673828}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 292758797}
@@ -23755,7 +23748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1888856868}
   - component: {fileID: 1888856867}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Confiner polygon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24419,7 +24412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118092745}
   - component: {fileID: 2118092744}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BG Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25768,12 +25761,12 @@ PrefabInstance:
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.94
+      value: 28.94
       objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988268, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
