@@ -12,7 +12,7 @@ namespace PixelCrew.Creatures
         [SerializeField] private bool _invertScale;
         [SerializeField] protected float _speed;
         [SerializeField] protected int Damage;
-        [HideInInspector] public Vector2 Direction;
+        public Vector2 Direction;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
         protected HealthComponent HealthComp;
@@ -33,6 +33,7 @@ namespace PixelCrew.Creatures
             var velocityX = Direction.x * _speed;
             var velocityY = Direction.y * _speed;
             Rigidbody.velocity = new Vector2(velocityX, velocityY);
+            
             UpdateSpriteDirection(Direction);
         }
 
@@ -51,16 +52,13 @@ namespace PixelCrew.Creatures
 
         public void SetDirection(Vector2 direction)
         {
-            Direction = direction;
+            Direction = direction.normalized;
         }
 
         public void AwakeFromSleep()
         {
             Animator.SetBool(IsAwake, true);
         }
-
-
-
 
     }
 }

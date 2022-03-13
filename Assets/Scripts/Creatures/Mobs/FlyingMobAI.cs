@@ -17,6 +17,7 @@ namespace PixelCrew.Creatures.Mobs
         [SerializeField] private float _missHeroCooldown = 0.2f;
         [SerializeField] private string _tag;
         [SerializeField] private LayerMask _layer;
+        private bool _isAwake = false;
 
         protected override void Awake()
         {
@@ -35,34 +36,35 @@ namespace PixelCrew.Creatures.Mobs
             if (IsDead) return;
             Target = go;
             StartState(Scan());
-            Vision.enabled = false;
         }
 
         private IEnumerator Scan()
         {
-            while (enabled)
+            yield return new WaitForSeconds(_scanCooldown);
+            while (Vision.IsTouchingLayer)
             {
                 var direction = ((Vector2)(Target.transform.position - transform.position)).normalized;
                 var hit = Physics2D.Raycast(transform.position, direction, _scanRadius, _layer);
-                Debug.DrawLine(transform.position, direction);
+                
                 if (hit.collider != null)
                 {
+                    //Debug.DrawLine(transform.position, hit.point);
                     if (hit.collider.CompareTag(_tag))
                     {
-                        AwakeMob();
+                        if (!_isAwake) StartState(AwakeMob());
+                        else StartState(AgroToHero());
                     }
                 }
                 
 
                 yield return new WaitForSeconds(_scanCooldown);
             }
-            
+
+            if (CurrentCoroutine != null)
+                StopCoroutine(CurrentCoroutine);
         }
 
-        public void OnAwake()
-        {
-            StartState(AgroToHero());
-        }
+        
 
         protected override void StartState(IEnumerator coroutine)
         {
@@ -73,7 +75,7 @@ namespace PixelCrew.Creatures.Mobs
         private void SetDirectionToTarget()
         {
             var direction = GetDirectionToTarget();
-            _creature.Direction = new Vector2(direction.x, direction.y);
+            _creature.SetDirection(new Vector2(direction.x, direction.y));
         }
 
         private Vector2 GetDirectionToTarget()
@@ -89,15 +91,21 @@ namespace PixelCrew.Creatures.Mobs
             _creature.UpdateSpriteDirection(direction);
         }
 
-        private void AwakeMob()
+        public void OnAwake()
+        {
+            _isAwake = true;
+            StartState(AgroToHero());
+        }
+
+        private IEnumerator AwakeMob()
         {
             _creature.AwakeFromSleep();
+            yield return null;
         }
 
         private IEnumerator AgroToHero()
         {
             LookAtHero();
-            //_particles.Spawn("Exclamation");
             yield return null;
             StartState(GoToHero());
         }
@@ -111,9 +119,10 @@ namespace PixelCrew.Creatures.Mobs
             }
 
             _creature.Direction = Vector2.zero;
-            Vision.enabled = true;
             yield return new WaitForSeconds(_missHeroCooldown);
-            StopCoroutine(CurrentCoroutine);
+
+            if (CurrentCoroutine != null)
+                StopCoroutine(CurrentCoroutine);
         }
 
     }

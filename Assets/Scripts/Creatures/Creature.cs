@@ -150,12 +150,13 @@ namespace PixelCrew.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
-            Sounds.Play("Melee");
         }
 
         public void OnDoAttack()
         {
             AttackRange.Check();
+            Sounds.Play("Melee");
+
             if (Direction.x > 0 || Direction.x < 0)
             {
                 Particles.SpawnWithOffset("Attack", new Vector2(AttackParticlesOffset * Direction.x, 0));
