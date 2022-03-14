@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 2138622318}
   - component: {fileID: 1123839030}
   - component: {fileID: 1160091870}
+  - component: {fileID: 6652547743246494997}
   m_Layer: 16
   m_Name: Sharky
   m_TagString: Enemy
@@ -551,8 +552,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026149035, y: -0.17265594}
-  m_Size: {x: 0.5336776, y: 0.68007684}
+  m_Offset: {x: 0.004805401, y: -0.17265594}
+  m_Size: {x: 0.29584846, y: 0.68007684}
   m_Direction: 0
 --- !u!95 &7240798278516988177
 Animator:
@@ -688,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 1
-  _speed: 1.75
+  _speed: 2.44
   JumpSpeed: 20
   _damageVelocity: 5
   Damage: 1
@@ -754,6 +755,33 @@ MonoBehaviour:
   _sounds:
   - _id: Melee
     _clip: {fileID: 8300000, guid: 8a3d047b7b28b844ba6268a0791b2452, type: 3}
+--- !u!114 &6652547743246494997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240798278516988266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98878f08b0112484e89ced52040126a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1642628454041782399}
+        m_MethodName: TakeDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7240798279233525139
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +892,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.18, y: 0.99}
+  m_Offset: {x: -2.18, y: 0.87224555}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -875,7 +903,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.97, y: 3.11}
+  m_Size: {x: 5.97, y: 2.8744912}
   m_EdgeRadius: 0
 --- !u!114 &3346941031617964598
 MonoBehaviour:

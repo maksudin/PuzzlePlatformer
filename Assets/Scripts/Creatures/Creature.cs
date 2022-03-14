@@ -62,8 +62,13 @@ namespace PixelCrew.Creatures
 
         protected virtual void FixedUpdate()
         {
-            // Движение по оси X.
             var velocityX = Direction.x * _speed;
+            // Движение по оси X.
+            if (Rigidbody.velocity.y > 0)
+            {
+                velocityX *= 2;
+            }
+            //var velocityX = Direction.x * _speed;
             float velocityY;
 
             velocityY = CalculateYVelocity();

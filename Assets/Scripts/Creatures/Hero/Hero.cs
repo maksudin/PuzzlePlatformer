@@ -23,6 +23,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
+        [SerializeField] private bool _allowDoubleJump = false;
 
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
@@ -38,7 +39,7 @@ namespace PixelCrew.Creatures.Hero
 
         private Coroutine _currentCoroutine;
 
-        private bool _allowDoubleJump;
+        private bool _hasDoubleJump;
         [Header("Rope Params")]
         public bool PlayerAttachedToRope;
         [SerializeField] private float _pushForce;
@@ -253,9 +254,9 @@ namespace PixelCrew.Creatures.Hero
                 return velocityY;
             }
 
-            if (IsGrounded)
+            if (IsGrounded && _allowDoubleJump)
             {
-                _allowDoubleJump = true;
+                _hasDoubleJump = true;
             }
 
             // Падение с двойного прыжка имеет velocity около -15.
@@ -272,10 +273,10 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump)
+            if (!IsGrounded && _hasDoubleJump)
             {
                 yVelocity = JumpSpeed;
-                _allowDoubleJump = false;
+                _hasDoubleJump = false;
                 DoJumpVfx();
                 return JumpSpeed;
             }
