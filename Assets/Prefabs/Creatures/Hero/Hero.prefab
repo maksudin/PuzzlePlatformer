@@ -5552,7 +5552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 0
-  _speed: 4
+  _speed: 3.83
   JumpSpeed: 12.2
   _damageVelocity: 100
   Damage: 1
@@ -5567,6 +5567,7 @@ MonoBehaviour:
   _throwCooldown:
     _value: 1
   _swordBurstAmount: 3
+  _allowDoubleJump: 0
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 4096

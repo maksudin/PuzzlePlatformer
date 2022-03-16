@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 1
-  _speed: 3.36
+  _speed: 5.27
   Damage: 1
   Direction: {x: 0, y: 0}
 --- !u!114 &2386066753862341845

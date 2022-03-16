@@ -64,9 +64,12 @@ namespace PixelCrew.Creatures
         {
             var velocityX = Direction.x * _speed;
             // Движение по оси X.
-            if (Rigidbody.velocity.y > 0)
+            if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
             {
                 velocityX *= 2;
+            } else if (Rigidbody.velocity.y > 10 || Rigidbody.velocity.y < 10)
+            {
+                velocityX *= 1.3f;
             }
             //var velocityX = Direction.x * _speed;
             float velocityY;
