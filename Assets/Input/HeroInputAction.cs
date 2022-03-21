@@ -65,6 +65,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""22b1c505-31fb-4e9a-b671-af0237079901"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -232,6 +240,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Use potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5f89e89-5f85-4e06-9530-ecdfe107f0ca"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -246,6 +265,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_Usepotion = m_Hero.FindAction("Use potion", throwIfNotFound: true);
+        m_Hero_Menu = m_Hero.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -301,6 +321,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_Usepotion;
+    private readonly InputAction m_Hero_Menu;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -311,6 +332,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @Usepotion => m_Wrapper.m_Hero_Usepotion;
+        public InputAction @Menu => m_Wrapper.m_Hero_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -338,6 +360,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Usepotion.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsepotion;
                 @Usepotion.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsepotion;
                 @Usepotion.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsepotion;
+                @Menu.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnMenu;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -360,6 +385,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Usepotion.started += instance.OnUsepotion;
                 @Usepotion.performed += instance.OnUsepotion;
                 @Usepotion.canceled += instance.OnUsepotion;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
         }
     }
@@ -372,5 +400,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnUsepotion(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

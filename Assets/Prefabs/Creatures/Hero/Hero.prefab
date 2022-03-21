@@ -5561,6 +5561,9 @@ MonoBehaviour:
   AttackRange: {fileID: 7240798278031301963}
   Particles: {fileID: 8400781137852015022}
   Direction: {x: 0, y: 0}
+  _menuPrefub: {fileID: 1045280187469620291, guid: 4da8702997180dd4abf4aaff533bbb63,
+    type: 3}
+  _canvasTransform: {fileID: 0}
   _potionHeal: 1
   _gravityScale: 3.4
   _fallingGravityScale: 5.11

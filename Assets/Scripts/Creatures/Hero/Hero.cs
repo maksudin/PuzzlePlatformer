@@ -12,11 +12,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using PixelCrew.Model.Data;
+using PixelCrew.Components.UI.EscMenu;
 
 namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature, ICanAddInInventory
     {
+        [Header("Menu")]
+        [SerializeField] private GameObject _menuPrefub;
+        [SerializeField] private Transform _canvasTransform;
+        private bool _menuShown = false;
+        private GameObject _menuInstance;
+
         [Header("Hero Params")]
         [SerializeField] private int _potionHeal;
         [SerializeField] private float _gravityScale = 3;
@@ -49,6 +56,9 @@ namespace PixelCrew.Creatures.Hero
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
+
+        
+
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
@@ -76,6 +86,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void OnDestroy()
         {
+            if (!_session) return;
             _session.Data.Inventory.OnChanged -= OnInventoryChanged;
             _session.Data.Inventory.OnChanged -= AnotherHandler;
         }
@@ -111,6 +122,21 @@ namespace PixelCrew.Creatures.Hero
                 Particles.Spawn("Potion");
             }
 
+        }
+
+        public void CallMenu()
+        {
+            if (!_canvasTransform) return;
+            if (!_menuShown)
+            {
+                _menuInstance = Instantiate(_menuPrefub, _canvasTransform);
+                _menuShown = true;
+            }
+            else
+            {
+                _menuInstance?.GetComponent<EscMenuWindow>().Close();
+                _menuShown = false;
+            }
         }
 
         public void AttachPlayerToRope()

@@ -11,7 +11,6 @@ namespace PixelCrew.Components.UI
         private void Start()
         {
             _animator = GetComponent<Animator>();
-
             _animator.SetTrigger(Show);
         }
 

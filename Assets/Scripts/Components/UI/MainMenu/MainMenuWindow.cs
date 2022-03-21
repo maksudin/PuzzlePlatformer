@@ -7,8 +7,7 @@ namespace PixelCrew.Components.UI.MainMenu
 {
     public class MainMenuWindow : AnimationWindow
     {
-        private Action _closeAction;
-
+        protected Action _closeAction;
 
         public void OnShowSettings()
         {
