@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections;
+using PixelCrew.Model.Data.Properties;
+using UnityEngine;
+
+namespace PixelCrew.Model.Data
+{
+    public enum SoundSetting
+    {
+        Music, Sfx
+    }
+
+    [CreateAssetMenu(menuName = "Data/GameSettings", fileName = "GameSettings")]
+    public class GameSettings : ScriptableObject
+    {
+        [SerializeField] private FloatPersistentProperty _music;
+        [SerializeField] private FloatPersistentProperty _sfx;
+
+        private static GameSettings _instance;
+        public static GameSettings I => _instance == null ? LoadGameSettings() : _instance;
+
+        private static GameSettings LoadGameSettings()
+        {
+            return _instance = Resources.Load<GameSettings>("GameSettings");
+        }
+
+        private void OnEnable()
+        {
+            _music = new FloatPersistentProperty(1, SoundSetting.Music.ToString());
+            _sfx = new FloatPersistentProperty(1, SoundSetting.Sfx.ToString());
+        }
+    }
+}
