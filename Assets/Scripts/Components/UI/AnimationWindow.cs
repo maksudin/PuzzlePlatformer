@@ -8,7 +8,7 @@ namespace PixelCrew.Components.UI
         private static readonly int Show = Animator.StringToHash("show");
         private static readonly int Hide = Animator.StringToHash("hide");
 
-        private void Start()
+        public virtual void Start()
         {
             _animator = GetComponent<Animator>();
             _animator.SetTrigger(Show);
