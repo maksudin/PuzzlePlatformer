@@ -21,5 +21,7 @@ namespace PixelCrew.Model.Data.Properties
             PlayerPrefs.SetFloat(Key, value);
             PlayerPrefs.Save();
         }
+
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
@@ -6,6 +7,8 @@ namespace PixelCrew.Model.Data.Properties
     public abstract class PersistentProperty<TPropertyType>
     {
         [SerializeField] private TPropertyType _propertyValue;
+        private TPropertyType _stored;
+
         private TPropertyType _defaultValue;
 
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
@@ -18,23 +21,29 @@ namespace PixelCrew.Model.Data.Properties
 
         public TPropertyType Value
         {
-            get => _propertyValue;
+            get => _stored;
             set
             {
-                //var isEquals = _value.Equals(value);
-                if (_propertyValue.Equals(value)) return;
+                var isEquals = _stored.Equals(value);
+                if (isEquals) return;
 
                 var oldValue = _propertyValue;
                 Write(value);
-                _propertyValue = value;
+                _stored =_propertyValue = value;
 
                 OnChanged?.Invoke(value, oldValue);
             }
         }
 
+        public void Validate()
+        {
+            if (!_stored.Equals(_propertyValue))
+                Value = _propertyValue;
+        }
+
         protected void Init()
         {
-            _propertyValue = Read(_defaultValue);
+            _stored = _propertyValue = Read(_defaultValue);
         }
 
         protected abstract void Write(TPropertyType value);

@@ -16,12 +16,22 @@ namespace PixelCrew.Model.Data
         [SerializeField] private FloatPersistentProperty _music;
         [SerializeField] private FloatPersistentProperty _sfx;
 
+        public FloatPersistentProperty Music => _music;
+        public FloatPersistentProperty Sfx => _sfx;
+
+
         private static GameSettings _instance;
         public static GameSettings I => _instance == null ? LoadGameSettings() : _instance;
 
         private static GameSettings LoadGameSettings()
         {
             return _instance = Resources.Load<GameSettings>("GameSettings");
+        }
+
+        private void OnValidate()
+        {
+            Music.Validate();
+            Sfx.Validate();
         }
 
         private void OnEnable()
