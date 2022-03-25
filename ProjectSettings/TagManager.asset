@@ -9,6 +9,7 @@ TagManager:
   - Spikes
   - Ground
   - Barrel
+  - SfxAudioSource
   layers:
   - Default
   - TransparentFX

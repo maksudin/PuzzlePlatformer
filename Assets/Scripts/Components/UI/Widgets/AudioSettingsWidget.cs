@@ -41,7 +41,6 @@ namespace PixelCrew.Components.UI.Widgets
         {
             _slider.onValueChanged.RemoveListener(OnSliderValueChanged);
             _model.OnChanged -= OnValueChanged;
-
         }
     }
 }
