@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
-    public abstract class PrefsPersistentProperty<TPropertyType> : PersistentProperty<TPropertyType>
+    public abstract class PrefsPersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
         protected string Key;
 

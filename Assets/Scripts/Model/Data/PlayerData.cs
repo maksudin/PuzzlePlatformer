@@ -11,8 +11,6 @@ namespace PixelCrew.Model
     {
         [SerializeField] private InventoryData _inventory;
 
-        //public int Coins;
-        //public int Swords;
         [Header("Params")]
         public int Hp;
         //public bool IsArmed;

@@ -1232,6 +1232,7 @@ GameObject:
   - component: {fileID: 895593408838732791}
   - component: {fileID: 8799071731138476141}
   - component: {fileID: 6193832188407028981}
+  - component: {fileID: 2959033072669609327}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1257,7 +1258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 28.4}
+  m_AnchoredPosition: {x: 0, y: 28.400002}
   m_SizeDelta: {x: 74.3, y: 15.539993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &895593408838732791
@@ -1354,6 +1355,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 165311584779566582}
   _pressed: {fileID: 7673050375551688331}
+--- !u!114 &2959033072669609327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8740872938411011323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374603b533b314d4ea263322d0f75415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 38a3acbc159d5aa4cbd952dc21c41167, type: 3}
 --- !u!1 &8881938756324988125
 GameObject:
   m_ObjectHideFlags: 0

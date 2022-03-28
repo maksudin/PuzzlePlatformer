@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7704833238622744888}
   - component: {fileID: 2465648867568967804}
   - component: {fileID: 6786256093350152186}
+  - component: {fileID: 6945199776316663491}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -134,6 +135,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 2966637053425078519}
   _pressed: {fileID: 8103787554468696277}
+--- !u!114 &6945199776316663491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936604828804520007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374603b533b314d4ea263322d0f75415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 38a3acbc159d5aa4cbd952dc21c41167, type: 3}
 --- !u!1 &1045280187469620291
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +551,7 @@ GameObject:
   - component: {fileID: 767766697005672066}
   - component: {fileID: 8776291152413706196}
   - component: {fileID: 6820727052412103612}
+  - component: {fileID: 6570429680338456258}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -659,6 +674,19 @@ MonoBehaviour:
         m_CallState: 2
   _normal: {fileID: 7545365159477957639}
   _pressed: {fileID: 8170074894094638097}
+--- !u!114 &6570429680338456258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4177877592316796381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374603b533b314d4ea263322d0f75415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 38a3acbc159d5aa4cbd952dc21c41167, type: 3}
 --- !u!1 &4762461089318198347
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +855,7 @@ GameObject:
   - component: {fileID: 7284450429513485898}
   - component: {fileID: 3645536944284218467}
   - component: {fileID: 7663204636633455260}
+  - component: {fileID: 3217923847213372700}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -935,20 +964,22 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3645536944284218467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4315913812688686308}
-        m_MethodName: OnRestart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _normal: {fileID: 8202447060988226769}
   _pressed: {fileID: 4762461089318198347}
+--- !u!114 &3217923847213372700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7787927810737517943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374603b533b314d4ea263322d0f75415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: 38a3acbc159d5aa4cbd952dc21c41167, type: 3}
 --- !u!1 &8103787554468696277
 GameObject:
   m_ObjectHideFlags: 0

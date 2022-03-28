@@ -62,6 +62,9 @@ TagManager:
   - name: Grass
     uniqueID: 1019281221
     locked: 0
+  - name: Health Bar
+    uniqueID: 823738283
+    locked: 0
   - name: Menu
     uniqueID: 353352173
     locked: 0

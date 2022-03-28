@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
-    public abstract class PersistentProperty<TPropertyType>
+    [Serializable]
+    public abstract class ObservableProperty<TPropertyType>
     {
-        [SerializeField] private TPropertyType _propertyValue;
+        [SerializeField] protected TPropertyType _propertyValue;
         private TPropertyType _stored;
 
         private TPropertyType _defaultValue;
@@ -14,7 +15,7 @@ namespace PixelCrew.Model.Data.Properties
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
 
-        public PersistentProperty(TPropertyType defvalue)
+        public ObservableProperty(TPropertyType defvalue)
         {
             _defaultValue = defvalue;
         }
