@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using UnityEngine;
@@ -18,7 +17,7 @@ namespace PixelCrew.Components.Audio
             _source = GetComponent<AudioSource>();
             _model = FindProperty();
             _model.OnChanged += OnSoundSettingChanged;
-            //OnSoundSettingChanged(_model.Value, _model.Value);
+            OnSoundSettingChanged(_model.Value, _model.Value);
         }
 
         private void OnSoundSettingChanged(float newValue, float oldValue)

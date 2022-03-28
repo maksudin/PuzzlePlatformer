@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using PixelCrew.Model.Data.Properties;
+﻿using PixelCrew.Model.Data.Properties;
 using UnityEngine;
 using UnityEngine.UI;
 
