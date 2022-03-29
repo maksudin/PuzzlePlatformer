@@ -100,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4854925238498157915}
   - component: {fileID: 9211405505374127224}
+  - component: {fileID: 1673544601115160461}
   m_Layer: 16
   m_Name: Vfx
   m_TagString: Untagged
@@ -217,6 +218,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1673544601115160461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4850498673253693314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
 --- !u!1 &6995272451297213487
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e89229f510ed4e9e885f8f127d6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 9211405505374127224}
   _sounds:
   - _id: Melee
     _clip: {fileID: 8300000, guid: 8a3d047b7b28b844ba6268a0791b2452, type: 3}

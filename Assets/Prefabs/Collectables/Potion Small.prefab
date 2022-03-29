@@ -143,9 +143,10 @@ GameObject:
   - component: {fileID: 1349546112354377233}
   - component: {fileID: 4306346116743019923}
   - component: {fileID: 2110323740}
-  - component: {fileID: 6676906091625585956}
   - component: {fileID: 177988806}
   - component: {fileID: 177988805}
+  - component: {fileID: 6676906091625585956}
+  - component: {fileID: -3028826188131672275}
   m_Layer: 0
   m_Name: Potion Small
   m_TagString: Untagged
@@ -376,6 +377,42 @@ MonoBehaviour:
   _frequency: 5
   _amplitude: 0.1
   _randomize: 0
+--- !u!50 &177988806
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349546112354377243}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &177988805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349546112354377243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dd1d860fae71e49a0367bf4f194d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 5
+  _amplitude: 0.1
+  _randomize: 0
 --- !u!82 &6676906091625585956
 AudioSource:
   m_ObjectHideFlags: 0
@@ -473,28 +510,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!50 &177988806
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349546112354377243}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &177988805
+--- !u!114 &-3028826188131672275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,9 +519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349546112354377243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37dd1d860fae71e49a0367bf4f194d30, type: 3}
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frequency: 5
-  _amplitude: 0.1
-  _randomize: 0
+  _mode: 1

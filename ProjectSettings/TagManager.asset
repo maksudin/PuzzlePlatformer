@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Barrel
   - SfxAudioSource
+  - EnemyHealthBars
   layers:
   - Default
   - TransparentFX

@@ -830,6 +830,7 @@ PrefabInstance:
     - {fileID: 352547908979269192, guid: e67669cca122cc0458d8980543799874, type: 3}
     - {fileID: 352547908979269188, guid: e67669cca122cc0458d8980543799874, type: 3}
     - {fileID: 352547908979269195, guid: e67669cca122cc0458d8980543799874, type: 3}
+    - {fileID: 6043060746738701003, guid: e67669cca122cc0458d8980543799874, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e67669cca122cc0458d8980543799874, type: 3}
 --- !u!4 &658867154 stripped
 Transform:
@@ -6911,7 +6912,8 @@ MonoBehaviour:
   _localData:
     _inventory:
       _inventory: []
-    Hp: 0
+    Hp:
+      _value: 0
 --- !u!4 &1193633138
 Transform:
   m_ObjectHideFlags: 0

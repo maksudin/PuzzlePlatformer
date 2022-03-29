@@ -44,20 +44,19 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private AnimatorController _animatorArmed;
         [SerializeField] private AnimatorController _animatorDisarmed;
 
-        private Coroutine _currentCoroutine;
 
-        private bool _hasDoubleJump;
         [Header("Rope Params")]
-        public bool PlayerAttachedToRope;
         [SerializeField] private float _pushForce;
+        public bool PlayerAttachedToRope;
 
         public CapsuleCollider2D HeroCollider;
 
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
+        private bool _hasDoubleJump;
 
-        
+        private Coroutine _currentCoroutine;
 
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
@@ -209,10 +208,10 @@ namespace PixelCrew.Creatures.Hero
 
         private void UpdateHeroHp()
         {
-            var savedHp = _session.Data.Hp;
+            var savedHp = _session.Data.Hp.Value;
             HealthComponent health = GetComponent<HealthComponent>();
             health.SetHealth(savedHp);
-            _session.Data.Hp = savedHp;
+            _session.Data.Hp.Value = savedHp;
         }
 
         private void UpdateHeroWeapon()
@@ -223,7 +222,7 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnHealthChange(int currentHealth)
         {
-            _session.Data.Hp = currentHealth;
+            _session.Data.Hp.Value = currentHealth;
         }
 
 

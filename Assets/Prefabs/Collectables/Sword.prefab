@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7305000996043466379}
   - component: {fileID: 1122586079325769153}
   - component: {fileID: 2799178651991200528}
+  - component: {fileID: 4666809486345729928}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -241,7 +242,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4612fa405cd05184c83033a842bb4f67, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.411
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -325,3 +326,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4666809486345729928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305000996043466372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1

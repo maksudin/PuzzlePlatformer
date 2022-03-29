@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -8741413388554494293}
   - component: {fileID: 9150871990853611083}
   - component: {fileID: 6178705784036091806}
+  - component: {fileID: 1771210979587213614}
   m_Layer: 0
   m_Name: Golden coin
   m_TagString: Untagged
@@ -351,6 +352,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1771210979587213614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3840671870126941408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
 --- !u!1 &3840671870366335432
 GameObject:
   m_ObjectHideFlags: 0

@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 391159104}
   - component: {fileID: 1170925577}
   - component: {fileID: 1170925578}
+  - component: {fileID: 8004997676119667862}
   m_Layer: 2
   m_Name: Bat
   m_TagString: Enemy
@@ -489,7 +490,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2476929adca66b4a89459cb2fff41b4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.52
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -573,3 +574,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8004997676119667862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931336485001384460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1

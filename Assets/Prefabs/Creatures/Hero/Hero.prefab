@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 6802289958535150977}
   - component: {fileID: 5437759764122078345}
   - component: {fileID: 23006833343747241}
+  - component: {fileID: 1086401406608443214}
   m_Layer: 0
   m_Name: Listener
   m_TagString: Untagged
@@ -89,7 +90,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.657
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -181,6 +182,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3748202892847673137}
   m_Enabled: 1
+--- !u!114 &1086401406608443214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748202892847673137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225d6008e692e6e41ad5905fd5182a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
 --- !u!1 &5844312339704108808
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,8 +5463,8 @@ MonoBehaviour:
   _hitParticles: {fileID: 7240798277816311838}
   _animatorArmed: {fileID: 9100000, guid: c74a40a3dbeef5947b4e65ad14ae75e6, type: 2}
   _animatorDisarmed: {fileID: 9100000, guid: 9205a98f285273a4cb1a91f3bd409167, type: 2}
-  PlayerAttachedToRope: 0
   _pushForce: 0.66
+  PlayerAttachedToRope: 0
   HeroCollider: {fileID: 7240798278516988271}
 --- !u!50 &7240798278516988176
 Rigidbody2D:
@@ -5604,7 +5618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56e89229f510ed4e9e885f8f127d6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 0}
   _sounds:
   - _id: Jump
     _clip: {fileID: 8300000, guid: c629afcf3c4258642929dfe84f985642, type: 3}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c5e0ccce4595d42beca45e61e141d2, type: 3}
-  m_Name: DefsFacade
+  m_Script: {fileID: 11500000, guid: d393e71756ec240408364fc2838e4021, type: 3}
+  m_Name: PlayerDef
   m_EditorClassIdentifier: 
-  _items: {fileID: 11400000, guid: c627986a74acda64ba6f50d46c57d4d0, type: 2}
-  _player: {fileID: 11400000, guid: 3d6210fe9cee819439248e4ba24ef35b, type: 2}
+  _inventorySize: 3
+  _maxHealth: 10

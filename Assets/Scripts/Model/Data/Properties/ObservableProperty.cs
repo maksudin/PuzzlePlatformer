@@ -1,53 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
-    [Serializable]
-    public abstract class ObservableProperty<TPropertyType>
+    public class ObservableProperty<TPropertyType>
     {
-        [SerializeField] protected TPropertyType _propertyValue;
-        private TPropertyType _stored;
-
-        private TPropertyType _defaultValue;
+        [SerializeField] private TPropertyType _value;
 
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
 
-        public ObservableProperty(TPropertyType defvalue)
-        {
-            _defaultValue = defvalue;
-        }
-
         public TPropertyType Value
         {
-            get => _stored;
+            get => _value;
             set
             {
-                var isEquals = _stored.Equals(value);
-                if (isEquals) return;
+                var isSame = _value.Equals(value);
+                if (isSame) return;
+                var oldValue = _value;
 
-                var oldValue = _propertyValue;
-                Write(value);
-                _stored =_propertyValue = value;
-
-                OnChanged?.Invoke(value, oldValue);
+                _value = value;
+                OnChanged?.Invoke(_value, oldValue);
             }
         }
-
-        public void Validate()
-        {
-            if (!_stored.Equals(_propertyValue))
-                Value = _propertyValue;
-        }
-
-        protected void Init()
-        {
-            _stored = _propertyValue = Read(_defaultValue);
-        }
-
-        protected abstract void Write(TPropertyType value);
-        protected abstract TPropertyType Read(TPropertyType defaultValue);
     }
 }
