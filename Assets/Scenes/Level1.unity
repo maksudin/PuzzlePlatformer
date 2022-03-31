@@ -9646,7 +9646,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _localData:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 1
+      - Id: Sword
+        Value: 1
+      - Id: Key
+        Value: 1
     Hp:
       _value: 0
 --- !u!4 &1102416633

@@ -95,6 +95,13 @@ namespace PixelCrew.Model.Data
             }
             return count;
         }
+
+        public InventoryItemData[] GetAll()
+        {
+            return _inventory.ToArray();
+        }
+
+
     }
 
     [Serializable]
