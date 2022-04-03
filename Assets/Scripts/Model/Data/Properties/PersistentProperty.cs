@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections;
+using PixelCrew.Utils.Disposables;
 using UnityEngine;
 
 namespace PixelCrew.Model.Data.Properties
 {
-    [Serializable]
-    public abstract class PersistentProperty<TPropertyType>
+    public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
-        [SerializeField] protected TPropertyType _propertyValue;
         protected TPropertyType _stored;
 
         private TPropertyType _defaultValue;
-
-        public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
-        public event OnPropertyChanged OnChanged;
 
         public PersistentProperty(TPropertyType defvalue)
         {
             _defaultValue = defvalue;
         }
 
-        public TPropertyType Value
+        public override TPropertyType Value
         {
             get => _stored;
             set
@@ -28,23 +24,23 @@ namespace PixelCrew.Model.Data.Properties
                 var isEquals = _stored.Equals(value);
                 if (isEquals) return;
 
-                var oldValue = _propertyValue;
+                var oldValue = _value;
                 Write(value);
-                _stored =_propertyValue = value;
+                _stored =_value = value;
 
-                OnChanged?.Invoke(value, oldValue);
+                InvokeChangedEvent(value, oldValue);
             }
         }
 
         public void Validate()
         {
-            if (!_stored.Equals(_propertyValue))
-                Value = _propertyValue;
+            if (!_stored.Equals(_value))
+                Value = _value;
         }
 
         protected void Init()
         {
-            _stored = _propertyValue = Read(_defaultValue);
+            _stored = _value = Read(_defaultValue);
         }
 
         protected abstract void Write(TPropertyType value);
