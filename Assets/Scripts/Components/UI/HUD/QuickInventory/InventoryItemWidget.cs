@@ -17,7 +17,7 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
         [SerializeField] private Text _text;
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
-        private int _index;
+        private int _index = 0;
 
 
         private void Start()
@@ -36,7 +36,7 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
             _index = index;
             var def = DefsFacade.I.Items.Get(item.Id);
             _icon.sprite = def.Icon;
-            _text.text = def.ShouldStack ? item.Value.ToString() : string.Empty;
+            _text.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
         }
     }
 }

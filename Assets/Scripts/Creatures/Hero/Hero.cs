@@ -13,6 +13,8 @@ using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using PixelCrew.Model.Data;
 using PixelCrew.Components.UI.EscMenu;
+using PixelCrew.Components.GoBased;
+using PixelCrew.Model.Definitions;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -43,6 +45,7 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private AnimatorController _animatorArmed;
         [SerializeField] private AnimatorController _animatorDisarmed;
+        [SerializeField] private SpawnComponent _throwSpawner;
 
 
         [Header("Rope Params")]
@@ -54,6 +57,8 @@ namespace PixelCrew.Creatures.Hero
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
+
+     
         private bool _hasDoubleJump;
 
         private Coroutine _currentCoroutine;
@@ -61,9 +66,25 @@ namespace PixelCrew.Creatures.Hero
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
-        private int SwordCount => _session.Data.Inventory.Count("Sword");
+        private const string SwordId = "Sword";
+
+        private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         private int PotionCount => _session.Data.Inventory.Count("Potion");
+
+        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+
+        private bool CanThrow
+        {
+            get
+            {
+                if (SelectedItemId == SwordId)
+                    return SwordCount > 1;
+
+                var def = DefsFacade.I.Items.Get(SelectedItemId);
+                return def.HasTag(ItemTag.Throwable);
+            }
+        }
 
         protected override void Awake()
         {
@@ -97,7 +118,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void OnInventoryChanged(string id, int value)
         {
-            if (id == "Sword")
+            if (id == SwordId)
                 UpdateHeroWeapon();
         }
 
@@ -107,21 +128,25 @@ namespace PixelCrew.Creatures.Hero
             UpdateHeroWeapon();
         }
 
+        public void NextItem()
+        {
+            _session.QuickInventory.SetNextItem();
+        }
+
         public void AddInInventory(string id, int value)
         {
             _session.Data.Inventory.Add(id, value);
         }
 
-        public void UsePotion()
-        {
-            if (PotionCount > 0)
-            {
-                HealthComp.Heal(_potionHeal);
-                _session.Data.Inventory.Remove("Potion", 1);
-                Particles.Spawn("Potion");
-            }
-
-        }
+        //public void UsePotion()
+        //{
+        //    if (PotionCount > 0)
+        //    {
+        //        HealthComp.Heal(_potionHeal);
+        //        _session.Data.Inventory.Remove("Potion", 1);
+        //        Particles.Spawn("Potion");
+        //    }
+        //}
 
         public void CallMenu()
         {
@@ -161,31 +186,24 @@ namespace PixelCrew.Creatures.Hero
         {
             if (hasCooldown)
             {
-                if (_throwCooldown.IsReady && SwordCount > 1)
+                if (_throwCooldown.IsReady && CanThrow)
                 {
-                    Sounds.Play("Range");
                     Animator.SetTrigger(ThrowKey);
                     _throwCooldown.Reset();
-                    _session.Data.Inventory.Remove("Sword", 1);
                     return;
                 }
             }
-            else if (SwordCount > 1)
+            else if (CanThrow)
             {
-                Sounds.Play("Range");
                 Animator.SetTrigger(ThrowKey);
-                _session.Data.Inventory.Remove("Sword", 1);
             }
         }
 
         public void ThrowBurst()
         {
-            if (SwordCount > 1)
-            {
-                if (_currentCoroutine != null)
-                    StopCoroutine(_currentCoroutine);
-                _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
-            }
+            if (_currentCoroutine != null)
+                StopCoroutine(_currentCoroutine);
+            _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
         }
 
         private IEnumerator ThrowBurstCoroutine()
@@ -201,9 +219,17 @@ namespace PixelCrew.Creatures.Hero
             StopCoroutine(_currentCoroutine);
         }
 
-        public void OnDoThrow()
+        public void ThrowAndRemoveFromInventory()
         {
-            Particles.Spawn("Throw");
+            Sounds.Play("Range");
+            var throwableId = _session.QuickInventory.SelectedItem.Id;
+            var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+
+            _throwSpawner.SetPrefub(throwableDef.Projectile);
+            _throwSpawner.Spawn();
+
+            _session.Data.Inventory.Remove(throwableId, 1);
+
         }
 
         private void UpdateHeroHp()

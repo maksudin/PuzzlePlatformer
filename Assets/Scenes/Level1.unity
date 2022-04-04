@@ -5622,6 +5622,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0748105865155b54b98737c06e7ab401, type: 3}
+--- !u!114 &730792661 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8526683799489118952, guid: d005d71aa8aa38e43a273a3e7e92843e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2051316014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f54d4189b319344a0e1037e09f1829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &787457603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9647,10 +9659,10 @@ MonoBehaviour:
   _localData:
     _inventory:
       _inventory:
-      - Id: Coin
-        Value: 1
+      - Id: PearlProjectile
+        Value: 15
       - Id: Sword
-        Value: 1
+        Value: 10
       - Id: Key
         Value: 1
     Hp:
@@ -16368,6 +16380,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7240798278516988177, guid: d005d71aa8aa38e43a273a3e7e92843e,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c74a40a3dbeef5947b4e65ad14ae75e6, type: 2}
     - target: {fileID: 7240798278516988178, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -16433,6 +16450,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988270, guid: d005d71aa8aa38e43a273a3e7e92843e,
+        type: 3}
+      propertyPath: _throwSpawner
+      value: 
+      objectReference: {fileID: 730792661}
     - target: {fileID: 7240798278516988270, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: _canvasTransform

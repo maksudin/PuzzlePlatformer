@@ -35,8 +35,8 @@ namespace PixelCrew.Model.Data.Properties
                 var isSame = _value.Equals(value);
                 if (isSame) return;
                 var oldValue = _value;
-                InvokeChangedEvent(_value, oldValue);
                 _value = value;
+                InvokeChangedEvent(_value, oldValue);
             }
         }
 

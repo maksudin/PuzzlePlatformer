@@ -21,7 +21,7 @@ namespace PixelCrew.Creatures.Hero
             _inputActions.Hero.Interact.performed += OnInteract;
             _inputActions.Hero.Attack.performed += OnAttack;
             _inputActions.Hero.Throw.performed += OnThrow;
-            _inputActions.Hero.Usepotion.performed += OnUsePotion;
+            _inputActions.Hero.NextItem.performed += NextItem;
             _inputActions.Hero.Menu.performed += OnCallMenu;
         }
 
@@ -35,7 +35,7 @@ namespace PixelCrew.Creatures.Hero
             _inputActions.Hero.Interact.performed -= OnInteract;
             _inputActions.Hero.Attack.performed -= OnAttack;
             _inputActions.Hero.Throw.performed -= OnThrow;
-            _inputActions.Hero.Usepotion.performed -= OnUsePotion;
+            _inputActions.Hero.NextItem.performed -= NextItem;
             _inputActions.Hero.Menu.performed -= OnCallMenu;
 
         }
@@ -53,11 +53,11 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        private void OnUsePotion(InputAction.CallbackContext context)
+        private void NextItem(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _hero.UsePotion();
+                _hero.NextItem();
             }
         }
 

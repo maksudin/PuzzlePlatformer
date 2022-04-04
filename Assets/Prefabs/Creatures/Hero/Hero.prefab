@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 5218047532002665110}
   - component: {fileID: 8526683799489118952}
   m_Layer: 17
-  m_Name: ThrowSword
+  m_Name: ThrowSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5463,6 +5463,7 @@ MonoBehaviour:
   _hitParticles: {fileID: 7240798277816311838}
   _animatorArmed: {fileID: 9100000, guid: c74a40a3dbeef5947b4e65ad14ae75e6, type: 2}
   _animatorDisarmed: {fileID: 9100000, guid: 9205a98f285273a4cb1a91f3bd409167, type: 2}
+  _throwSpawner: {fileID: 0}
   _pushForce: 0.66
   PlayerAttachedToRope: 0
   HeroCollider: {fileID: 7240798278516988271}

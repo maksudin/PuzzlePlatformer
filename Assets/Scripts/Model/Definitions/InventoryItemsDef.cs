@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -10,10 +11,6 @@ namespace PixelCrew.Model.Definitions
     {
         [SerializeField] private ItemDef[] _items;
 
-#if UNITY_EDITOR
-        public ItemDef[] ItemsForEditor => _items;
-#endif
-
         public ItemDef Get(string id)
         {
             foreach (var itemDef in _items)
@@ -23,6 +20,10 @@ namespace PixelCrew.Model.Definitions
             }
             return default;
         }
+
+#if UNITY_EDITOR
+        public ItemDef[] ItemsForEditor => _items;
+#endif
     }
 
     [Serializable]
@@ -32,13 +33,18 @@ namespace PixelCrew.Model.Definitions
         [SerializeField] private bool _shouldStack;
         [SerializeField] private int _maxAmount;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private ItemTag[] _tags;
 
         public string Id => _id;
-        public bool ShouldStack => _shouldStack;
         public int MaxAmount => _maxAmount;
 
         public bool IsVoid => string.IsNullOrEmpty(_id);
 
         public Sprite Icon => _icon;
+
+        public bool HasTag(ItemTag tag)
+        {
+            return _tags.Contains(tag);
+        }
     }
 }

@@ -38,6 +38,11 @@ namespace PixelCrew.Components.GoBased
             }
             
         }
+
+        public void SetPrefub(GameObject prefab)
+        {
+            _prefab = prefab;
+        }
     }
 }
 
