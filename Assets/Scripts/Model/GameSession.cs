@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PixelCrew.Model.Data;
+using PixelCrew.Model.Definitions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,7 @@ namespace PixelCrew.Model
         private void Awake()
         {
             LoadHUD();
+            
 
             if (IsSessionExit())
             {
@@ -30,6 +32,7 @@ namespace PixelCrew.Model
             else
             {
                 InitModels();
+                LoadHP();
                 DontDestroyOnLoad(this);
             }
         }
@@ -42,6 +45,11 @@ namespace PixelCrew.Model
         private void LoadHUD()
         {
             SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        }
+
+        private void LoadHP()
+        {
+            Data.Hp.Value = DefsFacade.I.Player.MaxHealth;
         }
 
         private bool IsSessionExit()

@@ -98,8 +98,8 @@ namespace PixelCrew.Creatures.Hero
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            _session.Data.Inventory.OnChanged += OnInventoryChanged;
-            _session.Data.Inventory.OnChanged += AnotherHandler;
+            _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
+            _session.Data.Inventory.OnChangedInventory += AnotherHandler;
 
             LoadSession();
         }
@@ -107,8 +107,8 @@ namespace PixelCrew.Creatures.Hero
         private void OnDestroy()
         {
             if (!_session) return;
-            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
-            _session.Data.Inventory.OnChanged -= AnotherHandler;
+            _session.Data.Inventory.OnChangedInventory -= OnInventoryChanged;
+            _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
         }
 
         private void AnotherHandler(string id, int value)

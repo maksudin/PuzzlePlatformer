@@ -24,7 +24,7 @@ namespace PixelCrew.Model.Data
             _data = data;
 
             Inventory = _data.Inventory.GetAll(ItemTag.Usable);
-            _data.Inventory.OnChanged += OnChangedInventory;
+            _data.Inventory.OnChangedInventory += OnChangedInventory;
         }
 
         public IDisposable Subscribe(Action call)

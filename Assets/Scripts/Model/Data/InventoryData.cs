@@ -15,7 +15,8 @@ namespace PixelCrew.Model.Data
         public delegate void OnInventoryChanged(string id, int value);
         // Эквивалент делегату public Action<string, int> OnChanged;
 
-        public OnInventoryChanged OnChanged;
+        public OnInventoryChanged OnChangedInventory;
+        public event Action OnChanged;
 
         public void Add(string id, int value)
         {
@@ -28,7 +29,8 @@ namespace PixelCrew.Model.Data
                 var newItem = new InventoryItemData(id);
                 _inventory.Add(newItem);
                 newItem.Value += value;
-                OnChanged?.Invoke(id, Count(id));
+                OnChangedInventory?.Invoke(id, Count(id));
+                OnChanged?.Invoke();
                 return;
             }
 
@@ -42,7 +44,9 @@ namespace PixelCrew.Model.Data
             if (item.Value == itemDef.MaxAmount && itemDef.MaxAmount != 0) return;
 
             item.Value += value;
-            OnChanged?.Invoke(id, Count(id));
+            OnChangedInventory?.Invoke(id, Count(id));
+            OnChanged?.Invoke();
+
         }
 
         public void Remove(string id, int value)
@@ -71,7 +75,9 @@ namespace PixelCrew.Model.Data
             if (item.Value <= 0)
                 _inventory.Remove(item);
 
-            OnChanged?.Invoke(id, Count(id));
+            OnChangedInventory?.Invoke(id, Count(id));
+            OnChanged?.Invoke();
+
         }
 
 

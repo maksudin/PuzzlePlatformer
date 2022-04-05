@@ -36,7 +36,8 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
             _index = index;
             var def = DefsFacade.I.Items.Get(item.Id);
             _icon.sprite = def.Icon;
-            _text.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
+            if (_text != null)
+                _text.text = def.HasTag(ItemTag.Stackable) ? item.Value.ToString() : string.Empty;
         }
     }
 }

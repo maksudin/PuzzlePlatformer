@@ -312,16 +312,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver coin (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
-      objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
       propertyPath: m_RootOrder
@@ -5555,16 +5545,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver coin (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
-      objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
       propertyPath: m_RootOrder
@@ -9407,16 +9387,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver coin (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
-      objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
       propertyPath: m_RootOrder
@@ -9560,16 +9530,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver coin (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
-      objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
       propertyPath: m_RootOrder
@@ -9693,11 +9653,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Silver coin
       objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
       propertyPath: m_RootOrder
@@ -9766,16 +9721,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Silver coin (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
       objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
@@ -10009,16 +9954,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Silver coin (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
       objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
@@ -16553,16 +16488,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Silver coin (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1017918637405517461, guid: 0748105865155b54b98737c06e7ab401,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PickedSilverCoin
       objectReference: {fileID: 0}
     - target: {fileID: 1017918637405517463, guid: 0748105865155b54b98737c06e7ab401,
         type: 3}
