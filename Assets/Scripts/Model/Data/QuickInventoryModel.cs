@@ -38,10 +38,9 @@ namespace PixelCrew.Model.Data
             //var indexFound = Array.FindIndex(Inventory, x => x.Id == id);
             //if (indexFound != -1)
             //{
-                Inventory = _data.Inventory.GetAll(ItemTag.Usable);
-                SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
-                OnChanged?.Invoke();
-            //}
+            Inventory = _data.Inventory.GetAll(ItemTag.Usable);
+            SelectedIndex.Value = Mathf.Clamp(SelectedIndex.Value, 0, Inventory.Length - 1);
+            OnChanged?.Invoke();
         }
 
         public void SetNextItem()
