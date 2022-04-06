@@ -27,12 +27,16 @@ namespace PixelCrew.Creatures.Hero
         private GameObject _menuInstance;
 
         [Header("Hero Params")]
-        [SerializeField] private int _potionHeal;
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
+
+        [Header("Potions Params")]
+        [SerializeField] private int _redPotionHeal = 5;
+        [SerializeField] private int _bluePotionHeal = 10;
+
 
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
@@ -67,10 +71,12 @@ namespace PixelCrew.Creatures.Hero
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
         private const string SwordId = "Sword";
+        private const string RedPotion = "RedPotion";
+        private const string BluePotion = "BluePotion";
 
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinCount => _session.Data.Inventory.Count("Coin");
-        private int PotionCount => _session.Data.Inventory.Count("Potion");
+        //private int PotionCount => _session.Data.Inventory.Count("Potion");
 
         private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
 
@@ -178,8 +184,39 @@ namespace PixelCrew.Creatures.Hero
 
         public override void Attack()
         {
+            if (SelectedItemId == RedPotion)
+            {
+                UsePotion(RedPotion);
+                return;
+            }
+
+            if (SelectedItemId == BluePotion)
+            {
+                UsePotion(BluePotion);
+                return;
+            }
+
+            if (SelectedItemId == SwordId)
+                base.Attack();
+
             if (SwordCount <= 0) return;
-            base.Attack();
+        }
+
+        private void UsePotion(string potion)
+        {
+            if (potion == RedPotion)
+            {
+                HealthComp.Heal(_redPotionHeal);
+                _session.Data.Inventory.Remove(RedPotion, 1);
+            }
+
+            if (potion == BluePotion)
+            {
+                HealthComp.Heal(_bluePotionHeal);
+                _session.Data.Inventory.Remove(BluePotion, 1);
+            }
+
+            Particles.Spawn("Potion");
         }
 
         public void Throw(bool hasCooldown)
