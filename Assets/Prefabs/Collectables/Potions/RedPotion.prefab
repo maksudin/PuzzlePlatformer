@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 689729428393653173}
   - component: {fileID: -4680144994072058609}
   - component: {fileID: 8089062626499694045}
+  - component: {fileID: 218679064}
   m_Layer: 0
   m_Name: RedPotion
   m_TagString: Untagged
@@ -78,8 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -334018285
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3714227102187029162, guid: 5812ceff15f8d854aaf3efa8509d91eb,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb794182567b11047a31256ffc7ae760, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,13 +105,13 @@ MonoBehaviour:
   _frameRate: 10
   _loop: 1
   _sprites:
-  - {fileID: 3714227102187029162, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: -6202940564662568092, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: -8747976068718324687, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: 7142050841817600938, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: -860807820763296739, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: -5249288142952506341, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
-  - {fileID: 1089735312403315716, guid: 5812ceff15f8d854aaf3efa8509d91eb, type: 3}
+  - {fileID: 21300000, guid: bb794182567b11047a31256ffc7ae760, type: 3}
+  - {fileID: 21300000, guid: 3e0de2ccbc0cd6d489f7c47ec28bcdf0, type: 3}
+  - {fileID: 21300000, guid: a0ded0157fb18924d978f0c8359c764f, type: 3}
+  - {fileID: 21300000, guid: 397410e966b63f240be7b215282229a6, type: 3}
+  - {fileID: 21300000, guid: 98a745c9fab78754eade66d4fdcbc61b, type: 3}
+  - {fileID: 21300000, guid: 17b5223d2e9ca9c4da497336cba66c25, type: 3}
+  - {fileID: 21300000, guid: c63d0d23a59462841b20f1bf067769ab, type: 3}
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -178,6 +178,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 4675467592997759895}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 218679064}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -320,6 +331,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 1
+--- !u!114 &218679064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675467592997759895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b0d8ab75a17c04d92776fbb97a76b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: RedPotion
+  _count: 1
 --- !u!1 &4675467593199291816
 GameObject:
   m_ObjectHideFlags: 0

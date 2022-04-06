@@ -30,9 +30,11 @@ namespace PixelCrew.Model.Definitions
     public struct ItemDef
     {
         [SerializeField] private string _id;
-        [SerializeField] private bool _shouldStack;
         [SerializeField] private int _maxAmount;
+        [Header("Icon params")]
         [SerializeField] private Sprite _icon;
+        [SerializeField] private float _iconScale;
+        [Space]
         [SerializeField] private ItemTag[] _tags;
 
         public string Id => _id;
@@ -41,6 +43,7 @@ namespace PixelCrew.Model.Definitions
         public bool IsVoid => string.IsNullOrEmpty(_id);
 
         public Sprite Icon => _icon;
+        public float IconScale => _iconScale;
 
         public bool HasTag(ItemTag tag)
         {
