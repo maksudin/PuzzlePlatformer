@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace PixelCrew.Components.Movement
 {
+    [RequireComponent(typeof(Rigidbody2D))]
     public class VerticalLevitationComponent : MonoBehaviour
     {
-        [SerializeField] private float _frequency = 1f;
-        [SerializeField] private float _amplitude = 1f;
+        [SerializeField] private float _frequency = 5f;
+        [SerializeField] private float _amplitude = 0.1f;
         [SerializeField] private bool _randomize;
         private float _seed;
 
@@ -16,6 +17,7 @@ namespace PixelCrew.Components.Movement
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
             _originalY = _rigidbody.transform.position.y;
             if (_randomize)
                 _seed = Random.value * Mathf.PI * 2;
