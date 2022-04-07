@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Components.UI.HUD
+namespace PixelCrew.Components.UI.HUD
 {
     public class AddCameraToCanvas : MonoBehaviour
     {
