@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections;
 using UnityEditor;
-using UnityEngine;
 
 namespace PixelCrew.Utils.Editor
 {
     public static class SerializedPropertyExtensions
     {
-        public static bool GetEnum<TEnumType>(this SerializedProperty property, out TEnumType retValue)
+        public static bool GetEnum<TEnumType>(this SerializedProperty property, out TEnumType retValue) 
+            where TEnumType : Enum
         {
             retValue = default;
             var names = property.enumNames;
@@ -18,6 +17,5 @@ namespace PixelCrew.Utils.Editor
             retValue = (TEnumType) Enum.Parse(typeof(TEnumType), enumName);
             return true;
         }
-
     }
 }

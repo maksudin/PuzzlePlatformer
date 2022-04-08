@@ -11,7 +11,5 @@ namespace PixelCrew.Utils
         {
             return GameObject.FindWithTag(SfxSourceTag).GetComponent<AudioSource>();
         }
-
-
     }
 }

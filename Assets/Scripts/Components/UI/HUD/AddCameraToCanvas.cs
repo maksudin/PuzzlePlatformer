@@ -7,6 +7,8 @@ namespace PixelCrew.Components.UI.HUD
     {
         private Canvas _canvas;
 
+        [SerializeField] private string _layerName;
+
         private void Start()
         {
             var camera = FindObjectOfType<Camera>();
@@ -16,7 +18,7 @@ namespace PixelCrew.Components.UI.HUD
 
             _canvas.renderMode = RenderMode.ScreenSpaceCamera;
             _canvas.worldCamera = camera;
-            _canvas.sortingLayerName = "Health Bar";
+            _canvas.sortingLayerName = _layerName;
         }
     }
 }
