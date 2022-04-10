@@ -49,6 +49,7 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private AnimatorController _animatorArmed;
         [SerializeField] private AnimatorController _animatorDisarmed;
+
         [SerializeField] private SpawnComponent _throwSpawner;
 
 
@@ -64,6 +65,7 @@ namespace PixelCrew.Creatures.Hero
 
      
         private bool _hasDoubleJump;
+        private bool _isDashing;
 
         private Coroutine _currentCoroutine;
 
@@ -144,15 +146,10 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Add(id, value);
         }
 
-        //public void UsePotion()
-        //{
-        //    if (PotionCount > 0)
-        //    {
-        //        HealthComp.Heal(_potionHeal);
-        //        _session.Data.Inventory.Remove("Potion", 1);
-        //        Particles.Spawn("Potion");
-        //    }
-        //}
+        public void SetDash(bool isDashing)
+        {
+            _isDashing = isDashing;
+        }
 
         public void CallMenu()
         {
@@ -326,6 +323,13 @@ namespace PixelCrew.Creatures.Hero
         {
             base.UpdateAnimatorVals();
             Animator.SetBool(RopeAttached, PlayerAttachedToRope);
+        }
+
+
+        protected override float CalculateXVelocity()
+        {
+            var modifier = _isDashing ? 10 : 1;
+            return base.CalculateXVelocity() * modifier;
         }
 
 

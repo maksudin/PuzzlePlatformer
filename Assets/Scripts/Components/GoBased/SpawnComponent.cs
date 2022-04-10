@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
@@ -12,7 +13,7 @@ namespace PixelCrew.Components.GoBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            GameObject instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
+            GameObject instantiate = SpawnUtills.Spawn(_prefab, _target.position);
             instantiate.transform.localScale = _target.lossyScale;
         }
 
@@ -21,7 +22,8 @@ namespace PixelCrew.Components.GoBased
             Vector3 newPosition = new Vector3(_target.position.x + offset.x,
                                               _target.position.y + offset.y,
                                               _target.position.z);
-            GameObject instantiate = Instantiate(_prefab, newPosition, Quaternion.identity);
+            
+            GameObject instantiate = SpawnUtills.Spawn(_prefab, newPosition);
             instantiate.transform.localScale = _target.lossyScale;
         }
 
@@ -33,7 +35,7 @@ namespace PixelCrew.Components.GoBased
                 Vector3 newPosition = new Vector3(Random.Range(minPos.x, maxPos.x),
                                                   Random.Range(minPos.y, maxPos.y),
                                                   _target.position.z);
-                GameObject instantiate = Instantiate(go, newPosition, Quaternion.identity); ;
+                GameObject instantiate = SpawnUtills.Spawn(_prefab, newPosition);
                 instantiate.transform.localScale = _target.lossyScale;
             }
             

@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace PixelCrew.Components.Audio
 {
-    [RequireComponent(typeof(AudioSource))]
     public class AudioSettingsComponent : MonoBehaviour
     {
         [SerializeField] private SoundSetting _mode;

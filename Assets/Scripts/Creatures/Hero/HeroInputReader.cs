@@ -25,8 +25,6 @@ namespace PixelCrew.Creatures.Hero
             _inputActions.Hero.Menu.performed += OnCallMenu;
         }
 
-        
-
         private void OnDestroy()
         {
             _inputActions.Hero.Movement.performed -= OnMovement;
@@ -37,13 +35,13 @@ namespace PixelCrew.Creatures.Hero
             _inputActions.Hero.Throw.performed -= OnThrow;
             _inputActions.Hero.NextItem.performed -= NextItem;
             _inputActions.Hero.Menu.performed -= OnCallMenu;
-
         }
 
         private void OnEnable()
         {
             _inputActions.Enable();
         }
+
 
         private void OnCallMenu(InputAction.CallbackContext obj)
         {
