@@ -3730,6 +3730,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1781839566}
+    - target: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988266, guid: 8255784d49ea95440aadf6a554d1e5cb,
         type: 3}
       propertyPath: m_Name
@@ -11188,6 +11213,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaf02960121496548b046eab7a0e9415, type: 3}
+--- !u!114 &1781839566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7240798278516988178, guid: 8255784d49ea95440aadf6a554d1e5cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 975697256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff8c68f4721f9842986ce829cc4cab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2053012779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 148543111, guid: 3f4981f6f4f2e084b8dcfeab9e2645e3,

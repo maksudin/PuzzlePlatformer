@@ -13,18 +13,11 @@ namespace PixelCrew.Components.Health
         [SerializeField] private int _currentHealth;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] private UnityEvent _onDie;
-        [SerializeField] private HealthChangeEvent _onChange;
+        [SerializeField] public UnityEvent OnDie;
+        [SerializeField] public HealthChangeEvent OnChange;
 
-        public int MaxHealth
-        {
-            get {return _maxHealth;}
-        }
-
-        public int CurrentHealth
-        {
-            get { return _currentHealth;}
-        }
+        public int MaxHealth => _maxHealth;
+        public int CurrentHealth => _currentHealth;
 
         private void Awake()
         {
@@ -34,11 +27,11 @@ namespace PixelCrew.Components.Health
         public void ApplyDamage(int damageValue)
         {
             _currentHealth -= damageValue;
-            _onChange?.Invoke(_currentHealth);
+            OnChange?.Invoke(_currentHealth);
             _onDamage?.Invoke();    // Проверка на null
             if (_currentHealth <= 0)
             {
-                _onDie?.Invoke();
+                OnDie?.Invoke();
             }
 
         }
@@ -55,7 +48,7 @@ namespace PixelCrew.Components.Health
                 _currentHealth += healValue;
             }
 
-            _onChange?.Invoke(_currentHealth);
+            OnChange?.Invoke(_currentHealth);
             _onHeal?.Invoke();
         }
 

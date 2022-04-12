@@ -5328,6 +5328,7 @@ GameObject:
   - component: {fileID: 7240798278516988178}
   - component: {fileID: 8400781137852015022}
   - component: {fileID: 1026003396}
+  - component: {fileID: 6670934604056636843}
   m_Layer: 17
   m_Name: Hero
   m_TagString: Player
@@ -5555,10 +5556,10 @@ MonoBehaviour:
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
-  _onDie:
+  OnDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6670934604056636843}
         m_MethodName: Reload
         m_Mode: 1
         m_Arguments:
@@ -5569,20 +5570,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChange:
+  OnChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7240798278516988270}
-        m_MethodName: OnHealthChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8400781137852015022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5631,6 +5621,18 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 58d96da2c2a88fb44ae0c36554097185, type: 3}
   - _id: Die
     _clip: {fileID: 8300000, guid: dfebefdd1dd77f84781ea157b9c57bb0, type: 3}
+--- !u!114 &6670934604056636843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7240798278516988266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f430405eebef324fb5bb2d033172fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7240798279233525139
 GameObject:
   m_ObjectHideFlags: 0

@@ -88,7 +88,7 @@ namespace PixelCrew.Creatures.Mobs
         private void SetDirectionToTarget()
         {
             var direction = GetDirectionToTarget();
-            _creature.Direction = direction;
+            _creature.SetDirection(new Vector2(direction.x, direction.y));
         }
 
         private Vector2 GetDirectionToTarget()
