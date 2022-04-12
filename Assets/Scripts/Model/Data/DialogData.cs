@@ -9,6 +9,5 @@ namespace PixelCrew.Model.Data
     {
         [SerializeField] private string[] _sentences;
         public string[] Sentences => _sentences;
-
     }
 }

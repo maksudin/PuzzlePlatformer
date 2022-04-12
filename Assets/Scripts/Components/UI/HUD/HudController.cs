@@ -1,6 +1,8 @@
-﻿using PixelCrew.Components.UI.Widgets;
+﻿using PixelCrew.Components.UI.MainMenu;
+using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.UI.HUD
@@ -16,6 +18,11 @@ namespace PixelCrew.Components.UI.HUD
             _session = FindObjectOfType<GameSession>();
             _session.Data.Hp.OnChanged += OnHealthChanged;
             OnHealthChanged(_session.Data.Hp.Value, 0);
+        }
+
+        public void OnMenu()
+        {
+            WindowUtils.CreateWindow("UI/EscMenuWindow");
         }
 
         private void OnHealthChanged(int newValue, int oldValue)
