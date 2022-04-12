@@ -9161,11 +9161,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1995324311}
     m_Modifications:
-    - target: {fileID: 2532625500328678766, guid: 8255784d49ea95440aadf6a554d1e5cb,
-        type: 3}
-      propertyPath: _speed
-      value: 1.75
-      objectReference: {fileID: 0}
     - target: {fileID: 7240798278031301963, guid: 8255784d49ea95440aadf6a554d1e5cb,
         type: 3}
       propertyPath: _mask.m_Bits
@@ -25399,9 +25394,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7240798278516988178, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988178, guid: d005d71aa8aa38e43a273a3e7e92843e,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7240798278516988178, guid: d005d71aa8aa38e43a273a3e7e92843e,
+        type: 3}
       propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1909561520}
+    - target: {fileID: 7240798278516988178, guid: d005d71aa8aa38e43a273a3e7e92843e,
+        type: 3}
+      propertyPath: OnDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7240798278516988266, guid: d005d71aa8aa38e43a273a3e7e92843e,
         type: 3}
       propertyPath: m_Name
