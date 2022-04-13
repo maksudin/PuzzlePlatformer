@@ -1,22 +1,41 @@
 ﻿using System;
 using System.Collections;
+using PixelCrew.Components.UI.Widgets;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace PixelCrew.Components.UI.HUD.Dialogs
 {
     public class OptionDialogController : MonoBehaviour
     {
-        [SerializeField] private Text _contextText;
-        [SerializeField] private Transform _container;
+        [SerializeField] private GameObject _content;
+        [SerializeField] private Text _contentText;
+        [SerializeField] private Transform _optionsContainer;
         [SerializeField] private OptionItemWidget _prefab;
+
+        private DataGroup<OptionData, OptionItemWidget> _dataGroup;
+
+        private void Start()
+        {
+            _dataGroup = new DataGroup<OptionData, OptionItemWidget>(_prefab, _optionsContainer);
+        }
+
+        public void OnOptionsSelected(OptionData selectedOption)
+        {
+            selectedOption.OnSelect?.Invoke();
+            _content.SetActive(false);
+        }
 
         public void Show(OptionDialogData data)
         {
-            _contextText.text = data.DialogText;
+            _content.SetActive(true);
+            _contentText.text = data.DialogText;
+            _dataGroup.SetData(data.Options);
         }
     }
 
+    [Serializable]
     public class OptionDialogData
     {
         public string DialogText;
@@ -27,8 +46,7 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
     public class OptionData
     {
         public string Text;
-        public UnityEventQueueSystem OnSelect;
-
+        public UnityEvent OnSelect;
     }
 
 }
