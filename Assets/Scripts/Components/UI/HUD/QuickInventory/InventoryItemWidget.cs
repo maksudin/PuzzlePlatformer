@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
@@ -10,7 +11,7 @@ using static System.Collections.Specialized.BitVector32;
 
 namespace PixelCrew.Components.UI.HUD.QuickInventory
 {
-    public class InventoryItemWidget : MonoBehaviour
+    public class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
     {
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selection;
