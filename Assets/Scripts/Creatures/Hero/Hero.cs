@@ -268,10 +268,10 @@ namespace PixelCrew.Creatures.Hero
 
         private void UpdateHeroHp()
         {
-            var savedHp = _session.Data.Hp.Value;
+            var maxHp = DefsFacade.I.Player.MaxHealth;
+            _session.Data.Hp.Value = maxHp;
             HealthComponent health = GetComponent<HealthComponent>();
-            health.SetHealth(savedHp);
-            _session.Data.Hp.Value = savedHp;
+            health.SetHealth(maxHp);
         }
 
         private void UpdateHeroWeapon()
