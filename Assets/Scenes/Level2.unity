@@ -1401,12 +1401,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e41dc6eb5891b44eab5c640ca3d4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 0
+  _mode: 2
   _bound:
     _sentences:
     - Hahaha!..
     - You can't reach me!
   _external: {fileID: 0}
+  _keys:
+  - dialog_pinkstar_lvl2_part1
+  - dialog_pinkstar_lvl2_part2
 --- !u!1001 &933746793
 PrefabInstance:
   m_ObjectHideFlags: 0

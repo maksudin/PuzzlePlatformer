@@ -38,5 +38,19 @@ MonoBehaviour:
     Value: "back\r"
   - Key: button_ok
     Value: "ok\r"
+  - Key: button_continue
+    Value: "Continue\r"
   - Key: selected_language
-    Value: Selected language is (0)
+    Value: "Selected language is (0)\r"
+  - Key: dialog_barrel_lvl1
+    Value: "If only I had a sword.\r"
+  - Key: dialog_strangebox_lvl1_part1
+    Value: "Hello traveler!\r"
+  - Key: dialog_strangebox_lvl1_part2
+    Value: "A pirate without a weapon. Hm..\r"
+  - Key: dialog_strangebox_lvl1_part3
+    Value: "How strange is that.\r"
+  - Key: dialog_strangebox_lvl1_part4
+    Value: "Give me 8 coins.. \r"
+  - Key: dialog_strangebox_lvl1_part5
+    Value: And I will do something about it

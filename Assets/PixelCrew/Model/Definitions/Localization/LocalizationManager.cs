@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using PixelCrew.Components.UI.Windows.Localization;
 using PixelCrew.Model.Data.Properties;
 using UnityEngine;
 

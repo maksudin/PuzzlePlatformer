@@ -8,6 +8,10 @@ namespace PixelCrew.Model.Data
     public class DialogData
     {
         [SerializeField] private string[] _sentences;
-        public string[] Sentences => _sentences;
+        public string[] Sentences
+        {
+            get { return _sentences; }
+            set { _sentences = value; }
+        }
     }
 }

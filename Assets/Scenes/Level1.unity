@@ -16142,11 +16142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e41dc6eb5891b44eab5c640ca3d4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 0
+  _mode: 2
   _bound:
     _sentences:
     - If only I had a sword.
   _external: {fileID: 0}
+  _keys:
+  - dialog_barrel_lvl1
 --- !u!1 &1516421463
 GameObject:
   m_ObjectHideFlags: 0
@@ -17387,7 +17389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e41dc6eb5891b44eab5c640ca3d4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 0
+  _mode: 2
   _bound:
     _sentences:
     - Hello traveler!
@@ -17396,6 +17398,12 @@ MonoBehaviour:
     - 'Give me 8 coins.. '
     - And I will do something about it
   _external: {fileID: 0}
+  _keys:
+  - dialog_strangebox_lvl1_part1
+  - dialog_strangebox_lvl1_part2
+  - dialog_strangebox_lvl1_part3
+  - dialog_strangebox_lvl1_part4
+  - dialog_strangebox_lvl1_part5
 --- !u!114 &2128277027
 MonoBehaviour:
   m_ObjectHideFlags: 0

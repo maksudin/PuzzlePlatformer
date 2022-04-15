@@ -1,4 +1,5 @@
 ﻿using System;
+using PixelCrew.Model.Definitions.Localization;
 using UnityEditor;
 using UnityEngine;
 

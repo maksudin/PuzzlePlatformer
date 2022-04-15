@@ -3,6 +3,8 @@ using System.Collections;
 using PixelCrew.Components.UI.HUD.Dialogs;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Localization;
+using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.Dialogs
@@ -12,8 +14,11 @@ namespace PixelCrew.Components.Dialogs
         [SerializeField] private Mode _mode;
         [SerializeField] private DialogData _bound;
         [SerializeField] private DialogDef _external;
+        [SerializeField] private string[] _keys;
 
+        private DialogData _locales;
         private DialogBoxController _dialogBox;
+
 
         public void Show()
         {
@@ -39,6 +44,8 @@ namespace PixelCrew.Components.Dialogs
                         return _bound;
                     case Mode.External:
                         return _external.Data;
+                    case Mode.ExternalLocales:
+                        return DialogUtils.GetLocalizedDialogData(_keys);
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -48,7 +55,8 @@ namespace PixelCrew.Components.Dialogs
         public enum Mode
         {
             Bound,
-            External
+            External,
+            ExternalLocales
         }
 
     }

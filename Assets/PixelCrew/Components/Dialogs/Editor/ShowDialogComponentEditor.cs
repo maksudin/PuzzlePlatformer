@@ -1,4 +1,6 @@
-﻿using PixelCrew.Utils.Editor;
+﻿using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Localization;
+using PixelCrew.Utils.Editor;
 using UnityEditor;
 
 namespace PixelCrew.Components.Dialogs.Editor
@@ -27,6 +29,9 @@ namespace PixelCrew.Components.Dialogs.Editor
                         break;
                     case ShowDialogComponent.Mode.External:
                         EditorGUILayout.PropertyField(serializedObject.FindProperty("_external"));
+                        break;
+                    case ShowDialogComponent.Mode.ExternalLocales:
+                        EditorGUILayout.PropertyField(serializedObject.FindProperty("_keys"));
                         break;
                 }
             }
