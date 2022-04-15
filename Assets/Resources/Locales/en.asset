@@ -18,6 +18,12 @@ MonoBehaviour:
     Value: "menu\r"
   - Key: languages_title
     Value: "languages\r"
+  - Key: options_title
+    Value: "options\r"
+  - Key: options_label_music
+    Value: "music\r"
+  - Key: options_label_sfx
+    Value: "sfx\r"
   - Key: button_start
     Value: "start\r"
   - Key: button_option
@@ -30,5 +36,7 @@ MonoBehaviour:
     Value: "restart\r"
   - Key: button_back
     Value: "back\r"
+  - Key: button_ok
+    Value: "ok\r"
   - Key: selected_language
     Value: Selected language is (0)
