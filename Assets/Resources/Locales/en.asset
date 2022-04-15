@@ -22,8 +22,12 @@ MonoBehaviour:
     Value: "start\r"
   - Key: button_option
     Value: "options\r"
+  - Key: button_locales
+    Value: "languages\r"
   - Key: button_exit
     Value: "exit\r"
+  - Key: button_restart
+    Value: "restart\r"
   - Key: button_back
     Value: "back\r"
   - Key: selected_language

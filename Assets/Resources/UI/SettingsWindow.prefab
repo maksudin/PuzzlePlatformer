@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4810058711543736432}
   - component: {fileID: 771548642006253195}
   - component: {fileID: 3000802932637566706}
+  - component: {fileID: 4703504100423810768}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &4703504100423810768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165311584779566582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_ok
+  _capitalize: 1
 --- !u!1 &943948620278888782
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +641,7 @@ GameObject:
   - component: {fileID: 578387694181038358}
   - component: {fileID: 6215584222678310180}
   - component: {fileID: 9133044028043315055}
+  - component: {fileID: 5994349010472950857}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -645,7 +661,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8646367726281580913}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -693,6 +709,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Options
+--- !u!114 &5994349010472950857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927393877625723111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: options_title
+  _capitalize: 1
 --- !u!1 &5265390833498136923
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +886,7 @@ GameObject:
   - component: {fileID: 6834064877817048880}
   - component: {fileID: 2414523451168944657}
   - component: {fileID: 2682591617429732068}
+  - component: {fileID: 2900440903563199481}
   m_Layer: 5
   m_Name: SFX label
   m_TagString: Untagged
@@ -923,6 +954,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'SFX:'
+--- !u!114 &2900440903563199481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766564849196496679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: options_label_sfx
+  _capitalize: 1
 --- !u!1 &5958576437760691989
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,9 +998,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1537800039932025715}
   - {fileID: 578387694181038358}
   - {fileID: 52801092754585813}
+  - {fileID: 1537800039932025715}
   m_Father: {fileID: 6679813536139282541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1044,7 +1089,7 @@ RectTransform:
   - {fileID: 7006122359060547900}
   - {fileID: 6659929232543902832}
   m_Father: {fileID: 8646367726281580913}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1228,6 +1273,7 @@ GameObject:
   - component: {fileID: 3762706457948632692}
   - component: {fileID: 8600360370383080854}
   - component: {fileID: 4302627872727935829}
+  - component: {fileID: 6497480885729940293}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -1295,6 +1341,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: OK
+--- !u!114 &6497480885729940293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673050375551688331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: button_ok
+  _capitalize: 1
 --- !u!1 &8740872938411011323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1389,7 @@ RectTransform:
   - {fileID: 4810058711543736432}
   - {fileID: 3762706457948632692}
   m_Father: {fileID: 8646367726281580913}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1542,6 +1602,7 @@ GameObject:
   - component: {fileID: 6717519654766993558}
   - component: {fileID: 6951043347512453649}
   - component: {fileID: 4366537737630374458}
+  - component: {fileID: 778770712236142939}
   m_Layer: 5
   m_Name: Music label
   m_TagString: Untagged
@@ -1609,6 +1670,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Music:'
+--- !u!114 &778770712236142939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997300180116828303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _key: options_label_music
+  _capitalize: 1
 --- !u!1 &9194466357936934489
 GameObject:
   m_ObjectHideFlags: 0

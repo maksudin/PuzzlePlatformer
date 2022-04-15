@@ -22,8 +22,12 @@ MonoBehaviour:
     Value: "\u043D\u0430\u0447\u0430\u0442\u044C\r"
   - Key: button_option
     Value: "\u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\r"
+  - Key: button_locales
+    Value: "\u044F\u0437\u044B\u043A\u0438\r"
   - Key: button_exit
     Value: "\u0432\u044B\u0445\u043E\u0434\r"
+  - Key: button_restart
+    Value: "\u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u043A\r"
   - Key: button_back
     Value: "\u043D\u0430\u0437\u0430\u0434\r"
   - Key: selected_language

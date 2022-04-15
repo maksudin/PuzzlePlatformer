@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using PixelCrew.Components.UI.HUD.Dialogs;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model.Definitions.Localization;
 using UnityEngine;
@@ -20,7 +19,6 @@ namespace PixelCrew.Components.UI.Windows.Localization
             base.Start();
             _dataGroup = new DataGroup<LocaleInfo, LocaleItemWidget>(_prefab, _container);
             _dataGroup.SetData(ComposeData());
-
         }
 
 

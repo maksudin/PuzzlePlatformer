@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: -0.00000035762787}
+  m_AnchoredPosition: {x: 0, y: 1.3900001}
+  m_SizeDelta: {x: 0, y: 2.7799997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &955214981097509698
 CanvasRenderer:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_locales
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956553182748685
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_start
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956553343504506
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_option
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956553620127980
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_option
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956554203135116
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_start
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956554271943867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: menu_title
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956554568307132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_exit
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &5970956554647482938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: button_exit
-  _capitalize: 0
+  _capitalize: 1
 --- !u!1 &6644098001539908218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,5 +1650,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _key: button_option
-  _capitalize: 0
+  _key: button_locales
+  _capitalize: 1
