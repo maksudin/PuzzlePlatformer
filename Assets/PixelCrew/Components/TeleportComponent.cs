@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PixelCrew.Creatures.Hero;
 using UnityEngine;
 
 namespace PixelCrew.Components
@@ -8,9 +9,10 @@ namespace PixelCrew.Components
     {
         [SerializeField] private Transform _destTransform;
 
-        public void Teleport(GameObject target)
+        public void TeleportHero()
         {
-            target.transform.position = _destTransform.position;
+            var hero = FindObjectOfType<Hero>();
+            hero.transform.position = _destTransform.position;
         }
     }
 }
