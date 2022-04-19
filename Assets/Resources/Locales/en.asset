@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d863b52129644981bdc7611665325, type: 3}
   m_Name: en
   m_EditorClassIdentifier: 
-  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pub?gid=0&single=true&output=tsv
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pubhtml?gid=0&single=true
   _localeItems:
   - Key: menu_title
     Value: "menu\r"
@@ -53,4 +53,8 @@ MonoBehaviour:
   - Key: dialog_strangebox_lvl1_part4
     Value: "Give me 8 coins.. \r"
   - Key: dialog_strangebox_lvl1_part5
-    Value: And I will do something about it
+    Value: "And I will do something about it\r"
+  - Key: dialog_pinkstar_lvl2_part1
+    Value: "Hahaha!..\r"
+  - Key: dialog_pinkstar_lvl2_part2
+    Value: You can't reach me!
