@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d863b52129644981bdc7611665325, type: 3}
   m_Name: en
   m_EditorClassIdentifier: 
-  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pubhtml?gid=0&single=true
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pub?gid=0&single=true&output=tsv
   _localeItems:
   - Key: menu_title
     Value: "menu\r"
@@ -40,8 +40,6 @@ MonoBehaviour:
     Value: "ok\r"
   - Key: button_continue
     Value: "Continue\r"
-  - Key: selected_language
-    Value: "Selected language is (0)\r"
   - Key: dialog_barrel_lvl1
     Value: "If only I had a sword.\r"
   - Key: dialog_strangebox_lvl1_part1

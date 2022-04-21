@@ -11,9 +11,10 @@ namespace PixelCrew.Components
         [InventoryId][SerializeField] private string _id;
         [SerializeField] private int _count;
 
-        public void Add(GameObject go)
+        public void Add()
         {
-            var hero = go.GetComponent<ICanAddInInventory>();
+            //var hero = go.GetComponent<ICanAddInInventory>();
+            var hero = FindObjectOfType<Hero>();
             hero?.AddInInventory(_id, _count);
         }
     }

@@ -12,5 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d863b52129644981bdc7611665325, type: 3}
   m_Name: ru
   m_EditorClassIdentifier: 
-  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pubhtml?gid=1127676761&single=true
-  _localeItems: []
+  _url: https://docs.google.com/spreadsheets/d/e/2PACX-1vR1j7d4Zg18zytK3t94N2OFQUQLUE_MLBcIfclKmtoTcwcx0WuxbnfX3b2ezz1jta1rvMSOyHBVP8Nm/pub?gid=1127676761&single=true&output=tsv
+  _localeItems:
+  - Key: menu_title
+    Value: "\u043C\u0435\u043D\u044E\r"
+  - Key: languages_title
+    Value: "\u042F\u0437\u044B\u043A\r"
+  - Key: options_title
+    Value: "\u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\r"
+  - Key: options_label_music
+    Value: "\u043C\u0443\u0437\u044B\u043A\u0430\r"
+  - Key: options_label_sfx
+    Value: "\u0437\u0432\u0443\u043A\u0438\r"
+  - Key: button_start
+    Value: "\u043D\u0430\u0447\u0430\u0442\u044C\r"
+  - Key: button_option
+    Value: "\u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438\r"
+  - Key: button_locales
+    Value: "\u044F\u0437\u044B\u043A\u0438\r"
+  - Key: button_exit
+    Value: "\u0432\u044B\u0445\u043E\u0434\r"
+  - Key: button_restart
+    Value: "\u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u043A\r"
+  - Key: button_back
+    Value: "\u043D\u0430\u0437\u0430\u0434\r"
+  - Key: button_ok
+    Value: "\u043E\u043A\r"
+  - Key: button_continue
+    Value: "\u0414\u0430\u043B\u0435\u0435\r"
+  - Key: dialog_barrel_lvl1
+    Value: "\u0415\u0441\u043B\u0438 \u0431\u044B \u0443 \u043C\u0435\u043D\u044F
+      \u0431\u044B\u043B \u043C\u0435\u0447\r"
+  - Key: dialog_strangebox_lvl1_part1
+    Value: "\u041F\u0440\u0438\u0432\u0435\u0442 \u043F\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u0438\u043A!\r"
+  - Key: dialog_strangebox_lvl1_part2
+    Value: "\u041F\u0438\u0440\u0430\u0442 \u0431\u0435\u0437 \u043E\u0440\u0443\u0436\u0438\u044F.
+      \u0425\u043C..\r"
+  - Key: dialog_strangebox_lvl1_part3
+    Value: "\u041A\u0430\u043A \u0442\u043E \u044D\u0442\u043E \u0441\u0442\u0440\u0430\u043D\u043D\u043E\u0432\u0430\u0442\u043E..\r"
+  - Key: dialog_strangebox_lvl1_part4
+    Value: "\u0414\u0430\u0439 \u043C\u043D\u0435 8 \u0441\u0435\u0440\u0435\u0431\u0440\u044F\u043D\u043D\u044B\u0445
+      \u043C\u043E\u043D\u0435\u0442..\r"
+  - Key: dialog_strangebox_lvl1_part5
+    Value: "\u0418 \u043D\u0430\u0439\u0434\u0443 \u0447\u0442\u043E \u043D\u0438\u0431\u0443\u0434\u044C
+      \u0434\u043B\u044F \u0442\u0435\u0431\u044F.\r"
+  - Key: dialog_pinkstar_lvl2_part1
+    Value: "\u0425\u0430\u0445\u0430\u0445\u0430!..\r"
+  - Key: dialog_pinkstar_lvl2_part2
+    Value: "\u0422\u0435\u0431\u0435 \u0441\u044E\u0434\u0430 \u043D\u0435 \u0437\u0430\u043B\u0435\u0441\u0442\u044C!"
