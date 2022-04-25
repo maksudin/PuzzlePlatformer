@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections;
-using PixelCrew.Components.UI.Widgets;
+﻿using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model.Definitions.Repository.Items;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Collections.Specialized.BitVector32;
 
 namespace PixelCrew.Components.UI.HUD.QuickInventory
 {

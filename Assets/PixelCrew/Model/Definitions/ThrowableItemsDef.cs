@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions
