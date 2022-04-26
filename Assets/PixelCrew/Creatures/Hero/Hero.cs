@@ -33,7 +33,6 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private int _redPotionHeal = 5;
         [SerializeField] private int _bluePotionHeal = 10;
 
-
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
@@ -48,7 +47,6 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private SpawnComponent _throwSpawner;
 
-
         [Header("Rope Params")]
         [SerializeField] private float _pushForce;
         public bool PlayerAttachedToRope;
@@ -58,7 +56,6 @@ namespace PixelCrew.Creatures.Hero
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
-
      
         private bool _hasDoubleJump;
         private bool _isDashing;
@@ -175,7 +172,7 @@ namespace PixelCrew.Creatures.Hero
             _emulateGroundCondition = true;
         }
 
-        public override void Attack()
+        public override void UseInventory()
         {
             if (SelectedItemId == RedPotion)
             {
@@ -190,7 +187,7 @@ namespace PixelCrew.Creatures.Hero
             }
 
             if (SelectedItemId == SwordId)
-                base.Attack();
+                base.UseInventory();
 
             if (SwordCount <= 0) return;
         }
@@ -212,9 +209,9 @@ namespace PixelCrew.Creatures.Hero
             Particles.Spawn("Potion");
         }
 
-        public void Throw(bool hasCooldown)
+        public void Throw(bool superThrow)
         {
-            if (hasCooldown)
+            if (!superThrow)
             {
                 if (_throwCooldown.IsReady && CanThrow)
                 {
@@ -229,7 +226,7 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        public void ThrowBurst()
+        public void SuperThrow()
         {
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);

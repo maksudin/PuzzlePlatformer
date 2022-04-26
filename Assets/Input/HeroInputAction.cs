@@ -51,7 +51,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Throw"",
+                    ""name"": ""UseInventory"",
                     ""type"": ""Button"",
                     ""id"": ""d2b91769-32e9-4ad3-840b-8bd01b6bf147"",
                     ""expectedControlType"": ""Button"",
@@ -226,7 +226,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""interactions"": ""Hold(duration=1),Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Throw"",
+                    ""action"": ""UseInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -263,7 +263,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
-        m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
+        m_Hero_UseInventory = m_Hero.FindAction("UseInventory", throwIfNotFound: true);
         m_Hero_NextItem = m_Hero.FindAction("NextItem", throwIfNotFound: true);
         m_Hero_Menu = m_Hero.FindAction("Menu", throwIfNotFound: true);
     }
@@ -319,7 +319,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Attack;
-    private readonly InputAction m_Hero_Throw;
+    private readonly InputAction m_Hero_UseInventory;
     private readonly InputAction m_Hero_NextItem;
     private readonly InputAction m_Hero_Menu;
     public struct HeroActions
@@ -330,7 +330,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
-        public InputAction @Throw => m_Wrapper.m_Hero_Throw;
+        public InputAction @UseInventory => m_Wrapper.m_Hero_UseInventory;
         public InputAction @NextItem => m_Wrapper.m_Hero_NextItem;
         public InputAction @Menu => m_Wrapper.m_Hero_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
@@ -354,9 +354,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
-                @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
-                @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
-                @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @UseInventory.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseInventory;
+                @UseInventory.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseInventory;
+                @UseInventory.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseInventory;
                 @NextItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
                 @NextItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnNextItem;
@@ -379,9 +379,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @Throw.started += instance.OnThrow;
-                @Throw.performed += instance.OnThrow;
-                @Throw.canceled += instance.OnThrow;
+                @UseInventory.started += instance.OnUseInventory;
+                @UseInventory.performed += instance.OnUseInventory;
+                @UseInventory.canceled += instance.OnUseInventory;
                 @NextItem.started += instance.OnNextItem;
                 @NextItem.performed += instance.OnNextItem;
                 @NextItem.canceled += instance.OnNextItem;
@@ -398,7 +398,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         void OnSaySomething(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnThrow(InputAction.CallbackContext context);
+        void OnUseInventory(InputAction.CallbackContext context);
         void OnNextItem(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }

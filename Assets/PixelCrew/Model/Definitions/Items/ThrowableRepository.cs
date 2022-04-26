@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repository;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions.Items
 {
-    [CreateAssetMenu(menuName = "Defs/ThrowableItems", fileName = "ThrowableItems")]
-    public class ThrowableItemsDef : DefRepository<ThrowableDef>
+    [CreateAssetMenu(menuName = "Defs/Throwable", fileName = "Throwable")]
+    public class ThrowableRepository : DefRepository<ThrowableDef>
     {
     }
 

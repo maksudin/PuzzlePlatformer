@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Throw",
+                    "name": "UseInventory",
                     "type": "Button",
                     "id": "d2b91769-32e9-4ad3-840b-8bd01b6bf147",
                     "expectedControlType": "Button",
@@ -213,7 +213,7 @@
                     "interactions": "Hold(duration=1),Press(behavior=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "Throw",
+                    "action": "UseInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
