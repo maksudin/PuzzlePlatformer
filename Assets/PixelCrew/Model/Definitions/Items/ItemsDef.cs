@@ -1,33 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
+using PixelCrew.Model.Definitions.Repository;
 using UnityEngine;
 
-namespace PixelCrew.Model.Definitions
+namespace PixelCrew.Model.Definitions.Items
 {
-    [CreateAssetMenu(menuName = "Defs/InventoryItems", fileName = "InventoryItems")]
-    public class InventoryItemsDef : ScriptableObject
+    [CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
+    public class ItemsDef : DefRepository<ItemDef>
     {
-        [SerializeField] private ItemDef[] _items;
-
-        public ItemDef Get(string id)
-        {
-            foreach (var itemDef in _items)
-            {
-                if (itemDef.Id == id)
-                    return itemDef;
-            }
-            return default;
-        }
-
 #if UNITY_EDITOR
-        public ItemDef[] ItemsForEditor => _items;
+        public ItemDef[] ItemsForEditor => Collection;
 #endif
     }
 
     [Serializable]
-    public struct ItemDef
+    public struct ItemDef : IHaveId
     {
         [SerializeField] private string _id;
         [SerializeField] private int _maxAmount;

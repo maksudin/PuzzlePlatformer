@@ -10,6 +10,7 @@ using PixelCrew.Model.Data;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Components.UI.Windows.EscMenu;
+using PixelCrew.Model.Definitions.Items;
 
 namespace PixelCrew.Creatures.Hero
 {

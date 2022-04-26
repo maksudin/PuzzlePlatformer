@@ -1,6 +1,4 @@
-﻿using System;
-using PixelCrew.Model.Definitions.Localization;
-using UnityEditor;
+﻿using PixelCrew.Model.Definitions.Items;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions
@@ -8,11 +6,11 @@ namespace PixelCrew.Model.Definitions
     [CreateAssetMenu(menuName = "Defs/DefsFacade", fileName = "DefsFacade")]
     public class DefsFacade : ScriptableObject
     {
-        [SerializeField] private InventoryItemsDef _items;
+        [SerializeField] private ItemsDef _items;
         [SerializeField] private ThrowableItemsDef _throwableItems;
         [SerializeField] private PlayerDef _player;
 
-        public InventoryItemsDef Items => _items;
+        public ItemsDef Items => _items;
         public ThrowableItemsDef Throwable => _throwableItems;
         public PlayerDef Player => _player;
 
