@@ -11,6 +11,8 @@ using PixelCrew.Components.GoBased;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Components.UI.Windows.EscMenu;
 using PixelCrew.Model.Definitions.Items;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -87,6 +89,8 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        
+
         protected override void Awake()
         {
             base.Awake();
@@ -139,6 +143,25 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Add(id, value);
         }
 
+        public void UseInventory(IInputInteraction interaction)
+        {
+            if (!CanThrow)
+            {
+
+                return;
+            }
+
+            if (interaction is PressInteraction)
+            {
+                 Throw();
+            }
+
+            else if (interaction is HoldInteraction)
+            {
+                ThrowBurst();
+            }
+        }
+
         public void SetDash(bool isDashing)
         {
             _isDashing = isDashing;
@@ -172,7 +195,7 @@ namespace PixelCrew.Creatures.Hero
             _emulateGroundCondition = true;
         }
 
-        public override void UseInventory()
+        public override void Attack()
         {
             if (SelectedItemId == RedPotion)
             {
@@ -187,7 +210,7 @@ namespace PixelCrew.Creatures.Hero
             }
 
             if (SelectedItemId == SwordId)
-                base.UseInventory();
+                base.Attack();
 
             if (SwordCount <= 0) return;
         }
@@ -209,24 +232,17 @@ namespace PixelCrew.Creatures.Hero
             Particles.Spawn("Potion");
         }
 
-        public void Throw(bool superThrow)
+        public void Throw()
         {
-            if (!superThrow)
-            {
-                if (_throwCooldown.IsReady && CanThrow)
-                {
-                    Animator.SetTrigger(ThrowKey);
-                    _throwCooldown.Reset();
-                    return;
-                }
-            }
-            else if (CanThrow)
+            if (_throwCooldown.IsReady && CanThrow)
             {
                 Animator.SetTrigger(ThrowKey);
+                _throwCooldown.Reset();
+                return;
             }
         }
 
-        public void SuperThrow()
+        public void ThrowBurst()
         {
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);
@@ -237,7 +253,7 @@ namespace PixelCrew.Creatures.Hero
         {
             for (var i = 0; i < _swordBurstAmount; i++)
             {
-                Throw(false);
+                Animator.SetTrigger(ThrowKey);
                 Direction = Vector2.zero;
 
                 yield return new WaitForSeconds(0.15f);

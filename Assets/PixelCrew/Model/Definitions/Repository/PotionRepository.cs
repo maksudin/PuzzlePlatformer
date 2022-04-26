@@ -6,7 +6,6 @@ namespace PixelCrew.Model.Definitions.Repository
     [CreateAssetMenu(menuName = "Defs/Potions", fileName = "Potions")]
     public class PotionRepository : DefRepository<PotionDef>
     {
-
     }
 
     [Serializable]

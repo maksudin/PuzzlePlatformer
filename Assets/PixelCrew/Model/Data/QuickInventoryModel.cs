@@ -3,6 +3,7 @@ using PixelCrew.Model.Definitions.Items;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
+using PixelCrew.Model.Definitions;
 
 namespace PixelCrew.Model.Data
 {
@@ -16,7 +17,18 @@ namespace PixelCrew.Model.Data
 
         public event Action OnChanged;
 
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+        public InventoryItemData SelectedItem
+        {
+            get
+            {
+                if (Inventory.Length > 0 && Inventory.Length < SelectedIndex.Value)
+                    return Inventory[SelectedIndex.Value];
+
+                return null;
+            }
+        }
+
+        public ItemDef SelectedDef => DefsFacade.I.Items.Get(SelectedItem?.Id);
 
         public QuickInventoryModel(PlayerData data)
         {

@@ -88,7 +88,7 @@ namespace PixelCrew.Creatures.Hero
             if (context.performed)
             {
 
-                _hero.UseInventory();
+                _hero.Attack();
             }
         }
 
@@ -96,15 +96,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.performed)
             {
-                if (context.interaction is PressInteraction)
-                {
-                    _hero.Throw(true);
-                }
-
-                else if (context.interaction is HoldInteraction)
-                {
-                    _hero.SuperThrow();
-                }
+                _hero.UseInventory(context.interaction);
             }
         }
     }

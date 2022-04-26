@@ -44,7 +44,7 @@ namespace PixelCrew.Creatures.Mobs
         {
             while (_canAttack.IsTouchingLayer)
             {
-                _creature.UseInventory();
+                _creature.Attack();
                 yield return new WaitForSeconds(_attackCooldown);
             }
 

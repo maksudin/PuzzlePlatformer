@@ -158,7 +158,7 @@ namespace PixelCrew.Creatures
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + _damageVelocity);
         }
 
-        public virtual void UseInventory()
+        public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
         }

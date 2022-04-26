@@ -9,6 +9,9 @@ namespace PixelCrew.Model.Definitions.Repository
 
         public TDefType Get(string id)
         {
+            if (string.IsNullOrEmpty(id)) 
+                return default;
+
             foreach (var itemDef in Collection)
             {
                 if (itemDef.Id == id)
