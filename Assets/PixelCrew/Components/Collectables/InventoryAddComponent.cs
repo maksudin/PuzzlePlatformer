@@ -2,7 +2,6 @@
 using PixelCrew.Creatures.Hero;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Repository.Items;
 using UnityEngine;
 
 namespace PixelCrew.Components

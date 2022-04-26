@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace PixelCrew.Model.Definitions.Repository.Items
+namespace PixelCrew.Model.Definitions
 {
     public class InventoryIdAttribute : PropertyAttribute
     {

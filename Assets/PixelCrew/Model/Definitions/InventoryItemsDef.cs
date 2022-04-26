@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
-namespace PixelCrew.Model.Definitions.Repository.Items
+namespace PixelCrew.Model.Definitions
 {
     [CreateAssetMenu(menuName = "Defs/InventoryItems", fileName = "InventoryItems")]
-    public class ItemsDef : ScriptableObject
+    public class InventoryItemsDef : ScriptableObject
     {
         [SerializeField] private ItemDef[] _items;
 
