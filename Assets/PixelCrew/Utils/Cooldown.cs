@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,13 +9,21 @@ namespace PixelCrew.Utils
     {
         [SerializeField] private float _value;
 
-        private float _timeUp;
+        private float _timesUp;
+
+        public float Value {
+            get => _value;
+            set => _value = value; 
+        }
 
         public void Reset()
         {
-            _timeUp = Time.time + _value;
+            _timesUp = Time.time + _value;
         }
 
-        public bool IsReady => _timeUp <= Time.time;
+        public float TimeLasts => Mathf.Max(_timesUp - Time.deltaTime, 0);
+
+        public bool IsReady => _timesUp <= Time.time;
+
     }
 }

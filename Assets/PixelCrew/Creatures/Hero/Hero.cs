@@ -13,6 +13,7 @@ using PixelCrew.Components.UI.Windows.EscMenu;
 using PixelCrew.Model.Definitions.Items;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using PixelCrew.Model.Definitions.Repository;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -30,10 +31,6 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
-
-        [Header("Potions Params")]
-        [SerializeField] private int _redPotionHeal = 5;
-        [SerializeField] private int _bluePotionHeal = 10;
 
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
@@ -75,7 +72,7 @@ namespace PixelCrew.Creatures.Hero
         private int CoinCount => _session.Data.Inventory.Count("Coin");
         //private int PotionCount => _session.Data.Inventory.Count("Potion");
 
-        private string SelectedItemId => _session.QuickInventory.SelectedItem.Id;
+        private string SelectedItemId => _session.QuickInventory.SelectedDef.Id;
 
         private bool CanThrow
         {
@@ -88,8 +85,6 @@ namespace PixelCrew.Creatures.Hero
                 return def.HasTag(ItemTag.Throwable);
             }
         }
-
-        
 
         protected override void Awake()
         {
@@ -148,18 +143,23 @@ namespace PixelCrew.Creatures.Hero
             if (!CanThrow)
             {
 
+                if (IsSelectedItem(ItemTag.Potion))
+                    UsePotion();
+
                 return;
             }
 
-            if (interaction is PressInteraction)
-            {
-                 Throw();
-            }
 
-            else if (interaction is HoldInteraction)
-            {
+            
+            if (interaction is HoldInteraction)
                 ThrowBurst();
-            }
+            else
+                Throw();
+        }
+
+        private bool IsSelectedItem(ItemTag tag)
+        {
+            return _session.QuickInventory.SelectedDef.HasTag(tag);
         }
 
         public void SetDash(bool isDashing)
@@ -197,40 +197,45 @@ namespace PixelCrew.Creatures.Hero
 
         public override void Attack()
         {
-            if (SelectedItemId == RedPotion)
-            {
-                UsePotion(RedPotion);
-                return;
-            }
-
-            if (SelectedItemId == BluePotion)
-            {
-                UsePotion(BluePotion);
-                return;
-            }
-
-            if (SelectedItemId == SwordId)
-                base.Attack();
-
             if (SwordCount <= 0) return;
+
+            base.Attack();
         }
 
-        private void UsePotion(string potion)
+        private void UsePotion()
         {
-            if (potion == RedPotion)
+            var potion = DefsFacade.I.Potions.Get(SelectedItemId);
+
+            switch (potion.Effect)
             {
-                HealthComp.Heal(_redPotionHeal);
-                _session.Data.Inventory.Remove(RedPotion, 1);
+                case Effect.AddHp:
+                    HealthComp.Heal((int)potion.Value);
+                    break;
+                case Effect.SpeedUp:
+                    _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
+                    _additionalSpeed = Mathf.Max(potion.Value, _additionalSpeed);
+                    _speedUpCooldown.Reset();
+                    break;
             }
 
-            if (potion == BluePotion)
-            {
-                HealthComp.Heal(_bluePotionHeal);
-                _session.Data.Inventory.Remove(BluePotion, 1);
-            }
-
+            _session.Data.Inventory.Remove(potion.Id, 1);
             Particles.Spawn("Potion");
         }
+
+
+        private Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
+
+        protected override float CalculateSpeed()
+        {
+            if (_speedUpCooldown.IsReady)
+                _additionalSpeed = 0f;
+
+
+            return base.CalculateSpeed() + _additionalSpeed;
+        }
+
 
         public void Throw()
         {

@@ -5396,7 +5396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: RedPotion
+        Value: 1
+      - Id: Coffee
+        Value: 10
     Hp:
       _value: 0
   _defaultCheckPoint: level1-checkpoint1

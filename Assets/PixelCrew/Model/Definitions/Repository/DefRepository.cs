@@ -17,6 +17,7 @@ namespace PixelCrew.Model.Definitions.Repository
                 if (itemDef.Id == id)
                     return itemDef;
             }
+
             return default;
         }
     }

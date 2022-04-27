@@ -7,7 +7,7 @@ using UnityEngine;
 namespace PixelCrew.Model.Definitions.Items
 {
     [CreateAssetMenu(menuName = "Defs/Items", fileName = "Items")]
-    public class ItemsDef : DefRepository<ItemDef>
+    public class ItemsRepository : DefRepository<ItemDef>
     {
 #if UNITY_EDITOR
         public ItemDef[] ItemsForEditor => Collection;
@@ -35,7 +35,7 @@ namespace PixelCrew.Model.Definitions.Items
 
         public bool HasTag(ItemTag tag)
         {
-            return _tags.Contains(tag);
+            return _tags?.Contains(tag) ?? false;
         }
     }
 }

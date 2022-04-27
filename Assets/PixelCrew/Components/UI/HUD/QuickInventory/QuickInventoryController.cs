@@ -33,7 +33,6 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
 
         private void Rebuild()
         {
-            Debug.Log("Rebuild");
             var inventory = _session.QuickInventory.Inventory;
             _dataGroup.SetData(inventory);
         }

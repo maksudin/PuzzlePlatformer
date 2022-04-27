@@ -11,7 +11,6 @@ namespace PixelCrew.Components.UI.Widgets
         public void SetProgress(float progress)
         {
             _bar.fillAmount = progress;
-            Debug.Log(progress);
         }
 
     }

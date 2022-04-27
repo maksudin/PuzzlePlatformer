@@ -87,7 +87,6 @@ namespace PixelCrew.Creatures.Hero
         {
             if (context.performed)
             {
-
                 _hero.Attack();
             }
         }

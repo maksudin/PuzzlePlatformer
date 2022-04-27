@@ -21,7 +21,7 @@ namespace PixelCrew.Model.Data
         {
             get
             {
-                if (Inventory.Length > 0 && Inventory.Length < SelectedIndex.Value)
+                if (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value)
                     return Inventory[SelectedIndex.Value];
 
                 return null;

@@ -7,12 +7,13 @@ namespace PixelCrew.Model.Definitions
     [CreateAssetMenu(menuName = "Defs/DefsFacade", fileName = "DefsFacade")]
     public class DefsFacade : ScriptableObject
     {
-        [SerializeField] private ItemsDef _items;
+        [SerializeField] private ItemsRepository _items;
         [SerializeField] private ThrowableRepository _throwableItems;
         [SerializeField] private PotionRepository _potions;
         [SerializeField] private PlayerDef _player;
 
-        public ItemsDef Items => _items;
+        public ItemsRepository Items => _items;
+        public PotionRepository Potions => _potions;
         public ThrowableRepository Throwable => _throwableItems;
         public PlayerDef Player => _player;
 
