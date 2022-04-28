@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PixelCrew.Utils;
+﻿using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased

@@ -1,10 +1,7 @@
-﻿using PixelCrew.Components;
-using PixelCrew.Components.Audio;
+﻿using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PixelCrew.Creatures
@@ -71,7 +68,6 @@ namespace PixelCrew.Creatures
             {
                 velocityX *= 1.3f;
             }
-            //var velocityX = Direction.x * _speed;
             float velocityY;
 
             velocityY = CalculateYVelocity();

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using PixelCrew.Components.ColliderBased;
+﻿using PixelCrew.Components.ColliderBased;
 using UnityEngine;
 
 namespace PixelCrew.Components.Audio

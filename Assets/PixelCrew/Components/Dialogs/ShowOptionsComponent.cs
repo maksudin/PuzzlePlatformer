@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Components.UI.HUD.Dialogs;
+﻿using PixelCrew.Components.UI.HUD.Dialogs;
 using UnityEngine;
 
 namespace PixelCrew.Components.Dialogs

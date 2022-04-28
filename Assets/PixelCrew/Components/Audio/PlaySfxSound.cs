@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Utils;
+﻿using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Components.Audio

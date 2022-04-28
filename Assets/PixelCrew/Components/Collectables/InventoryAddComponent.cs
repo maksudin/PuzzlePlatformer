@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Creatures.Hero;
-using PixelCrew.Model.Data;
+﻿using PixelCrew.Creatures.Hero;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
 

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using PixelCrew.Components.UI.HUD.Dialogs;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Localization;
 using PixelCrew.Utils;
 using UnityEngine;
 

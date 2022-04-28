@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using PixelCrew.Model.Data;
 using System.Collections.Generic;
 using PixelCrew.Model;
