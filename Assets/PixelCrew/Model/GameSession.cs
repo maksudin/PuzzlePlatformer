@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.PixelCrew.Model.Data.Models;
 using PixelCrew.Components.LevelManagement;
-using PixelCrew.Model.Data;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
@@ -17,6 +17,7 @@ namespace PixelCrew.Model
         [SerializeField] private string _defaultCheckPoint;
 
         public QuickInventoryModel QuickInventory { get; private set; }
+        public PerksModel PerksModel { get; private set; }
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -85,6 +86,9 @@ namespace PixelCrew.Model
         {
             QuickInventory = new QuickInventoryModel(Data);
             _trash.Retain(QuickInventory);
+
+            PerksModel = new PerksModel(Data);
+            _trash.Retain(PerksModel);
         }
 
         private void LoadHUD()

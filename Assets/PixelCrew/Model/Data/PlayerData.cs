@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using PixelCrew.Model.Data;
 using PixelCrew.Model.Data.Properties;
 using UnityEngine;
@@ -15,6 +13,7 @@ namespace PixelCrew.Model
         [Header("Params")]
         //public int Hp;
         public IntProperty Hp = new IntProperty();
+        public PerksData Perks = new PerksData();
 
         public InventoryData Inventory => _inventory;
 

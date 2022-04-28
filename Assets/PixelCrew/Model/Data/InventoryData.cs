@@ -4,6 +4,7 @@ using System.Linq;
 using PixelCrew.Model.Definitions.Items;
 using PixelCrew.Model.Definitions;
 using UnityEngine;
+using PixelCrew.Model.Definitions.Repository;
 
 namespace PixelCrew.Model.Data
 {
@@ -13,6 +14,9 @@ namespace PixelCrew.Model.Data
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
         public delegate void OnInventoryChanged(string id, int value);
+
+        
+
         // Эквивалент делегату public Action<string, int> OnChanged;
 
         public OnInventoryChanged OnChangedInventory;
@@ -54,7 +58,6 @@ namespace PixelCrew.Model.Data
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
             
-
             //if (!itemDef.ShouldStack)
             //{
             //    for (var i = 0; i < value; i++)
@@ -78,6 +81,27 @@ namespace PixelCrew.Model.Data
             OnChangedInventory?.Invoke(id, Count(id));
             OnChanged?.Invoke();
 
+        }
+
+        public bool IsEnough(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                    joined[item.ItemId] += item.Count;
+                else
+                    joined.Add(item.ItemId, item.Count);
+            }
+
+            foreach (var kvp in joined)
+            {
+                var count = Count(kvp.Key);
+                if (count < kvp.Value) return false;
+            }
+
+            return true;
         }
 
 

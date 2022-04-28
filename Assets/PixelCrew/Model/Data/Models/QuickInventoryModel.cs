@@ -4,10 +4,12 @@ using PixelCrew.Model.Data.Properties;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Model;
+using PixelCrew.Model.Data;
 
-namespace PixelCrew.Model.Data
+namespace Assets.PixelCrew.Model.Data.Models
 {
-    public class QuickInventoryModel: IDisposable
+    public class QuickInventoryModel : IDisposable
     {
         private PlayerData _data;
 
