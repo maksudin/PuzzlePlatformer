@@ -2017,6 +2017,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PerkWindow
       objectReference: {fileID: 0}
+    - target: {fileID: 938489256530898917, guid: eefeacce76002644cbcce4dc05e653d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 938489256530898918, guid: eefeacce76002644cbcce4dc05e653d7,
         type: 3}
       propertyPath: m_Pivot.x

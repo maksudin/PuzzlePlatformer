@@ -23,7 +23,6 @@ namespace PixelCrew.Components.UI.Windows.EscMenu
 
         public override void OnExit()
         {
-            //base.OnExit();
             SceneManager.LoadScene("MainMenu");
             var session = FindObjectOfType<GameSession>();
             Destroy(session.gameObject);

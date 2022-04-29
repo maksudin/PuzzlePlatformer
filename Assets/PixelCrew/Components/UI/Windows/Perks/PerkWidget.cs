@@ -36,7 +36,8 @@ namespace PixelCrew.Components.UI.Windows.Perks
 
         private void UpdateView()
         {
-            _icon.sprite = _data.Icon;
+            if (_icon != null)
+                _icon.sprite = _data.Icon;
             _isUsed.SetActive(_session.PerksModel.IsUsed(_data.Id));
             _isSelected.SetActive(_session.PerksModel.InterfaceSelection.Value == _data.Id);
             _isLocked.SetActive(!_session.PerksModel.IsUnlocked(_data.Id));
