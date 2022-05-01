@@ -19,8 +19,6 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature, ICanAddInInventory
     {
-
-
         [Header("Hero Params")]
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
@@ -61,8 +59,6 @@ namespace PixelCrew.Creatures.Hero
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
 
         private const string SwordId = "Sword";
-        private const string RedPotion = "RedPotion";
-        private const string BluePotion = "BluePotion";
 
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinCount => _session.Data.Inventory.Count("Coin");
@@ -144,8 +140,6 @@ namespace PixelCrew.Creatures.Hero
 
                 return;
             }
-
-
             
             if (interaction is HoldInteraction)
                 ThrowBurst();
@@ -163,15 +157,14 @@ namespace PixelCrew.Creatures.Hero
             _isDashing = isDashing;
         }
 
+
         private bool _menuShown = false;
-        private GameObject _menuInstance;
 
         public void CallMenu()
         {
             if (!_menuShown)
             {
-                //_menuInstance = Instantiate(_menuPrefub, _canvasTransform);
-                WindowUtils.CreateWindow("UI/EscMenuWindow");
+                WindowUtils.CreateWindow("UI/PerkWindow");
                 _menuShown = true;
             }
             else

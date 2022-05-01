@@ -49,7 +49,5 @@ namespace PixelCrew.Components.UI.Windows.Perks
             var selected = _session.PerksModel.InterfaceSelection.Value;
             _session.PerksModel.Unlock(selected);
         }
-
-
     }
 }
