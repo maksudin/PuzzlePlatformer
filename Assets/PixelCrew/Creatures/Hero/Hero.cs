@@ -19,11 +19,7 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature, ICanAddInInventory
     {
-        [Header("Menu")]
-        [SerializeField] private GameObject _menuPrefub;
-        [SerializeField] private Transform _canvasTransform;
-        private bool _menuShown = false;
-        private GameObject _menuInstance;
+
 
         [Header("Hero Params")]
         [SerializeField] private float _gravityScale = 3;
@@ -167,17 +163,20 @@ namespace PixelCrew.Creatures.Hero
             _isDashing = isDashing;
         }
 
+        private bool _menuShown = false;
+        private GameObject _menuInstance;
+
         public void CallMenu()
         {
-            if (!_canvasTransform) return;
             if (!_menuShown)
             {
-                _menuInstance = Instantiate(_menuPrefub, _canvasTransform);
+                //_menuInstance = Instantiate(_menuPrefub, _canvasTransform);
+                WindowUtils.CreateWindow("UI/EscMenuWindow");
                 _menuShown = true;
             }
             else
             {
-                _menuInstance?.GetComponent<EscMenuWindow>().Close();
+                FindObjectOfType<EscMenuWindow>().Close();
                 _menuShown = false;
             }
         }

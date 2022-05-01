@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 591584817108773810}
   - component: {fileID: 6931719143828961151}
   - component: {fileID: 5150279432339030397}
-  - component: {fileID: 5304742536532587960}
   m_Layer: 5
   m_Name: PressedText
   m_TagString: Untagged
@@ -81,20 +80,6 @@ MonoBehaviour:
   m_Text: 'USE
 
 '
---- !u!114 &5304742536532587960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758877340429494637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: button_restart
-  _capitalize: 1
 --- !u!1 &4410932580145429251
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +94,7 @@ GameObject:
   - component: {fileID: 4071703546948760343}
   - component: {fileID: 7142066279110707803}
   m_Layer: 5
-  m_Name: OkButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +228,6 @@ GameObject:
   - component: {fileID: 5322188014321044735}
   - component: {fileID: 6951104288127115107}
   - component: {fileID: 3051435741379593315}
-  - component: {fileID: 7004716992428536447}
   m_Layer: 5
   m_Name: NormalText
   m_TagString: Untagged
@@ -311,17 +295,3 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: USE
---- !u!114 &7004716992428536447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8954040548796443748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b01e5ce73850442917eabb8663683b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _key: button_restart
-  _capitalize: 1
