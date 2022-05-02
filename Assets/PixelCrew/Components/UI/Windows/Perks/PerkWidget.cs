@@ -24,6 +24,7 @@ namespace PixelCrew.Components.UI.Windows.Perks
 
         public void OnSelect()
         {
+            _session.PerksModel.InterfaceSelection.Value = _data.Id;
         }
 
         public void SetData(PerkDef data, int index)

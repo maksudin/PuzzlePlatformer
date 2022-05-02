@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 
 namespace PixelCrew.Utils.Disposables
 {

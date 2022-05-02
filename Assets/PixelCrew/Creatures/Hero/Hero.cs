@@ -141,8 +141,8 @@ namespace PixelCrew.Creatures.Hero
                 return;
             }
             
-            if (interaction is HoldInteraction)
-                ThrowBurst();
+            if (interaction is HoldInteraction && _session.PerksModel.IsSuperThrowSupported)
+                SuperThrow();
             else
                 Throw();
         }
@@ -164,7 +164,7 @@ namespace PixelCrew.Creatures.Hero
         {
             if (!_menuShown)
             {
-                WindowUtils.CreateWindow("UI/PerkWindow");
+                WindowUtils.CreateWindow("UI/EscMenuWindow");
                 _menuShown = true;
             }
             else
@@ -239,7 +239,7 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        public void ThrowBurst()
+        public void SuperThrow()
         {
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);
@@ -352,7 +352,7 @@ namespace PixelCrew.Creatures.Hero
                 return velocityY;
             }
 
-            if (IsGrounded && _allowDoubleJump)
+            if (IsGrounded && _session.PerksModel.IsDoubleJumpSupported || _allowDoubleJump)
             {
                 _hasDoubleJump = true;
             }

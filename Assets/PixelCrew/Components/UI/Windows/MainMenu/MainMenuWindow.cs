@@ -11,7 +11,7 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
 
         public void OnShowSettings()
         {
-            WindowUtils.CreateWindow("UI/PerkWindow");
+            WindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
         public void OnStartGame()

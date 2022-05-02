@@ -5146,6 +5146,8 @@ MonoBehaviour:
         Value: 10
       - Id: Coffee
         Value: 10
+      - Id: GreenGem
+        Value: 40
     Hp:
       _value: 0
     Perks:

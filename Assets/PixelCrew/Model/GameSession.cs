@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.PixelCrew.Model.Data.Models;
 using PixelCrew.Components.LevelManagement;
@@ -84,10 +82,10 @@ namespace PixelCrew.Model
 
         private void InitModels()
         {
-            QuickInventory = new QuickInventoryModel(Data);
+            QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
 
-            PerksModel = new PerksModel(Data);
+            PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
         }
 
