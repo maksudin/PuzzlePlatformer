@@ -14,6 +14,8 @@ using PixelCrew.Model.Definitions.Items;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
+using PixelCrew.Utils.Disposables;
+using UnityEngine.UIElements;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -23,6 +25,8 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
+        private Cooldown _superThrowCooldown = new Cooldown();
+
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
 
@@ -66,6 +70,8 @@ namespace PixelCrew.Creatures.Hero
 
         private string SelectedItemId => _session.QuickInventory.SelectedDef.Id;
 
+        private CompositeDisposable _trash = new CompositeDisposable();
+
         private bool CanThrow
         {
             get
@@ -94,6 +100,13 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
 
             LoadSession();
+            _superThrowCooldown.Value = DefsFacade.I.Perks.Get("super-throw").Cooldown;
+            //_trash.Retain(_superThrowCooldown.Subscribe(UpdateUsedPerkCooldown));
+        }
+
+        private void UpdateUsedPerkCooldown()
+        {
+            throw new System.NotImplementedException();
         }
 
         private void OnDestroy()
@@ -101,6 +114,8 @@ namespace PixelCrew.Creatures.Hero
             if (!_session) return;
             _session.Data.Inventory.OnChangedInventory -= OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
+
+            _trash.Dispose();
         }
 
         private void AnotherHandler(string id, int value)
@@ -130,6 +145,7 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Add(id, value);
         }
 
+
         public void UseInventory(IInputInteraction interaction)
         {
             if (!CanThrow)
@@ -145,6 +161,7 @@ namespace PixelCrew.Creatures.Hero
                 SuperThrow();
             else
                 Throw();
+
         }
 
         private bool IsSelectedItem(ItemTag tag)
@@ -239,8 +256,11 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        
+
         public void SuperThrow()
         {
+            if (!_session.Data.Perks.UsedPerkCooldown.IsReady) return;
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);
             _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
@@ -256,6 +276,7 @@ namespace PixelCrew.Creatures.Hero
                 yield return new WaitForSeconds(0.15f);
             }
 
+            _session.Data.Perks.UsedPerkCooldown.Reset();
             StopCoroutine(_currentCoroutine);
         }
 

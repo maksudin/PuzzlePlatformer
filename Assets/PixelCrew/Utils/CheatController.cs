@@ -9,8 +9,6 @@ namespace PixelCrew.Utils
 {
     public class CheatController : MonoBehaviour
     {
-
-
         private string _currentInput;
         [SerializeField] private float _inputTimeToLive;
         [SerializeField] private CheatItem[] _cheats;

@@ -7079,6 +7079,8 @@ MonoBehaviour:
     Perks:
       _used:
         _value: 
+      _usedPerkCooldown:
+        _value: 0
       _unlocked: []
   _defaultCheckPoint: level2-checkpoint1
 --- !u!4 &1193633138
