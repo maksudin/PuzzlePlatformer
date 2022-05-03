@@ -19,9 +19,11 @@ MonoBehaviour:
     _price:
       _itemId: GreenGem
       _count: 2
+    _cooldown: 0
   - _id: super-throw
     _icon: {fileID: 21300000, guid: d70aede1804f0c94c999298f148a3aa2, type: 3}
     _info: This is Super Throw!
     _price:
       _itemId: GreenGem
       _count: 10
+    _cooldown: 2
