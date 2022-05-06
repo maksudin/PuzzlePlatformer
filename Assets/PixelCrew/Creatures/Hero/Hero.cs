@@ -15,7 +15,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
-using UnityEngine.UIElements;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -101,12 +100,6 @@ namespace PixelCrew.Creatures.Hero
 
             LoadSession();
             _superThrowCooldown.Value = DefsFacade.I.Perks.Get("super-throw").Cooldown;
-            //_trash.Retain(_superThrowCooldown.Subscribe(UpdateUsedPerkCooldown));
-        }
-
-        private void UpdateUsedPerkCooldown()
-        {
-            throw new System.NotImplementedException();
         }
 
         private void OnDestroy()
@@ -175,20 +168,13 @@ namespace PixelCrew.Creatures.Hero
         }
 
 
-        private bool _menuShown = false;
-
         public void CallMenu()
         {
-            if (!_menuShown)
-            {
+            var menu = FindObjectOfType<EscMenuWindow>();
+            if (menu == null)
                 WindowUtils.CreateWindow("UI/EscMenuWindow");
-                _menuShown = true;
-            }
             else
-            {
-                FindObjectOfType<EscMenuWindow>().Close();
-                _menuShown = false;
-            }
+                menu.Close();
         }
 
         public void AttachPlayerToRope()

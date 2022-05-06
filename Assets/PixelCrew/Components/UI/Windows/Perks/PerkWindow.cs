@@ -33,6 +33,8 @@ namespace PixelCrew.Components.UI.Windows.Perks
             _trash.Retain(_useButton.onClick.Subscribe(OnUse));
 
             OnPerksChanged();
+
+            Pause();
         }
 
         private void OnPerksChanged()
@@ -66,6 +68,7 @@ namespace PixelCrew.Components.UI.Windows.Perks
 
         private void OnDestroy()
         {
+            UnPause();
             _trash.Dispose();
         }
     }

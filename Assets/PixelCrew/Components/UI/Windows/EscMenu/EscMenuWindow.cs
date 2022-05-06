@@ -9,16 +9,13 @@ namespace PixelCrew.Components.UI.Windows.EscMenu
     public class EscMenuWindow : MainMenuWindow
     {
         private ReloadLevelComponent _reloadLevel;
-        private float _defaultTimeScale;
 
         protected override void Start()
         {
             base.Start();
             _reloadLevel = GetComponent<ReloadLevelComponent>();
 
-            // Пауза.
-            _defaultTimeScale = Time.timeScale;
-            Time.timeScale = 0;
+            Pause();
         }
 
         public override void OnExit()
@@ -28,10 +25,10 @@ namespace PixelCrew.Components.UI.Windows.EscMenu
             Destroy(session.gameObject);
         }
 
-        private void OnDestroy()
-        {
-            Time.timeScale = _defaultTimeScale;
-        }
+        //private void OnDestroy()
+        //{
+            
+        //}
 
         public void OnRestart()
         {
@@ -40,6 +37,7 @@ namespace PixelCrew.Components.UI.Windows.EscMenu
 
         public override void OnCloseAnimationComplete()
         {
+            UnPause();
             Destroy(gameObject);
             _closeAction?.Invoke();
         }

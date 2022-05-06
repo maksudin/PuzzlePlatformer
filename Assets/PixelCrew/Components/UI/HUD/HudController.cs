@@ -1,4 +1,5 @@
 ﻿using PixelCrew.Components.UI.Widgets;
+using PixelCrew.Components.UI.Windows.EscMenu;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
@@ -21,7 +22,11 @@ namespace PixelCrew.Components.UI.HUD
 
         public void OnMenu()
         {
-            WindowUtils.CreateWindow("UI/EscMenuWindow");
+            var menu = FindObjectOfType<EscMenuWindow>();
+            if (menu == null)
+                WindowUtils.CreateWindow("UI/EscMenuWindow");
+            else
+                menu.Close();
         }
 
         private void OnHealthChanged(int newValue, int oldValue)

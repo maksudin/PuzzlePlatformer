@@ -7,6 +7,7 @@ namespace PixelCrew.Components.UI.Windows
         private Animator _animator;
         private static readonly int Show = Animator.StringToHash("show");
         private static readonly int Hide = Animator.StringToHash("hide");
+        protected float _defaultTimeScale;
 
         protected virtual void Start()
         {
@@ -22,6 +23,17 @@ namespace PixelCrew.Components.UI.Windows
         public virtual void OnCloseAnimationComplete()
         {
             Destroy(gameObject);
+        }
+
+        public void Pause()
+        {
+            _defaultTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+        }
+
+        public void UnPause()
+        {
+            _defaultTimeScale = Time.timeScale;
         }
 
     }
