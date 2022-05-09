@@ -11,6 +11,7 @@ namespace PixelCrew.Components.UI.Windows
 
         protected virtual void Start()
         {
+            _defaultTimeScale = Time.timeScale;
             _animator = GetComponent<Animator>();
             _animator.SetTrigger(Show);
         }
@@ -27,13 +28,12 @@ namespace PixelCrew.Components.UI.Windows
 
         public void Pause()
         {
-            _defaultTimeScale = Time.timeScale;
             Time.timeScale = 0;
         }
 
         public void UnPause()
         {
-            _defaultTimeScale = Time.timeScale;
+            Time.timeScale = _defaultTimeScale;
         }
 
     }
