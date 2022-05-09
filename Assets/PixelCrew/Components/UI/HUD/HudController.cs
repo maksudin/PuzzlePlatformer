@@ -29,6 +29,11 @@ namespace PixelCrew.Components.UI.HUD
                 menu.Close();
         }
 
+        public void OnDebug()
+        {
+            WindowUtils.CreateWindow("UI/PlayerStatsWindow");
+        }
+
         private void OnHealthChanged(int newValue, int oldValue)
         {
             var maxHealth = DefsFacade.I.Player.MaxHealth;

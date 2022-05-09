@@ -5156,6 +5156,8 @@ MonoBehaviour:
       _usedPerkCooldown:
         _value: 0
       _unlocked: []
+    Levels:
+      _progress: []
   _defaultCheckPoint: level1-checkpoint1
 --- !u!4 &1102416633
 Transform:

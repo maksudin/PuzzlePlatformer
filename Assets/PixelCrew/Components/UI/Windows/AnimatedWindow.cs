@@ -2,7 +2,7 @@
 
 namespace PixelCrew.Components.UI.Windows
 {
-    public class AnimationWindow : MonoBehaviour
+    public class AnimatedWindow : MonoBehaviour
     {
         private Animator _animator;
         private static readonly int Show = Animator.StringToHash("show");

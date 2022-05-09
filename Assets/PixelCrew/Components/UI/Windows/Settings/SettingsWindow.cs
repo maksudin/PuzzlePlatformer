@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PixelCrew.Components.UI.Windows.Settings
 {
-    public class SettingsWindow : AnimationWindow
+    public class SettingsWindow : AnimatedWindow
     {
         [SerializeField] private AudioSettingsWidget _music;
         [SerializeField] private AudioSettingsWidget _sfx;

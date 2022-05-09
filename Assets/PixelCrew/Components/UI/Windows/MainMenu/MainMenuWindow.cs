@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Components.UI.Windows.MainMenu
 {
-    public class MainMenuWindow : AnimationWindow
+    public class MainMenuWindow : AnimatedWindow
     {
         protected Action _closeAction;
 

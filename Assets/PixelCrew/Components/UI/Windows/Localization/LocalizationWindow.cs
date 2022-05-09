@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PixelCrew.Components.UI.Windows.Localization
 {
-    public class LocalizationWindow : AnimationWindow
+    public class LocalizationWindow : AnimatedWindow
     {
         [SerializeField] private Transform _container;
         [SerializeField] private LocaleItemWidget _prefab;

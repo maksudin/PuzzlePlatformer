@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace PixelCrew.Components.UI.Windows.Perks
 {
-    public class PerkWindow : AnimationWindow
+    public class PerkWindow : AnimatedWindow
     {
         [SerializeField] private Button _buyButton;
         [SerializeField] private Button _useButton;
