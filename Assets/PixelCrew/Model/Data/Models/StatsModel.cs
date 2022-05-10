@@ -54,7 +54,10 @@ namespace Assets.PixelCrew.Model.Data.Models
         {
             if (level == -1) level = GetCurrentLevel(id);
             var def = DefsFacade.I.Player.GetStat(id);
-            return def.Levels[GetCurrentLevel(id)];
+            if (def.Levels.Length > level)
+                return def.Levels[level];
+
+            return default;
         }
 
         public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);

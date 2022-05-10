@@ -36,7 +36,7 @@ MonoBehaviour:
         _itemId: Coin
         _count: 100
   - _name: Speed
-    _id: 0
+    _id: 1
     _icon: {fileID: 21300000, guid: e376647a8ba0eb84e9ed3c8bed457b6c, type: 3}
     _levels:
     - _value: 3.83
@@ -52,7 +52,7 @@ MonoBehaviour:
         _itemId: Coin
         _count: 200
   - _name: Range Damage
-    _id: 0
+    _id: 2
     _icon: {fileID: 21300000, guid: cc08ddfeb7d3d9b49acd3629810f1a7b, type: 3}
     _levels:
     - _value: 1

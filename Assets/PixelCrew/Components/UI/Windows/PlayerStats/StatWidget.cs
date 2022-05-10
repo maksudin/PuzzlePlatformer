@@ -50,7 +50,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
             _increaseValue.gameObject.SetActive(increaseValue > 0);
 
             var maxLevels = DefsFacade.I.Player.GetStat(_data.ID).Levels.Length;
-            _progress.SetProgress(currentLevel / (float)maxLevels);
+            _progress.SetProgress(currentLevel / (float) maxLevels);
 
             _selector.SetActive(statsModel.InterfaceSelectedStat.Value == _data.ID);
         }
