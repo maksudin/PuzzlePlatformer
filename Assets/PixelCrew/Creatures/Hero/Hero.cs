@@ -114,7 +114,7 @@ namespace PixelCrew.Creatures.Hero
             switch (statId)
             {
                 case StatId.Hp:
-                    var health = (int) _session.StatsModel.GetValue(statId);
+                    var health = (int)_session.StatsModel.GetValue(statId);
                     _session.Data.Hp.Value = health;
                     Health.SetHealth(health);
                     break;
@@ -166,7 +166,6 @@ namespace PixelCrew.Creatures.Hero
         {
             if (!CanThrow)
             {
-
                 if (IsSelectedItem(ItemTag.Potion))
                     UsePotion();
 

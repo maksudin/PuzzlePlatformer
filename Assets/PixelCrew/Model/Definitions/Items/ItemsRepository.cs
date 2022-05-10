@@ -19,6 +19,7 @@ namespace PixelCrew.Model.Definitions.Items
     {
         [SerializeField] private string _id;
         [SerializeField] private int _maxAmount;
+        [SerializeField] private int _damage;
         [Header("Icon params")]
         [SerializeField] private Sprite _icon;
         [SerializeField] private float _iconScale;

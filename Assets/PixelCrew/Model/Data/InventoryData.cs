@@ -15,8 +15,6 @@ namespace PixelCrew.Model.Data
 
         public delegate void OnInventoryChanged(string id, int value);
 
-        
-
         // Эквивалент делегату public Action<string, int> OnChanged;
 
         public OnInventoryChanged OnChangedInventory;

@@ -24,6 +24,14 @@ MonoBehaviour:
     Value: "music\r"
   - Key: options_label_sfx
     Value: "sfx\r"
+  - Key: shop_price_label
+    Value: "Price:\r"
+  - Key: shop_health_label
+    Value: "Health\r"
+  - Key: shop_speed_label
+    Value: "Speed\r"
+  - Key: shop_range_damage_label
+    Value: "Range Damage\r"
   - Key: button_start
     Value: "start\r"
   - Key: button_option
@@ -40,6 +48,8 @@ MonoBehaviour:
     Value: "ok\r"
   - Key: button_continue
     Value: "Continue\r"
+  - Key: button_upgrade
+    Value: "upgrade\r"
   - Key: dialog_barrel_lvl1
     Value: "If only I had a sword.\r"
   - Key: dialog_strangebox_lvl1_part1

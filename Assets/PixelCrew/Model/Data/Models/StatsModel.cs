@@ -43,24 +43,9 @@ namespace Assets.PixelCrew.Model.Data.Models
             _data.Inventory.Remove(price.ItemId, price.Count);
             _data.Levels.LevelUp(id);
 
-            //PostProcessLevelUp(id);
             OnUpgraded?.Invoke(id);
             OnChanged?.Invoke();
         }
-
-        //private void PostProcessLevelUp(StatId id)
-        //{
-        //    switch (id)
-        //    {
-        //        case StatId.Hp:
-        //            _data.Hp.Value = (int)GetValue(id);
-        //            break;
-        //        case StatId.Speed:
-        //            break;
-        //        case StatId.RangeDamage:
-        //            break;
-        //    }
-        //}
 
         public float GetValue(StatId id, int level = -1)
         {
