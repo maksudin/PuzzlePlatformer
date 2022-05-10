@@ -1,7 +1,7 @@
-﻿using PixelCrew.Components.UI.Widgets;
+﻿using Assets.PixelCrew.Model.Definitions.Player;
+using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Components.UI.Windows.EscMenu;
 using PixelCrew.Model;
-using PixelCrew.Model.Definitions;
 using PixelCrew.Utils;
 using UnityEngine;
 
@@ -36,8 +36,8 @@ namespace PixelCrew.Components.UI.HUD
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
-            var maxHealth = DefsFacade.I.Player.MaxHealth;
-            var value = (float)newValue / maxHealth;
+            var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
+            var value = (float) newValue / maxHealth;
             _healthBar.SetProgress(value);
         }
 

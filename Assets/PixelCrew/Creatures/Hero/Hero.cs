@@ -15,6 +15,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
+using Assets.PixelCrew.Model.Definitions.Player;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -97,9 +98,31 @@ namespace PixelCrew.Creatures.Hero
             _session = FindObjectOfType<GameSession>();
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
+            _session.StatsModel.OnUpgraded += OnHeroUpgraded;
 
             LoadSession();
             _superThrowCooldown.Value = DefsFacade.I.Perks.Get("super-throw").Cooldown;
+
+            var health = (int)_session.StatsModel.GetValue(StatId.Hp);
+            _session.Data.Hp.Value = health;
+            Health.SetHealth(health);
+
+        }
+
+        private void OnHeroUpgraded(StatId statId)
+        {
+            switch (statId)
+            {
+                case StatId.Hp:
+                    var health = (int) _session.StatsModel.GetValue(statId);
+                    _session.Data.Hp.Value = health;
+                    Health.SetHealth(health);
+                    break;
+                case StatId.Speed:
+                    break;
+                case StatId.RangeDamage:
+                    break;
+            }
         }
 
         private void OnDestroy()
@@ -204,7 +227,7 @@ namespace PixelCrew.Creatures.Hero
             switch (potion.Effect)
             {
                 case Effect.AddHp:
-                    HealthComp.Heal((int)potion.Value);
+                    Health.Heal((int)potion.Value);
                     break;
                 case Effect.SpeedUp:
                     _speedUpCooldown.Value = _speedUpCooldown.TimeLasts + potion.Time;
@@ -228,7 +251,8 @@ namespace PixelCrew.Creatures.Hero
                 _additionalSpeed = 0f;
 
 
-            return base.CalculateSpeed() + _additionalSpeed;
+            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return defaultSpeed + _additionalSpeed;
         }
 
 
@@ -241,8 +265,6 @@ namespace PixelCrew.Creatures.Hero
                 return;
             }
         }
-
-        
 
         public void SuperThrow()
         {

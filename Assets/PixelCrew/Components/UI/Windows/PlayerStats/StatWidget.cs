@@ -46,11 +46,12 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
             var currentLevel = statsModel.GetCurrentLevel(_data.ID);
             var nextLevel = statsModel.GetCurrentLevel(_data.ID) + 1;
             var increaseValue = statsModel.GetValue(_data.ID, nextLevel);
-            _increaseValue.text = increaseValue.ToString(CultureInfo.InvariantCulture);
+
+            _increaseValue.text = $"+ {increaseValue}";
             _increaseValue.gameObject.SetActive(increaseValue > 0);
 
-            var maxLevels = DefsFacade.I.Player.GetStat(_data.ID).Levels.Length;
-            _progress.SetProgress(currentLevel / (float) maxLevels);
+            var maxLevel = DefsFacade.I.Player.GetStat(_data.ID).Levels.Length - 1;
+            _progress.SetProgress(currentLevel / (float) maxLevel);
 
             _selector.SetActive(statsModel.InterfaceSelectedStat.Value == _data.ID);
         }

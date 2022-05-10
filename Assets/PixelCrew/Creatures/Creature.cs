@@ -30,7 +30,7 @@ namespace PixelCrew.Creatures
         protected bool IsGrounded;
         protected bool FallIsLongEnough;
 
-        protected HealthComponent HealthComp;
+        protected HealthComponent Health;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is_grounded");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical_velocity");
@@ -43,7 +43,7 @@ namespace PixelCrew.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
-            HealthComp = GetComponent<HealthComponent>();
+            Health = GetComponent<HealthComponent>();
             Sounds = GetComponent<PlaySoundsComponent>();
         }
 
