@@ -14,9 +14,7 @@ namespace PixelCrew.Components.Dialogs
         [SerializeField] private DialogDef _external;
         [SerializeField] private string[] _keys;
 
-        private DialogData _locales;
         private DialogBoxController _dialogBox;
-
 
         public void Show()
         {

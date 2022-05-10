@@ -1,6 +1,4 @@
-﻿using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Localization;
-using PixelCrew.Utils.Editor;
+﻿using PixelCrew.Utils.Editor;
 using UnityEditor;
 
 namespace PixelCrew.Components.Dialogs.Editor

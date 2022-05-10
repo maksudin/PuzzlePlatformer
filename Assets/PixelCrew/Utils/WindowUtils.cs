@@ -7,7 +7,7 @@ namespace PixelCrew.Utils
         public static void CreateWindow(string path)
         {
             var window = Resources.Load<GameObject>(path);
-            var canvas = Object.FindObjectOfType<Canvas>();
+            var canvas = GameObject.FindWithTag("HUDCanvas");
             Object.Instantiate(window, canvas.transform);
         }
 

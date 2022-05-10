@@ -15,52 +15,62 @@ MonoBehaviour:
   Collection:
   - _id: Coin
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: -2322180950842035098, guid: 881e5734c87caf04d8c25e747fcc6971,
       type: 3}
     _iconScale: 0
     _tags: 0000000001000000
   - _id: Sword
     _maxAmount: 0
+    _damage: 1
     _icon: {fileID: 21300000, guid: a54c0013aabb03f45a1729c60ef497e5, type: 3}
     _iconScale: 0
     _tags: 010000000000000002000000
   - _id: Key
     _maxAmount: 1
+    _damage: 0
     _icon: {fileID: 21300000, guid: 65d105a8a9cf49b41baa7d2e8ebd327a, type: 3}
     _iconScale: 0
     _tags: 0000000001000000
   - _id: RedPotion
     _maxAmount: 1
+    _damage: 0
     _icon: {fileID: 21300000, guid: bb794182567b11047a31256ffc7ae760, type: 3}
     _iconScale: 0.8
     _tags: 0100000003000000
   - _id: BluePotion
     _maxAmount: 1
+    _damage: 0
     _icon: {fileID: 21300000, guid: 24326c0d0bfc9f14e821404be1884fec, type: 3}
     _iconScale: 2
     _tags: 0100000003000000
   - _id: Coffee
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: 21300000, guid: 29d330f67f625904fbbc98fc3d83c6b1, type: 3}
     _iconScale: 0
     _tags: 0100000003000000
   - _id: PearlProjectile
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: 21300000, guid: ed8703b1b0465a247b4603b42e88a355, type: 3}
     _iconScale: 0
     _tags: 000000000100000002000000
   - _id: GreenGem
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: 21300000, guid: 61a71a0e8d75eb4479633041da0ed12f, type: 3}
     _iconScale: 0
     _tags: 00000000
   - _id: RedGem
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: 21300000, guid: 05847d80ca8867a4488af400f3f743a8, type: 3}
     _iconScale: 0
     _tags: 00000000
   - _id: BlueGem
     _maxAmount: 0
+    _damage: 0
     _icon: {fileID: 21300000, guid: b989beab3c373634fb5782d98bb239ad, type: 3}
     _iconScale: 0
     _tags: 00000000

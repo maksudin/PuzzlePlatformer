@@ -5,7 +5,5 @@
         Stackable,
         Usable,
         Throwable,
-        Potion,
-        CanDoDamage
-    }
+        Potion,    }
 }
