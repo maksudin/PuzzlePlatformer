@@ -1476,8 +1476,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240936130805839915}
-        m_MethodName: Reload
+      - m_Target: {fileID: 4315913812688686308}
+        m_MethodName: OnRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

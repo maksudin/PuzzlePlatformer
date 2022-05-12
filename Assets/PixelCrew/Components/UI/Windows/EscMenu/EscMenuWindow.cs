@@ -25,14 +25,12 @@ namespace PixelCrew.Components.UI.Windows.EscMenu
             Destroy(session.gameObject);
         }
 
-        //private void OnDestroy()
-        //{
-            
-        //}
-
         public void OnRestart()
         {
-            _reloadLevel?.Reload();
+            Close();
+            _closeAction = () => {
+                _reloadLevel.Reload();
+            };
         }
 
         public override void OnCloseAnimationComplete()
