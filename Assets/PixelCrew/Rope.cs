@@ -10,15 +10,16 @@ namespace PixelCrew.Components
 {
     public class Rope : MonoBehaviour
     {
-        private LineRenderer _lineRender;
         [SerializeField] private Transform ropeAnchor;
-        [SerializeField] private Hero _hero;
-
-        [SerializeField] private Transform _heroTransform;
-        private Rigidbody2D _ropeRigidBody;
         [SerializeField] private float _pushForce;
         [SerializeField] private float _detachTime = 0.5f;
         [SerializeField] private float _attachTime = 0.5f;
+
+        private LineRenderer _lineRender;
+        private Hero _hero;
+        private Transform _heroTransform;
+        private Rigidbody2D _ropeRigidBody;
+
         private float _detachTimer = 0.0f;
         private float _attachTimer = 0.0f;
 
@@ -40,6 +41,12 @@ namespace PixelCrew.Components
             _ropeActivated = false;
             _attachTimerStart = false;
 
+        }
+
+        private void Start()
+        {
+            _hero = FindObjectOfType<Hero>();
+            _heroTransform = _hero.transform;
         }
 
         public void ActivateRope()
