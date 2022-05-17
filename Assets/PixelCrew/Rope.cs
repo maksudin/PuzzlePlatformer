@@ -1,46 +1,30 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
-
+﻿using UnityEngine;
 using PixelCrew.Creatures.Hero;
+using PixelCrew.Utils;
 
 namespace PixelCrew.Components
 {
     public class Rope : MonoBehaviour
     {
         [SerializeField] private Transform ropeAnchor;
-        [SerializeField] private float _pushForce;
-        [SerializeField] private float _detachTime = 0.5f;
-        [SerializeField] private float _attachTime = 0.5f;
+        [SerializeField] private float _pushForce = 0.15f;
+        [SerializeField] private Cooldown _attachCooldown;
+        [SerializeField] private Cooldown _detachCooldown;
 
-        private LineRenderer _lineRender;
+        private LineRenderer _lineRenderer;
         private Hero _hero;
         private Transform _heroTransform;
         private Rigidbody2D _ropeRigidBody;
 
-        private float _detachTimer = 0.0f;
-        private float _attachTimer = 0.0f;
+        public bool _ropeActivated;
 
-        private bool _attachTimerStart;
-        private bool _ropeActivated;
-
-        private BoxCollider2D _ropeCollider;
         private float _offsetHeroPositionX = -0.04f;
         private float _offsetHeroPositionY = 0.4f;
 
         private void Awake()
         {
-            _lineRender = GetComponent<LineRenderer>();
+            _lineRenderer = GetComponent<LineRenderer>();
             _ropeRigidBody = GetComponent<Rigidbody2D>();
-            _ropeCollider = GetComponent<BoxCollider2D>();
-            _detachTimer = _detachTime;
-            _attachTimer = _attachTime;
-
-            _ropeActivated = false;
-            _attachTimerStart = false;
-
         }
 
         private void Start()
@@ -51,93 +35,57 @@ namespace PixelCrew.Components
 
         public void ActivateRope()
         {
+            if (_hero.PlayerAttachedToRope && _attachCooldown.IsReady) return;
+
             _hero.AttachPlayerToRope();
             _ropeActivated = true;
-            _ropeCollider.isTrigger = false;
-            _hero.HeroCollider.enabled = false;
-            // Чтобы собирать монетки когда герой на верёвке.
-            // (Т.к. коллайдер hero отключён)
-            gameObject.tag = "Player";
+            _detachCooldown.Reset();
         }
 
         private void FixedUpdate()
         {
-            if (_hero.PlayerAttachedToRope && _ropeActivated)
+            if (!_hero.PlayerAttachedToRope || !_ropeActivated) return;
+
+            _ropeRigidBody.AddForce(new Vector2(_pushForce * _hero.Direction.x, 0), ForceMode2D.Impulse);
+
+            // Нажат прыжок.
+            if (_hero.Direction.y > 0)
             {
+                if (!_detachCooldown.IsReady) return;
 
-                _ropeRigidBody.AddForce(new Vector2(_pushForce * _hero.Direction.x, 0), ForceMode2D.Impulse);
-
-                // Если нажат прыжок.
-                if (_hero.Direction.y > 0 && _detachTimer < 0)
-                {
-                    SetParamsToDefault();
-                    _hero.DetachPlayerFromRope();
-                    //_heroDetached?.Invoke();
-                    return;
-                }
-
+                _hero.DetachPlayerFromRope();
+                _attachCooldown.Reset();
+                _ropeActivated = false;
+                return;
             }
         }
 
-        // Update is called once per frame
         void Update()
         {
             DrawLine();
-            AttachTimeDelay();
+            if (!_hero.PlayerAttachedToRope || !_ropeActivated) return;
 
-            if (_ropeActivated)
-            {
-                if (_detachTimer > 0) _detachTimer -= Time.deltaTime;
+            if (_hero.Direction.x > 0 && _offsetHeroPositionX > 0)
+                _offsetHeroPositionX *= -1;
 
-                if (_hero.Direction.x > 0 && _offsetHeroPositionX > 0)
-                {
-                    _offsetHeroPositionX *= -1;
-                }
+            if (_hero.Direction.x < 0 && _offsetHeroPositionX < 0)
+                _offsetHeroPositionX *= -1;
 
-                if (_hero.Direction.x < 0 && _offsetHeroPositionX < 0)
-                {
-                    _offsetHeroPositionX *= -1;
-                }
-                _heroTransform.position = new Vector3(transform.position.x + _offsetHeroPositionX,
-                                                      transform.position.y + _offsetHeroPositionY,
-                                                      transform.position.z);
-            }
-        }
-
-        private void DrawLine()
-        {
-            _lineRender.SetPosition(0, ropeAnchor.position);
-            _lineRender.SetPosition(1, transform.position);
-        }
-
-        private void AttachTimeDelay()
-        {
-            // Не даю hero сразу цепляться за верёвку снова.
-            // Чтобы не мешало его полёту.
-            if (_attachTimerStart)       
-            {
-                _attachTimer -= Time.deltaTime;
-
-                if (_attachTimer <= 0)
-                {
-                    _ropeCollider.enabled = true;
-                    _ropeCollider.isTrigger = true;
-                    // Останавливаю и сбрасываю таймер.
-                    _attachTimerStart = false;
-                    _attachTimer = _attachTime;
-                }
-            }
+            _heroTransform.position = new Vector3(transform.position.x + _offsetHeroPositionX,
+                                                  transform.position.y + _offsetHeroPositionY,
+                                                  transform.position.z);
         }
 
         private void SetParamsToDefault()
         {
-            _attachTimerStart = true;
-            _hero.HeroCollider.enabled = true;
-            _ropeActivated = false;
-            _ropeCollider.enabled = false;
-            _detachTimer = _detachTime;
+            
+        }
 
-            gameObject.tag = "Untagged";
+
+        private void DrawLine()
+        {
+            _lineRenderer.SetPosition(0, ropeAnchor.position);
+            _lineRenderer.SetPosition(1, transform.position);
         }
 
         private void OnDrawGizmos()

@@ -70,11 +70,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ropeAnchor: {fileID: 8552152000650109752}
-  _hero: {fileID: 0}
-  _heroTransform: {fileID: 0}
   _pushForce: 0.15
   _detachTime: 0.5
   _attachTime: 0.5
+  _detachCooldown:
+    _value: 0.5
+  _attachCooldown:
+    _value: 0.5
+  _ropeActivated: 0
 --- !u!120 &8552151999761701447
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -211,6 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -357,7 +363,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &8552152000650109758

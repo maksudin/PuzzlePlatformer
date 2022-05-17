@@ -88,8 +88,6 @@ namespace PixelCrew.Creatures.Hero
         {
             base.Awake();
             HeroCollider = GetComponent<CapsuleCollider2D>();
-            FallIsLongEnough = false;
-            PlayerAttachedToRope = false;
             _groundTimer = _groundTime;
         }
 
@@ -201,13 +199,11 @@ namespace PixelCrew.Creatures.Hero
 
         public void AttachPlayerToRope()
         {
-            HeroCollider.enabled = false;
             PlayerAttachedToRope = true;
         }
 
         public void DetachPlayerFromRope()
         {
-            HeroCollider.enabled = true;
             PlayerAttachedToRope = false;
             _emulateGroundCondition = true;
         }
