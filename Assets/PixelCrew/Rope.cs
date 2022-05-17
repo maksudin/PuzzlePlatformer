@@ -16,7 +16,7 @@ namespace PixelCrew.Components
         private Transform _heroTransform;
         private Rigidbody2D _ropeRigidBody;
 
-        public bool _ropeActivated;
+        private bool _ropeActivated;
 
         private float _offsetHeroPositionX = -0.04f;
         private float _offsetHeroPositionY = 0.4f;
@@ -76,12 +76,6 @@ namespace PixelCrew.Components
                                                   transform.position.z);
         }
 
-        private void SetParamsToDefault()
-        {
-            
-        }
-
-
         private void DrawLine()
         {
             _lineRenderer.SetPosition(0, ropeAnchor.position);
@@ -92,8 +86,6 @@ namespace PixelCrew.Components
         {
             Gizmos.DrawLine(ropeAnchor.position, transform.position);
         }
-        
     }
-
 }
 
