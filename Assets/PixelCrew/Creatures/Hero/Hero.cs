@@ -16,6 +16,7 @@ using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
+using Cinemachine.Utility;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -46,7 +47,12 @@ namespace PixelCrew.Creatures.Hero
 
         [Header("Rope Params")]
         [SerializeField] private float _pushForce;
-        public bool PlayerAttachedToRope;
+        
+        [Header("Hook Params")]
+        [SerializeField] private CheckCircleOverlap _hookCheck;
+        [SerializeField] private float _hookSpeed;
+
+        public bool AttachedToRope;
 
         public CapsuleCollider2D HeroCollider;
 
@@ -66,7 +72,6 @@ namespace PixelCrew.Creatures.Hero
 
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinCount => _session.Data.Inventory.Count("Coin");
-        //private int PotionCount => _session.Data.Inventory.Count("Potion");
 
         private string SelectedItemId => _session.QuickInventory.SelectedDef.Id;
 
@@ -199,12 +204,12 @@ namespace PixelCrew.Creatures.Hero
 
         public void AttachPlayerToRope()
         {
-            PlayerAttachedToRope = true;
+            AttachedToRope = true;
         }
 
         public void DetachPlayerFromRope()
         {
-            PlayerAttachedToRope = false;
+            AttachedToRope = false;
             _emulateGroundCondition = true;
         }
 
@@ -239,12 +244,10 @@ namespace PixelCrew.Creatures.Hero
         private Cooldown _speedUpCooldown = new Cooldown();
         private float _additionalSpeed;
 
-
         protected override float CalculateSpeed()
         {
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
-
 
             var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
             return defaultSpeed + _additionalSpeed;
@@ -320,6 +323,7 @@ namespace PixelCrew.Creatures.Hero
         public void Interact()
         {
             _interactionCheck.Check();
+            _hookCheck.Check();
         }
 
 
@@ -343,18 +347,33 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+        private bool _isHooking;
+        private Vector3 _hookTarget;
+
         protected override void FixedUpdate()
         {
-            base.FixedUpdate();
+            if (_isHooking)
+            {
+                var direction = _hookTarget - transform.position;
+                Rigidbody.MovePosition(transform.position + direction.normalized * _hookSpeed * Time.fixedDeltaTime);
+                if (Vector3.Distance(transform.position, _hookTarget) < 1f)
+                    _isHooking = false;
+            }
+            else 
+                base.FixedUpdate();
         }
 
+        public void HookTo(GameObject go)
+        {
+            _isHooking = true;
+            _hookTarget = go.transform.position;
+        }
 
         protected override void UpdateAnimatorVals()
         {
             base.UpdateAnimatorVals();
-            Animator.SetBool(RopeAttached, PlayerAttachedToRope);
+            Animator.SetBool(RopeAttached, AttachedToRope);
         }
-
 
         protected override float CalculateXVelocity()
         {
@@ -362,14 +381,11 @@ namespace PixelCrew.Creatures.Hero
             return base.CalculateXVelocity() * modifier;
         }
 
-
         protected override float CalculateYVelocity()
         {
-
             var velocityY = Rigidbody.velocity.y;
-            var isJumpPressing = Direction.y > 0;
 
-            if (PlayerAttachedToRope)
+            if (AttachedToRope)
             {
                 // Чтобы hero не падал быстро после detach.
                 velocityY = Rigidbody.velocity.y / 100f;
@@ -411,16 +427,13 @@ namespace PixelCrew.Creatures.Hero
             base.TakeDamage();
 
             if (CoinCount > 0)
-            {
                 SpawnCoins();
-            }
         }
 
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(CoinCount, 5);
             _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
-
 
             Burst burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;

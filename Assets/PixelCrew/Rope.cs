@@ -35,7 +35,7 @@ namespace PixelCrew.Components
 
         public void ActivateRope()
         {
-            if (_hero.PlayerAttachedToRope && _attachCooldown.IsReady) return;
+            if (_hero.AttachedToRope && _attachCooldown.IsReady) return;
 
             _hero.AttachPlayerToRope();
             _ropeActivated = true;
@@ -44,7 +44,7 @@ namespace PixelCrew.Components
 
         private void FixedUpdate()
         {
-            if (!_hero.PlayerAttachedToRope || !_ropeActivated) return;
+            if (!_hero.AttachedToRope || !_ropeActivated) return;
 
             _ropeRigidBody.AddForce(new Vector2(_pushForce * _hero.Direction.x, 0), ForceMode2D.Impulse);
 
@@ -63,7 +63,7 @@ namespace PixelCrew.Components
         void Update()
         {
             DrawLine();
-            if (!_hero.PlayerAttachedToRope || !_ropeActivated) return;
+            if (!_hero.AttachedToRope || !_ropeActivated) return;
 
             if (_hero.Direction.x > 0 && _offsetHeroPositionX > 0)
                 _offsetHeroPositionX *= -1;

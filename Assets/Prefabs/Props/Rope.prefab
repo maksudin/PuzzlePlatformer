@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8552151999761701447}
   - component: {fileID: 8552151999761701446}
   - component: {fileID: 8552151999761701445}
-  - component: {fileID: 2108190584}
   m_Layer: 0
   m_Name: RopeEnd
   m_TagString: Untagged
@@ -71,13 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ropeAnchor: {fileID: 8552152000650109752}
   _pushForce: 0.15
-  _detachTime: 0.5
-  _attachTime: 0.5
-  _detachCooldown:
-    _value: 0.5
   _attachCooldown:
     _value: 0.5
-  _ropeActivated: 0
+  _detachCooldown:
+    _value: 0.5
 --- !u!120 &8552151999761701447
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +92,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 893fb39c02e70d9418b5f72bccb1a0d2, type: 2}
+  - {fileID: 2100000, guid: c3c73666dff699c4981ad60b5f181fe6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,8 +123,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.27677917
-        value: 1
+        time: 0.045791626
+        value: 0.52531624
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -190,10 +186,10 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.022710681, y: 0.20551586}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0.5, z: 0.40625, w: 0.375}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.9375, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -231,57 +227,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!212 &2108190584
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552151999761701451}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -334018285
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7515456911145536941, guid: 2186d6ce6364e5643832da7e4b2ab370,
-    type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.9375, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &8552152000650109756
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,9 +297,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -334018285
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -743168279
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eb8df92ebb46ba249ab38359762ab939, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -402,7 +347,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0.5}
+  m_ConnectedAnchor: {x: 0, y: 0.91}
   m_AutoConfigureDistance: 0
   m_Distance: 4
   m_DampingRatio: 0

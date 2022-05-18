@@ -12,6 +12,7 @@ TagManager:
   - SfxAudioSource
   - EnemyHealthBars
   - HUDCanvas
+  - Hook
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Player
   - TileMap
   - Checkers
-  - 
+  - Hooks
   - 
   - 
   - 

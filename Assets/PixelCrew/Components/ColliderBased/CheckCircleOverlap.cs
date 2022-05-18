@@ -13,8 +13,8 @@ namespace PixelCrew.Components.ColliderBased
         [SerializeField] private float _radius = 1f;
         [SerializeField] private LayerMask _mask;
         [SerializeField] private string[] _tags;
-        private readonly Collider2D[] _interactionResult = new Collider2D[15];
         [SerializeField] private OnOverlapEvent _onOverlap;
+        private readonly Collider2D[] _interactionResult = new Collider2D[15];
 
         private void OnDrawGizmosSelected()
         {
@@ -29,21 +29,18 @@ namespace PixelCrew.Components.ColliderBased
                                                       _interactionResult,
                                                       _mask);
 
-            List<GameObject> overlaps = new List<GameObject>();
+            var overlaps = new List<GameObject>();
             for (var i = 0; i < size; i++)
             {
                 Collider2D overlapResult = _interactionResult[i];
                 bool isInTags = _tags.Any(tag => overlapResult.CompareTag(tag));
                 if (isInTags)
-                {
                     _onOverlap?.Invoke(_interactionResult[i].gameObject);
-                }
-                //overlaps.Add(_interactionResult[i].gameObject);
             }
         }
 
         [Serializable]
-        public class OnOverlapEvent : UnityEvent<GameObject> { }
+        public class OnOverlapEvent : UnityEvent<GameObject> {}
     }
 }
 
