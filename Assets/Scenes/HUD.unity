@@ -2425,37 +2425,42 @@ PrefabInstance:
     - target: {fileID: 3590551738531317727, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3590551738531317727, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3590551738531317727, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.6810144
       objectReference: {fileID: 0}
     - target: {fileID: 3590551738573857235, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3590551738573857235, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3590551738573857235, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -1.5941238
       objectReference: {fileID: 0}
     - target: {fileID: 9126906395115549471, guid: d1709096fabfed74fb05a7652a611b95,
         type: 3}
       propertyPath: m_Name
       value: ControlsWindow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126906395115549471, guid: d1709096fabfed74fb05a7652a611b95,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1709096fabfed74fb05a7652a611b95, type: 3}

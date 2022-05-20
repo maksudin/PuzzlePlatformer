@@ -36,6 +36,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         {
             _controlName.text = LocalizationManager.I.Localize(_data.Id);
             var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;
+            //xboxIcons.GetValue
             var icon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
             _gamepadIcon.sprite = icon;
             _keyboardKey.text = _data.KeyboardKey.ToString();
