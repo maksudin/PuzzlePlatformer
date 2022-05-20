@@ -5,5 +5,6 @@
         Stackable,
         Usable,
         Throwable,
-        Potion,    }
+        Potion,    
+    }
 }

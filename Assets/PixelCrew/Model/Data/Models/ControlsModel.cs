@@ -1,0 +1,40 @@
+﻿using System;
+using PixelCrew.Model;
+using PixelCrew.Model.Data.Properties;
+using PixelCrew.Model.Definitions;
+using PixelCrew.Utils.Disposables;
+
+namespace Assets.PixelCrew.Model.Data.Models
+{
+    public class ControlsModel : IDisposable
+    {
+        private readonly PlayerData _data;
+
+        public event Action OnChanged;
+        public ObservableProperty<string> InterfaceSelectedControl = new ObservableProperty<string>();
+
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+
+        public ControlsModel(PlayerData data)
+        {
+            _data = data;
+            _trash.Retain(InterfaceSelectedControl.Subscribe((x, y) => OnChanged?.Invoke()));
+        }
+
+        public IDisposable Subscribe(Action call)
+        {
+            OnChanged += call;
+            return new ActionDisposable(() => OnChanged -= call);
+        }
+
+        public void RemapButton(string id)
+        {
+            var def = DefsFacade.I.ControlsRepository.GetControl(id);
+        }
+
+        public void Dispose()
+        {
+            _trash.Dispose();
+        }
+    }
+}

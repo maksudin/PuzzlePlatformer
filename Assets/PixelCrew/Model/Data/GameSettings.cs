@@ -17,7 +17,6 @@ namespace PixelCrew.Model.Data
         public FloatPersistentProperty Music => _music;
         public FloatPersistentProperty Sfx => _sfx;
 
-
         private static GameSettings _instance;
         public static GameSettings I => _instance == null ? LoadGameSettings() : _instance;
 

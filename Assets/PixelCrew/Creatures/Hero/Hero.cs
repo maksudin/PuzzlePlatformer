@@ -17,6 +17,7 @@ using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Cinemachine.Utility;
+using Assets.PixelCrew.Utils;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -51,6 +52,7 @@ namespace PixelCrew.Creatures.Hero
         [Header("Hook Params")]
         [SerializeField] private CheckCircleOverlap _hookCheck;
         [SerializeField] private float _hookSpeed;
+        [SerializeField] private float _hookPushForce;
 
         public bool AttachedToRope;
 
@@ -349,19 +351,23 @@ namespace PixelCrew.Creatures.Hero
 
         private bool _isHooking;
         private Vector3 _hookTarget;
+        
 
         protected override void FixedUpdate()
         {
             if (_isHooking)
             {
                 var direction = _hookTarget - transform.position;
-                Rigidbody.MovePosition(transform.position + direction.normalized * _hookSpeed * Time.fixedDeltaTime);
-                if (Vector3.Distance(transform.position, _hookTarget) < 1f)
+                var ease = EasingUtils.EaseInSine(0, _hookSpeed, 0.67f);
+                Rigidbody.MovePosition(transform.position + direction.normalized * ease * Time.fixedDeltaTime);
+                if (Vector3.Distance(transform.position, _hookTarget) < 0.5f)
                     _isHooking = false;
             }
             else 
                 base.FixedUpdate();
         }
+
+
 
         public void HookTo(GameObject go)
         {

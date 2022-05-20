@@ -17,3 +17,5 @@ MonoBehaviour:
   _potions: {fileID: 11400000, guid: 61efebcab280fce489e51924aa71438d, type: 2}
   _perks: {fileID: 11400000, guid: cdf6e87ea5998b245991af0e07dfff14, type: 2}
   _player: {fileID: 11400000, guid: 3d6210fe9cee819439248e4ba24ef35b, type: 2}
+  _controlIcons: {fileID: 11400000, guid: a13f2a2b6bf83454da1056b2e5d12d09, type: 2}
+  _controlsRepository: {fileID: 0}

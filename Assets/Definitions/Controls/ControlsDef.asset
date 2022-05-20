@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35752a0b912b29d449f1baebd4d81eb2, type: 3}
+  m_Name: ControlsDef
+  m_EditorClassIdentifier: 
+  _xboxIcons:
+  - _xboxGamepadButton: 0
+    _xboxGamepadIcon: {fileID: 3815248754801610479, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 1
+    _xboxGamepadIcon: {fileID: 8309147266734598059, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 2
+    _xboxGamepadIcon: {fileID: -7185757716571494672, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 3
+    _xboxGamepadIcon: {fileID: -1747198717979990326, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 4
+    _xboxGamepadIcon: {fileID: -8007433716634825585, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 5
+    _xboxGamepadIcon: {fileID: -3528169674862340629, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 6
+    _xboxGamepadIcon: {fileID: 9148881409937826980, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 7
+    _xboxGamepadIcon: {fileID: 190759187666293769, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 8
+    _xboxGamepadIcon: {fileID: 3747398667721788261, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 9
+    _xboxGamepadIcon: {fileID: 698731965020470508, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 10
+    _xboxGamepadIcon: {fileID: 9220788800666806803, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 11
+    _xboxGamepadIcon: {fileID: 8315443898114289561, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 12
+    _xboxGamepadIcon: {fileID: -4425597746309264284, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 13
+    _xboxGamepadIcon: {fileID: 4362130405202510770, guid: 2f8c80dd0aa499d448cd031c44462898,
+      type: 3}
+  - _xboxGamepadButton: 14
+    _xboxGamepadIcon: {fileID: 21300000, guid: c806efd44d30a594f86119987a35b225, type: 3}
+  - _xboxGamepadButton: 15
+    _xboxGamepadIcon: {fileID: 21300000, guid: 8ca1d46ea31a92449b420ea41e297d0d, type: 3}
+  - _xboxGamepadButton: 16
+    _xboxGamepadIcon: {fileID: 21300000, guid: f11dcea2c4bcf3e4d953c3dfee03b36a, type: 3}
+  - _xboxGamepadButton: 17
+    _xboxGamepadIcon: {fileID: 21300000, guid: 578c326357fd0c542a5577cf6714ac81, type: 3}

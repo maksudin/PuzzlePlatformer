@@ -5466,7 +5466,9 @@ MonoBehaviour:
   _throwSpawner: {fileID: 8526683799489118952}
   _pushForce: 0.66
   _hookCheck: {fileID: 288329827505223362}
-  _hookSpeed: 6
+  _hookSpeed: 31.3
+  _hookPushForce: 6.46
+  _hookGravityScale: -0.32
   AttachedToRope: 0
   HeroCollider: {fileID: 7240798278516988271}
 --- !u!50 &7240798278516988176
@@ -5829,7 +5831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d5a4fd4857e74e82eb291e8ebd615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 5
+  _radius: 2.84
   _mask:
     serializedVersion: 2
     m_Bits: 1048576
