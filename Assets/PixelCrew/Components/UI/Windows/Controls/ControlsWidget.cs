@@ -28,8 +28,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         public void SetData(ControlsMappingsDef data, int index)
         {
             _data = data;
-            if (_session != null)
-                UpdateView();
+            UpdateView();
         }
 
         private void UpdateView()
@@ -37,8 +36,15 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
             _controlName.text = LocalizationManager.I.Localize(_data.Id);
             var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;
             //xboxIcons.GetValue
-            var icon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
-            _gamepadIcon.sprite = icon;
+            var xboxIcon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
+            _gamepadIcon.sprite = xboxIcon;
+            
+            // TODO: Надо толи иконками все кнопки делать, то ли выбирать?
+            var key = _data.KeyboardKey;
+            var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
+            var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
+            //if (keyIcon)
+
             _keyboardKey.text = _data.KeyboardKey.ToString();
         }
 

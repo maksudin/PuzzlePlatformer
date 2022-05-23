@@ -9,10 +9,10 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
     [CreateAssetMenu(menuName = "Defs/Repository/Controls", fileName = "Controls")]
     public class ControlsRepository : DefRepository<ControlsMappingsDef>
     {
-        [SerializeField] private ControlsMappingsDef[] _controls;
-        public ControlsMappingsDef[] Controls => _controls;
+        //[SerializeField] private ControlsMappingsDef[] _controls;
+        public ControlsMappingsDef[] Controls => Collection;
 
-        public ControlsMappingsDef GetControl(string id) => _controls.FirstOrDefault(x => x.Id == id);
+        public ControlsMappingsDef GetControl(string id) => Controls.FirstOrDefault(x => x.Id == id);
     }
 
     [Serializable]

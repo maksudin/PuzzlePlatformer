@@ -10,7 +10,8 @@ namespace PixelCrew.Components.UI.Widgets
         private readonly TItemType _prefab;
         private readonly Transform _container;
 
-        public DataGroup(TItemType prefab, Transform container) {
+        public DataGroup(TItemType prefab, Transform container) 
+        {
             _prefab = prefab;
             _container = container;
         }

@@ -7,7 +7,10 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
     public class ControlsDef : ScriptableObject
     {
         [SerializeField] private GamepadIcons[] _xboxIcons;
+        [SerializeField] private KeyboardIcons[] _keyboardIcons;
+
         public GamepadIcons[] XboxIcons => _xboxIcons;
+        public KeyboardIcons[] KeyboardIcons => _keyboardIcons;
     }
 
     [Serializable]
@@ -18,5 +21,15 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
 
         public XboxGamepadButton XboxGamepadButton => _xboxGamepadButton;
         public Sprite XboxGamepadIcon => _xboxGamepadIcon;
+    }
+
+    [Serializable]
+    public struct KeyboardIcons
+    {
+        [SerializeField] private KeyCode _keyboardButton;
+        [SerializeField] private Sprite _keyboardIcon;
+
+        public KeyCode KeyboardButton => _keyboardButton;
+        public Sprite KeyboardIcon => _keyboardIcon;
     }
 }

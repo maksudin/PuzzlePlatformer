@@ -63,3 +63,16 @@ MonoBehaviour:
     _xboxGamepadIcon: {fileID: 21300000, guid: f11dcea2c4bcf3e4d953c3dfee03b36a, type: 3}
   - _xboxGamepadButton: 17
     _xboxGamepadIcon: {fileID: 21300000, guid: 578c326357fd0c542a5577cf6714ac81, type: 3}
+  _keyboardIcons:
+  - _keyboardButton: 273
+    _keyboardIcon: {fileID: -8970982538988341805, guid: cde14a9e74aa9424b86adbbd61251a04,
+      type: 3}
+  - _keyboardButton: 274
+    _keyboardIcon: {fileID: 586221310429832129, guid: cde14a9e74aa9424b86adbbd61251a04,
+      type: 3}
+  - _keyboardButton: 275
+    _keyboardIcon: {fileID: -2819781478276201012, guid: cde14a9e74aa9424b86adbbd61251a04,
+      type: 3}
+  - _keyboardButton: 276
+    _keyboardIcon: {fileID: 6988188269260693645, guid: cde14a9e74aa9424b86adbbd61251a04,
+      type: 3}
