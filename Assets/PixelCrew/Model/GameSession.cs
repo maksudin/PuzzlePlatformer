@@ -18,6 +18,7 @@ namespace PixelCrew.Model
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
         public StatsModel StatsModel { get; private set; }
+        public ControlsModel ControlsModel { get; private set; }
 
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
@@ -92,6 +93,9 @@ namespace PixelCrew.Model
 
             StatsModel = new StatsModel(_data);
             _trash.Retain(StatsModel);
+
+            ControlsModel = new ControlsModel(_data);
+            _trash.Retain(ControlsModel);
 
             _data.Hp.Value = (int) StatsModel.GetValue(StatId.Hp);
         }

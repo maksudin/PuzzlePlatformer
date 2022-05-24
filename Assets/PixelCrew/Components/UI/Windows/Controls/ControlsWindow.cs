@@ -28,6 +28,8 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
             _dataGroup = new DataGroup<ControlsMappingsDef, ControlsWidget>(_prefab, _controlsContainer);
             _session = FindObjectOfType<GameSession>();
 
+            _trash.Retain(_session.ControlsModel.Subscribe(OnControlsChanged));
+
             OnControlsChanged();
         }
 
@@ -35,6 +37,18 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         {
             var controls = DefsFacade.I.ControlsRepository.Controls;
             _dataGroup.SetData(controls);
+        }
+
+        public void OnDefault()
+        {
+            _session.ControlsModel.RemapToDefault();
+        }
+
+        public void OnRemap()
+        {
+            var controlsModel = _session.ControlsModel;
+            var selected = controlsModel.InterfaceSelectedControl.Value;
+            controlsModel.RemapButton(selected);
         }
 
         private void OnDestroy()

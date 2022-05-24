@@ -23,6 +23,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+            UpdateView();
         }
 
         public void SetData(ControlsMappingsDef data, int index)
@@ -35,22 +36,23 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         {
             _controlName.text = LocalizationManager.I.Localize(_data.Id);
             var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;
-            //xboxIcons.GetValue
             var xboxIcon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
             _gamepadIcon.sprite = xboxIcon;
             
-            // TODO: Надо толи иконками все кнопки делать, то ли выбирать?
             var key = _data.KeyboardKey;
-            var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
-            var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
-            //if (keyIcon)
-
+            //var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
+            //var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
             _keyboardKey.text = _data.KeyboardKey.ToString();
+
+            if (_session != null)
+                _selector.gameObject.SetActive(_session.ControlsModel.InterfaceSelectedControl.Value == _data.Id);
+
         }
 
         public void OnSelect()
         {
             // TODO: Выставить в модели выбранный элемент.
+            _session.ControlsModel.InterfaceSelectedControl.Value = _data.Id;
         }
     }
 }
