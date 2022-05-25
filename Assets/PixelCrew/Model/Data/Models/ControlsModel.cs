@@ -3,12 +3,13 @@ using PixelCrew.Model;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Utils.Disposables;
+using UnityEngine;
 
 namespace Assets.PixelCrew.Model.Data.Models
 {
     public class ControlsModel : IDisposable
     {
-        private readonly PlayerData _data;
+        //private readonly PlayerData _data;
 
         public event Action OnChanged;
         public ObservableProperty<string> InterfaceSelectedControl = new ObservableProperty<string>();
@@ -17,7 +18,7 @@ namespace Assets.PixelCrew.Model.Data.Models
 
         public ControlsModel(PlayerData data)
         {
-            _data = data;
+            //_data = data;
             _trash.Retain(InterfaceSelectedControl.Subscribe((x, y) => OnChanged?.Invoke()));
         }
 
@@ -27,9 +28,15 @@ namespace Assets.PixelCrew.Model.Data.Models
             return new ActionDisposable(() => OnChanged -= call);
         }
 
-        public void RemapButton(string id)
+        public void RemapButton(string id, KeyCode key)
         {
-            var def = DefsFacade.I.ControlsRepository.GetControl(id);
+            DefsFacade.I.ControlsRepository.ReplaceKey(id, key);
+            OnChanged?.Invoke();
+        }
+
+        public void RemapToDefault()
+        {
+
         }
 
         public void Dispose()

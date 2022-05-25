@@ -1,9 +1,9 @@
-﻿using System;
-using Assets.PixelCrew.Model.Definitions.Controls;
+﻿using Assets.PixelCrew.Model.Definitions.Controls;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Components.UI.Windows;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
+using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,9 +46,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         public void OnRemap()
         {
-            var controlsModel = _session.ControlsModel;
-            var selected = controlsModel.InterfaceSelectedControl.Value;
-            controlsModel.RemapButton(selected);
+            WindowUtils.CreateWindow("UI/RemapDialog");
         }
 
         private void OnDestroy()

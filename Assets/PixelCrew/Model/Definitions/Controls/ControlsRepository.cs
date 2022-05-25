@@ -9,10 +9,17 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
     [CreateAssetMenu(menuName = "Defs/Repository/Controls", fileName = "Controls")]
     public class ControlsRepository : DefRepository<ControlsMappingsDef>
     {
-        //[SerializeField] private ControlsMappingsDef[] _controls;
         public ControlsMappingsDef[] Controls => Collection;
-
         public ControlsMappingsDef GetControl(string id) => Controls.FirstOrDefault(x => x.Id == id);
+
+        public void ReplaceKey(string id, KeyCode newKey)
+        {
+            for (var i = 0; i < Collection.Length; i++)
+            {
+                if (Collection[i].Id == id)
+                    Collection[i].KeyboardKey = newKey;
+            }
+        }
     }
 
     [Serializable]
@@ -24,7 +31,7 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
 
         public string Id => _id;
         public XboxGamepadButton XboxGamepadButton => _xboxGamepadButton;
-        public KeyCode KeyboardKey => _keyboardKey;
+        public KeyCode KeyboardKey { get => _keyboardKey; set => _keyboardKey = value; }
     }
 
     public enum XboxGamepadButton

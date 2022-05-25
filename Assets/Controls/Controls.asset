@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: Controls
   m_EditorClassIdentifier: 
   Collection:
-  - _id: ForwardMovement
-    _xboxGamepadButton: 11
+  - _id: controls_forwardMovement_label
+    _xboxGamepadButton: 15
     _keyboardKey: 275
-  - _id: BackwardMovement
-    _xboxGamepadButton: 10
+  - _id: controls_backwardMovement_label
+    _xboxGamepadButton: 14
     _keyboardKey: 276
-  - _id: Jump
+  - _id: controls_jump_label
     _xboxGamepadButton: 0
     _keyboardKey: 120
-  - _id: Interact
+  - _id: controls_interact_label
     _xboxGamepadButton: 2
     _keyboardKey: 99
-  - _id: Attack
+  - _id: controls_attack_label
     _xboxGamepadButton: 5
     _keyboardKey: 122
-  - _id: UseInventory
+  - _id: controls_useInventory_label
     _xboxGamepadButton: 3
     _keyboardKey: 97
-  - _id: NextItem
+  - _id: controls_nextItem_label
     _xboxGamepadButton: 4
     _keyboardKey: 113
-  - _id: Menu
+  - _id: controls_menu_label
     _xboxGamepadButton: 9
     _keyboardKey: 27

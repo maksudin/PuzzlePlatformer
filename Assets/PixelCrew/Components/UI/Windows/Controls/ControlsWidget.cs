@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Assets.PixelCrew.Model.Definitions.Controls;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
@@ -51,7 +50,6 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         public void OnSelect()
         {
-            // TODO: Выставить в модели выбранный элемент.
             _session.ControlsModel.InterfaceSelectedControl.Value = _data.Id;
         }
     }

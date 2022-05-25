@@ -22,6 +22,11 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
             Close();
         }
 
+        public void OnControls()
+        {
+            WindowUtils.CreateWindow("UI/ControlsWindow");
+        }
+
         public void OnLanguages()
         {
             WindowUtils.CreateWindow("UI/LocalizationWindow");
@@ -49,6 +54,5 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
             SceneManager.LoadScene("Level1");
             _closeAction?.Invoke();
         }
-
     }
 }

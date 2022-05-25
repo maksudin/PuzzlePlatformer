@@ -33,23 +33,25 @@ MonoBehaviour:
   - Key: shop_range_damage_label
     Value: "Range Damage\r"
   - Key: button_start
-    Value: "start\r"
+    Value: "Start\r"
   - Key: button_option
-    Value: "options\r"
+    Value: "Options\r"
   - Key: button_locales
-    Value: "languages\r"
+    Value: "Languages\r"
   - Key: button_exit
-    Value: "exit\r"
+    Value: "Exit\r"
   - Key: button_restart
-    Value: "restart\r"
+    Value: "Restart\r"
   - Key: button_back
-    Value: "back\r"
+    Value: "Back\r"
   - Key: button_ok
-    Value: "ok\r"
+    Value: "Ok\r"
   - Key: button_continue
     Value: "Continue\r"
   - Key: button_upgrade
-    Value: "upgrade\r"
+    Value: "Upgrade\r"
+  - Key: button_controls
+    Value: "Controls\r"
   - Key: dialog_barrel_lvl1
     Value: "If only I had a sword.\r"
   - Key: dialog_strangebox_lvl1_part1
@@ -65,4 +67,28 @@ MonoBehaviour:
   - Key: dialog_pinkstar_lvl2_part1
     Value: "Hahaha!..\r"
   - Key: dialog_pinkstar_lvl2_part2
-    Value: You can't reach me!
+    Value: "You can't reach me!\r"
+  - Key: controls_forwardMovement_label
+    Value: "Forward Movement\r"
+  - Key: controls_backwardMovement_label
+    Value: "Backward Movement\r"
+  - Key: controls_jump_label
+    Value: "Jump\r"
+  - Key: controls_interact_label
+    Value: "Interact\r"
+  - Key: controls_attack_label
+    Value: "Attack\r"
+  - Key: controls_useInventory_label
+    Value: "Use Inventory Item\r"
+  - Key: controls_nextItem_label
+    Value: "Next Inventory Item\r"
+  - Key: controls_menu_label
+    Value: "Menu\r"
+  - Key: controls_key_label
+    Value: "Key\r"
+  - Key: controls_default_button
+    Value: "Default\r"
+  - Key: controls_remap_button
+    Value: "Remap\r"
+  - Key: remapDialog_label
+    Value: Press any key..

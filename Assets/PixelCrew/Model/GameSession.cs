@@ -72,10 +72,9 @@ namespace PixelCrew.Model
         public void SetChecked(string id)
         {
             if (!_checkpoints.Contains(id))
-            {
-                // TODO: Save();
                 _checkpoints.Add(id);
-            }
+            // TODO: Save();
+
         }
 
         private void OnDestroy()
@@ -114,12 +113,9 @@ namespace PixelCrew.Model
         {
             var sessions = FindObjectsOfType<GameSession>();
             foreach (var gameSession in sessions)
-            {
                 if (gameSession != this)
-                {
                     return gameSession;
-                }
-            }
+
             return null;
         }
 
