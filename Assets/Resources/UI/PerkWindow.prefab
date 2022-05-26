@@ -784,7 +784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 80ed335e902fa6a4c923010b2814fbff, type: 3}
-  m_Type: 1
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2728,7 +2728,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 80ed335e902fa6a4c923010b2814fbff, type: 3}
-  m_Type: 1
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4299,6 +4299,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 938489257535363564}
     m_Modifications:
+    - target: {fileID: 3051435741379593315, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3335750409430622191, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
       propertyPath: m_Color.a
@@ -4318,6 +4323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150279432339030397, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
@@ -4362,7 +4372,7 @@ PrefabInstance:
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 19.1
+      value: 14.05
       objectReference: {fileID: 0}
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
@@ -4456,6 +4466,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: BUY
       objectReference: {fileID: 0}
+    - target: {fileID: 3051435741379593315, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3335750409430622191, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
       propertyPath: m_Color.b
@@ -4480,6 +4495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: BUY
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150279432339030397, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
@@ -4524,7 +4544,7 @@ PrefabInstance:
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 19.1
+      value: 14.05
       objectReference: {fileID: 0}
     - target: {fileID: 8129589605089795489, guid: c6cd615462ea7c44584e8d8ed7f5bc84,
         type: 3}

@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.PixelCrew.Model.Data.Properties;
 using PixelCrew.Model;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;

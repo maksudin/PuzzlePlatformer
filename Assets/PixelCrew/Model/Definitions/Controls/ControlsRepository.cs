@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Assets.PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
 using PixelCrew.Model.Definitions.Repository;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
             for (var i = 0; i < Collection.Length; i++)
             {
                 if (Collection[i].Id == id)
-                    Collection[i].KeyboardKey = newKey;
+                    Collection[i].KeyboardKey.Value = newKey;
             }
         }
     }
@@ -27,11 +28,11 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
     {
         [SerializeField] private string _id;
         [SerializeField] private XboxGamepadButton _xboxGamepadButton;
-        [SerializeField] private KeyCode _keyboardKey;
+        [SerializeField] private KeyCodePersistentProperty _keyboardKey;
 
         public string Id => _id;
         public XboxGamepadButton XboxGamepadButton => _xboxGamepadButton;
-        public KeyCode KeyboardKey { get => _keyboardKey; set => _keyboardKey = value; }
+        public KeyCodePersistentProperty KeyboardKey { get => _keyboardKey; set => _keyboardKey = value; }
     }
 
     public enum XboxGamepadButton

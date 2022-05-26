@@ -38,10 +38,10 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
             var xboxIcon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
             _gamepadIcon.sprite = xboxIcon;
             
-            var key = _data.KeyboardKey;
+            var key = _data.KeyboardKey.Value;
             //var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
             //var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
-            _keyboardKey.text = _data.KeyboardKey.ToString();
+            _keyboardKey.text = key.ToString();
 
             if (_session != null)
                 _selector.gameObject.SetActive(_session.ControlsModel.InterfaceSelectedControl.Value == _data.Id);

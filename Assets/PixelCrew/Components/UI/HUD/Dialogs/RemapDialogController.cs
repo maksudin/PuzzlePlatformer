@@ -1,4 +1,5 @@
-﻿using PixelCrew.Components.UI.Windows;
+﻿using Assets.PixelCrew.Model.Data.Properties;
+using PixelCrew.Components.UI.Windows;
 using PixelCrew.Model;
 using UnityEngine;
 
