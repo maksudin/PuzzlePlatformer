@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.PixelCrew.Model.Data.Properties;
+using Assets.PixelCrew.Model.Definitions.Controls;
 using PixelCrew.Model;
 using PixelCrew.Model.Data.Properties;
 using PixelCrew.Model.Definitions;
@@ -31,7 +32,7 @@ namespace Assets.PixelCrew.Model.Data.Models
 
         public void RemapButton(string id, KeyCode key)
         {
-            DefsFacade.I.ControlsRepository.ReplaceKey(id, key);
+            ControlsRepository.I.ReplaceKey(id, key);
             OnChanged?.Invoke();
         }
 

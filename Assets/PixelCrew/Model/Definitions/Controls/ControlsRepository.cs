@@ -13,13 +13,31 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
         public ControlsMappingsDef[] Controls => Collection;
         public ControlsMappingsDef GetControl(string id) => Controls.FirstOrDefault(x => x.Id == id);
 
+        private static ControlsRepository _instance;
+        public static ControlsRepository I => _instance == null ? LoadControls() : _instance;
+
+        private static ControlsRepository LoadControls()
+        {
+            return _instance = Resources.Load<ControlsRepository>("Controls");
+        }
+
+        private void OnValidate()
+        {
+            foreach (var control in Controls)
+                control.KeyboardKey.Validate();
+        }
+
+        private void OnEnable()
+        {
+            for (var i = 0; i < Controls.Length; i++)
+                Controls[i].KeyboardKey = new KeyCodePersistentProperty(KeyCode.None, Controls[i].Id);
+        }
+
         public void ReplaceKey(string id, KeyCode newKey)
         {
             for (var i = 0; i < Collection.Length; i++)
-            {
-                if (Collection[i].Id == id)
-                    Collection[i].KeyboardKey.Value = newKey;
-            }
+                if (I.Collection[i].Id == id)
+                    I.Collection[i].KeyboardKey.Value = newKey;
         }
     }
 

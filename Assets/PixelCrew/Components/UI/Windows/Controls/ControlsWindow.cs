@@ -35,13 +35,18 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         private void OnControlsChanged()
         {
-            var controls = DefsFacade.I.ControlsRepository.Controls;
+            //var controls = DefsFacade.I.ControlsRepository.Controls;
+            var controls = ControlsRepository.I.Controls;
             _dataGroup.SetData(controls);
         }
 
         public void OnDefault()
         {
-            _session.ControlsModel.RemapToDefault();
+            var defaultControls = DefsFacade.I.DefaultControlsRepository.Controls;
+            foreach (var control in defaultControls)
+                _session.ControlsModel.RemapButton(control.Id, control.KeyboardKey.Value);
+
+            OnControlsChanged();
         }
 
         public void OnRemap()

@@ -10,30 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcf75c7bdd31e87438772d048da3e136, type: 3}
-  m_Name: Controls
+  m_Name: DefaultControls
   m_EditorClassIdentifier: 
   Collection:
   - _id: controls_forwardMovement_label
     _xboxGamepadButton: 15
-    _keyboardKey: 275
+    _keyboardKey:
+      _value: 97
   - _id: controls_backwardMovement_label
     _xboxGamepadButton: 14
-    _keyboardKey: 276
+    _keyboardKey:
+      _value: 100
   - _id: controls_jump_label
     _xboxGamepadButton: 0
-    _keyboardKey: 120
+    _keyboardKey:
+      _value: 0
   - _id: controls_interact_label
     _xboxGamepadButton: 2
-    _keyboardKey: 99
+    _keyboardKey:
+      _value: 0
   - _id: controls_attack_label
     _xboxGamepadButton: 5
-    _keyboardKey: 122
+    _keyboardKey:
+      _value: 0
   - _id: controls_useInventory_label
     _xboxGamepadButton: 3
-    _keyboardKey: 97
+    _keyboardKey:
+      _value: 0
   - _id: controls_nextItem_label
     _xboxGamepadButton: 4
-    _keyboardKey: 113
+    _keyboardKey:
+      _value: 0
   - _id: controls_menu_label
     _xboxGamepadButton: 9
-    _keyboardKey: 27
+    _keyboardKey:
+      _value: 0
