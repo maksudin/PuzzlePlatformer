@@ -18,5 +18,5 @@ MonoBehaviour:
   _perks: {fileID: 11400000, guid: cdf6e87ea5998b245991af0e07dfff14, type: 2}
   _player: {fileID: 11400000, guid: 3d6210fe9cee819439248e4ba24ef35b, type: 2}
   _controlIcons: {fileID: 11400000, guid: a13f2a2b6bf83454da1056b2e5d12d09, type: 2}
-  _defaultControlsRepository: {fileID: 11400000, guid: 1df63aae1654c964391f70b79982bf78,
+  _defaultControlsRepository: {fileID: 11400000, guid: 7c470772b042cde4f953fec854a5a528,
     type: 2}

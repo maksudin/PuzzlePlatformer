@@ -32,4 +32,13 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
         public KeyCode KeyboardButton => _keyboardButton;
         public Sprite KeyboardIcon => _keyboardIcon;
     }
+
+    public enum XboxGamepadButton
+    {
+        A, B, X, Y,
+        LB, RB, LT, RT,
+        Back, Start,
+        DPADLeft, DPADRight, DPADUp, DPADDown,
+        LSBLeft, LSBRight, LSBUp, LSBDown
+    }
 }

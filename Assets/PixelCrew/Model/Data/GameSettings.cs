@@ -3,11 +3,6 @@ using UnityEngine;
 
 namespace PixelCrew.Model.Data
 {
-    public enum SoundSetting
-    {
-        Music, Sfx
-    }
-
     [CreateAssetMenu(menuName = "Data/GameSettings", fileName = "GameSettings")]
     public class GameSettings : ScriptableObject
     {
@@ -36,5 +31,10 @@ namespace PixelCrew.Model.Data
             _music = new FloatPersistentProperty(1, SoundSetting.Music.ToString());
             _sfx = new FloatPersistentProperty(1, SoundSetting.Sfx.ToString());
         }
+    }
+
+    public enum SoundSetting
+    {
+        Music, Sfx
     }
 }

@@ -36,8 +36,8 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
         public void ReplaceKey(string id, KeyCode newKey)
         {
             for (var i = 0; i < Collection.Length; i++)
-                if (I.Collection[i].Id == id)
-                    I.Collection[i].KeyboardKey.Value = newKey;
+                if (I.Controls[i].Id == id)
+                    I.Controls[i].KeyboardKey.Value = newKey;
         }
     }
 
@@ -51,14 +51,5 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
         public string Id => _id;
         public XboxGamepadButton XboxGamepadButton => _xboxGamepadButton;
         public KeyCodePersistentProperty KeyboardKey { get => _keyboardKey; set => _keyboardKey = value; }
-    }
-
-    public enum XboxGamepadButton
-    {
-        A, B, X, Y,
-        LB, RB, LT, RT,
-        Back, Start,
-        DPADLeft, DPADRight, DPADUp, DPADDown,
-        LSBLeft, LSBRight, LSBUp, LSBDown
     }
 }

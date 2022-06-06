@@ -42,9 +42,9 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         public void OnDefault()
         {
-            var defaultControls = DefsFacade.I.DefaultControlsRepository.Controls;
+            var defaultControls = DefsFacade.I.DefaultControlsRepository.DefaultControls;
             foreach (var control in defaultControls)
-                _session.ControlsModel.RemapButton(control.Id, control.KeyboardKey.Value);
+                _session.ControlsModel.RemapButton(control.Id, control.KeyboardKey);
 
             OnControlsChanged();
         }
