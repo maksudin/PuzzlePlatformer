@@ -13,6 +13,7 @@ TagManager:
   - EnemyHealthBars
   - HUDCanvas
   - Hook
+  - RemapDialog
   layers:
   - Default
   - TransparentFX

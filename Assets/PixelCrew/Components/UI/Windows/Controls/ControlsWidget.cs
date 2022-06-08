@@ -1,15 +1,13 @@
-﻿using System.Linq;
-using Assets.PixelCrew.Model.Definitions.Controls;
+﻿using Assets.PixelCrew.Components.UI.Rebinding;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
-using PixelCrew.Model.Definitions;
-using PixelCrew.Model.Definitions.Localization;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Assets.PixelCrew.Components.UI.Windows.Controls
 {
-    public class ControlsWidget : MonoBehaviour, IItemRenderer<ControlsMappingsDef>
+    public class ControlsWidget : MonoBehaviour, IItemRenderer<InputAction>
     {
         [SerializeField] private Text _controlName;
         [SerializeField] private Image _gamepadIcon;
@@ -17,40 +15,48 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         [SerializeField] private GameObject _selector;
 
         private GameSession _session;
-        private ControlsMappingsDef _data;
+        private RebindActionUI _rebindUi;
+        private InputAction _data;
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
+            _rebindUi = FindObjectOfType<RebindActionUI>();
+
             UpdateView();
         }
 
-        public void SetData(ControlsMappingsDef data, int index)
+        public void SetData(InputAction data, int _)
         {
             _data = data;
+            //var reference = new InputActionReference();
+            //reference.Set(_data);
+            //rebindUi.actionReference = reference;
             UpdateView();
         }
 
         private void UpdateView()
         {
-            _controlName.text = LocalizationManager.I.Localize(_data.Id);
-            var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;
-            var xboxIcon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
-            _gamepadIcon.sprite = xboxIcon;
-            
-            var key = _data.KeyboardKey.Value;
-            //var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
-            //var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
-            _keyboardKey.text = key.ToString();
+            _controlName.text = _data.name;
+            _keyboardKey.text = _data.GetBindingDisplayString(0);
+            //_controlName.text = LocalizationManager.I.Localize(_data.Id);
+            //var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;
+            //var xboxIcon = xboxIcons.FirstOrDefault(x => x.XboxGamepadButton == _data.XboxGamepadButton).XboxGamepadIcon;
+            //_gamepadIcon.sprite = xboxIcon;
+
+            //var key = _data.KeyboardKey.Value;
+            ////var keyboardIcons = DefsFacade.I.ControlIcons.KeyboardIcons;
+            ////var keyIcon = keyboardIcons.FirstOrDefault(x => x.KeyboardButton == key).KeyboardIcon;
+            //_keyboardKey.text = key.ToString();
 
             if (_session != null)
-                _selector.gameObject.SetActive(_session.ControlsModel.InterfaceSelectedControl.Value == _data.Id);
+                _selector.gameObject.SetActive(_session.ControlsModel.InterfaceSelectedControl.Value == _data.name);
 
         }
 
         public void OnSelect()
         {
-            _session.ControlsModel.InterfaceSelectedControl.Value = _data.Id;
+            _session.ControlsModel.InterfaceSelectedControl.Value = _data.name;
         }
     }
 }

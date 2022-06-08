@@ -10,11 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5928865537813626309}
   - component: {fileID: 6116869328142899293}
-  - component: {fileID: 6802280143903362363}
-  - component: {fileID: 6736559527539682138}
   m_Layer: 5
   m_Name: RemapDialog
-  m_TagString: Untagged
+  m_TagString: RemapDialog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,44 +57,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6802280143903362363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283001693718924518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3e4723a52c01e045a288c818fc177e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6736559527539682138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283001693718924518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1a7a9fc74c0b948bc883a7d623c867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _keyPressEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6802280143903362363}
-        m_MethodName: OnRemap
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4561232195977132609
 GameObject:
   m_ObjectHideFlags: 0

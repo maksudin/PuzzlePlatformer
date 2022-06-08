@@ -32,7 +32,7 @@ namespace Assets.PixelCrew.Model.Data.Models
 
         public void RemapButton(string id, KeyCode key)
         {
-            ControlsRepository.I.ReplaceKey(id, key);
+            //ControlsRepository.I.ReplaceKey(id, key);
             OnChanged?.Invoke();
         }
 
