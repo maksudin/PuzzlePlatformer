@@ -1,6 +1,7 @@
 ﻿using Assets.PixelCrew.Components.UI.Rebinding;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
+using PixelCrew.Model.Definitions.Localization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,29 +16,23 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         [SerializeField] private GameObject _selector;
 
         private GameSession _session;
-        private RebindActionUI _rebindUi;
         private InputAction _data;
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
-            _rebindUi = FindObjectOfType<RebindActionUI>();
-
             UpdateView();
         }
 
         public void SetData(InputAction data, int _)
         {
             _data = data;
-            //var reference = new InputActionReference();
-            //reference.Set(_data);
-            //rebindUi.actionReference = reference;
             UpdateView();
         }
 
         private void UpdateView()
         {
-            _controlName.text = _data.name;
+            _controlName.text = LocalizationManager.I.Localize(_data.name);
             _keyboardKey.text = _data.GetBindingDisplayString(0);
             //_controlName.text = LocalizationManager.I.Localize(_data.Id);
             //var xboxIcons = DefsFacade.I.ControlIcons.XboxIcons;

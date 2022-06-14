@@ -2,7 +2,6 @@
 using PixelCrew.Components.UI.Windows;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions;
-using PixelCrew.Utils;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -34,13 +33,11 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
             _dataGroup = new DataGroup<InputAction, ControlsWidget>(_prefab, _controlsContainer);
             _session = FindObjectOfType<GameSession>();
             _trash.Retain(_session.ControlsModel.Subscribe(OnControlsChanged));
-
             OnControlsChanged();
         }
 
         private void OnControlsChanged()
         {
-            //var controls = DefsFacade.I.ControlsRepository.Controls;
             var actionsCount = _heroActionMap.actions.Count;
             _actions = new InputAction[actionsCount];
 
@@ -52,9 +49,19 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         public void OnDefault()
         {
-            var defaultControls = DefsFacade.I.DefaultControlsRepository.DefaultControls;
-            foreach (var control in defaultControls)
-                _session.ControlsModel.RemapButton(control.Id, control.KeyboardKey);
+            foreach (var action in _actions)
+            {
+                var bindingIndex = 0;
+                if (action.bindings[bindingIndex].isComposite)
+                {
+                    // It's a composite. Remove overrides from part bindings.
+                    for (var i = bindingIndex + 1; i < action.bindings.Count && action.bindings[i].isPartOfComposite; ++i)
+                        action.RemoveBindingOverride(i);
+                }
+                else
+                    action.RemoveBindingOverride(bindingIndex);
+            }
+
 
             OnControlsChanged();
         }
@@ -62,9 +69,9 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         public void OnRemap()
         {
             var actionName = _session.ControlsModel.InterfaceSelectedControl.Value;
-            var action = _heroActionMap.FindAction(actionName);
-            if (_buttonPrompt == null) return;
+            if (_buttonPrompt == null || actionName == null) return;
 
+            var action = _heroActionMap.FindAction(actionName);
             action.Disable();
 
             _buttonPrompt.SetActive(true);
@@ -77,14 +84,15 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
                     PerformInteractiveRebind(action, firstPartIndex, allCompositeParts: true);
             }
             else
-            {
                 PerformInteractiveRebind(action, bindingIndex);
-            }
         }
 
         private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
         {
             _rebindingOperation = action.PerformInteractiveRebinding(bindingIndex)
+                .WithControlsExcluding("Mouse")
+                .WithCancelingThrough("<Keyboard>/escape")
+                .WithControlsHavingToMatchPath("<Keyboard>/*")
                 .Start()
                 .OnCancel(
                     x =>
@@ -97,15 +105,23 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
                     x =>
                     {
                         OnControlsChanged();
-                        _buttonPrompt.SetActive(false);
                         _rebindingOperation.Dispose();
-                        action.Enable();
 
                         if (allCompositeParts)
                         {
                             var nextBindingIndex = bindingIndex + 1;
                             if (nextBindingIndex < action.bindings.Count && action.bindings[nextBindingIndex].isPartOfComposite)
                                 PerformInteractiveRebind(action, nextBindingIndex, true);
+                            else
+                            {
+                                action.Enable();
+                                _buttonPrompt.SetActive(false);
+                            }
+                        }
+                        else
+                        {
+                            action.Enable();
+                            _buttonPrompt.SetActive(false);
                         }
                     });
         }

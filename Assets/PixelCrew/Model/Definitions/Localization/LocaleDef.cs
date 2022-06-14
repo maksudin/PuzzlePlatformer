@@ -17,9 +17,7 @@ namespace PixelCrew.Model.Definitions.Localization
         {
             var dictionary = new Dictionary<string, string>();
             foreach (var localeItem in _localeItems)
-            {
                 dictionary.Add(localeItem.Key, localeItem.Value);
-            }
 
             return dictionary;
         }
@@ -40,9 +38,7 @@ namespace PixelCrew.Model.Definitions.Localization
                 var rows = _request.downloadHandler.text.Split('\n');
                 _localeItems.Clear();
                 foreach (var row in rows)
-                {
                     AddLocaleItem(row);
-                }
             }
         }
 

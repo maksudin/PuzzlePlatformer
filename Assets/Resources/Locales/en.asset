@@ -68,10 +68,10 @@ MonoBehaviour:
     Value: "Hahaha!..\r"
   - Key: dialog_pinkstar_lvl2_part2
     Value: "You can't reach me!\r"
-  - Key: controls_forwardMovement_label
-    Value: "Forward Movement\r"
-  - Key: controls_backwardMovement_label
-    Value: "Backward Movement\r"
+  - Key: controls_movement_label
+    Value: "Movement\r"
+  - Key: controls_saySomething_label
+    Value: "Talk\r"
   - Key: controls_jump_label
     Value: "Jump\r"
   - Key: controls_interact_label

@@ -62,12 +62,10 @@ namespace PixelCrew.Creatures
             var velocityX = CalculateXVelocity();
             // Движение по оси X.
             if (Rigidbody.velocity.y > 0 || Rigidbody.velocity.y < 0)
-            {
                 velocityX *= 2;
-            } else if (Rigidbody.velocity.y > 10 || Rigidbody.velocity.y < 10)
-            {
+            else if (Rigidbody.velocity.y > 10 || Rigidbody.velocity.y < 10)
                 velocityX *= 1.3f;
-            }
+
             float velocityY;
 
             velocityY = CalculateYVelocity();
@@ -138,20 +136,15 @@ namespace PixelCrew.Creatures
             Animator.SetBool(IsGroundKey, IsGrounded);
             Animator.SetFloat(VerticalVelocityKey, Rigidbody.velocity.y);
             Animator.SetBool(IsRunningKey, Direction.x != 0);
-
         }
 
         public void UpdateSpriteDirection(Vector2 direction)
         {
             var multiplier = _invertScale ? -1 : 1;
             if (direction.x > 0)
-            {
                 transform.localScale = new Vector3(multiplier, 1, 1);
-            }
             else if (direction.x < 0)
-            {
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
-            }
         }
 
         public virtual void TakeDamage()
