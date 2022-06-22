@@ -5828,7 +5828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 2100224
   _isTouchingLayer: 0
 --- !u!70 &7240798279233525141
 CapsuleCollider2D:
@@ -5932,6 +5932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4102361203020943663}
   - component: {fileID: 288329827505223362}
+  - component: {fileID: 3187823555220293355}
   - component: {fileID: 2743107175373189907}
   - component: {fileID: 7626438622782976357}
   m_Layer: 17
@@ -5974,6 +5975,38 @@ MonoBehaviour:
   _tags:
   - Hook
   _onOverlap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3187823555220293355}
+        m_MethodName: Check
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3187823555220293355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324207737065255948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d1889c02ce5224b8dc5cfd430c788c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 2.84
+  _mask:
+    serializedVersion: 2
+    m_Bits: 1049600
+  _tags:
+  - Hook
+  _hitEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2743107175373189907}

@@ -31,7 +31,7 @@ namespace PixelCrew.Components.UI.HUD
 
         public void OnDebug()
         {
-            WindowUtils.CreateWindow("UI/ControlsWindow");
+            WindowUtils.CreateWindow("UI/PerkWindow");
         }
 
         private void OnHealthChanged(int newValue, int oldValue)

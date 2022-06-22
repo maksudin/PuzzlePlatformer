@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using PixelCrew.Utils;
 using UnityEditor;
 using UnityEngine;
-using static Cinemachine.CinemachineCore;
-using UnityEngine.InputSystem.HID;
-using PixelCrew.Creatures.Mobs.Patrolling;
 
 namespace PixelCrew.Creatures.Mobs
 {
@@ -51,8 +47,10 @@ namespace PixelCrew.Creatures.Mobs
                     //Debug.DrawLine(transform.position, hit.point);
                     if (hit.collider.CompareTag(_tag))
                     {
-                        if (!_isAwake) StartState(AwakeMob());
-                        else StartState(AgroToHero());
+                        if (!_isAwake)
+                            StartState(AwakeMob());
+                        else
+                            StartState(AgroToHero());
                     }
                 }
                 

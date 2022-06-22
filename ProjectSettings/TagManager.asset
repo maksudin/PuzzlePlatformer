@@ -14,6 +14,7 @@ TagManager:
   - HUDCanvas
   - Hook
   - RemapDialog
+  - Platforms
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - TileMap
   - Checkers
   - Hooks
-  - 
+  - Platforms
   - 
   - 
   - 

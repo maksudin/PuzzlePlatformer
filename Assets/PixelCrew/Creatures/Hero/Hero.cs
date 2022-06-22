@@ -16,7 +16,6 @@ using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
-using Cinemachine.Utility;
 using Assets.PixelCrew.Utils;
 
 namespace PixelCrew.Creatures.Hero
@@ -166,7 +165,6 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Add(id, value);
         }
 
-
         public void UseInventory(IInputInteraction interaction)
         {
             if (!CanThrow)
@@ -312,7 +310,6 @@ namespace PixelCrew.Creatures.Hero
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = SwordCount > 0 ? _animatorArmed : _animatorDisarmed;
-
         }
 
         public void OnHealthChange(int currentHealth)
@@ -320,12 +317,11 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Hp.Value = currentHealth;
         }
 
-
-
         public void Interact()
         {
             _interactionCheck.Check();
-            _hookCheck.Check();
+            if (_session.PerksModel.IsHookSupported)
+                _hookCheck.Check();
         }
 
 
@@ -351,14 +347,13 @@ namespace PixelCrew.Creatures.Hero
 
         private bool _isHooking;
         private Vector3 _hookTarget;
-        
 
         protected override void FixedUpdate()
         {
             if (_isHooking)
             {
                 var direction = _hookTarget - transform.position;
-                var ease = EasingUtils.EaseInSine(0, _hookSpeed, 0.67f);
+                var ease = EasingUtils.EaseInSine(start: 0, end: _hookSpeed, value: 0.67f);
                 Rigidbody.MovePosition(transform.position + direction.normalized * ease * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position, _hookTarget) < 0.5f)
                     _isHooking = false;
@@ -366,8 +361,6 @@ namespace PixelCrew.Creatures.Hero
             else 
                 base.FixedUpdate();
         }
-
-
 
         public void HookTo(GameObject go)
         {
@@ -393,26 +386,22 @@ namespace PixelCrew.Creatures.Hero
 
             if (AttachedToRope)
             {
-                // Чтобы hero не падал быстро после detach.
+                // Замедление падения после detach.
                 velocityY = Rigidbody.velocity.y / 100f;
                 return velocityY;
             }
 
             if (IsGrounded && _session.PerksModel.IsDoubleJumpSupported || _allowDoubleJump)
-            {
                 _hasDoubleJump = true;
-            }
 
             // Падение с двойного прыжка имеет velocity около -15.
             if (Rigidbody.velocity.y < -15)
-            {
                 FallIsLongEnough = true;
-            }
 
             // Гравитация меняется при падении.
             Rigidbody.gravityScale = Rigidbody.velocity.y >= 0 ? _gravityScale : _fallingGravityScale;
 
-            return base.CalculateYVelocity(); ;
+            return base.CalculateYVelocity();
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)

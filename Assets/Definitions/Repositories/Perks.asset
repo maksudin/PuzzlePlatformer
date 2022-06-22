@@ -27,3 +27,10 @@ MonoBehaviour:
       _itemId: GreenGem
       _count: 10
     _cooldown: 10
+  - _id: hook
+    _icon: {fileID: 21300000, guid: 32a9eec6f0e6a2a4ab3f73a065d0b418, type: 3}
+    _info: This is Hook!
+    _price:
+      _itemId: Coin
+      _count: 30
+    _cooldown: 0

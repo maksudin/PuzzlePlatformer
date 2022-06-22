@@ -18,6 +18,7 @@ namespace Assets.PixelCrew.Model.Data.Models
 
         public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
         public bool IsSuperThrowSupported => _data.Perks.Used.Value == "super-throw";
+        public bool IsHookSupported => _data.Perks.Used.Value == "hook";
 
         public PerksModel(PlayerData data)
         {

@@ -15,7 +15,6 @@ namespace PixelCrew.Model.Definitions
         [SerializeField] private PerkRepository _perks;
         [SerializeField] private PlayerDef _player;
         [SerializeField] private ControlsDef _controlIcons;
-        [SerializeField] private DefaultControlsDef _defaultControlsRepository;
 
         public ItemsRepository Items => _items;
         public PotionRepository Potions => _potions;
@@ -23,7 +22,6 @@ namespace PixelCrew.Model.Definitions
         public ThrowableRepository Throwable => _throwableItems;
         public PlayerDef Player => _player;
         public ControlsDef ControlIcons => _controlIcons;
-        public DefaultControlsDef DefaultControlsRepository => _defaultControlsRepository;
 
         private static DefsFacade _instance;
         public static DefsFacade I => _instance == null ? LoadDefs() : _instance;
@@ -32,6 +30,5 @@ namespace PixelCrew.Model.Definitions
         {
             return _instance = Resources.Load<DefsFacade>("DefsFacade");
         }
-
     }
 }

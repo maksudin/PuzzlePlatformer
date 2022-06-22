@@ -28,7 +28,6 @@ namespace PixelCrew.Creatures.Hero
 
         public void OnSaySomething(InputAction.CallbackContext context)
         {
-            //if (context.performed)
         }
 
         public void OnInteract(InputAction.CallbackContext context)
