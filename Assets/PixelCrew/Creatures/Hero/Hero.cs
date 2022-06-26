@@ -59,10 +59,6 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private UnityEvent _onHookComplete;
         [SerializeField] private Cooldown _hookCooldown;
 
-
-
-
-
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
