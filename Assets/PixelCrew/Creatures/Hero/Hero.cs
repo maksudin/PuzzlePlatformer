@@ -17,6 +17,7 @@ using PixelCrew.Model.Definitions.Repository;
 using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Utils;
+using UnityEngine.Events;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -26,7 +27,9 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _gravityScale = 3;
         [SerializeField] private float _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
+        public CapsuleCollider2D HeroCollider;
         private Cooldown _superThrowCooldown = new Cooldown();
+
 
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
@@ -47,15 +50,18 @@ namespace PixelCrew.Creatures.Hero
 
         [Header("Rope Params")]
         [SerializeField] private float _pushForce;
-        
+        public bool AttachedToRope;
+
         [Header("Hook Params")]
         [SerializeField] private CheckCircleOverlap _hookCheck;
         [SerializeField] private float _hookSpeed;
         [SerializeField] private float _hookPushForce;
+        [SerializeField] private UnityEvent _onHookComplete;
+        [SerializeField] private Cooldown _hookCooldown;
 
-        public bool AttachedToRope;
 
-        public CapsuleCollider2D HeroCollider;
+
+
 
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
@@ -355,8 +361,11 @@ namespace PixelCrew.Creatures.Hero
                 var direction = _hookTarget - transform.position;
                 var ease = EasingUtils.EaseInSine(start: 0, end: _hookSpeed, value: 0.67f);
                 Rigidbody.MovePosition(transform.position + direction.normalized * ease * Time.fixedDeltaTime);
-                if (Vector3.Distance(transform.position, _hookTarget) < 0.5f)
+                if (Vector3.Distance(transform.position, _hookTarget) < 0.5f || _hookCooldown.IsReady)
+                {
+                    _onHookComplete?.Invoke();
                     _isHooking = false;
+                }    
             }
             else 
                 base.FixedUpdate();
@@ -366,6 +375,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _isHooking = true;
             _hookTarget = go.transform.position;
+            _hookCooldown.Reset();
         }
 
         protected override void UpdateAnimatorVals()

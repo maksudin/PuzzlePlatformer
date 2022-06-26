@@ -5590,6 +5590,7 @@ MonoBehaviour:
   _fallingGravityScale: 5.11
   _throwCooldown:
     _value: 1
+  HeroCollider: {fileID: 7240798278516988271}
   _swordBurstAmount: 3
   _allowDoubleJump: 0
   _interactionLayer:
@@ -5602,11 +5603,26 @@ MonoBehaviour:
   _animatorDisarmed: {fileID: 9100000, guid: 9205a98f285273a4cb1a91f3bd409167, type: 2}
   _throwSpawner: {fileID: 8526683799489118952}
   _pushForce: 0.66
+  AttachedToRope: 0
   _hookCheck: {fileID: 288329827505223362}
   _hookSpeed: 31.3
   _hookPushForce: 6.46
-  AttachedToRope: 0
-  HeroCollider: {fileID: 7240798278516988271}
+  _onHookComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2743107175373189907}
+        m_MethodName: ResetLine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _hookCooldown:
+    _value: 0.3
 --- !u!50 &7240798278516988176
 Rigidbody2D:
   serializedVersion: 4
@@ -6052,7 +6068,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c3c73666dff699c4981ad60b5f181fe6, type: 2}
+  - {fileID: 2100000, guid: 1ec4041b71417ad48a1bd787765c9a3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,4 +1,5 @@
-﻿using PixelCrew.Creatures.Hero;
+﻿using System.ComponentModel;
+using PixelCrew.Creatures.Hero;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Components.Movement
@@ -25,6 +26,11 @@ namespace Assets.PixelCrew.Components.Movement
         {
             _lineRenderer.positionCount = positions.Length;
             _lineRenderer.SetPositions(positions);
+        }
+
+        public void ResetLine()
+        {
+            _lineRenderer.positionCount = 0;
         }
     }
 }
