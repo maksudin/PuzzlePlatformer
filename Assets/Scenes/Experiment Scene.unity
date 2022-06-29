@@ -10707,6 +10707,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7238380921181232467, guid: c59d5710954944441a44e8ff537c9da8,
+        type: 3}
+      propertyPath: m_XDamping
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238380921181232467, guid: c59d5710954944441a44e8ff537c9da8,
+        type: 3}
+      propertyPath: m_YDamping
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238380921181232467, guid: c59d5710954944441a44e8ff537c9da8,
+        type: 3}
+      propertyPath: m_LookaheadTime
+      value: 0.231
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238380921181232467, guid: c59d5710954944441a44e8ff537c9da8,
+        type: 3}
+      propertyPath: m_CenterOnActivate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238380921181232467, guid: c59d5710954944441a44e8ff537c9da8,
+        type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 1.55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c59d5710954944441a44e8ff537c9da8, type: 3}
 --- !u!1001 &1630081570

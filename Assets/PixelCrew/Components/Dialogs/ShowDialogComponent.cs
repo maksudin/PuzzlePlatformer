@@ -54,6 +54,5 @@ namespace PixelCrew.Components.Dialogs
             External,
             ExternalLocales
         }
-
     }
 }

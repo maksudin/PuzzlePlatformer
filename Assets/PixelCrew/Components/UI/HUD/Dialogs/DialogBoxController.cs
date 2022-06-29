@@ -1,23 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Assets.PixelCrew.Components.UI.HUD.Dialogs;
 using PixelCrew.Model.Data;
 using PixelCrew.Utils;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace PixelCrew.Components.UI.HUD.Dialogs
 {
     public class DialogBoxController : MonoBehaviour
     {
-        [SerializeField] private Text _text;
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
 
         [Space] [SerializeField] private float _textSpeed = 0.09f;
 
-        [Header("Sounds")] [SerializeField] private AudioClip _typing;
+        [Header("Sounds")]
+        [SerializeField] private AudioClip _typing;
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioClip _close;
+
+        [SerializeField] private DialogData _testData;
+
+        [Space] [SerializeField] protected DialogContent Content;
+
 
         private DialogData _data;
         private int _currentSentence;
@@ -25,13 +29,14 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         private static readonly int IsOpen = Animator.StringToHash("is_open");
         private Coroutine _typingRoutine;
 
+        protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
+
         private void Start()
         {
             _sfxSource = AudioUtills.FindSfxSource();
         }
 
-
-        public void OnStartDialogAnimation()
+        protected virtual void OnStartDialogAnimation()
         {
             _typingRoutine = StartCoroutine(TypeDialogText());
         }
@@ -41,12 +46,14 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
         }
 
+        protected virtual DialogContent CurrentContent => Content;
+
         public void OnSkip()
         {
             if (_typingRoutine == null) return;
 
             StopTypeAnimation();
-            _text.text = _data.Sentences[_currentSentence];
+            CurrentContent.Text.text = _data.Sentences[_currentSentence].ValueId;
         }
 
         public void OnContinue()
@@ -56,13 +63,9 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
             var isDialogCompleted = _currentSentence >= _data.Sentences.Length;
             if (isDialogCompleted)
-            {
                 HideDialogBox();
-            }
             else
-            {
                 OnStartDialogAnimation();
-            }
         }
 
         private void HideDialogBox()
@@ -80,11 +83,11 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
         private IEnumerator TypeDialogText()
         {
-            _text.text = string.Empty;
+            CurrentContent.Text.text = string.Empty;
             var sentence = _data.Sentences[_currentSentence];
-            foreach (var letter in sentence)
+            foreach (var letter in sentence.ValueId)
             {
-                _text.text += letter;
+                CurrentContent.Text.text += letter;
                 _sfxSource.PlayOneShot(_typing);
                 yield return new WaitForSeconds(_textSpeed);
             }
@@ -96,19 +99,16 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         {
             _data = data;
             _currentSentence = 0;
-            _text.text = string.Empty;
+            CurrentContent.Text.text = string.Empty;
 
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
         }
 
-        [SerializeField] private DialogData _testData;
-
         public void Test()
         {
             ShowDialog(_testData);
         }
-
     }
 }
