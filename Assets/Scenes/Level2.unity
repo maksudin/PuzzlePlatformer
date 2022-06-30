@@ -1405,8 +1405,13 @@ MonoBehaviour:
   _mode: 2
   _bound:
     _sentences:
-    - Hahaha!..
-    - You can't reach me!
+    - _valued: You never gonna catch me!
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    Type: 0
   _external: {fileID: 0}
   _keys:
   - dialog_pinkstar_lvl2_part1

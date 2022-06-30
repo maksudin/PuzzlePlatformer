@@ -251,7 +251,7 @@ namespace PixelCrew.Creatures.Hero
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
 
-            var defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            float defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
             return defaultSpeed + _additionalSpeed;
         }
 

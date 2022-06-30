@@ -22,7 +22,6 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
         [Space] [SerializeField] protected DialogContent Content;
 
-
         private DialogData _data;
         private int _currentSentence;
         private AudioSource _sfxSource;
@@ -41,9 +40,8 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             _typingRoutine = StartCoroutine(TypeDialogText());
         }
 
-        public void OnCloseDialogAnimation()
+        protected virtual void OnCloseDialogAnimation()
         {
-
         }
 
         protected virtual DialogContent CurrentContent => Content;
@@ -63,7 +61,10 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
             var isDialogCompleted = _currentSentence >= _data.Sentences.Length;
             if (isDialogCompleted)
+            {
+                OnCloseDialogAnimation();
                 HideDialogBox();
+            }
             else
                 OnStartDialogAnimation();
         }
@@ -84,7 +85,8 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         private IEnumerator TypeDialogText()
         {
             CurrentContent.Text.text = string.Empty;
-            var sentence = _data.Sentences[_currentSentence];
+            var sentence = CurrentSentence;
+            CurrentContent.TrySetIcon(sentence.Icon);
             foreach (var letter in sentence.ValueId)
             {
                 CurrentContent.Text.text += letter;

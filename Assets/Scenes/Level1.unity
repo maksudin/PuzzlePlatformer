@@ -5142,8 +5142,6 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: Sword
-        Value: 10
       - Id: Coffee
         Value: 10
       - Id: Coin
@@ -11475,10 +11473,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e41dc6eb5891b44eab5c640ca3d4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 2
+  _mode: 0
   _bound:
     _sentences:
-    - If only I had a sword.
+    - _valued: You must have a weapon!
+      _icon: {fileID: 21300000, guid: 2af3a845a6e4ba54a9722fbc7e5bcfc2, type: 3}
+      _side: 1
+    - _valued: Alright then
+      _icon: {fileID: 21300000, guid: 570f44552dcedf14ba07cdf9ff1e67d1, type: 3}
+      _side: 0
+    Type: 1
   _external: {fileID: 0}
   _keys:
   - dialog_barrel_lvl1
@@ -13010,11 +13014,22 @@ MonoBehaviour:
   _mode: 2
   _bound:
     _sentences:
-    - Hello traveler!
-    - A pirate without a weapon. Hm..
-    - How strange is that.
-    - 'Give me 8 coins.. '
-    - And I will do something about it
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    - _valued: 
+      _icon: {fileID: 0}
+      _side: 0
+    Type: 0
   _external: {fileID: 0}
   _keys:
   - dialog_strangebox_lvl1_part1

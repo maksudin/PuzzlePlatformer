@@ -7,18 +7,18 @@ namespace PixelCrew.Model.Data
     public class DialogData
     {
         [SerializeField] private Sentence[] _sentences;
-        [SerializeField] private DialogType _type;
+        [SerializeField] public DialogType Type;
         public Sentence[] Sentences { get => _sentences; set => _sentences = value; }
     }
 
     [Serializable]
     public struct Sentence
     {
-        [SerializeField] private string _valueId;
+        [SerializeField] private string _valued;
         [SerializeField] private Sprite _icon;
         [SerializeField] private Side _side;
 
-        public string ValueId { get => _valueId; set => _valueId = value; }
+        public string ValueId { get => _valued; set => _valued = value; }
         public Sprite Icon => _icon;
         public Side Side => _side;
 

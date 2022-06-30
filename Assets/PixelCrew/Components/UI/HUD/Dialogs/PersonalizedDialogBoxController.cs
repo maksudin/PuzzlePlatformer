@@ -16,5 +16,12 @@ namespace Assets.PixelCrew.Components.UI.HUD.Dialogs
             Content.gameObject.SetActive(CurrentSentence.Side == Side.Left);
             base.OnStartDialogAnimation();
         }
+
+        protected override void OnCloseDialogAnimation()
+        {
+            _right.gameObject.SetActive(false);
+            Content.gameObject.SetActive(false);
+            base.OnCloseDialogAnimation();
+        }
     }
 }
