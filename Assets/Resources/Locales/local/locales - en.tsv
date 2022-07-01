@@ -1,0 +1,42 @@
+menu_title	menu
+languages_title	languages
+options_title	options
+options_label_music	music
+options_label_sfx	sfx
+shop_price_label	Price:
+shop_health_label	Health
+shop_speed_label	Speed
+shop_range_damage_label	Range Damage
+button_start	Start
+button_option	Options
+button_locales	Languages
+button_exit	Exit
+button_restart	Restart
+button_back	Back
+button_ok	Ok
+button_continue	Continue
+button_upgrade	Upgrade
+button_controls	Controls
+dialog_barrel_lvl1	If only I had a sword.
+dialog_strangebox_lvl1_part1	Hello traveler!
+dialog_strangebox_lvl1_part2	A pirate without a weapon. Hm..
+dialog_strangebox_lvl1_part3	How strange is that.
+dialog_strangebox_lvl1_part4	Give me 8 coins.. 
+dialog_strangebox_lvl1_part5	And I will do something about it
+dialog_pinkstar_lvl2_part1	Hahaha!..
+dialog_pinkstar_lvl2_part2	You can't reach me!
+controls_movement_label	Movement
+controls_saySomething_label	Talk
+controls_jump_label	Jump
+controls_interact_label	Interact
+controls_attack_label	Attack
+controls_useInventory_label	Use Inventory Item
+controls_nextItem_label	Next Inventory Item
+controls_menu_label	Menu
+controls_key_label	Key
+controls_default_button	Default
+controls_remap_button	Remap
+remapDialog_label	Press any key..
+double-jump	
+super-throw	
+hook	

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SocialPlatforms;
 
 namespace PixelCrew.Model.Definitions.Localization
 {
@@ -29,6 +31,12 @@ namespace PixelCrew.Model.Definitions.Localization
 
             _request = UnityWebRequest.Get(_url);
             _request.SendWebRequest().completed += OnDataLoaded;
+        }
+
+        [ContextMenu("Find File Locale")]
+        public void FindFileLocale()
+        {
+            var path = EditorUtility.OpenFilePanel("Select locale.tsv file", "", "tsv");
         }
 
         private void OnDataLoaded(AsyncOperation operation)
@@ -62,7 +70,5 @@ namespace PixelCrew.Model.Definitions.Localization
             public string Key;
             public string Value;
         }
-
-
     }
 }
