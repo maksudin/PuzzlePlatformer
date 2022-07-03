@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 988590789168144346}
   - component: {fileID: 988590789168144345}
   - component: {fileID: 988590789168144344}
-  - component: {fileID: 988590789168144351}
   - component: {fileID: 988590789168144350}
   - component: {fileID: 988590789168144347}
   - component: {fileID: 988590789168144340}
   - component: {fileID: 5681640805078021757}
   - component: {fileID: 2128674289}
   - component: {fileID: 204847806994598060}
+  - component: {fileID: 988590789168144351}
   m_Layer: 16
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -172,19 +172,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &988590789168144351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988590789168144349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929396a359c913a46bbbaa11a630b755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 988590789168144349}
 --- !u!114 &988590789168144350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +315,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 8300000, guid: 60f60402a48e0f349a3e23aee3e63eff, type: 3}
+--- !u!114 &988590789168144351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988590789168144349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929396a359c913a46bbbaa11a630b755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDestroy: {fileID: 988590789168144349}
+  _state: {fileID: 0}

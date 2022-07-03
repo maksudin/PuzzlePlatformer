@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.SocialPlatforms;
 
 namespace PixelCrew.Model.Definitions.Localization
 {
@@ -33,22 +33,36 @@ namespace PixelCrew.Model.Definitions.Localization
             _request.SendWebRequest().completed += OnDataLoaded;
         }
 
-        [ContextMenu("Find File Locale")]
-        public void FindFileLocale()
+
+#if UNITY_EDITOR
+        [ContextMenu("Update Locale from file")]
+        public void UpdateLocaleFromFile()
         {
-            var path = EditorUtility.OpenFilePanel("Select locale.tsv file", "", "tsv");
+            var path = EditorUtility.OpenFilePanel("Select locale file", "", "tsv");
+            if (path.Length == 0) return;
+
+            var data = File.ReadAllText(path);
+            ParseData(data);
         }
+#endif
 
         private void OnDataLoaded(AsyncOperation operation)
         {
             if (operation.isDone)
             {
-                var rows = _request.downloadHandler.text.Split('\n');
-                _localeItems.Clear();
-                foreach (var row in rows)
-                    AddLocaleItem(row);
+                var data = _request.downloadHandler.text;
+                ParseData(data);
             }
         }
+
+        private void ParseData(string data)
+        {
+            var rows = data.Split('\n');
+            _localeItems.Clear();
+            foreach (var row in rows)
+                AddLocaleItem(row);
+        }
+
 
         private void AddLocaleItem(string row)
         {

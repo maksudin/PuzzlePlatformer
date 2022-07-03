@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace PixelCrew.Components.UI.Localization
 {
+    [RequireComponent(typeof(Image))]
     public class LocalizeImage : AbstractLocalizeComponent
     {
         [SerializeField] private IconId[] _icons;

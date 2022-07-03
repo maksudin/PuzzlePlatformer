@@ -123,6 +123,19 @@ namespace PixelCrew.Model
         {
             return _checkpoints.Contains(id);
         }
+
+        private List<string> _removedItems = new List<string>();
+
+        public bool RestoreState(string itemId)
+        {
+            return _removedItems.Contains(itemId);
+        }
+
+        public void StoreState(string itemId)
+        {
+            if (!_removedItems.Contains(itemId))
+                _removedItems.Add(itemId);
+        }
     }
 }
 

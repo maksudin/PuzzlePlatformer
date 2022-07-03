@@ -5142,7 +5142,7 @@ MonoBehaviour:
   _data:
     _inventory:
       _inventory:
-      - Id: Coffee
+      - Id: Sword
         Value: 10
       - Id: Coin
         Value: 400
@@ -11486,6 +11486,19 @@ MonoBehaviour:
   _external: {fileID: 0}
   _keys:
   - dialog_barrel_lvl1
+--- !u!114 &1492136649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492136647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3717c365037ab4c86b6fd8d9989703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: DestructableBarrel
 --- !u!4 &1492136659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 988590789168144346, guid: b1be23d567e6395479de8d2b291d08a0,
@@ -12257,6 +12270,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DestructableBarrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 988590789168144351, guid: b1be23d567e6395479de8d2b291d08a0,
+        type: 3}
+      propertyPath: _id
+      value: DestructableBarrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 988590789168144351, guid: b1be23d567e6395479de8d2b291d08a0,
+        type: 3}
+      propertyPath: _state
+      value: 
+      objectReference: {fileID: 1492136649}
+    - target: {fileID: 988590789168144351, guid: b1be23d567e6395479de8d2b291d08a0,
+        type: 3}
+      propertyPath: _storeState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1be23d567e6395479de8d2b291d08a0, type: 3}

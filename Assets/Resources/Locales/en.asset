@@ -91,4 +91,10 @@ MonoBehaviour:
   - Key: controls_remap_button
     Value: "Remap\r"
   - Key: remapDialog_label
-    Value: Press any key..
+    Value: "Press any key..\r"
+  - Key: double-jump
+    Value: "This is double jump\r"
+  - Key: super-throw
+    Value: "This is super throw\r"
+  - Key: hook
+    Value: This is hook

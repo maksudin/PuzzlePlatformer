@@ -37,6 +37,6 @@ controls_key_label	Key
 controls_default_button	Default
 controls_remap_button	Remap
 remapDialog_label	Press any key..
-double-jump	
-super-throw	
-hook	
+double-jump	This is double jump
+super-throw	This is super throw
+hook	This is hook
