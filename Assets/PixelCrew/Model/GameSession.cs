@@ -131,10 +131,11 @@ namespace PixelCrew.Model
             return _removedItems.Contains(itemId);
         }
 
-        public void StoreState(string itemId)
+
+        public void StoreState(string instanceID)
         {
-            if (!_removedItems.Contains(itemId))
-                _removedItems.Add(itemId);
+            if (!_removedItems.Contains(instanceID))
+                _removedItems.Add(instanceID);
         }
     }
 }
