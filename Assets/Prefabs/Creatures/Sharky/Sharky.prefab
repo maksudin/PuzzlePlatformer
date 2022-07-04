@@ -477,7 +477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f00aa619c0142b4f99c1ca927fb605d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mode: 0
   _damage: 1
+  _statId: 0
   _healValue: 0
 --- !u!58 &5292575107930930599
 CircleCollider2D:
@@ -624,7 +626,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -820,6 +822,7 @@ MonoBehaviour:
   _alarmDelay: 0.5
   _attackCooldown: 1
   _missHeroCooldown: 1
+  _horizontalThreshold: 0.2
 --- !u!114 &1123839030
 MonoBehaviour:
   m_ObjectHideFlags: 0
