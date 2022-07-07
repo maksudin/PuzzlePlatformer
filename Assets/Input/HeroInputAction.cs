@@ -89,6 +89,15 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""controls_candle_label"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6142a40-bdfb-4cd7-91d0-11256984119b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +276,17 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""controls_menu_label"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d153e37c-a8d7-4602-a2e9-c7b6dcb4077e"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""controls_candle_label"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -282,6 +302,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_controls_useInventory_label = m_Hero.FindAction("controls_useInventory_label", throwIfNotFound: true);
         m_Hero_controls_nextItem_label = m_Hero.FindAction("controls_nextItem_label", throwIfNotFound: true);
         m_Hero_controls_menu_label = m_Hero.FindAction("controls_menu_label", throwIfNotFound: true);
+        m_Hero_controls_candle_label = m_Hero.FindAction("controls_candle_label", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,6 +369,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_controls_useInventory_label;
     private readonly InputAction m_Hero_controls_nextItem_label;
     private readonly InputAction m_Hero_controls_menu_label;
+    private readonly InputAction m_Hero_controls_candle_label;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -359,6 +381,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @controls_useInventory_label => m_Wrapper.m_Hero_controls_useInventory_label;
         public InputAction @controls_nextItem_label => m_Wrapper.m_Hero_controls_nextItem_label;
         public InputAction @controls_menu_label => m_Wrapper.m_Hero_controls_menu_label;
+        public InputAction @controls_candle_label => m_Wrapper.m_Hero_controls_candle_label;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -389,6 +412,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @controls_menu_label.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_menu_label;
                 @controls_menu_label.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_menu_label;
                 @controls_menu_label.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_menu_label;
+                @controls_candle_label.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_candle_label;
+                @controls_candle_label.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_candle_label;
+                @controls_candle_label.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnControls_candle_label;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -414,6 +440,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @controls_menu_label.started += instance.OnControls_menu_label;
                 @controls_menu_label.performed += instance.OnControls_menu_label;
                 @controls_menu_label.canceled += instance.OnControls_menu_label;
+                @controls_candle_label.started += instance.OnControls_candle_label;
+                @controls_candle_label.performed += instance.OnControls_candle_label;
+                @controls_candle_label.canceled += instance.OnControls_candle_label;
             }
         }
     }
@@ -427,5 +456,6 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnControls_useInventory_label(InputAction.CallbackContext context);
         void OnControls_nextItem_label(InputAction.CallbackContext context);
         void OnControls_menu_label(InputAction.CallbackContext context);
+        void OnControls_candle_label(InputAction.CallbackContext context);
     }
 }

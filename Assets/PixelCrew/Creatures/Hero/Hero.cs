@@ -18,6 +18,7 @@ using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Utils;
 using UnityEngine.Events;
+using Assets.PixelCrew;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -58,6 +59,8 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private float _hookPushForce;
         [SerializeField] private UnityEvent _onHookComplete;
         [SerializeField] private Cooldown _hookCooldown;
+        [Space]
+        [SerializeField] private CandleController _candle;
 
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
@@ -112,7 +115,6 @@ namespace PixelCrew.Creatures.Hero
             var health = (int)_session.StatsModel.GetValue(StatId.Hp);
             _session.Data.Hp.Value = health;
             Health.SetHealth(health);
-
         }
 
         private void OnHeroUpgraded(StatId statId)
@@ -222,6 +224,25 @@ namespace PixelCrew.Creatures.Hero
             base.Attack();
         }
 
+        private bool _candleActive;
+
+        public void UseCandle()
+        {
+            if (!_candleActive)
+            {
+                _candle.TurnOnCandle();
+                _candleActive = true;
+            }
+        }
+
+        public void CandleRanOut()
+        {
+            _candleActive = false;
+        }
+
+        private Cooldown _speedUpCooldown = new Cooldown();
+        private float _additionalSpeed;
+
         private void UsePotion()
         {
             var potion = DefsFacade.I.Potions.Get(SelectedItemId);
@@ -241,10 +262,6 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.Remove(potion.Id, 1);
             Particles.Spawn("Potion");
         }
-
-
-        private Cooldown _speedUpCooldown = new Cooldown();
-        private float _additionalSpeed;
 
         protected override float CalculateSpeed()
         {

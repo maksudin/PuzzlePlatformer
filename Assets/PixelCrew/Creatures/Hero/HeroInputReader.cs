@@ -47,6 +47,12 @@ namespace PixelCrew.Creatures.Hero
             if (context.performed)
                 _hero.UseInventory(context.interaction);
         }
+
+        public void OnUseCandle(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.UseCandle();
+        }
     }
 }
 

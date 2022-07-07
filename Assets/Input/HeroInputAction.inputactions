@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "controls_candle_label",
+                    "type": "Button",
+                    "id": "a6142a40-bdfb-4cd7-91d0-11256984119b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -243,6 +252,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "controls_menu_label",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d153e37c-a8d7-4602-a2e9-c7b6dcb4077e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "controls_candle_label",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

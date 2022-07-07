@@ -186,6 +186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 257219064}
     m_Modifications:
+    - target: {fileID: 1218501957, guid: a5f281245e09bea49b9194f95868d1a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7483622350828921523, guid: a5f281245e09bea49b9194f95868d1a2,
         type: 3}
       propertyPath: m_RootOrder
@@ -240,6 +244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483622350828921524, guid: a5f281245e09bea49b9194f95868d1a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7483622350828921527, guid: a5f281245e09bea49b9194f95868d1a2,
         type: 3}
@@ -2750,6 +2759,8 @@ MonoBehaviour:
         Value: 20
       - Id: Sword
         Value: 40
+      - Id: Candle
+        Value: 1
     Hp:
       _value: 0
     Perks:
