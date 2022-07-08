@@ -233,6 +233,11 @@ namespace PixelCrew.Creatures.Hero
                 _candle.TurnOnCandle();
                 _candleActive = true;
             }
+            else
+            {
+                _candle.TurnOffCandle();
+                _candleActive = false;
+            }
         }
 
         public void CandleRanOut()

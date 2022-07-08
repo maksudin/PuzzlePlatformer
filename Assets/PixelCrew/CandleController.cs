@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.Rendering.Universal;
@@ -19,13 +18,6 @@ namespace Assets.PixelCrew
         private float _candleCapacity;
         private Coroutine _currentCoroutine;
 
-        
-
-        private void Awake()
-        {
-            _defaultIntensity = _light.intensity;
-        }
-
         private void OnEnable()
         {
             if (_currentCoroutine != null)
@@ -35,7 +27,6 @@ namespace Assets.PixelCrew
 
         public void TurnOnCandle()
         {
-            _light.intensity = _defaultIntensity;
             ResetCapacity();
             _candleObject.SetActive(true);
             _candleCooldownImage.gameObject.SetActive(true);
