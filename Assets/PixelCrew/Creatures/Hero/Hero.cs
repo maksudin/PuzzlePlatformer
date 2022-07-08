@@ -31,7 +31,6 @@ namespace PixelCrew.Creatures.Hero
         public CapsuleCollider2D HeroCollider;
         private Cooldown _superThrowCooldown = new Cooldown();
 
-
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
 

@@ -85,7 +85,6 @@ namespace PixelCrew.Creatures
             return _speed;
         }
 
-
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = Rigidbody.velocity.y;
