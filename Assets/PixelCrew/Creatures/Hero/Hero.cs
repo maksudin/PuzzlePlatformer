@@ -175,7 +175,8 @@ namespace PixelCrew.Creatures.Hero
             {
                 if (IsSelectedItem(ItemTag.Potion))
                     UsePotion();
-
+                if (IsSelectedItem(ItemTag.Candle))
+                    ReplanishCandle();
                 return;
             }
             
@@ -238,6 +239,12 @@ namespace PixelCrew.Creatures.Hero
                 _candle.TurnOffCandle();
                 _candleActive = false;
             }
+        }
+
+        private void ReplanishCandle()
+        {
+            _candle.ResetCapacity();
+            _session.Data.Inventory.Remove(SelectedItemId, 1);
         }
 
         public void CandleRanOut()
