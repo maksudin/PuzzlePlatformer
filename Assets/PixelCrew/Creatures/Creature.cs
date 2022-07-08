@@ -107,9 +107,7 @@ namespace PixelCrew.Creatures
             }
 
             else if (Rigidbody.velocity.y > 0)
-            {
                 yVelocity *= 0.5f;
-            }
 
             return yVelocity;
         }
@@ -164,13 +162,9 @@ namespace PixelCrew.Creatures
             Sounds.Play("Melee");
 
             if (Direction.x > 0 || Direction.x < 0)
-            {
                 Particles.SpawnWithOffset("Attack", new Vector2(AttackParticlesOffset * Direction.x, 0));
-            }
             else
-            {
                 Particles.Spawn("Attack");
-            }
         }
     }
 }
