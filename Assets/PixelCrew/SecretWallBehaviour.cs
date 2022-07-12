@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SecretWallBehaviour : MonoBehaviour
 {
@@ -18,9 +16,7 @@ public class SecretWallBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(_tag))
-        {
             showSecretWall = true;
-        }
     }
 
     private void changeColor()
@@ -34,8 +30,6 @@ public class SecretWallBehaviour : MonoBehaviour
     private void Update()
     {
         if (showSecretWall)
-        {
             changeColor();
-        }
     }
 }

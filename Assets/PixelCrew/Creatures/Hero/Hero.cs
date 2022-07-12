@@ -19,6 +19,7 @@ using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Utils;
 using UnityEngine.Events;
 using Assets.PixelCrew;
+using Assets.PixelCrew.Effects.CameraRelated;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -61,6 +62,7 @@ namespace PixelCrew.Creatures.Hero
         [Space]
         [SerializeField] private CandleController _candle;
 
+        private CameraShakeEffect _cameraShake;
         private bool _emulateGroundCondition;
         private float _groundTime = 0.1f;
         private float _groundTimer = 0.0f;
@@ -103,6 +105,7 @@ namespace PixelCrew.Creatures.Hero
 
         private void Start()
         {
+            _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
@@ -454,6 +457,8 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+
+            _cameraShake.Shake();
 
             if (CoinCount > 0)
                 SpawnCoins();
