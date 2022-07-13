@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.PixelCrew.Components.UI.LevelsLoader;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Components.LevelManagement
 {
     public class ExitLevelComponent : MonoBehaviour
     {
-
        [SerializeField] private string _sceneName;
 
        public void Exit()
        {
-            SceneManager.LoadScene(_sceneName);
+            var loader = FindObjectOfType<LevelLoader>();
+            loader.LoadLevel(_sceneName);
        }
     }
 }
