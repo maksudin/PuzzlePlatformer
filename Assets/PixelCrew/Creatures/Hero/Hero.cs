@@ -458,7 +458,8 @@ namespace PixelCrew.Creatures.Hero
         {
             base.TakeDamage();
 
-            _cameraShake.Shake();
+            if (_cameraShake != null)
+                _cameraShake.Shake();
 
             if (CoinCount > 0)
                 SpawnCoins();
