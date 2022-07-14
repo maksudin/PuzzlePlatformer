@@ -17,6 +17,7 @@ TagManager:
   - Platforms
   - SimpleDialog
   - PersonalizedDialog
+  - GlobalPostEffect
   layers:
   - Default
   - TransparentFX

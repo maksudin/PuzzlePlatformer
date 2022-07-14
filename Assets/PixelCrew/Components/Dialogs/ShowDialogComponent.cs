@@ -22,6 +22,12 @@ namespace PixelCrew.Components.Dialogs
             _dialogBox.ShowDialog(Data);
         }
 
+        public void Show(DialogDef def)
+        {
+            _external = def;
+            Show();
+        }
+
         private DialogBoxController FindDialogController()
         {
             if (_dialogBox != null) return _dialogBox;
@@ -41,12 +47,6 @@ namespace PixelCrew.Components.Dialogs
 
             return controllerGo.GetComponent<DialogBoxController>();
 
-        }
-
-        public void Show(DialogDef def)
-        {
-            _external = def;
-            Show();
         }
 
         public DialogData Data

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Assets.PixelCrew.Components.UI.HUD.Dialogs;
+using Assets.PixelCrew.Effects;
 using PixelCrew.Model.Data;
 using PixelCrew.Utils;
 using UnityEngine;
@@ -24,24 +25,34 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
 
         private DialogData _data;
         private int _currentSentence;
+        private GlobalPostEffectController _globalEffects;
         private AudioSource _sfxSource;
         private static readonly int IsOpen = Animator.StringToHash("is_open");
         private Coroutine _typingRoutine;
+        protected float _defaultTimeScale;
 
         protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
 
         private void Start()
         {
+            _defaultTimeScale = Time.timeScale;
+            _globalEffects = FindObjectOfType<GlobalPostEffectController>();
             _sfxSource = AudioUtills.FindSfxSource();
         }
 
         protected virtual void OnStartDialogAnimation()
         {
             _typingRoutine = StartCoroutine(TypeDialogText());
+            Pause();
+            if (_globalEffects != null)
+                _globalEffects.TurnOn();
         }
 
         protected virtual void OnCloseDialogAnimation()
         {
+            UnPause();
+            if (_globalEffects != null)
+                _globalEffects.TurnOff();
         }
 
         protected virtual DialogContent CurrentContent => Content;
@@ -91,7 +102,7 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             {
                 CurrentContent.Text.text += letter;
                 _sfxSource.PlayOneShot(_typing);
-                yield return new WaitForSeconds(_textSpeed);
+                yield return new WaitForSecondsRealtime(_textSpeed);
             }
 
             _typingRoutine = null;
@@ -111,6 +122,16 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         public void Test()
         {
             ShowDialog(_testData);
+        }
+
+        public void Pause()
+        {
+            Time.timeScale = 0;
+        }
+
+        public void UnPause()
+        {
+            Time.timeScale = _defaultTimeScale;
         }
     }
 }
