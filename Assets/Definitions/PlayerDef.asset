@@ -75,3 +75,27 @@ MonoBehaviour:
       _price:
         _itemId: Coin
         _count: 50
+  - _name: shop_critical_damage_label
+    _id: 3
+    _icon: {fileID: 21300000, guid: 7d90a8d6f95cbc2458f3b241253bf84d, type: 3}
+    _levels:
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 5
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 30
+      _price:
+        _itemId: Coin
+        _count: 15
+    - _value: 50
+      _price:
+        _itemId: Coin
+        _count: 30
+    - _value: 90
+      _price:
+        _itemId: Coin
+        _count: 50

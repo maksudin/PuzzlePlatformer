@@ -1,7 +1,4 @@
-﻿using PixelCrew.Model.Data;
-using PixelCrew.Utils;
-using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Assets.PixelCrew.Model.Definitions.Player;
 using PixelCrew.Model;
 
@@ -29,10 +26,23 @@ namespace PixelCrew.Components.Health
                     health?.ApplyDamage(_damage);
                     break;
                 case HealthMode.ExternalStat:
+                    //if (_statId == StatId.CriticalDamage)
+                    //{
+                    //    health?.ApplyDamage(ModifyDamageByCrit((int)_session.StatsModel.GetValue(_statId)));
+                    //    break;
+                    //}
                     var statDamage = _session.StatsModel.GetValue(_statId);
                     health?.ApplyDamage((int)statDamage);
                     break;
             }
+        }
+
+        private int ModifyDamageByCrit(int damage)
+        {
+            var critChance = _session.StatsModel.GetValue(StatId.CriticalDamage);
+            if (Random.value * 100 <= critChance)
+                return damage * 2;
+            return damage;
         }
 
         public void Heal(GameObject target)

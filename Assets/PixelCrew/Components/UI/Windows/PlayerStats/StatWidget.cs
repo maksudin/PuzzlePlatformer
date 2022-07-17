@@ -38,14 +38,17 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
 
         private void UpdateView()
         {
+            var statsModel = _session.StatsModel;
+
             _icon.sprite = _data.Icon;
             _name.text = LocalizationManager.I.Localize(_data.Name);
-            var statsModel = _session.StatsModel;
-            _currentValue.text = statsModel.GetValue(_data.ID).ToString(CultureInfo.InvariantCulture);
+            var currentLevelValue = statsModel.GetValue(_data.ID);
+            _currentValue.text = currentLevelValue.ToString(CultureInfo.InvariantCulture);
 
             var currentLevel = statsModel.GetCurrentLevel(_data.ID);
-            var nextLevel = statsModel.GetCurrentLevel(_data.ID) + 1;
-            var increaseValue = statsModel.GetValue(_data.ID, nextLevel);
+            var nextLevel = currentLevel + 1;
+            var nextLevelValue = statsModel.GetValue(_data.ID, nextLevel);
+            var increaseValue = nextLevelValue - currentLevelValue;
 
             _increaseValue.text = $"+ {increaseValue}";
             _increaseValue.gameObject.SetActive(increaseValue > 0);

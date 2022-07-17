@@ -199,7 +199,6 @@ namespace PixelCrew.Creatures.Hero
             _isDashing = isDashing;
         }
 
-
         public void CallMenu()
         {
             var menu = FindObjectOfType<EscMenuWindow>();
