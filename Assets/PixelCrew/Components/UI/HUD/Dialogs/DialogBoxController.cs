@@ -43,14 +43,12 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         protected virtual void OnStartDialogAnimation()
         {
             _typingRoutine = StartCoroutine(TypeDialogText());
-            Pause();
             if (_globalEffects != null)
                 _globalEffects.TurnOn();
         }
 
         protected virtual void OnCloseDialogAnimation()
         {
-            UnPause();
             if (_globalEffects != null)
                 _globalEffects.TurnOff();
         }
@@ -122,16 +120,6 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         public void Test()
         {
             ShowDialog(_testData);
-        }
-
-        public void Pause()
-        {
-            Time.timeScale = 0;
-        }
-
-        public void UnPause()
-        {
-            Time.timeScale = _defaultTimeScale;
         }
     }
 }

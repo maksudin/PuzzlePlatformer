@@ -25618,7 +25618,7 @@ MonoBehaviour:
       _inventory:
       - Id: GreenGem
         Value: 20
-      - Id: Sword
+      - Id: Coin
         Value: 40
     Hp:
       _value: 0
