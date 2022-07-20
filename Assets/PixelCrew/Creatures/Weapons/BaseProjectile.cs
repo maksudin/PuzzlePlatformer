@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Creatures.Weapons
 {
@@ -10,13 +9,10 @@ namespace PixelCrew.Creatures.Weapons
         protected Rigidbody2D Rigidbody;
         protected int Direction;
 
-
         protected virtual void Start()
         {
             Direction = transform.lossyScale.x > 0 ? 1 : -1;
             Rigidbody = GetComponent<Rigidbody2D>();
         }
-        // Use this for initialization
-
     }
 }

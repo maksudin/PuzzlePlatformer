@@ -20,7 +20,7 @@ namespace Assets.PixelCrew
         {
             // Для изменения матерьяла текущего объекта.
             //_sprite.material.SetColor(EmissionColor, _color); 
-            // Меняет матерьял общий матерьял.
+            // Меняет общий матерьял.
             _sprite.sharedMaterial.SetColor(EmissionColor, _color);
         }
     }

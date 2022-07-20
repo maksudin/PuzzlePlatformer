@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Drawing;
-using PixelCrew.Components.Movement;
-using PixelCrew.Components.GoBased;
+﻿using PixelCrew.Components.GoBased;
 using UnityEngine;
 
 namespace PixelCrew.Components.Movement
@@ -14,7 +11,6 @@ namespace PixelCrew.Components.Movement
         [SerializeField] private GameObject _prefub;
 
         private DestroyObjectComponent[] _itemsDestroy;
-        private Rigidbody2D[] _itemsRB;
         private PrefubInfo[] _prefubsInfo;
 
         const float circleDegrees = 360f;
@@ -32,7 +28,6 @@ namespace PixelCrew.Components.Movement
                 point.y = transform.position.y + (_radius * Mathf.Sin(_currentDegree));
 
                 _currentDegree += angle;
-
                 Gizmos.DrawSphere(point, 0.1f);
             }
         }
@@ -54,16 +49,14 @@ namespace PixelCrew.Components.Movement
                 point.y = transform.position.y + (_radius * Mathf.Sin(_currentAngle));
 
                 _prefubsInfo[i] = new PrefubInfo();
-                _prefubsInfo[i].Go = (GameObject) Instantiate(_prefub, point, Quaternion.identity, transform);
+                _prefubsInfo[i].Go = Instantiate(_prefub, point, Quaternion.identity, transform);
                 _prefubsInfo[i].Angle = _currentAngle;
 
                 _currentAngle += angle;
             }
 
             foreach (var prefub in _prefubsInfo)
-            {
                 prefub.Go.GetComponent<VerticalLevitationComponent>().enabled = false;
-            }
         }
 
         private void DestroyOldItems()
@@ -73,9 +66,7 @@ namespace PixelCrew.Components.Movement
             if (_itemsDestroy.Length > 1)
             {
                 for (var i = 0; i < _itemsDestroy.Length; i++)
-                {
                     _itemsDestroy[i].DestroyObject();
-                }
             }
         }
 
@@ -101,9 +92,7 @@ namespace PixelCrew.Components.Movement
             }
 
             if (countDestroyed == count)
-            {
                 GetComponent<CircularMovementComponent>().enabled = false;
-            }
         }
 
         public class PrefubInfo
