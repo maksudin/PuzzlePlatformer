@@ -74,7 +74,6 @@ namespace PixelCrew.Model
             if (!_checkpoints.Contains(id))
                 _checkpoints.Add(id);
             // TODO: Save();
-
         }
 
         private void OnDestroy()
@@ -130,7 +129,6 @@ namespace PixelCrew.Model
         {
             return _removedItems.Contains(itemId);
         }
-
 
         public void StoreState(string instanceID)
         {
