@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Assets.PixelCrew.Utils;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Utils.Disposables;
@@ -20,15 +21,22 @@ namespace Assets.PixelCrew.Components.UI.Widgets
             _maxHealth = _health.CurrentHealth;
             _trash.Retain(_health.OnChange.Subscribe(OnHpChanged));
         }
-
+        
+        [ContextMenu("Show")]
         public void ShowUI()
         {
-
+            this.LerpAnimated(start: 0, end: 1, time: 1, SetAlpha);
         }
 
-        private void HideUi()
+        [ContextMenu("Hide")]
+        public void HideUi()
         {
+            this.LerpAnimated(start: 1, end: 0, time: 1, SetAlpha);
+        }
 
+        private void SetAlpha(float alpha)
+        {
+            _canvas.alpha = alpha;
         }
 
         private void OnHpChanged(int health)

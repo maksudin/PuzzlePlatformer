@@ -4,6 +4,7 @@ using Assets.PixelCrew.Effects;
 using PixelCrew.Model.Data;
 using PixelCrew.Utils;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PixelCrew.Components.UI.HUD.Dialogs
 {
@@ -22,7 +23,7 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         [SerializeField] private DialogData _testData;
 
         [Space] [SerializeField] protected DialogContent Content;
-
+        
         private DialogData _data;
         private int _currentSentence;
         private GlobalPostEffectController _globalEffects;
@@ -32,6 +33,8 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         protected float _defaultTimeScale;
 
         protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
+
+        private UnityEvent _onComplete;
 
         private void Start()
         {
@@ -73,6 +76,7 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             {
                 OnCloseDialogAnimation();
                 HideDialogBox();
+                _onComplete?.Invoke();
             }
             else
                 OnStartDialogAnimation();
@@ -106,8 +110,9 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             _typingRoutine = null;
         }
 
-        public void ShowDialog(DialogData data)
+        public void ShowDialog(DialogData data, UnityEvent onComplete)
         {
+            _onComplete = onComplete;
             _data = data;
             _currentSentence = 0;
             CurrentContent.Text.text = string.Empty;
@@ -117,9 +122,9 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             _animator.SetBool(IsOpen, true);
         }
 
-        public void Test()
-        {
-            ShowDialog(_testData);
-        }
+        //public void Test()
+        //{
+        //    ShowDialog(_testData, null);
+        //}
     }
 }

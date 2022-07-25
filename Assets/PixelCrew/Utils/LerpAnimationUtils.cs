@@ -6,27 +6,26 @@ namespace Assets.PixelCrew.Utils
 {
     public static class LerpAnimationUtils
     {
-        //public static Coroutine LerpAnimated(this MonoBehaviour behaviour, float start, float end, float time,
-        //    Action<float> onFrame)
-        //{
-        //    StartCoroutine
-        //}
+        public static Coroutine LerpAnimated(this MonoBehaviour behaviour, float start, float end, float time, Action<float> onFrame)
+        {
+            return behaviour.StartCoroutine(Animate(start, end, time, onFrame));
+        }
 
-        //private static IEnumerator Animate(SpriteRenderer sprite, float destAlpha, float _alphaTime)
-        //{
-        //    var time = 0f;
-        //    var spriteAlpha = sprite.color.a;
-        //    while (time < _alphaTime)
-        //    {
-        //        time += Time.deltaTime;
-        //        var progress = time / _alphaTime;
-        //        var tmpAlpha = Mathf.Lerp(spriteAlpha, destAlpha, progress);
-        //        var color = sprite.color;
-        //        color.a = tmpAlpha;
-        //        sprite.color = color;
+        private static IEnumerator Animate(float start, float end, float animationTime, Action<float> onFrame)
+        {
+            var time = 0f;
+            onFrame(start);
+            while (time < animationTime)
+            {
+                time += Time.deltaTime;
+                var progress = time / animationTime;
+                var value = Mathf.Lerp(start, end, progress);
+                onFrame(value);
 
-        //        yield return null;
-        //    }
+                yield return null;
+            }
 
+            onFrame(end);
+        }
     }
 }
