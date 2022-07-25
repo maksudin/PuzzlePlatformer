@@ -11,6 +11,5 @@ namespace PixelCrew.Components.UI.Widgets
         {
             _bar.fillAmount = progress;
         }
-
     }
 }
