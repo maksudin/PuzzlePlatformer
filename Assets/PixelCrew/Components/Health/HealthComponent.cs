@@ -28,23 +28,16 @@ namespace PixelCrew.Components.Health
             OnChange?.Invoke(_currentHealth);
             _onDamage?.Invoke();    // Проверка на null
             if (_currentHealth <= 0)
-            {
                 OnDie?.Invoke();
-            }
 
         }
 
         public void Heal(int healValue)
         {
             if (_currentHealth + healValue > _maxHealth)
-            {
                 _currentHealth = _maxHealth;
-                
-            } 
             else
-            {
                 _currentHealth += healValue;
-            }
 
             OnChange?.Invoke(_currentHealth);
             _onHeal?.Invoke();
