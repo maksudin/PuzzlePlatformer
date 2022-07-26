@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1604,6 +1604,9 @@ MonoBehaviour:
   _keys:
   - dialog_pinkstar_lvl2_part1
   - dialog_pinkstar_lvl2_part2
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &864421116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1793,7 +1796,7 @@ PrefabInstance:
     - target: {fileID: 893584937503901628, guid: 174e3620a8c88ee48853c5c8083e84aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 893584937503901628, guid: 174e3620a8c88ee48853c5c8083e84aa,
         type: 3}
@@ -10651,7 +10654,7 @@ PrefabInstance:
     - target: {fileID: 893584937503901628, guid: 174e3620a8c88ee48853c5c8083e84aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 893584937503901628, guid: 174e3620a8c88ee48853c5c8083e84aa,
         type: 3}
@@ -10701,11 +10704,6 @@ PrefabInstance:
     - target: {fileID: 893584937503901628, guid: 174e3620a8c88ee48853c5c8083e84aa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 893584938929849234, guid: 174e3620a8c88ee48853c5c8083e84aa,
-        type: 3}
-      propertyPath: m_AlphaBlendOnOverlap
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
