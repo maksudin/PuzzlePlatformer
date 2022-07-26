@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using PixelCrew.Components.UI.Widgets;
 using UnityEngine;
 using UnityEngine.Events;

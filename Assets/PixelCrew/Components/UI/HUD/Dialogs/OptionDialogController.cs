@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using PixelCrew.Components.UI.Widgets;
 using UnityEngine;
 using UnityEngine.Events;
@@ -48,5 +47,4 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         public string Text;
         public UnityEvent OnSelect;
     }
-
 }

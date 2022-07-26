@@ -122,6 +122,16 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             _animator.SetBool(IsOpen, true);
         }
 
+        public void Pause()
+        {
+            Time.timeScale = 0;
+        }
+
+        public void UnPause()
+        {
+            Time.timeScale = _defaultTimeScale;
+        }
+
         //public void Test()
         //{
         //    ShowDialog(_testData, null);

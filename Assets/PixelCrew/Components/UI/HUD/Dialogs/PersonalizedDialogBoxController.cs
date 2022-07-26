@@ -12,7 +12,7 @@ namespace Assets.PixelCrew.Components.UI.HUD.Dialogs
 
         protected override void OnStartDialogAnimation()
         {
-            Pause();
+            //Pause();
             _right.gameObject.SetActive(CurrentSentence.Side == Side.Right);
             Content.gameObject.SetActive(CurrentSentence.Side == Side.Left);
             base.OnStartDialogAnimation();
@@ -20,21 +20,10 @@ namespace Assets.PixelCrew.Components.UI.HUD.Dialogs
 
         protected override void OnCloseDialogAnimation()
         {
-            UnPause();
+            //UnPause();
             _right.gameObject.SetActive(false);
             Content.gameObject.SetActive(false);
             base.OnCloseDialogAnimation();
-        }
-
-
-        public void Pause()
-        {
-            Time.timeScale = 0;
-        }
-
-        public void UnPause()
-        {
-            Time.timeScale = _defaultTimeScale;
         }
     }
 }
