@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,13 +10,16 @@ namespace PixelCrew.Components.Health
         [Range (1, 100)]
         [SerializeField] private int _maxHealth;
         [SerializeField] private int _currentHealth;
-        [SerializeField] private UnityEvent _onDamage;
+        [SerializeField] public UnityEvent OnDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] public UnityEvent OnDie;
         [SerializeField] public HealthChangeEvent OnChange;
+        private Lock _immune = new Lock();
 
         public int MaxHealth => _maxHealth;
         public int CurrentHealth => _currentHealth;
+
+        public Lock Immune => _immune;
 
         private void Awake()
         {
@@ -24,9 +28,10 @@ namespace PixelCrew.Components.Health
 
         public void ApplyDamage(int damageValue)
         {
+            if (Immune.isLocked) return;
             _currentHealth -= damageValue;
             OnChange?.Invoke(_currentHealth);
-            _onDamage?.Invoke();    // Проверка на null
+            OnDamage?.Invoke();    // Проверка на null
             if (_currentHealth <= 0)
                 OnDie?.Invoke();
 
