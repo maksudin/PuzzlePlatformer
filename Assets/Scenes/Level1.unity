@@ -11982,6 +11982,9 @@ MonoBehaviour:
   _external: {fileID: 0}
   _keys:
   - dialog_barrel_lvl1
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1492136649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14001,6 +14004,9 @@ MonoBehaviour:
   - dialog_strangebox_lvl1_part3
   - dialog_strangebox_lvl1_part4
   - dialog_strangebox_lvl1_part5
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2128277027
 MonoBehaviour:
   m_ObjectHideFlags: 0

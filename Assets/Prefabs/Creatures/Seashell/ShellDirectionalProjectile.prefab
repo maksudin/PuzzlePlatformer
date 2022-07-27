@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4632631878272389069
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +144,6 @@ GameObject:
   - component: {fileID: 5482659390846317428}
   - component: {fileID: 5558842136831313038}
   - component: {fileID: -7925555683658061923}
-  - component: {fileID: -4467905272915774246}
   - component: {fileID: 6891088113750671036}
   m_Layer: 0
   m_Name: ShellDirectionalProjectile
@@ -284,7 +283,7 @@ MonoBehaviour:
   _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 133120
+    m_Bits: 4327424
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -337,47 +336,6 @@ MonoBehaviour:
   _damage: 1
   _statId: 0
   _healValue: 0
---- !u!114 &-4467905272915774246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7483112827352108861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df099782eca4b048aa69604ef63b846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 4325376
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -7925555683658061923}
-        m_MethodName: TakeDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1091939923184876033}
-        m_MethodName: DestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &6891088113750671036
 MonoBehaviour:
   m_ObjectHideFlags: 0
