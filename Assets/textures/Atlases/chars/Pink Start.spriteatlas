@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pink Start
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 0a659b9995bfb454c8be6ab6b90bcf7c, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d69c8600f41054940b05fc61e91a28e3, type: 3}
+  - {fileID: 21300000, guid: 273d6090a4fc76e4e96407e07a216bdb, type: 3}
+  - {fileID: 21300000, guid: 5cabf6a023e31d34cb410a8016d9a414, type: 3}
+  - {fileID: 21300000, guid: 4e12cdd0eb2a4704c8e0ff6a4f48963e, type: 3}
+  - {fileID: 21300000, guid: bd9540211cefda044b0f9609f3c6112c, type: 3}
+  - {fileID: 21300000, guid: 04242f314570aa14595bf315a5ac8d95, type: 3}
+  - {fileID: 21300000, guid: bd8f6e41c120fb84389e8aea82cd697e, type: 3}
+  - {fileID: 21300000, guid: 671df191901cc704584a36a1976c1762, type: 3}
+  - {fileID: 21300000, guid: 8c959391f97ad7d44b7dcc63344d50ca, type: 3}
+  - {fileID: 21300000, guid: 25a903a165fd353429f670abfb040e43, type: 3}
+  - {fileID: 21300000, guid: 64324b42eed2f7f4ab9f0b18eb986874, type: 3}
+  - {fileID: 21300000, guid: 7a8631523ebaf544ab97f3887dc234ee, type: 3}
+  - {fileID: 21300000, guid: 0cee1384dd40b5745b1b2053f76bb410, type: 3}
+  - {fileID: 21300000, guid: 445f5ce46b748744d83d379ed2385724, type: 3}
+  - {fileID: 21300000, guid: 2edffeb54febbdb479e8fc31b9d548c5, type: 3}
+  - {fileID: 21300000, guid: 9e207ad5bedd48346a670b35fba214d8, type: 3}
+  - {fileID: 21300000, guid: 0d8da006974d85a4b886629e08e6e9b6, type: 3}
+  - {fileID: 21300000, guid: 18b74b56b660ad34fb9e0280b01f03fb, type: 3}
+  - {fileID: 21300000, guid: a93acf56ca18edb43a9dc42245732df2, type: 3}
+  - {fileID: 21300000, guid: 721b1596ae2a7564e81a0f87dde3cca9, type: 3}
+  - {fileID: 21300000, guid: abf56a073ef09304287ea6a58fce3a78, type: 3}
+  - {fileID: 21300000, guid: 992cf3886ff814340a03b5c2e77004f4, type: 3}
+  - {fileID: 21300000, guid: e9d870b895ee9ca4cb9a9799ee0153b2, type: 3}
+  - {fileID: 21300000, guid: 03b59ab82e0790045830582d2e9e86b4, type: 3}
+  - {fileID: 21300000, guid: 6b68c0f8cf2540640a45278ea638d313, type: 3}
+  - {fileID: 21300000, guid: 7a96f949d4cc96649984b6a810e950f2, type: 3}
+  - {fileID: 21300000, guid: cdeb7259f8e14b84e93ebc19c69deb61, type: 3}
+  - {fileID: 21300000, guid: 995b32e960754be4a87fa3614fc68352, type: 3}
+  - {fileID: 21300000, guid: 16c0f22a5f8d4734588d85b192a3ed86, type: 3}
+  - {fileID: 21300000, guid: c067bb9a146b7c545971f5d5b6464078, type: 3}
+  - {fileID: 21300000, guid: 198bd8ea1d7ddf74793c8659a81b8af8, type: 3}
+  - {fileID: 21300000, guid: cc39b94b6d13b08448a9e14be3ac6b0d, type: 3}
+  - {fileID: 21300000, guid: 89436a4b3dadfe144a27db559a6d0ac1, type: 3}
+  - {fileID: 21300000, guid: de8d406b8f9d4514d995ad6a40744f8e, type: 3}
+  - {fileID: 21300000, guid: 6cd6b3ebbab7484488748947d3d76bf9, type: 3}
+  - {fileID: 21300000, guid: 28e82dcca9b1c0b4192b7566b4ff0d51, type: 3}
+  - {fileID: 21300000, guid: 7f8058dcffdd2e0488476d8d81fe6706, type: 3}
+  - {fileID: 21300000, guid: 161aa09d3d44aae44bcc8d7510ff730e, type: 3}
+  - {fileID: 21300000, guid: d68f25fd0191cb5428e219050502faeb, type: 3}
+  - {fileID: 21300000, guid: be65002e28c632b4b903f8eade022908, type: 3}
+  - {fileID: 21300000, guid: b2ffb39fa37cc6040b2731fc6fc8148a, type: 3}
+  - {fileID: 21300000, guid: 21e2d8ef4d3e20142b554bc357c8459d, type: 3}
+  - {fileID: 21300000, guid: b8cdbaef724a8fa43a124c6ab33e1299, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Dead Ground 03
+  - Dead Hit 02
+  - Dead Hit 04
+  - Idle 04
+  - Run 02
+  - Attack 03
+  - Attack Effect 04
+  - Attack 04
+  - Idle 03
+  - Anticipation 03
+  - Hit 04
+  - Idle 07
+  - Run 06
+  - Run 04
+  - Anticipation 02
+  - Anticipation 01
+  - Attack Effect 02
+  - Jump 03
+  - Fall 01
+  - Jump 02
+  - Idle 02
+  - Hit 03
+  - Attack 02
+  - Jump 01
+  - Idle 05
+  - Ground 02
+  - Run 03
+  - Idle 06
+  - Run 01
+  - Hit 02
+  - Dead Hit 03
+  - Dead Ground 02
+  - Attack Effect 01
+  - Dead Ground 04
+  - Dead Ground 01
+  - Hit 01
+  - Idle 08
+  - Run 05
+  - Ground 01
+  - Idle 01
+  - Dead Hit 01
+  - Attack 01
+  - Attack Effect 03
+  m_Tag: Pink Start
+  m_IsVariant: 0

@@ -1,7 +1,6 @@
 ﻿using PixelCrew.Components.LevelManagement;
 using PixelCrew.Components.UI.Windows.MainMenu;
 using PixelCrew.Model;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Components.UI.Windows.EscMenu

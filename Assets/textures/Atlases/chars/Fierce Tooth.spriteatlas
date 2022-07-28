@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fierce Tooth
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a87a21b41b4adc740bb6aeeddd3c7ede, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f8f322015bf1806468f0f92ab75931fb, type: 3}
+  - {fileID: 21300000, guid: 8c67953109a8d184db50beba833631ba, type: 3}
+  - {fileID: 21300000, guid: 34d4744107f211c429cfd686b98ed258, type: 3}
+  - {fileID: 21300000, guid: cc8ed951598c591429c80b51b303ccbf, type: 3}
+  - {fileID: 21300000, guid: d08abbd186f4755409fb7166e0158794, type: 3}
+  - {fileID: 21300000, guid: 3b6c24f2a19df074c9699726c2aafa8b, type: 3}
+  - {fileID: 21300000, guid: 724579f2a73152345bdf1e8a1a61dbae, type: 3}
+  - {fileID: 21300000, guid: 75739033cc49ddd4aac645b44ca08e4f, type: 3}
+  - {fileID: 21300000, guid: c326f214ea625d14289bfc70e88dfd6a, type: 3}
+  - {fileID: 21300000, guid: bb860a14d945c0441a719296e0d27f40, type: 3}
+  - {fileID: 21300000, guid: 923dc784c7b172048964a5c6794a4274, type: 3}
+  - {fileID: 21300000, guid: 5757e4d45397cab4fb0a789145f9a04e, type: 3}
+  - {fileID: 21300000, guid: 7260cff459e65024b9f4d3e03c556d47, type: 3}
+  - {fileID: 21300000, guid: 97a069059b3464f4798ab7872bbca0c5, type: 3}
+  - {fileID: 21300000, guid: c1ae03b6caddd684191fdd970c9456fa, type: 3}
+  - {fileID: 21300000, guid: d5f6def666e088c4687e2ade72bd7c5a, type: 3}
+  - {fileID: 21300000, guid: 540f35b7f9b99414389434f4da49fa75, type: 3}
+  - {fileID: 21300000, guid: 68ca5dd7b88cfd345899874e02794d66, type: 3}
+  - {fileID: 21300000, guid: 94808508d3890604e8a468180fd7e074, type: 3}
+  - {fileID: 21300000, guid: 5fe7e598ce08bc64494ccd8eb618477e, type: 3}
+  - {fileID: 21300000, guid: 8826eaa801b7b9945b919e9a4f1df73b, type: 3}
+  - {fileID: 21300000, guid: f8be44d80c77ef64d8e4e7185ab3e265, type: 3}
+  - {fileID: 21300000, guid: e41d0fd8699666a449b87b97127cc2ee, type: 3}
+  - {fileID: 21300000, guid: 003e4d49aa1f53a458b61cd25a96267a, type: 3}
+  - {fileID: 21300000, guid: 26c0d869c77c40640a06488025698c69, type: 3}
+  - {fileID: 21300000, guid: ea9a11f95c255ab4fb74623bda990b14, type: 3}
+  - {fileID: 21300000, guid: 423140caa020138418026c0616a7777a, type: 3}
+  - {fileID: 21300000, guid: 712ca4eabcf8474468d83d4555e134db, type: 3}
+  - {fileID: 21300000, guid: 5540f4eae9dedb64c9d99cf06e3fb103, type: 3}
+  - {fileID: 21300000, guid: d252f25b04416b54f8794d828d70c3c4, type: 3}
+  - {fileID: 21300000, guid: d900706b532d2394fafed8accbcbd2e4, type: 3}
+  - {fileID: 21300000, guid: 1f2476bb258bb9e4a9f2255eb647eee2, type: 3}
+  - {fileID: 21300000, guid: c949f01c96aa8464f9329ee4544cef4c, type: 3}
+  - {fileID: 21300000, guid: c2246c6c4ed735e488959e653e8b413e, type: 3}
+  - {fileID: 21300000, guid: 7ca5b77c99a3a0c4b950621a5c22a100, type: 3}
+  - {fileID: 21300000, guid: 7f2afafc93630f441b4e74337db10593, type: 3}
+  - {fileID: 21300000, guid: 1bdc316dee576344cb5d4364921590a3, type: 3}
+  - {fileID: 21300000, guid: 3be8ef0f655ed644d9a9b96888ddccd8, type: 3}
+  - {fileID: 21300000, guid: 611ac52f0d4719d4c96562466e196b45, type: 3}
+  - {fileID: 21300000, guid: 110b1b9f52500814393cb7660c59f6dd, type: 3}
+  - {fileID: 21300000, guid: 8a9a67df7130b5645994447575cbc1b6, type: 3}
+  - {fileID: 21300000, guid: 82b1e8dfca64ba34c8a9d56d4457ba1b, type: 3}
+  - {fileID: 21300000, guid: 8ee712ff4e6615b48a298404ec5e3e05, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Ground 01
+  - Run 03
+  - Hit 03
+  - Attack Effect 03
+  - Idle 03
+  - Dead Hit 01
+  - Run 02
+  - Run 04
+  - Anticipation 03
+  - Dead Ground 04
+  - Anticipation 01
+  - Jump 02
+  - Dead Hit 02
+  - Attack Effect 01
+  - Attack 05
+  - Idle 01
+  - Run 01
+  - Attack Effect 02
+  - Dead Hit 03
+  - Jump 03
+  - Dead Ground 01
+  - Attack 01
+  - Hit 01
+  - Dead Hit 04
+  - Attack 04
+  - Attack 03
+  - Idle 02
+  - Hit 04
+  - Jump 01
+  - Hit 02
+  - Idle 07
+  - Ground 02
+  - Fall 01
+  - Run 06
+  - Run 05
+  - Idle 06
+  - Idle 08
+  - Idle 04
+  - Attack 02
+  - Anticipation 02
+  - Dead Ground 02
+  - Dead Ground 03
+  - Idle 05
+  m_Tag: Fierce Tooth
+  m_IsVariant: 0
