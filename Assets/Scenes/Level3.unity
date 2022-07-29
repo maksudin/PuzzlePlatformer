@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 71505663}
   _prefab: {fileID: 7240798278516988266, guid: d005d71aa8aa38e43a273a3e7e92843e, type: 3}
+  _usePool: 0
 --- !u!4 &71505663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 352547908979269193, guid: e67669cca122cc0458d8980543799874,

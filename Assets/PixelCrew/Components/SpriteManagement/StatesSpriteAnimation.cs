@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,7 +20,6 @@ namespace PixelCrew.Components.SpriteManagement
         [SerializeField] private string _startState;
         [SerializeField] private AnimationState[] _animationStates;
         private int _currentAnimationIndex;
-        private AnimationState _currentAnimation;
 
         private SpriteRenderer _renderer;
         private float _secondsPerFrame;
@@ -35,10 +32,6 @@ namespace PixelCrew.Components.SpriteManagement
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
-            //_currentAnimationIndex = FindAnimationIndex(_startState);
-            //_currentAnimation = _animationStates[_currentAnimationIndex];
-            //_loop = _currentAnimation.Loop;
-            //_sprites = _currentAnimation.Sprites;
             SetClip(_startState);
         }
 
@@ -53,12 +46,8 @@ namespace PixelCrew.Components.SpriteManagement
         private int FindAnimationIndex(string stateName)
         {
             for (int i = 0; i < _animationStates.Length; i++)
-            {
                 if (_animationStates[i].StateName == stateName)
-                {
                     return i;
-                }
-            }
 
             return -1;
         }
@@ -73,18 +62,14 @@ namespace PixelCrew.Components.SpriteManagement
             _sprites = state.Sprites;
 
             if (enabled == false)
-            {
                 enabled = true;
-            }
         }
 
 
         private void NextAnimation()
         {
             if (_currentAnimationIndex >= _animationStates.Length)
-            {
                 _currentAnimationIndex = 0;
-            }
 
             _currentAnimationIndex++;
             AnimationState state = _animationStates[_currentAnimationIndex];
@@ -105,16 +90,12 @@ namespace PixelCrew.Components.SpriteManagement
             if (_currentSpriteIndex >= _sprites.Length)
             {
                 if (_loop)
-                {
                     _currentSpriteIndex = 0;
-                } 
 
                 else  
                 {
                     if (_allowNext)
-                    {
                         NextAnimation();
-                    } 
                     else
                     {
                         enabled = false;

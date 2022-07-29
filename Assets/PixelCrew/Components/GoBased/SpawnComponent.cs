@@ -1,4 +1,6 @@
-﻿using PixelCrew.Utils;
+﻿using Assets.PixelCrew.Utils.ObjectPool;
+using PixelCrew.Utils;
+using TMPro;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
@@ -7,12 +9,24 @@ namespace PixelCrew.Components.GoBased
     {
         [SerializeField] private Transform _target;
         [SerializeField] private GameObject _prefab;
+        [SerializeField] private bool _usePool;
 
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            GameObject instantiate = SpawnUtills.Spawn(_prefab, _target.position);
-            instantiate.transform.localScale = _target.lossyScale;
+            SpawnInstance();
+        }
+
+        public GameObject SpawnInstance()
+        {
+            var instance = _usePool 
+                ? Pool.Instance.Get(_prefab, _target.position) 
+                : SpawnUtills.Spawn(_prefab, _target.position);
+
+            var scale = _target.lossyScale;
+            instance.transform.localScale = scale;
+            instance.SetActive(true);
+            return instance;
         }
 
         public void SpawnWithOffset(Vector2 offset)
@@ -36,7 +50,6 @@ namespace PixelCrew.Components.GoBased
                 GameObject instantiate = SpawnUtills.Spawn(_prefab, newPosition);
                 instantiate.transform.localScale = _target.lossyScale;
             }
-            
         }
 
         public void SetPrefub(GameObject prefab)

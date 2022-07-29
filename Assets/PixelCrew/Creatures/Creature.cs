@@ -3,6 +3,7 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Components.Health;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace PixelCrew.Creatures
 {
@@ -124,7 +125,9 @@ namespace PixelCrew.Creatures
 
         protected void DoJumpVfx()
         {
+            Profiler.BeginSample("JumpVFXSample");
             Particles.Spawn("Jump");
+            Profiler.EndSample();
             Sounds.Play("Jump");
         }
 
