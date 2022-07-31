@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-using PixelCrew.Utils;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace PixelCrew.Creatures.Mobs.Patrolling
 {
@@ -27,6 +27,8 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             _creature = GetComponent<Creature>();
         }
 
+
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Handles.color = Color.blue;
@@ -39,6 +41,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
                 new Vector3(transform.position.x + _rightConstraintOffset.x, transform.position.y + _rightConstraintOffset.y + _boxSize.y, transform.position.z)
             );
         }
+#endif
 
         public override IEnumerator DoPatrol()
         {
@@ -90,9 +93,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
                 foreach (var tag in _tags)
                 {
                     if (overlapResult.CompareTag(tag))
-                    {
                         return true;
-                    }
                 }
                 
             }
@@ -110,9 +111,7 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             foreach (var tag in _tags)
             {
                 if (hit.collider.tag == tag)
-                {
                     InvertDirection();
-                }
             }
             
         }
@@ -120,15 +119,9 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
         private void InvertDirection()
         {
             if (_creature.Direction.x > 0)
-            {
                 _creature.Direction = Vector3.left;
-            } 
             else if (_creature.Direction.x < 0)
-            {
                 _creature.Direction = Vector3.right;
-            }
         }
-
-
     }
 }

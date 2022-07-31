@@ -2,7 +2,6 @@ using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.Health;
 using PixelCrew.Model;
 using PixelCrew.Utils;
-using UnityEditor.Animations;
 using System.Collections;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
@@ -44,8 +43,8 @@ namespace PixelCrew.Creatures.Hero
         [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
 
-        [SerializeField] private AnimatorController _animatorArmed;
-        [SerializeField] private AnimatorController _animatorDisarmed;
+        [SerializeField] private RuntimeAnimatorController _animatorArmed;
+        [SerializeField] private RuntimeAnimatorController _animatorDisarmed;
 
         [SerializeField] private SpawnComponent _throwSpawner;
 

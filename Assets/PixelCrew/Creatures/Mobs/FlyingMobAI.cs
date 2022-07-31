@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using PixelCrew.Utils;
-using UnityEditor;
 using UnityEngine;
 
 namespace PixelCrew.Creatures.Mobs
@@ -21,11 +20,13 @@ namespace PixelCrew.Creatures.Mobs
             _creature = GetComponent<FlyingCreature>();
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            Handles.color = HandlesUtils.TransparentRed;
-            Handles.DrawSolidDisc(transform.position, Vector3.forward, _scanRadius);
+            UnityEditor.Handles.color = HandlesUtils.TransparentRed;
+            UnityEditor.Handles.DrawSolidDisc(transform.position, Vector3.forward, _scanRadius);
         }
+#endif
 
         public void OnHeroInVision(GameObject go)
         {

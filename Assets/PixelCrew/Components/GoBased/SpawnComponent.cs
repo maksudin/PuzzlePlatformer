@@ -1,6 +1,5 @@
 ﻿using Assets.PixelCrew.Utils.ObjectPool;
 using PixelCrew.Utils;
-using TMPro;
 using UnityEngine;
 
 namespace PixelCrew.Components.GoBased
