@@ -19,6 +19,7 @@ using Assets.PixelCrew.Utils;
 using UnityEngine.Events;
 using Assets.PixelCrew;
 using Assets.PixelCrew.Effects.CameraRelated;
+using System;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -474,6 +475,13 @@ namespace PixelCrew.Creatures.Hero
             _hitParticles.emission.SetBurst(0, burst);
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
+        }
+
+        public event Action OnTeleportAnimEnded;
+
+        public void OnHeroTeleportAnimationEnded()
+        {
+            OnTeleportAnimEnded?.Invoke();
         }
     }
 }

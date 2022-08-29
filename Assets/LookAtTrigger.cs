@@ -1,27 +1,36 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 public class LookAtTrigger : MonoBehaviour
 {
     [SerializeField] private Transform _playertr;
     [SerializeField] private float dotPB;
-    [Range(0f, 1f)]
-    [SerializeField] private float canSeeTreshold;
-    [SerializeField] private bool playerLookingAtB;
+    [Range(0f, 90f)]
+    [SerializeField] private float angThresholdDeg = 30f;
+    [SerializeField] private bool playerLookingAtTrigger;
 
     private void OnDrawGizmos()
     {
         var center = transform.position;
         var playerPos = _playertr.position;
-        var playerLookDir = _playertr.right;
-        var playetTriggerDir = (center - playerPos).normalized;
+        var playerLookDir = _playertr.up;
+        var playetToTriggerDir = (center - playerPos).normalized;
 
-        dotPB = Vector2.Dot(playetTriggerDir, playerLookDir);
-        playerLookingAtB = dotPB >= canSeeTreshold;
+        dotPB = Vector2.Dot(playetToTriggerDir, playerLookDir);
+        dotPB = Mathf.Clamp(dotPB, -1, 1);
 
-        Gizmos.color = Color.red;
+        var angRad = Mathf.Acos(dotPB);
+        float angThreshRad = angThresholdDeg * Mathf.Deg2Rad;
+
+        playerLookingAtTrigger = angRad < angThreshRad;
+
+        Gizmos.color = playerLookingAtTrigger? Color.green : Color.red;
         Gizmos.DrawLine(playerPos, playerPos + playerLookDir);
 
         Gizmos.color = Color.white;
-        Gizmos.DrawLine(playerPos, playerPos + playetTriggerDir);
+        Gizmos.DrawLine(playerPos, playerPos + playetToTriggerDir);
+
+        Handles.DrawSolidArc(playerPos, Vector3.forward, playetToTriggerDir, angThresholdDeg, 1f);
+        Handles.DrawSolidArc(playerPos, Vector3.forward, playetToTriggerDir, -angThresholdDeg, 1f);
     }
 }

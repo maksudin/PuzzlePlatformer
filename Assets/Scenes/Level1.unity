@@ -13255,6 +13255,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0748105865155b54b98737c06e7ab401, type: 3}
+--- !u!1 &1814991796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6839105092485437178, guid: 2aee742f06b5324448273988bd699e54,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839105092343742526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1814991798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814991796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df099782eca4b048aa69604ef63b846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 131072
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814991799}
+        m_MethodName: TeleportHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1814991799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6839105092485437176, guid: 2aee742f06b5324448273988bd699e54,
+    type: 3}
+  m_PrefabInstance: {fileID: 6839105092343742526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814991796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610034a7e01f6104f9f0c5c83ea9c7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1816622621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13432,8 +13480,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7305000996043466372, guid: edb2a3a88ffe545468a17b2863dc98b3,
         type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305000996043466372, guid: edb2a3a88ffe545468a17b2863dc98b3,
+        type: 3}
       propertyPath: m_Name
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305000996043466372, guid: edb2a3a88ffe545468a17b2863dc98b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305000996043466375, guid: edb2a3a88ffe545468a17b2863dc98b3,
         type: 3}
@@ -14431,12 +14489,12 @@ PrefabInstance:
     - target: {fileID: 2039096806532581010, guid: 73455452102dd584eb8605317de8a657,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.62
+      value: -15.37
       objectReference: {fileID: 0}
     - target: {fileID: 2039096806532581010, guid: 73455452102dd584eb8605317de8a657,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.6885223
+      value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 2039096806532581010, guid: 73455452102dd584eb8605317de8a657,
         type: 3}
@@ -14711,35 +14769,20 @@ PrefabInstance:
       propertyPath: _destTransform
       value: 
       objectReference: {fileID: 1732642209}
-    - target: {fileID: 6839105092485437179, guid: 2aee742f06b5324448273988bd699e54,
+    - target: {fileID: 6839105092485437177, guid: 2aee742f06b5324448273988bd699e54,
         type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      propertyPath: m_IsTrigger
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839105092485437179, guid: 2aee742f06b5324448273988bd699e54,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TeleportHero
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839105092485437179, guid: 2aee742f06b5324448273988bd699e54,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6839105092485437179, guid: 2aee742f06b5324448273988bd699e54,
-        type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6839105093637462854, guid: 2aee742f06b5324448273988bd699e54,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.66
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6839105093637462854, guid: 2aee742f06b5324448273988bd699e54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.32
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2aee742f06b5324448273988bd699e54, type: 3}
@@ -14768,12 +14811,12 @@ PrefabInstance:
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.96916
+      value: 41.21916
       objectReference: {fileID: 0}
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.55
+      value: 2.5514777
       objectReference: {fileID: 0}
     - target: {fileID: 7238380920591499829, guid: c59d5710954944441a44e8ff537c9da8,
         type: 3}
@@ -14900,12 +14943,12 @@ PrefabInstance:
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.96916
+      value: 41.21916
       objectReference: {fileID: 0}
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.55
+      value: 2.5514777
       objectReference: {fileID: 0}
     - target: {fileID: 7904571250010817472, guid: e36e8b77bcebd72468ed54fee44cda89,
         type: 3}
