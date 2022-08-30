@@ -107,6 +107,7 @@ namespace PixelCrew.Creatures.Hero
         {
             _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
+            //_trash.Retain(_session.Data.Inventory.OnChangedInventory.Sub)
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
@@ -140,6 +141,7 @@ namespace PixelCrew.Creatures.Hero
             if (!_session) return;
             _session.Data.Inventory.OnChangedInventory -= OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
+            _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
 
             _trash.Dispose();
         }
@@ -477,11 +479,17 @@ namespace PixelCrew.Creatures.Hero
             _hitParticles.Play();
         }
 
-        public event Action OnTeleportAnimEnded;
+        public event Action OnTeleportStartAnimEnded;
+        public event Action OnTeleportEndAnimEnded;
 
-        public void OnHeroTeleportAnimationEnded()
+        public void OnHeroTeleportStartAnimationEnded()
         {
-            OnTeleportAnimEnded?.Invoke();
+            OnTeleportStartAnimEnded?.Invoke();
+        }
+
+        public void OnHeroTeleportEndAnimationEnded()
+        {
+            OnTeleportEndAnimEnded?.Invoke();
         }
     }
 }
