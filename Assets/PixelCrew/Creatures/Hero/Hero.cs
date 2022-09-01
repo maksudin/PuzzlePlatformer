@@ -107,7 +107,6 @@ namespace PixelCrew.Creatures.Hero
         {
             _cameraShake = FindObjectOfType<CameraShakeEffect>();
             _session = FindObjectOfType<GameSession>();
-            //_trash.Retain(_session.Data.Inventory.OnChangedInventory.Sub)
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
