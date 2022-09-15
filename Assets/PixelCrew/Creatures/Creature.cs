@@ -91,13 +91,10 @@ namespace PixelCrew.Creatures
             var yVelocity = Rigidbody.velocity.y;
             var isJumpPressing = Direction.y > 0;
 
-            if (IsGrounded)
+            if (IsGrounded && FallIsLongEnough)
             {
-                if (FallIsLongEnough)
-                {
-                    Particles.Spawn("Fall");
-                    FallIsLongEnough = false;
-                }
+                Particles.Spawn("Fall");
+                FallIsLongEnough = false;
             }
 
             if (isJumpPressing)

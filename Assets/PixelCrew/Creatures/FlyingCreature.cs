@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Components.Audio;
+﻿using PixelCrew.Components.Audio;
 using PixelCrew.Components.Health;
 using UnityEngine;
 
@@ -41,13 +40,9 @@ namespace PixelCrew.Creatures
         {
             var multiplier = _invertScale ? -1 : 1;
             if (direction.x > 0)
-            {
                 transform.localScale = new Vector3(multiplier, 1, 1);
-            }
             else if (direction.x < 0)
-            {
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
-            }
         }
 
         public void SetDirection(Vector2 direction)
@@ -59,6 +54,5 @@ namespace PixelCrew.Creatures
         {
             Animator.SetBool(IsAwake, true);
         }
-
     }
 }
