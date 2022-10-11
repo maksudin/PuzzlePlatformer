@@ -4,7 +4,7 @@ using UnityEngine;
 public class HelixGizmo : MonoBehaviour
 {
     [SerializeField] private Color _color1, _color2;
-    [SerializeField] private bool _torus = false;
+    [SerializeField] private bool _isTorus = false;
     [SerializeField] private bool _drawControlPoints = false;
     [SerializeField] private float _height = 5f;
     [SerializeField] private float _radius = 2f;
@@ -32,39 +32,36 @@ public class HelixGizmo : MonoBehaviour
         Vector3 direction = new Vector3(1, 1, 1);
         float heightDelta = _height / (_turns * 6);
         int pointCount = 0;
+      
+        Vector3 normal = Vector3.zero;
 
-        if (!_torus)
+        for (int i = 0; i < controlPoints.Length; i++)
         {
-            float z = 0;
-
-            for (int i = 0; i < controlPoints.Length; i++)
+            if (pointCount % 4 == 0 && i != 0)
             {
-                if (pointCount % 4 == 0 && i != 0)
-                {
 
-                    direction.x *= -1;
-                    direction.y *= -1;
+                direction.x *= -1;
+                direction.y *= -1;
 
-                    // Одна точка лишняя, поэтому скрываю её.
-                    z -= heightDelta;
-                    pointCount = 0;
-                }
-
-                Vector3 uSCPoint = unitSemiCirclePoints[i % 4];
-                var directedPoint = new Vector3(uSCPoint.x * direction.x, uSCPoint.y * direction.y, uSCPoint.z);
-                controlPoints[i] = (directedPoint * radius) + new Vector3(0, 0, z);
-
-                z += heightDelta;
-                pointCount++;
+                // Одна точка лишняя, поэтому скрываю её.
+                normal.z -= heightDelta;
+                pointCount = 0;
             }
+
+            Vector3 uPoint = unitSemiCirclePoints[i % 4];
+            var directedPoint = new Vector3(uPoint.x * direction.x, uPoint.y * direction.y, uPoint.z);
+
+            if (_isTorus)
+            {
+                normal.x += heightDelta;
+            }
+
+            controlPoints[i] = (directedPoint * radius) + normal;
+
+            normal.z += heightDelta;
+            pointCount++;
+
         }
-
-        else
-        {
-            Vector3 normal = Vector3.zero;
-
-        }
-
 
         return controlPoints;
     }
