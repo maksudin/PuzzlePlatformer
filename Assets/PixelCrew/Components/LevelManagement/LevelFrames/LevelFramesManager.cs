@@ -38,8 +38,9 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
         private void SetFrameParams(bool activeParams, LevelFrame frame)
         {
-            if (activeParams && !frame.IsActive)
+            if (activeParams)
             {
+                if (frame.IsActive) return;
                 frame.IsActive = true;
                 _activeFrame = frame;
                 ResetCameraParams();
