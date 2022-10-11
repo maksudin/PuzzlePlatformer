@@ -9,6 +9,11 @@ namespace PixelCrew.Components.LevelManagement
     {
         private void Start()
         {
+            SetCameraFollow();
+        }
+
+        public void SetCameraFollow()
+        {
             var vCamera = GetComponent<CinemachineVirtualCamera>();
             var hero = FindObjectOfType<Hero>();
             if (hero == null) return;
