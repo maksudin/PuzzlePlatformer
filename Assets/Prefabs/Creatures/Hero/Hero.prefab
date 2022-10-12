@@ -5977,6 +5977,7 @@ MonoBehaviour:
   HeroCollider: {fileID: 7240798278516988271}
   _swordBurstAmount: 3
   _allowDoubleJump: 0
+  _upperFramePushForce: 1.93
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 4096

@@ -20,6 +20,7 @@ using UnityEngine.Events;
 using Assets.PixelCrew;
 using Assets.PixelCrew.Effects.CameraRelated;
 using System;
+using Assets.PixelCrew.Components.LevelManagement.LevelFrames;
 
 namespace PixelCrew.Creatures.Hero
 {
@@ -34,6 +35,7 @@ namespace PixelCrew.Creatures.Hero
 
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
+        [SerializeField] private float _upperFramePushForce = 1f;
 
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
@@ -110,6 +112,8 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
+            var levelManager = FindObjectOfType<LevelFramesManager>();
+            levelManager.OnUpperFrameEntered += UpperFramePush;
 
             LoadSession();
             _superThrowCooldown.Value = DefsFacade.I.Perks.Get("super-throw").Cooldown;
@@ -117,6 +121,12 @@ namespace PixelCrew.Creatures.Hero
             var health = (int)_session.StatsModel.GetValue(StatId.Hp);
             _session.Data.Hp.Value = health;
             Health.SetHealth(health);
+        }
+
+        private void UpperFramePush()
+        {
+            Debug.Log("Upper push");
+            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y * _upperFramePushForce);
         }
 
         private void OnHeroUpgraded(StatId statId)

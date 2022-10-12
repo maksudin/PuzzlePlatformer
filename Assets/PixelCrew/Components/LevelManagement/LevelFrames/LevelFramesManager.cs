@@ -1,4 +1,5 @@
-﻿using Cinemachine;
+﻿using System;
+using Cinemachine;
 using PixelCrew.Creatures.Hero;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         private Transform _heroTransform;
         private CinemachineVirtualCamera _camera;
         private CinemachineConfiner _cameraConfiner;
+        public event Action OnUpperFrameEntered;
+        private bool _isActiveFrameAboveUs => _camera.transform.position.y < _activeFrame.transform.position.y;
+
 
         private void Start()
         {
@@ -21,10 +25,10 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
         private void Update()
         {
-            ActivateHeroLevelFrame(_levelFrames);
+            UpdateFrameParams(_levelFrames);
         }
 
-        private void ActivateHeroLevelFrame(LevelFrame[] levelFrames)
+        private void UpdateFrameParams(LevelFrame[] levelFrames)
         {
             foreach (var frame in levelFrames)
             {
@@ -44,9 +48,12 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
                 frame.IsActive = true;
                 _activeFrame = frame;
                 ResetCameraParams();
+                if (_isActiveFrameAboveUs)
+                    OnUpperFrameEntered.Invoke();
+
                 MoveCameraToActiveFrame();
-                SetFrameCameraParams();
-                // Каждый фрейм почему то вызывается!
+                SetCameraParams();
+                
             }
             else
             {
@@ -55,7 +62,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         }
 
 
-        private void SetFrameCameraParams()
+        private void SetCameraParams()
         {
             if (_activeFrame._polygonCollider == null || _cameraConfiner == null) return;
             
@@ -69,6 +76,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
             _cameraConfiner.m_BoundingShape2D = null;
             _camera.Follow = null;
         }
+
 
         private void MoveCameraToActiveFrame()
         {
