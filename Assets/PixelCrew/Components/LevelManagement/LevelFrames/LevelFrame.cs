@@ -32,8 +32,8 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
             var hh = height / 2;
             var vertices = new Vector2[4]
             {
-                new Vector2(-1 * hw, framePos.y + hh),
-                new Vector2(hw, framePos.y + hh),
+                new Vector2(-1 * hw, hh),
+                new Vector2(hw, hh),
                 new Vector2(hw, -1 * hh),
                 new Vector2(-1 * hw, -1 * hh)
             };
