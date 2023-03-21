@@ -33,8 +33,13 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
             foreach (var frame in levelFrames)
             {
                 var heroFramePos = frame.transform.InverseTransformPoint(_heroTransform.position);
-                if (Mathf.Abs(heroFramePos.x) <= frame.Width / 2 && Mathf.Abs(heroFramePos.y) <= frame.Height / 2)
+
+                if (heroFramePos.x < 0 || heroFramePos.y < 0)
+                    SetFrameParams(activeParams: false, frame);
+
+                else if (heroFramePos.x <= frame.Width && heroFramePos.y <= frame.Height)
                     SetFrameParams(activeParams: true, frame);
+
                 else
                     SetFrameParams(activeParams: false, frame);
             }
@@ -81,8 +86,8 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         private void MoveCameraToActiveFrame()
         {
             _camera.transform.position = new Vector3(
-                _activeFrame.transform.position.x,
-                _activeFrame.transform.position.y,
+                _activeFrame.transform.position.x + _activeFrame.Width / 2,
+                _activeFrame.transform.position.y + _activeFrame.Height / 2,
                 _camera.transform.position.z
             );
         }

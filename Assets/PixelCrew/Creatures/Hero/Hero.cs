@@ -83,8 +83,7 @@ namespace PixelCrew.Creatures.Hero
         private int CoinCount => _session.Data.Inventory.Count("Coin");
 
         private string SelectedItemId => _session.QuickInventory.SelectedDef.Id;
-
-        private CompositeDisposable _trash = new CompositeDisposable();
+        private LevelFramesManager _levelFramesManager;
 
         private bool CanThrow
         {
@@ -112,8 +111,8 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.OnChangedInventory += OnInventoryChanged;
             _session.Data.Inventory.OnChangedInventory += AnotherHandler;
             _session.StatsModel.OnUpgraded += OnHeroUpgraded;
-            var levelManager = FindObjectOfType<LevelFramesManager>();
-            levelManager.OnUpperFrameEntered += UpperFramePush;
+            _levelFramesManager = FindObjectOfType<LevelFramesManager>();
+            _levelFramesManager.OnUpperFrameEntered += UpperFramePush;
 
             LoadSession();
             _superThrowCooldown.Value = DefsFacade.I.Perks.Get("super-throw").Cooldown;
@@ -121,6 +120,15 @@ namespace PixelCrew.Creatures.Hero
             var health = (int)_session.StatsModel.GetValue(StatId.Hp);
             _session.Data.Hp.Value = health;
             Health.SetHealth(health);
+        }
+
+        private void OnDestroy()
+        {
+            if (!_session) return;
+            _session.Data.Inventory.OnChangedInventory -= OnInventoryChanged;
+            _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
+            _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
+            _levelFramesManager.OnUpperFrameEntered -= UpperFramePush;
         }
 
         private void UpperFramePush()
@@ -145,15 +153,7 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        private void OnDestroy()
-        {
-            if (!_session) return;
-            _session.Data.Inventory.OnChangedInventory -= OnInventoryChanged;
-            _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
-            _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
 
-            _trash.Dispose();
-        }
 
         private void AnotherHandler(string id, int value)
         {

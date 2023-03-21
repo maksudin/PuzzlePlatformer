@@ -8,8 +8,12 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
     public class LevelFrame : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private float FrameWidthMultiplier = 1f;
-        [SerializeField] private float FrameHeightMultiplier = 1f;
+        //[SerializeField] private float FrameWidthMultiplier = 1f;
+        //[SerializeField] private float FrameHeightMultiplier = 1f;
+
+        [Range(1, 100)] [SerializeField] private int FrameWidthUnits = 1;
+        [Range(1, 100)] [SerializeField] private int FrameHeightUnits = 1;
+
         [NonSerialized] public float Width;
         [NonSerialized] public float Height;
         [NonSerialized] public bool IsActive = false;
@@ -18,8 +22,8 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         private void Start()
         {
             if (_camera == null) return;
-            Height = 2f * _camera.orthographicSize * FrameHeightMultiplier;
-            Width = Height * _camera.aspect * FrameWidthMultiplier;
+            Height = FrameHeightUnits;
+            Width = FrameWidthUnits;
             _polygonCollider = GetComponent<PolygonCollider2D>();
             if (_polygonCollider != null)
                 _polygonCollider.points = GeneratePolygonVertices(Width, Height);
@@ -27,15 +31,12 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
         private Vector2[] GeneratePolygonVertices(float width, float height)
         {
-            var framePos = transform.TransformPoint(transform.position);
-            var hw = width / 2;
-            var hh = height / 2;
             var vertices = new Vector2[4]
             {
-                new Vector2(-1 * hw, hh),
-                new Vector2(hw, hh),
-                new Vector2(hw, -1 * hh),
-                new Vector2(-1 * hw, -1 * hh)
+                new Vector2(0, height),
+                new Vector2(width, height),
+                new Vector2(width, 0),
+                new Vector2(0, 0)
             };
 
             return vertices;
@@ -46,11 +47,23 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         {
             if (_camera == null) return;
 
-            Height = 2f * _camera.orthographicSize * FrameHeightMultiplier;
-            Width = Height * _camera.aspect * FrameWidthMultiplier;
+            Height = FrameHeightUnits;
+            Width = FrameWidthUnits;
 
             Handles.color = IsActive ? Color.green : Color.red;
-            Handles.DrawWireCube(transform.position, new Vector3(Width, Height, 1));
+            var cubePosition = CalculateFrameOffset(Width, Height);
+            Handles.DrawWireCube(cubePosition, new Vector3( Width, Height, 1 ));
+        }
+
+        private Vector3 CalculateFrameOffset(float width, float height)
+        {
+            float xOffset, yOffset;
+            xOffset = width / 2;
+            yOffset = height / 2;
+
+            return new Vector3(transform.position.x + xOffset,
+                               transform.position.y + yOffset,
+                               transform.position.z);
         }
     }
 }

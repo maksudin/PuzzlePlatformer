@@ -39,6 +39,7 @@ namespace PixelCrew.Components
 
         private void OnDestroy()
         {
+            // Получается что объект героя раньше уничтожился чем мы успели отписаться
             hero.OnTeleportStartAnimEnded -= Teleport;
             hero.OnTeleportEndAnimEnded -= Teleport;
         }
