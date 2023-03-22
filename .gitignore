@@ -8,6 +8,7 @@
 /Assets/VSCode*
 /obj/
 /out
+/build
 /.vscode/
 *.sln
 *.userprefs

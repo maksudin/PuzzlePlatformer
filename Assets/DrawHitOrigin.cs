@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 public class DrawHitOrigin : MonoBehaviour
@@ -50,3 +51,4 @@ public class DrawHitOrigin : MonoBehaviour
         }
     }
 }
+#endif

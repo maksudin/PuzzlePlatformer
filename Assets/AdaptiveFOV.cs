@@ -1,4 +1,4 @@
-﻿using System;
+﻿#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -33,3 +33,4 @@ public class AdaptiveFOV : MonoBehaviour
         _cam.fieldOfView = angleDeg * 2;
     }
 }
+#endif

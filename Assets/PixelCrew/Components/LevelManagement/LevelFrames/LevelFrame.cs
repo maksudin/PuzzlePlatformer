@@ -40,6 +40,8 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         }
 
 
+
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             if (_camera == null) return;
@@ -51,6 +53,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
             var cubePosition = CalculateFrameOffset(Width, Height);
             Handles.DrawWireCube(cubePosition, new Vector3( Width, Height, 1 ));
         }
+#endif
 
         private Vector3 CalculateFrameOffset(float width, float height)
         {

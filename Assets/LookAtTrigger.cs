@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 public class LookAtTrigger : MonoBehaviour
@@ -32,3 +33,4 @@ public class LookAtTrigger : MonoBehaviour
         Handles.DrawSolidArc(playerPos, Vector3.forward, playetToTriggerDir, -angThresholdDeg, 1f);
     }
 }
+#endif
