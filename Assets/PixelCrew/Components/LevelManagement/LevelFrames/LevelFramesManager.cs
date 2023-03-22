@@ -10,16 +10,14 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
         [SerializeField] private LevelFrame[] _levelFrames;
         private LevelFrame _activeFrame;
         private Transform _heroTransform;
-        private CinemachineVirtualCamera _camera;
+        [SerializeField] private CinemachineVirtualCamera _camera;
         private CinemachineConfiner _cameraConfiner;
         public event Action OnUpperFrameEntered;
         private bool _isActiveFrameAboveUs => _camera.transform.position.y < _activeFrame.transform.position.y;
 
-
         private void Start()
         {
             _heroTransform = FindObjectOfType<Hero>().GetComponent<Transform>();
-            _camera = FindObjectOfType<CinemachineVirtualCamera>();
             _cameraConfiner = FindObjectOfType<CinemachineConfiner>();
         }
 

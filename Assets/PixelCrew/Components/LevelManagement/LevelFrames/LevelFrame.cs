@@ -7,18 +7,16 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
     [Serializable]
     public class LevelFrame : MonoBehaviour
     {
-        [SerializeField] private Camera _camera;
         [SerializeField, Range(1, 100)]
         private int FrameWidthUnits = 1,
                     FrameHeightUnits = 1;
 
         [NonSerialized] public float Width, Height;
-        [NonSerialized] public bool IsActive = false;
+        public bool IsActive = false;
         [NonSerialized] public PolygonCollider2D _polygonCollider;
 
         private void Start()
         {
-            if (_camera == null) return;
             Height = FrameHeightUnits;
             Width = FrameWidthUnits;
             _polygonCollider = GetComponent<PolygonCollider2D>();
@@ -44,8 +42,6 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            if (_camera == null) return;
-
             Height = FrameHeightUnits;
             Width = FrameWidthUnits;
 

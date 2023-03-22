@@ -446,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6017880784729601898
 Transform:
   m_ObjectHideFlags: 0
@@ -5700,7 +5700,7 @@ GameObject:
   - component: {fileID: 6670934604056636843}
   - component: {fileID: 6161258121132543556}
   m_Layer: 17
-  m_Name: Hero
+  m_Name: Hero with candle on
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
