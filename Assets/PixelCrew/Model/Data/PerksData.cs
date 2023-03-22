@@ -12,7 +12,6 @@ namespace PixelCrew.Model.Data
         [SerializeField] private StringProperty _used = new StringProperty();
         [SerializeField] private Cooldown _usedPerkCooldown;
         [SerializeField] private List<string> _unlocked;
-
         public StringProperty Used => _used;
         public Cooldown UsedPerkCooldown => _usedPerkCooldown;
 

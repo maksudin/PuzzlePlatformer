@@ -12,7 +12,6 @@ namespace PixelCrew.Utils
             Gizmos.DrawLine(bounds.max, new Vector3(bounds.max.x, bounds.min.y)); // право
             Gizmos.DrawLine(new Vector3(bounds.min.x, bounds.max.y), bounds.max); // верх
             Gizmos.DrawLine(new Vector3(bounds.max.x, bounds.min.y), bounds.min); // низ
-
             Gizmos.color = prevColor;
         }
     }

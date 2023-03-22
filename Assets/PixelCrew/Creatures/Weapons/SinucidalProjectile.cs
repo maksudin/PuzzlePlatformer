@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Creatures.Weapons
 {
     public class SinucidalProjectile : BaseProjectile
     {
-        [SerializeField] private float _frequency = 1f;
-        [SerializeField] private float _amplitude = 1f;
-        private float _originalY;
-        private float _time;
+        [SerializeField]
+        private float _frequency = 1f,
+                      _amplitude = 1f;
+
+        private float _originalY, _time;
 
         protected override void Start()
         {

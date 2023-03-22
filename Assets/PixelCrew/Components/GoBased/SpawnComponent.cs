@@ -11,15 +11,11 @@ namespace PixelCrew.Components.GoBased
         [SerializeField] private bool _usePool;
 
         [ContextMenu("Spawn")]
-        public void Spawn()
-        {
-            SpawnInstance();
-        }
+        public void Spawn() => SpawnInstance();
 
         public GameObject SpawnInstance()
         {
-            var instance = _usePool 
-                ? Pool.Instance.Get(_prefab, _target.position) 
+            var instance = _usePool? Pool.Instance.Get(_prefab, _target.position) 
                 : SpawnUtills.Spawn(_prefab, _target.position);
 
             var scale = _target.lossyScale;
@@ -51,10 +47,7 @@ namespace PixelCrew.Components.GoBased
             }
         }
 
-        public void SetPrefub(GameObject prefab)
-        {
-            _prefab = prefab;
-        }
+        public void SetPrefub(GameObject prefab) => _prefab = prefab;
     }
 }
 

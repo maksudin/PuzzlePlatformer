@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Utils
 {
@@ -22,12 +20,8 @@ namespace PixelCrew.Utils
         {
             var components = go.GetComponents<Component>();
             foreach (var component in components)
-            {
                 if (component is TInterfaceType type)
-                {
                     return type;
-                }
-            }
 
             return default;
         }

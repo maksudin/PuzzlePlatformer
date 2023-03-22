@@ -7,10 +7,8 @@ namespace Assets.PixelCrew.Model.Data.Properties
     [Serializable]
     public class KeyCodePersistentProperty : PrefsPersistentProperty<KeyCode>
     {
-        public KeyCodePersistentProperty(KeyCode defaultValue, string key) : base(defaultValue, key)
-        {
+        public KeyCodePersistentProperty(KeyCode defaultValue, string key) : base(defaultValue, key) =>
             Init();
-        }
 
         protected override KeyCode Read(KeyCode defaultValue)
         {

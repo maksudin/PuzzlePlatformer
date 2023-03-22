@@ -7,8 +7,9 @@ namespace Assets.PixelCrew.Effects.CameraRelated
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     public class CameraShakeEffect : MonoBehaviour
     {
-        [SerializeField] private float _animationTime = 0.3f;
-        [SerializeField] private float _intensity = 3f;
+        [SerializeField]
+        private float _animationTime = 0.3f,
+                      _intensity = 3f;
         private CinemachineBasicMultiChannelPerlin _cameraNoise;
         private Coroutine _coroutine;
 

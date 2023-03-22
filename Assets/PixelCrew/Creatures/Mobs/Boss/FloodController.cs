@@ -7,9 +7,7 @@ namespace Assets.PixelCrew.Creatures.Mobs.Boss
     {
         [SerializeField] private Animator _floodAnimator;
         [SerializeField] private float _floodTime;
-
         private readonly int IsFlooding = Animator.StringToHash("isFlooding");
-
         private Coroutine _coroutine;
 
         public void StartFlooding()

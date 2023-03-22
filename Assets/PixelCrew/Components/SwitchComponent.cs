@@ -5,9 +5,8 @@ namespace PixelCrew.Components
     public class SwitchComponent : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
-        [SerializeField] private bool _state;
         [SerializeField] private string _animationKey;
-        [SerializeField] private bool _updateOnStart;
+        [SerializeField] private bool _state, _updateOnStart;
 
         private void Start()
         {
@@ -22,11 +21,7 @@ namespace PixelCrew.Components
         }
 
         [ContextMenu("Switch")]
-        public void SwitchIt()
-        {
-            Switch();
-        }
-
+        public void SwitchIt() =>  Switch();
     }
 }
 

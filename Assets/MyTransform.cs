@@ -2,8 +2,7 @@
 
 public class MyTransform : MonoBehaviour
 {
-    [SerializeField] private Transform newTransform;
-    [SerializeField] private Transform point;
+    [SerializeField] private Transform newTransform, point;
     [SerializeField] private Vector2 coords;
 
     private void OnDrawGizmos()

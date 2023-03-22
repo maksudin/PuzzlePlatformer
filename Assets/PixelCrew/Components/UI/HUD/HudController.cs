@@ -10,7 +10,6 @@ namespace PixelCrew.Components.UI.HUD
     public class HudController : MonoBehaviour
     {
         [SerializeField] private ProgressBarWidget _healthBar;
-
         private GameSession _session;
 
         private void Start()
@@ -29,10 +28,8 @@ namespace PixelCrew.Components.UI.HUD
                 menu.Close();
         }
 
-        public void OnDebug()
-        {
+        public void OnDebug() =>
             WindowUtils.CreateWindow("UI/PerkWindow");
-        }
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
@@ -41,10 +38,7 @@ namespace PixelCrew.Components.UI.HUD
             _healthBar.SetProgress(value);
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             _session.Data.Hp.OnChanged -= OnHealthChanged;
-        }
-
     }
 }

@@ -12,13 +12,9 @@ namespace Assets.PixelCrew.Model.Data.Models
     public class QuickInventoryModel : IDisposable
     {
         private PlayerData _data;
-
         public InventoryItemData[] Inventory { get; private set; }
-
         public readonly IntProperty SelectedIndex = new IntProperty();
-
         public event Action OnChanged;
-
         public InventoryItemData SelectedItem
         {
             get
@@ -35,7 +31,6 @@ namespace Assets.PixelCrew.Model.Data.Models
         public QuickInventoryModel(PlayerData data)
         {
             _data = data;
-
             Inventory = _data.Inventory.GetAll(ItemTag.Usable);
             _data.Inventory.OnChangedInventory += OnChangedInventory;
         }
@@ -53,14 +48,10 @@ namespace Assets.PixelCrew.Model.Data.Models
             OnChanged?.Invoke();
         }
 
-        public void SetNextItem()
-        {
+        public void SetNextItem() =>
             SelectedIndex.Value = (int)Mathf.Repeat(SelectedIndex.Value + 1, Inventory.Length);
-        }
 
-        public void Dispose()
-        {
+        public void Dispose() =>
             _data.Inventory.OnChangedInventory -= OnChangedInventory;
-        }
     }
 }

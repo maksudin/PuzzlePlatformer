@@ -8,7 +8,6 @@ namespace PixelCrew.Model.Data.Properties
     public class ObservableProperty<TPropertyType>
     {
         [SerializeField] protected TPropertyType _value;
-
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
 
@@ -39,9 +38,7 @@ namespace PixelCrew.Model.Data.Properties
             }
         }
 
-        protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue)
-        {
+        protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue) =>
             OnChanged?.Invoke(newValue, oldValue);
-        }
     }
 }

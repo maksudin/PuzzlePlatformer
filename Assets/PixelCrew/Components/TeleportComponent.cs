@@ -8,8 +8,8 @@ namespace PixelCrew.Components
     public class TeleportComponent : MonoBehaviour
     {
         [SerializeField] private Transform _destTransform;
-        private static readonly int TeleportEnded = Animator.StringToHash("teleport_end");
-        private static readonly int TeleportStarted = Animator.StringToHash("teleport_start");
+        private static readonly int TeleportEnded = Animator.StringToHash("teleport_end"),
+                                    TeleportStarted = Animator.StringToHash("teleport_start");
         private Hero hero;
         private Animator _animator;
         private InputEnableComponent _input;
@@ -32,10 +32,7 @@ namespace PixelCrew.Components
             _animator.SetTrigger(TeleportEnded);
         }
 
-        private void OnTeleportEnded()
-        {
-            _input.SetInput(true);
-        }
+        private void OnTeleportEnded() => _input.SetInput(true);
 
         private void OnDestroy()
         {

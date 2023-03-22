@@ -11,12 +11,7 @@ namespace PixelCrew.Components.Audio
         [SerializeField] private AudioSource[] _muteSources;
 
         private AudioSource _source;
-
-        private void Awake()
-        {
-            _source = GetComponent<AudioSource>();
-        }
-
+        private void Awake() => _source = GetComponent<AudioSource>();
 
         private void Update()
         {
@@ -24,20 +19,14 @@ namespace PixelCrew.Components.Audio
             {
                 _source.mute = false;
                 foreach (var mSource in _muteSources)
-                {
                     mSource.mute = true;
-                }
-
             }
             else
             {
                 _source.mute = true;
                 foreach (var mSource in _muteSources)
-                {
                     mSource.mute = false;
-                }
             }
-
         }
     }
 }

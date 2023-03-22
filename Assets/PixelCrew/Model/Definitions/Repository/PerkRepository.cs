@@ -11,9 +11,8 @@ namespace PixelCrew.Model.Definitions.Repository
     [Serializable]
     public struct PerkDef : IHaveId
     {
-        [SerializeField] private string _id;
+        [SerializeField] private string _id, _info;
         [SerializeField] private Sprite _icon;
-        [SerializeField] private string _info;
         [SerializeField] private ItemWithCount _price;
         [SerializeField] private float _cooldown;
 
@@ -27,7 +26,7 @@ namespace PixelCrew.Model.Definitions.Repository
     [Serializable]
     public struct ItemWithCount
     {
-        [InventoryId] [SerializeField] private string _itemId;
+        [InventoryId, SerializeField] private string _itemId;
         [SerializeField] private int _count;
 
         public string ItemId => _itemId; 

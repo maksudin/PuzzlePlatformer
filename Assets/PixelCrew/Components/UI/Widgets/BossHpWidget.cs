@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Assets.PixelCrew.Utils;
+﻿using Assets.PixelCrew.Utils;
 using PixelCrew.Components.Health;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Utils.Disposables;
@@ -23,30 +21,19 @@ namespace Assets.PixelCrew.Components.UI.Widgets
         }
         
         [ContextMenu("Show")]
-        public void ShowUI()
-        {
+        public void ShowUI() =>
             this.LerpAnimated(start: 0, end: 1, time: 1, SetAlpha);
-        }
 
         [ContextMenu("Hide")]
-        public void HideUi()
-        {
+        public void HideUi() =>
             this.LerpAnimated(start: 1, end: 0, time: 1, SetAlpha);
-        }
 
-        private void SetAlpha(float alpha)
-        {
+        private void SetAlpha(float alpha) =>
             _canvas.alpha = alpha;
-        }
 
-        private void OnHpChanged(int health)
-        {
+        private void OnHpChanged(int health) =>
             _hpBar.SetProgress(health / _maxHealth);
-        }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }

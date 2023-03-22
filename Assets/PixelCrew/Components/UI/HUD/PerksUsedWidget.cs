@@ -23,10 +23,7 @@ namespace Assets.PixelCrew.Components.UI.HUD
             _trash.Retain(_session.Data.Perks.UsedPerkCooldown.Subscribe(UpdatePerkCooldown));
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();   
-        }
+        private void OnDestroy() => _trash.Dispose();   
 
         private void UpdateUsedPerk()
         {

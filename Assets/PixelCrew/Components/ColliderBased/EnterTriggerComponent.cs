@@ -15,15 +15,13 @@ namespace PixelCrew.Components.ColliderBased
         {
             var isInLayer = collision.transform.gameObject.IsInLayer(_layer);
             if (!isInLayer && _layer != 0) return;
-            if (!string.IsNullOrEmpty(_tag) && !collision.gameObject.CompareTag(_tag)) return;
+            if (!string.IsNullOrEmpty(_tag) && !collision.gameObject.CompareTag(_tag))
+                return;
 
             _action?.Invoke(collision.gameObject);
         }
     }
 
-    [Serializable]
-    public class EnterEvent : UnityEvent<GameObject>
-    {
-    }
+    [Serializable] public class EnterEvent : UnityEvent<GameObject> {}
 
 }

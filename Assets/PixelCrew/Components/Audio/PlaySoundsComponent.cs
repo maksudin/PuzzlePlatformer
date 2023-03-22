@@ -23,7 +23,6 @@ namespace PixelCrew.Components.Audio
             }
         }
 
-
         [Serializable]
         public class AudioData
         {

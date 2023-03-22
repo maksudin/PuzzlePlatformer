@@ -8,18 +8,14 @@ namespace PixelCrew.Components
     {
         [SerializeField] private Transform ropeAnchor;
         [SerializeField] private float _pushForce = 0.15f;
-        [SerializeField] private Cooldown _attachCooldown;
-        [SerializeField] private Cooldown _detachCooldown;
-
+        [SerializeField] private Cooldown _attachCooldown, _detachCooldown;
         private LineRenderer _lineRenderer;
         private Hero _hero;
         private Transform _heroTransform;
         private Rigidbody2D _ropeRigidBody;
-
         private bool _ropeActivated;
-
-        private float _offsetHeroPositionX = -0.04f;
-        private float _offsetHeroPositionY = 0.4f;
+        private float _offsetHeroPositionX = -0.04f,
+                      _offsetHeroPositionY = 0.4f;
 
         private void Awake()
         {
@@ -35,7 +31,8 @@ namespace PixelCrew.Components
 
         public void ActivateRope()
         {
-            if (_hero.AttachedToRope && _attachCooldown.IsReady) return;
+            if (_hero.AttachedToRope && _attachCooldown.IsReady) 
+                return;
 
             _hero.AttachPlayerToRope();
             _ropeActivated = true;
@@ -63,7 +60,8 @@ namespace PixelCrew.Components
         void Update()
         {
             DrawLine();
-            if (!_hero.AttachedToRope || !_ropeActivated) return;
+            if (!_hero.AttachedToRope || !_ropeActivated)
+                return;
 
             if (_hero.Direction.x > 0 && _offsetHeroPositionX > 0)
                 _offsetHeroPositionX *= -1;

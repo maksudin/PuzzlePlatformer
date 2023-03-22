@@ -15,7 +15,6 @@ namespace PixelCrew.Creatures
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
         protected HealthComponent HealthComp;
-        [Space]
         protected Rigidbody2D Rigidbody;
         private static readonly int IsAwake = Animator.StringToHash("awake");
 
@@ -45,14 +44,7 @@ namespace PixelCrew.Creatures
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
         }
 
-        public void SetDirection(Vector2 direction)
-        {
-            Direction = direction.normalized;
-        }
-
-        public void AwakeFromSleep()
-        {
-            Animator.SetBool(IsAwake, true);
-        }
+        public void SetDirection(Vector2 direction) => Direction = direction.normalized;
+        public void AwakeFromSleep() => Animator.SetBool(IsAwake, true);
     }
 }

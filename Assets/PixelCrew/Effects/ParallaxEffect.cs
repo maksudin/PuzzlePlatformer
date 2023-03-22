@@ -8,10 +8,7 @@ namespace PixelCrew.Effects
         [SerializeField] private Transform _followTarget;
         private float _startX;
 
-        private void Start()
-        {
-            _startX = transform.position.x;
-        }
+        private void Start() => _startX = transform.position.x;
 
         private void LateUpdate()
         {

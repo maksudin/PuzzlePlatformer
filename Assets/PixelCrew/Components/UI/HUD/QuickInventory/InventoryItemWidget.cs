@@ -14,10 +14,8 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selection;
         [SerializeField] private Text _text;
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         private int _index = 0;
-
 
         private void Start()
         {
@@ -26,15 +24,10 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
             _trash.Retain(index.SubscribeAndInvoke(OnIndexChanged));
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();    
-        }
+        private void OnDestroy() => _trash.Dispose();    
 
-        private void OnIndexChanged(int newValue, int _)
-        {
+        private void OnIndexChanged(int newValue, int _) =>
             _selection.SetActive(_index == newValue);
-        }
 
         public void SetData(InventoryItemData item, int index)
         {

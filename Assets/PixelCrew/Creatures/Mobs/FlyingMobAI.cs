@@ -6,12 +6,10 @@ namespace PixelCrew.Creatures.Mobs
 {
     public class FlyingMobAI : BaseMobAI
     {
-        private FlyingCreature _creature;
-        [SerializeField] private float _scanRadius;
-        [SerializeField] private float _scanCooldown;
-        [SerializeField] private float _missHeroCooldown = 0.2f;
+        [SerializeField] private float _scanRadius, _scanCooldown, _missHeroCooldown = 0.2f;
         [SerializeField] private string _tag;
         [SerializeField] private LayerMask _layer;
+        private FlyingCreature _creature;
         private bool _isAwake = false;
 
         protected override void Awake()
@@ -43,18 +41,13 @@ namespace PixelCrew.Creatures.Mobs
                 var direction = ((Vector2)(Target.transform.position - transform.position)).normalized;
                 var hit = Physics2D.Raycast(transform.position, direction, _scanRadius, _layer);
                 
-                if (hit.collider != null)
+                if (hit.collider != null && hit.collider.CompareTag(_tag))
                 {
-                    //Debug.DrawLine(transform.position, hit.point);
-                    if (hit.collider.CompareTag(_tag))
-                    {
-                        if (!_isAwake)
-                            StartState(AwakeMob());
-                        else
-                            StartState(AgroToHero());
-                    }
+                    if (!_isAwake)
+                        StartState(AwakeMob());
+                    else
+                        StartState(AgroToHero());
                 }
-                
 
                 yield return new WaitForSeconds(_scanCooldown);
             }
@@ -62,8 +55,6 @@ namespace PixelCrew.Creatures.Mobs
             if (CurrentCoroutine != null)
                 StopCoroutine(CurrentCoroutine);
         }
-
-        
 
         protected override void StartState(IEnumerator coroutine)
         {

@@ -9,9 +9,7 @@ namespace Assets.PixelCrew.Components.CutScenes
         [SerializeField] private Transform _target;
         [SerializeField] private float _delay = 0.5f;
         [SerializeField] private UnityEvent _onDelay;
-
         [SerializeField] private ShowTargetController _controller;
-
         private Coroutine _coroutine;
 
         private void OnValidate()

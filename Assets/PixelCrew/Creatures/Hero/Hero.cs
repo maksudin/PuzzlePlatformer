@@ -13,7 +13,6 @@ using PixelCrew.Model.Definitions.Items;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using PixelCrew.Model.Definitions.Repository;
-using PixelCrew.Utils.Disposables;
 using Assets.PixelCrew.Model.Definitions.Player;
 using Assets.PixelCrew.Utils;
 using UnityEngine.Events;
@@ -26,64 +25,55 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature, ICanAddInInventory
     {
-        [Header("Hero Params")]
-        [SerializeField] private float _gravityScale = 3;
-        [SerializeField] private float _fallingGravityScale = 5;
-        [SerializeField] private Cooldown _throwCooldown;
         public CapsuleCollider2D HeroCollider;
-        private Cooldown _superThrowCooldown = new Cooldown();
 
+        [SerializeField, Header("Hero Params")] 
+        private float _gravityScale = 3,
+                      _fallingGravityScale = 5;
+        [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private int _swordBurstAmount = 3;
         [SerializeField] private bool _allowDoubleJump = false;
         [SerializeField] private float _upperFramePushForce = 1f;
+
+        [Header("Hook Params")]
+        [SerializeField] private CheckCircleOverlap _hookCheck;
+        [SerializeField] private float _hookSpeed, _hookPushForce;
+        [SerializeField] private UnityEvent _onHookComplete;
+        [SerializeField] private Cooldown _hookCooldown;
 
         [Header("Interactions")]
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private float _interactionRadius;
 
-        [Space]
-        [Header("Particles")]
+        [Space, Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
-
-        [SerializeField] private RuntimeAnimatorController _animatorArmed;
-        [SerializeField] private RuntimeAnimatorController _animatorDisarmed;
-
+        [SerializeField] private RuntimeAnimatorController _animatorArmed, _animatorDisarmed;
         [SerializeField] private SpawnComponent _throwSpawner;
 
         [Header("Rope Params")]
         [SerializeField] private float _pushForce;
         public bool AttachedToRope;
 
-        [Header("Hook Params")]
-        [SerializeField] private CheckCircleOverlap _hookCheck;
-        [SerializeField] private float _hookSpeed;
-        [SerializeField] private float _hookPushForce;
-        [SerializeField] private UnityEvent _onHookComplete;
-        [SerializeField] private Cooldown _hookCooldown;
         [Space]
-        [SerializeField] private CandleController _candle;
+        [SerializeField, Header("Candle")] private CandleController _candle;
 
+        private LevelFramesManager _levelFramesManager;
         private CameraShakeEffect _cameraShake;
         private bool _emulateGroundCondition;
-        private float _groundTime = 0.1f;
-        private float _groundTimer = 0.0f;
-     
-        private bool _hasDoubleJump;
-        private bool _isDashing;
+        private bool _hasDoubleJump, _isDashing;
+        private float _groundTime = 0.1f,
+                      _groundTimer = 0.0f;
 
+        private Cooldown _superThrowCooldown = new Cooldown();
         private Coroutine _currentCoroutine;
-
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
-
         private const string SwordId = "Sword";
 
         private int SwordCount => _session.Data.Inventory.Count(SwordId);
         private int CoinCount => _session.Data.Inventory.Count("Coin");
-
         private string SelectedItemId => _session.QuickInventory.SelectedDef.Id;
-        private LevelFramesManager _levelFramesManager;
 
         private bool CanThrow
         {
@@ -153,8 +143,6 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-
-
         private void AnotherHandler(string id, int value)
         {
             Debug.Log($"Inventory changed: {id}: {value}");
@@ -172,15 +160,11 @@ namespace PixelCrew.Creatures.Hero
             UpdateHeroWeapon();
         }
 
-        public void NextItem()
-        {
+        public void NextItem() =>
             _session.QuickInventory.SetNextItem();
-        }
 
-        public void AddInInventory(string id, int value)
-        {
+        public void AddInInventory(string id, int value) =>
             _session.Data.Inventory.Add(id, value);
-        }
 
         public void UseInventory(IInputInteraction interaction)
         {
@@ -205,10 +189,7 @@ namespace PixelCrew.Creatures.Hero
             return _session.QuickInventory.SelectedDef.HasTag(tag);
         }
 
-        public void SetDash(bool isDashing)
-        {
-            _isDashing = isDashing;
-        }
+        public void SetDash(bool isDashing) => _isDashing = isDashing;
 
         public void CallMenu()
         {
@@ -219,10 +200,7 @@ namespace PixelCrew.Creatures.Hero
                 menu.Close();
         }
 
-        public void AttachPlayerToRope()
-        {
-            AttachedToRope = true;
-        }
+        public void AttachPlayerToRope() => AttachedToRope = true;
 
         public void DetachPlayerFromRope()
         {
@@ -233,11 +211,12 @@ namespace PixelCrew.Creatures.Hero
         public override void Attack()
         {
             if (SwordCount <= 0) return;
-
             base.Attack();
         }
 
         private bool _candleActive;
+
+        public void CandleRanOut() => _candleActive = false;
 
         public void UseCandle()
         {
@@ -253,15 +232,11 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
+
         private void ReplanishCandle()
         {
             _candle.ResetCapacity();
             _session.Data.Inventory.Remove(SelectedItemId, 1);
-        }
-
-        public void CandleRanOut()
-        {
-            _candleActive = false;
         }
 
         private Cooldown _speedUpCooldown = new Cooldown();
@@ -309,7 +284,8 @@ namespace PixelCrew.Creatures.Hero
 
         public void SuperThrow()
         {
-            if (!_session.Data.Perks.UsedPerkCooldown.IsReady) return;
+            if (!_session.Data.Perks.UsedPerkCooldown.IsReady)
+                return;
             if (_currentCoroutine != null)
                 StopCoroutine(_currentCoroutine);
             _currentCoroutine = StartCoroutine(ThrowBurstCoroutine());
@@ -355,10 +331,8 @@ namespace PixelCrew.Creatures.Hero
             Animator.runtimeAnimatorController = SwordCount > 0 ? _animatorArmed : _animatorDisarmed;
         }
 
-        public void OnHealthChange(int currentHealth)
-        {
+        public void OnHealthChange(int currentHealth) =>
             _session.Data.Hp.Value = currentHealth;
-        }
 
         public void Interact()
         {
@@ -366,7 +340,6 @@ namespace PixelCrew.Creatures.Hero
             if (_session.PerksModel.IsHookSupported)
                 _hookCheck.Check();
         }
-
 
         protected override void Update()
         {
@@ -383,9 +356,7 @@ namespace PixelCrew.Creatures.Hero
                 }
             }
             else
-            {
                 base.Update();
-            }
         }
 
         private bool _isHooking;
@@ -491,14 +462,10 @@ namespace PixelCrew.Creatures.Hero
         public event Action OnTeleportStartAnimEnded;
         public event Action OnTeleportEndAnimEnded;
 
-        public void OnHeroTeleportStartAnimationEnded()
-        {
+        public void OnHeroTeleportStartAnimationEnded() =>
             OnTeleportStartAnimEnded?.Invoke();
-        }
 
-        public void OnHeroTeleportEndAnimationEnded()
-        {
+        public void OnHeroTeleportEndAnimationEnded() =>
             OnTeleportEndAnimEnded?.Invoke();
-        }
     }
 }

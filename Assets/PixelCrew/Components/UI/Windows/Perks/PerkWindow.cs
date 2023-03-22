@@ -11,12 +11,10 @@ namespace PixelCrew.Components.UI.Windows.Perks
 {
     public class PerkWindow : AnimatedWindow
     {
-        [SerializeField] private Button _buyButton;
-        [SerializeField] private Button _useButton;
+        [SerializeField] private Button _buyButton, _useButton;
         [SerializeField] private ItemWidget _price;
         [SerializeField] private Text _info;
         [SerializeField] private Transform _perksContainer;
-
         private PredefinedDataGroup<PerkDef, PerkWidget> _dataGroup;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         private GameSession _session;
@@ -24,16 +22,13 @@ namespace PixelCrew.Components.UI.Windows.Perks
         protected override void Start()
         {
             base.Start();
-
             _dataGroup = new PredefinedDataGroup<PerkDef, PerkWidget>(_perksContainer);
             _session = FindObjectOfType<GameSession>();
-
             _trash.Retain(_session.PerksModel.Subscribe(OnPerksChanged));
             _trash.Retain(_buyButton.onClick.Subscribe(OnBuy));
             _trash.Retain(_useButton.onClick.Subscribe(OnUse));
 
             OnPerksChanged();
-
             Pause();
         }
 

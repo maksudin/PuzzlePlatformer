@@ -8,14 +8,11 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
     public class LevelFrame : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        //[SerializeField] private float FrameWidthMultiplier = 1f;
-        //[SerializeField] private float FrameHeightMultiplier = 1f;
+        [SerializeField, Range(1, 100)]
+        private int FrameWidthUnits = 1,
+                    FrameHeightUnits = 1;
 
-        [Range(1, 100)] [SerializeField] private int FrameWidthUnits = 1;
-        [Range(1, 100)] [SerializeField] private int FrameHeightUnits = 1;
-
-        [NonSerialized] public float Width;
-        [NonSerialized] public float Height;
+        [NonSerialized] public float Width, Height;
         [NonSerialized] public bool IsActive = false;
         [NonSerialized] public PolygonCollider2D _polygonCollider;
 

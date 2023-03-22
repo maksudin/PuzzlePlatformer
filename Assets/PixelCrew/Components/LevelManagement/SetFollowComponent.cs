@@ -7,10 +7,7 @@ namespace PixelCrew.Components.LevelManagement
     [RequireComponent(typeof(CinemachineVirtualCamera))]
     public class SetFollowComponent : MonoBehaviour
     {
-        private void Start()
-        {
-            SetCameraFollow();
-        }
+        private void Start() => SetCameraFollow();
 
         public void SetCameraFollow()
         {

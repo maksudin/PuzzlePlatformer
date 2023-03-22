@@ -22,10 +22,7 @@ namespace PixelCrew.Components.GoBased
         private Vector3 _spawnSizeMin;
         private Vector3 _spawnSizeMax;
 
-        public void Awake()
-        {
-            _spawn = GetComponent<SpawnComponent>();
-        }
+        public void Awake() => _spawn = GetComponent<SpawnComponent>();
 
         public void GenerateCoins()
         {

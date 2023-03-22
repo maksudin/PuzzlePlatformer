@@ -8,11 +8,8 @@ namespace PixelCrew.Components.Interactions
     public class RequireItemComponent : MonoBehaviour
     {
         [SerializeField] private InventoryItemData[] _required;
-        [Space]
-        [SerializeField] private bool _removeAfterUse;
-
-        [SerializeField] private UnityEvent _onSuccess;
-        [SerializeField] private UnityEvent _onFail;
+        [Space, SerializeField] private bool _removeAfterUse;
+        [SerializeField] private UnityEvent _onSuccess,  _onFail;
 
         public void Check()
         {
@@ -28,17 +25,13 @@ namespace PixelCrew.Components.Interactions
             if (AllReruirenmentsMet)
             {
                 if (_removeAfterUse)
-                {
                     foreach (var item in _required)
                         session.Data.Inventory.Remove(item.Id, item.Value);
-                }
 
                 _onSuccess?.Invoke();
             }
             else
-            {
                 _onFail?.Invoke();
-            }
         }
 
         

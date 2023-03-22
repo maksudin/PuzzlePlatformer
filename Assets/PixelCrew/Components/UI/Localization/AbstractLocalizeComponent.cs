@@ -11,16 +11,10 @@ namespace PixelCrew.Components.UI.Localization
             Localize();
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             LocalizationManager.I.OnLocaleChanged -= OnLocaleChanged;
-        }
 
-        private void OnLocaleChanged()
-        {
-            Localize();
-        }
-
+        private void OnLocaleChanged() => Localize();
         protected abstract void Localize();
     }
 }

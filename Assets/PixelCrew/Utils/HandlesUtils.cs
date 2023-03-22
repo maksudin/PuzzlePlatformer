@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Utils
 {
     public class HandlesUtils
     {
-        public static readonly Color TransparentRed = new Color(1f, 0f, 0f, 0.1f);
-        public static readonly Color TransparentBlue = new Color(0f, 0f, 1f, 0.1f);
-        public static readonly Color TransparentGreen = new Color(0f, 1f, 0f, 0.1f);
-        public static readonly Color HardlyVisibleGreen = new Color(0f, 1f, 0f, 0.025f);
+        public static readonly Color TransparentRed = new Color(1f, 0f, 0f, 0.1f),
+                                     TransparentBlue = new Color(0f, 0f, 1f, 0.1f),
+                                     TransparentGreen = new Color(0f, 1f, 0f, 0.1f),
+                                     HardlyVisibleGreen = new Color(0f, 1f, 0f, 0.025f);
     }
 }
 

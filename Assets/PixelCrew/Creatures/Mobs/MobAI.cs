@@ -1,9 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using PixelCrew.Components;
-using PixelCrew.Components.GoBased;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Creatures.Mobs.Patrolling;
 
@@ -12,12 +8,11 @@ namespace PixelCrew.Creatures.Mobs
     public class MobAI : BaseMobAI
     {
         [SerializeField] private LayerCheck _canAttack;
-        [SerializeField] private float _alarmDelay = 0.5f;
-        [SerializeField] private float _attackCooldown = 1f;
-        [SerializeField] private float _missHeroCooldown = 0.5f;
-
-        [SerializeField] private float _horizontalThreshold = 0.2f;
-
+        [SerializeField]
+        private float _alarmDelay = 0.5f,
+                      _attackCooldown = 1f,
+                      _missHeroCooldown = 0.5f,
+                      _horizontalThreshold = 0.2f;
         private Creature _creature;
         private Patrol _patrol;
 
@@ -28,10 +23,7 @@ namespace PixelCrew.Creatures.Mobs
             _patrol = GetComponent<Patrol>();
         }
 
-        private void Start()
-        {
-            StartState(_patrol.DoPatrol());
-        }
+        private void Start() => StartState(_patrol.DoPatrol());
 
         public void OnHeroInVision(GameObject go)
         {
@@ -71,9 +63,7 @@ namespace PixelCrew.Creatures.Mobs
             while(Vision.IsTouchingLayer)
             {
                 if (_canAttack.IsTouchingLayer)
-                {
                     StartState(Attack());
-                }
                 else
                 {
                     var horizontalDelta = Mathf.Abs(Target.transform.position.x - transform.position.x);

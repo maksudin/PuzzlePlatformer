@@ -9,10 +9,8 @@ namespace PixelCrew.Components.LevelManagement
     public class CheckPointComponent : MonoBehaviour
     {
         [SerializeField] private string _id;
-        [SerializeField] private UnityEvent _setChecked;
-        [SerializeField] private UnityEvent _setUnchecked;
+        [SerializeField] private UnityEvent _setChecked, _setUnchecked;
         [SerializeField] private SpawnComponent _heroSpawner;
-
         public string Id => _id;
         private GameSession _session;
 
@@ -32,13 +30,7 @@ namespace PixelCrew.Components.LevelManagement
             _setChecked?.Invoke();
         }
 
-        public void SpawnHero()
-        {
-            _heroSpawner.Spawn();
-        }
-
-
-
+        public void SpawnHero() => _heroSpawner.Spawn();
     }
 }
 

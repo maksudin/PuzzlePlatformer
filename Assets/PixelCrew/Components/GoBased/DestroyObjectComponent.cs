@@ -11,10 +11,7 @@ namespace PixelCrew.Components.GoBased
 
         private AudioSource _audioSource;
 
-        private void Awake()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
+        private void Awake() => _audioSource = GetComponent<AudioSource>();
 
         public void DestroyObject()
         {
@@ -28,10 +25,7 @@ namespace PixelCrew.Components.GoBased
             }
         }
 
-        private void DestroyObjectWithAudio()
-        {
-            Destroy(_objectToDestroy);
-        }
+        private void DestroyObjectWithAudio() => Destroy(_objectToDestroy);
 
     }
 

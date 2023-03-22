@@ -5,12 +5,11 @@ namespace PixelCrew.Components.Movement
     [RequireComponent(typeof(Rigidbody2D))]
     public class VerticalLevitationComponent : MonoBehaviour
     {
-        [SerializeField] private float _frequency = 5f;
-        [SerializeField] private float _amplitude = 0.1f;
+        [SerializeField] 
+        private float _frequency = 5f,
+                      _amplitude = 0.1f;
         [SerializeField] private bool _randomize;
-        private float _seed;
-
-        private float _originalY;
+        private float _seed, _originalY;
         private Rigidbody2D _rigidbody;
 
         private void Start()

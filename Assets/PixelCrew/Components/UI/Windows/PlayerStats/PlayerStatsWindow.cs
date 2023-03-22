@@ -13,12 +13,10 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
     {
         [SerializeField] private Transform _statsContainer;
         [SerializeField] private StatWidget _prefab;
-
         [SerializeField] private Button _upgradeButton;
         [SerializeField] private ItemWidget _price;
 
         private DataGroup<StatDef, StatWidget> _dataGroup;
-
         private GameSession _session;
         private CompositeDisposable _trash = new CompositeDisposable();
 
@@ -57,10 +55,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
             _upgradeButton.gameObject.SetActive(def.Price.Count != 0);
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }
 

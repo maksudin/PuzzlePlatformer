@@ -9,14 +9,10 @@ namespace Assets.PixelCrew.Components.GoBased
     public class CircularProjectileSpawner : MonoBehaviour
     {
         [SerializeField] CircularProjectileSettings[] _settings;
-
         public int Stage { get;  set; }
 
         [ContextMenu("Launch")]
-        public void LaunchProjectiles()
-        {
-            StartCoroutine(SpawnProjectiles());
-        }
+        public void LaunchProjectiles() => StartCoroutine(SpawnProjectiles());
 
         private IEnumerator SpawnProjectiles()
         {

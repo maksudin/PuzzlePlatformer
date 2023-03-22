@@ -11,11 +11,8 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
     {
         [SerializeField] private Transform _container;
         [SerializeField] private InventoryItemWidget _prefab;
-
         private GameSession _session;
         private readonly CompositeDisposable _trash = new CompositeDisposable();
-        private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
-
         private DataGroup<InventoryItemData, InventoryItemWidget> _dataGroup;
 
         private void Start()
@@ -26,10 +23,7 @@ namespace PixelCrew.Components.UI.HUD.QuickInventory
             Rebuild();
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
 
         private void Rebuild()
         {

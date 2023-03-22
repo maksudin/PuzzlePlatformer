@@ -35,9 +35,6 @@ namespace Assets.PixelCrew.Effects.CameraRelated
             _overlay.localScale = Vector3.one + _overScale * overlayModifier;
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }

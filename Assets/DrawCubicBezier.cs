@@ -31,11 +31,12 @@ public class DrawCubicBezier : MonoBehaviour
             {
                 var t = i / (float)_segmentCount;
                 var nodeIndex = j * 3;
-                Vector3 bezierPoint = CalculateCubicBezierPoint(t,
-                                                                _controlPoints[nodeIndex].position,
-                                                                _controlPoints[nodeIndex + 1].position,
-                                                                _controlPoints[nodeIndex + 2].position,
-                                                                _controlPoints[nodeIndex + 3].position
+                Vector3 bezierPoint =
+                    CalculateCubicBezierPoint(t,
+                                             _controlPoints[nodeIndex].position,
+                                             _controlPoints[nodeIndex + 1].position,
+                                             _controlPoints[nodeIndex + 2].position,
+                                             _controlPoints[nodeIndex + 3].position
                 );
                 _bezierPoints.Add(bezierPoint);
             }

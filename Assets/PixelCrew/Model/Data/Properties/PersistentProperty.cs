@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections;
-using PixelCrew.Utils.Disposables;
-using UnityEngine;
-
-namespace PixelCrew.Model.Data.Properties
+﻿namespace PixelCrew.Model.Data.Properties
 {
     public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
         protected TPropertyType _stored;
-
         private TPropertyType _defaultValue;
 
-        public PersistentProperty(TPropertyType defvalue)
-        {
+        public PersistentProperty(TPropertyType defvalue) =>
             _defaultValue = defvalue;
-        }
 
         public override TPropertyType Value
         {
@@ -38,10 +30,8 @@ namespace PixelCrew.Model.Data.Properties
                 Value = _value;
         }
 
-        protected void Init()
-        {
+        protected void Init() =>
             _stored = _value = Read(_defaultValue);
-        }
 
         protected abstract void Write(TPropertyType value);
         protected abstract TPropertyType Read(TPropertyType defaultValue);

@@ -4,12 +4,15 @@ using UnityEngine;
 public class HelixGizmo : MonoBehaviour
 {
     [SerializeField] private Color _color1, _color2;
-    [SerializeField] private bool _isTorus = false;
-    [SerializeField] private bool _drawControlPoints = false;
-    [SerializeField] private float _height = 5f;
-    [SerializeField] private float _radius = 2f;
-    [SerializeField] private int _turns = 1;
-    [SerializeField] private int _segmentCount = 50;
+    [SerializeField]
+    private bool _isTorus = false,
+                 _drawControlPoints = false;
+    [SerializeField] 
+    private float _height = 5f,
+                  _radius = 2f;
+    [SerializeField]
+    private int _turns = 1,
+                _segmentCount = 50;
     [SerializeField] private float _controlPointsGizmoRadius = 1f;
 
     private void OnDrawGizmos()
@@ -52,9 +55,7 @@ public class HelixGizmo : MonoBehaviour
             var directedPoint = new Vector3(uPoint.x * direction.x, uPoint.y * direction.y, uPoint.z);
 
             if (_isTorus)
-            {
                 normal.x += heightDelta;
-            }
 
             controlPoints[i] = (directedPoint * radius) + normal;
 

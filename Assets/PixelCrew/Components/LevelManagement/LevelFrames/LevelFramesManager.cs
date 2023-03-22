@@ -23,10 +23,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
             _cameraConfiner = FindObjectOfType<CinemachineConfiner>();
         }
 
-        private void Update()
-        {
-            UpdateFrameParams(_levelFrames);
-        }
+        private void Update() => UpdateFrameParams(_levelFrames);
 
         private void UpdateFrameParams(LevelFrame[] levelFrames)
         {
@@ -58,12 +55,9 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
                 MoveCameraToActiveFrame();
                 SetCameraParams();
-                
             }
             else
-            {
                 frame.IsActive = false;
-            }
         }
 
 

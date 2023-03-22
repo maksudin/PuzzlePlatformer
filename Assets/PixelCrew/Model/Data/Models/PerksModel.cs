@@ -10,10 +10,8 @@ namespace Assets.PixelCrew.Model.Data.Models
     {
         private readonly PlayerData _data;
         public readonly StringProperty InterfaceSelection = new StringProperty();
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
         public event Action OnChanged;
-
         public string Used => _data.Perks.Used.Value;
 
         public bool IsDoubleJumpSupported => _data.Perks.Used.Value == "double-jump";
@@ -48,25 +46,10 @@ namespace Assets.PixelCrew.Model.Data.Models
             OnChanged?.Invoke();
         }
 
-        public void UsePerk(string selected)
-        {
-            _data.Perks.Used.Value = selected;
-        }
-
-        public void Dispose()
-        {
-            _trash.Dispose();
-        }
-
-        public bool IsUsed(string perkId)
-        {
-            return _data.Perks.Used.Value == perkId; 
-        }
-
-        public bool IsUnlocked(string perkId)
-        {
-            return _data.Perks.IsUnlocked(perkId);
-        }
+        public void UsePerk(string selected) => _data.Perks.Used.Value = selected;
+        public void Dispose() => _trash.Dispose();
+        public bool IsUsed(string perkId) => _data.Perks.Used.Value == perkId; 
+        public bool IsUnlocked(string perkId) => _data.Perks.IsUnlocked(perkId);
 
         public bool CanBuy(string perkId)
         {

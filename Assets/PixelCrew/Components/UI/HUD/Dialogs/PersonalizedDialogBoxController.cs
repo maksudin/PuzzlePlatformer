@@ -7,7 +7,6 @@ namespace Assets.PixelCrew.Components.UI.HUD.Dialogs
     public class PersonalizedDialogBoxController : DialogBoxController
     {
         [SerializeField] private DialogContent _right;
-
         protected override DialogContent CurrentContent => CurrentSentence.Side == Side.Left ? Content : _right;
 
         protected override void OnStartDialogAnimation()

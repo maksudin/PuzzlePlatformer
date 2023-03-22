@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class DrawHitOrigin : MonoBehaviour
 {
+    void DrawRay(Vector3 p, Vector3 dir) => Handles.DrawAAPolyLine(p, p + dir);
+
     private void OnDrawGizmos()
     {
         Vector3 lookDir = transform.forward;
-
         Physics.Raycast(transform.position, lookDir, out RaycastHit hit);
         Debug.DrawRay(transform.position, lookDir, Color.white);
-
-        void DrawRay(Vector3 p, Vector3 dir) => Handles.DrawAAPolyLine(p, p + dir);
 
         if (hit.rigidbody != null)
         {

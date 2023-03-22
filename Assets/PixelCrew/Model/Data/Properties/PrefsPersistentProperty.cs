@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace PixelCrew.Model.Data.Properties
+﻿namespace PixelCrew.Model.Data.Properties
 {
     public abstract class PrefsPersistentProperty<TPropertyType> : PersistentProperty<TPropertyType>
     {
         protected string Key;
-
-        protected PrefsPersistentProperty(TPropertyType defaultValue, string key) : base(defaultValue)
+        protected PrefsPersistentProperty(TPropertyType defaultValue, string key) 
+            : base(defaultValue)
         {
             Key = key;
         }

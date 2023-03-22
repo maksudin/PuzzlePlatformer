@@ -12,32 +12,26 @@ namespace PixelCrew.Creatures
     {
         [Header("Creature Params")] 
         [SerializeField] private bool _invertScale;
-        [SerializeField] protected float _speed;
-        [SerializeField] protected float JumpSpeed;
+        [SerializeField] protected float _speed, JumpSpeed, AttackParticlesOffset;
         [SerializeField] private float _damageVelocity;
         [SerializeField] protected int Damage;
-        [SerializeField] protected float AttackParticlesOffset;
 
         [Header("Checkers")]
         [SerializeField] private LayerCheck GroundCheck;
         [SerializeField] protected CheckCircleOverlap AttackRange;
         [SerializeField] protected SpawnListComponent Particles;
-        [Space]
+        [HideInInspector] public Vector2 Direction;
         protected Rigidbody2D Rigidbody;
-        [HideInInspector]
-        public Vector2 Direction;
         protected Animator Animator;
         protected PlaySoundsComponent Sounds;
-        protected bool IsGrounded;
-        protected bool FallIsLongEnough;
-
+        protected bool IsGrounded, FallIsLongEnough;
         protected HealthComponent Health;
 
-        private static readonly int IsGroundKey = Animator.StringToHash("is_grounded");
-        private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical_velocity");
-        private static readonly int IsRunningKey = Animator.StringToHash("is_running");
-        private static readonly int AttackKey = Animator.StringToHash("attack");
-        private static readonly int HitKey = Animator.StringToHash("hit");
+        private static readonly int IsGroundKey = Animator.StringToHash("is_grounded"),
+                                    VerticalVelocityKey = Animator.StringToHash("vertical_velocity"),
+                                    IsRunningKey = Animator.StringToHash("is_running"),
+                                    AttackKey = Animator.StringToHash("attack"),
+                                    HitKey = Animator.StringToHash("hit");
         protected static readonly int ThrowKey = Animator.StringToHash("throw");
 
         protected virtual void Awake()
@@ -48,15 +42,11 @@ namespace PixelCrew.Creatures
             Sounds = GetComponent<PlaySoundsComponent>();
         }
 
-        public void SetDirection(Vector2 direction)
-        {
+        public void SetDirection(Vector2 direction) =>
             Direction = direction;
-        }
 
-        protected virtual void Update()
-        {
+        protected virtual void Update() =>
             IsGrounded = GroundCheck.IsTouchingLayer;
-        }
 
         protected virtual void FixedUpdate()
         {
@@ -76,15 +66,8 @@ namespace PixelCrew.Creatures
             UpdateSpriteDirection(Direction);
         }
 
-        protected virtual float CalculateXVelocity()
-        {
-            return Direction.x * CalculateSpeed();
-        }
-
-        protected virtual float CalculateSpeed()
-        {
-            return _speed;
-        }
+        protected virtual float CalculateXVelocity() => Direction.x * CalculateSpeed();
+        protected virtual float CalculateSpeed() => _speed;
 
         protected virtual float CalculateYVelocity()
         {
@@ -150,10 +133,7 @@ namespace PixelCrew.Creatures
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y + _damageVelocity);
         }
 
-        public virtual void Attack()
-        {
-            Animator.SetTrigger(AttackKey);
-        }
+        public virtual void Attack() => Animator.SetTrigger(AttackKey);
 
         public void OnDoAttack()
         {

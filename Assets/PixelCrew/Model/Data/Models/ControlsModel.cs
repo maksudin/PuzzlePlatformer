@@ -11,11 +11,8 @@ namespace Assets.PixelCrew.Model.Data.Models
 {
     public class ControlsModel : IDisposable
     {
-        //private readonly PlayerData _data;
-
         public event Action OnChanged;
         public ObservableProperty<string> InterfaceSelectedControl = new ObservableProperty<string>();
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         public ControlsModel(PlayerData data)
@@ -36,14 +33,7 @@ namespace Assets.PixelCrew.Model.Data.Models
             OnChanged?.Invoke();
         }
 
-        public void RemapToDefault()
-        {
-
-        }
-
-        public void Dispose()
-        {
-            _trash.Dispose();
-        }
+        public void RemapToDefault() { }
+        public void Dispose() => _trash.Dispose();
     }
 }

@@ -8,9 +8,7 @@ namespace PixelCrew.Components.UI.Widgets
     {
         [SerializeField] private ProgressBarWidget _lifeBar;
         [SerializeField] private HealthComponent _hp;
-
         private int _maxHp;
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Start()
@@ -25,15 +23,8 @@ namespace PixelCrew.Components.UI.Widgets
 
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
-
-        private void OnDie()
-        {
-            Destroy(gameObject);
-        }
+        private void OnDestroy() => _trash.Dispose();
+        private void OnDie() => Destroy(gameObject);
 
         private void OnHpChanged(int hp)
         {

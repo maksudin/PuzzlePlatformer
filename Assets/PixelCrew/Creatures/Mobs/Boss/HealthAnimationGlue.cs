@@ -10,9 +10,7 @@ namespace Assets.PixelCrew.Creatures.Mobs.Boss
         [SerializeField] private HealthComponent _hp;
         [SerializeField] private Animator _animator;
         [SerializeField] private ProgressBarWidget _progressBar;
-
         private readonly int Health = Animator.StringToHash("health");
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private void Awake()
@@ -27,9 +25,6 @@ namespace Assets.PixelCrew.Creatures.Mobs.Boss
             _progressBar.SetProgress(health / _hp.MaxHealth);
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }

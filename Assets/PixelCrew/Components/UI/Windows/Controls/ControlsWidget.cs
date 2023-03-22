@@ -1,5 +1,4 @@
-﻿using Assets.PixelCrew.Components.UI.Rebinding;
-using PixelCrew.Components.UI.Widgets;
+﻿using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
 using PixelCrew.Model.Definitions.Localization;
 using UnityEngine;
@@ -10,9 +9,10 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 {
     public class ControlsWidget : MonoBehaviour, IItemRenderer<InputAction>
     {
-        [SerializeField] private Text _controlName;
+        [SerializeField]
+        private Text _controlName,
+                     _keyboardKey;
         [SerializeField] private Image _gamepadIcon;
-        [SerializeField] private Text _keyboardKey;
         [SerializeField] private GameObject _selector;
 
         private GameSession _session;
@@ -49,9 +49,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
 
         }
 
-        public void OnSelect()
-        {
+        public void OnSelect() =>
             _session.ControlsModel.InterfaceSelectedControl.Value = _data.name;
-        }
     }
 }

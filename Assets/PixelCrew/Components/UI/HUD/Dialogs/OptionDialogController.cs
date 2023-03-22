@@ -12,13 +12,10 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         [SerializeField] private Text _contentText;
         [SerializeField] private Transform _optionsContainer;
         [SerializeField] private OptionItemWidget _prefab;
-
         private DataGroup<OptionData, OptionItemWidget> _dataGroup;
 
-        private void Start()
-        {
+        private void Start() => 
             _dataGroup = new DataGroup<OptionData, OptionItemWidget>(_prefab, _optionsContainer);
-        }
 
         public void OnOptionsSelected(OptionData selectedOption)
         {

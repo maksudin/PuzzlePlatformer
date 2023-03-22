@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Components.Audio;
+﻿using PixelCrew.Components.Audio;
 using PixelCrew.Components.ColliderBased;
 using PixelCrew.Components.GoBased;
 using PixelCrew.Utils;
@@ -10,17 +9,12 @@ namespace PixelCrew.Creatures.Mobs
     public class BaseShootingTrap : MonoBehaviour
     {
         [SerializeField] protected LayerCheck Vision;
-
-        [Header("Range")]
-        [SerializeField] protected SpawnComponent ProjectileAttack;
+        [Header("Range"), SerializeField] protected SpawnComponent ProjectileAttack;
         [SerializeField] public Cooldown RangeCooldown;
+        [Space, SerializeField] public bool IsTotem;
         protected PlaySoundsComponent Sounds;
-
-
         protected Animator Animator;
         protected static readonly int RangeKey = Animator.StringToHash("range_attack");
-        [Space]
-        public bool IsTotem;
 
         protected virtual void Awake()
         {
@@ -36,20 +30,14 @@ namespace PixelCrew.Creatures.Mobs
 
         public virtual void RangeAttack()
         { 
-            if (Vision.IsTouchingLayer)
+            if (Vision.IsTouchingLayer && RangeCooldown.IsReady)
             {
-                if (RangeCooldown.IsReady)
-                {
-                    RangeCooldown.Reset();
-                    Animator.SetTrigger(RangeKey);
-                    Sounds?.Play("Range");
-                }
+                RangeCooldown.Reset();
+                Animator.SetTrigger(RangeKey);
+                Sounds?.Play("Range");
             }
         }
 
-        public void OnRangeAttack()
-        {
-            ProjectileAttack.Spawn();
-        }
+        public void OnRangeAttack() => ProjectileAttack.Spawn();
     }
 }

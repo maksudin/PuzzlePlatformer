@@ -13,10 +13,8 @@ namespace PixelCrew.Model.Definitions.Repository
                 return default;
 
             foreach (var itemDef in Collection)
-            {
                 if (itemDef.Id == id)
                     return itemDef;
-            }
 
             return default;
         }

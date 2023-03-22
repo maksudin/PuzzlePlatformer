@@ -7,34 +7,25 @@ namespace PixelCrew.Components.Health
 {
     public class HealthComponent : MonoBehaviour
     {
-        [Range (1, 100)]
-        [SerializeField] private int _maxHealth;
-        [SerializeField] private int _currentHealth;
-        [SerializeField] public UnityEvent OnDamage;
+        [SerializeField, Range(1, 100)] private int _maxHealth, _currentHealth;
+        [SerializeField] public UnityEvent OnDamage, OnDie;
         [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] public UnityEvent OnDie;
         [SerializeField] public HealthChangeEvent OnChange;
         private Lock _immune = new Lock();
 
         public int MaxHealth => _maxHealth;
         public int CurrentHealth => _currentHealth;
-
         public Lock Immune => _immune;
 
-        private void Awake()
-        {
-            _currentHealth = _maxHealth;   
-        }
+        private void Awake() => _currentHealth = _maxHealth;   
 
         public void ApplyDamage(int damageValue)
         {
             if (Immune.isLocked) return;
             _currentHealth -= damageValue;
             OnChange?.Invoke(_currentHealth);
-            OnDamage?.Invoke();    // Проверка на null
-            if (_currentHealth <= 0)
-                OnDie?.Invoke();
-
+            OnDamage?.Invoke();
+            if (_currentHealth <= 0) OnDie?.Invoke();
         }
 
         public void Heal(int healValue)

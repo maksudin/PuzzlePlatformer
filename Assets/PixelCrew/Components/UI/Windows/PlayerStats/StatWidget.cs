@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using Assets.PixelCrew.Model.Definitions.Player;
 using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Model;
@@ -14,8 +13,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
     {
         [SerializeField] private Text _name;
         [SerializeField] private Image _icon;
-        [SerializeField] private Text _currentValue;
-        [SerializeField] private Text _increaseValue;
+        [SerializeField] private Text _currentValue, _increaseValue;
         [SerializeField] private ProgressBarWidget _progress;
         [SerializeField] private GameObject _selector;
 
@@ -27,7 +25,6 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
             _session = FindObjectOfType<GameSession>();
             UpdateView();
         }
-
 
         public void SetData(StatDef data, int index)
         {
@@ -59,9 +56,7 @@ namespace Assets.PixelCrew.Components.UI.Windows.PlayerStats
             _selector.SetActive(statsModel.InterfaceSelectedStat.Value == _data.ID);
         }
 
-        public void OnSelect()
-        {
+        public void OnSelect() =>
             _session.StatsModel.InterfaceSelectedStat.Value = _data.ID;
-        }
     }
 }

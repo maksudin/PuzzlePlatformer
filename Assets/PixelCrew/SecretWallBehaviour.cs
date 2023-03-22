@@ -3,15 +3,12 @@
 public class SecretWallBehaviour : MonoBehaviour
 {
     [SerializeField] private string _tag;
-    [SerializeField] private float alphaVal;
-    [SerializeField] private float fadeOutSpeed;
+    [SerializeField] private float alphaVal, fadeOutSpeed;
     private Material _secretTileMaterial;
     private bool showSecretWall = false;
 
-    private void Awake()
-    {
+    private void Awake() =>
         _secretTileMaterial = GetComponent<Renderer>().material;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

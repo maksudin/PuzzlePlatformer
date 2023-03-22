@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Components.UI.HUD
 {
     public class AddCameraToCanvas : MonoBehaviour
     {
         private Canvas _canvas;
-
         [SerializeField] private string _layerName;
 
         private void Start()

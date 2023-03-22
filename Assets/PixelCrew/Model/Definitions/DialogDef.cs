@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using PixelCrew.Model.Data;
+﻿using PixelCrew.Model.Data;
 using UnityEngine;
 
 namespace PixelCrew.Model.Definitions
@@ -9,6 +8,5 @@ namespace PixelCrew.Model.Definitions
     {
         [SerializeField] private DialogData _data;
         public DialogData Data => _data;
-        
     }
 }

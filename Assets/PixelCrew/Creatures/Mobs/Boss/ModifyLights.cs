@@ -6,7 +6,7 @@ namespace Assets.PixelCrew.Creatures.Mobs.Boss
     public class ModifyLights : MonoBehaviour
     {
         [SerializeField] private Light2D[] _lights;
-        [ColorUsage(showAlpha: true, hdr: true)][SerializeField]
+        [SerializeField, ColorUsage(showAlpha: true, hdr: true)]
         private Color _color;
 
         [ContextMenu("Setup")]

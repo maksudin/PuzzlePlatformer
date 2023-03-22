@@ -6,10 +6,8 @@ namespace PixelCrew.Utils.Disposables
     {
         private Action _onDispose;
 
-        public ActionDisposable(Action onDispose)
-        {
+        public ActionDisposable(Action onDispose) =>
             _onDispose = onDispose;
-        }
 
         public void Dispose()
         {

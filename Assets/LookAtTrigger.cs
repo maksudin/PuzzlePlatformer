@@ -5,8 +5,7 @@ public class LookAtTrigger : MonoBehaviour
 {
     [SerializeField] private Transform _playertr;
     [SerializeField] private float dotPB;
-    [Range(0f, 90f)]
-    [SerializeField] private float angThresholdDeg = 30f;
+    [SerializeField, Range(0f, 90f)] private float angThresholdDeg = 30f;
     [SerializeField] private bool playerLookingAtTrigger;
 
     private void OnDrawGizmos()
@@ -18,7 +17,6 @@ public class LookAtTrigger : MonoBehaviour
 
         dotPB = Vector2.Dot(playetToTriggerDir, playerLookDir);
         dotPB = Mathf.Clamp(dotPB, -1, 1);
-
         var angRad = Mathf.Acos(dotPB);
         float angThreshRad = angThresholdDeg * Mathf.Deg2Rad;
 

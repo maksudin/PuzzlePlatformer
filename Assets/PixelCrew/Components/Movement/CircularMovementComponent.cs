@@ -6,13 +6,10 @@ namespace PixelCrew.Components.Movement
     public class CircularMovementComponent : MonoBehaviour
     {
         [SerializeField] private int count;
-        [SerializeField] private float _radius;
-        [SerializeField] private float _speed;
+        [SerializeField] private float _radius, _speed;
         [SerializeField] private GameObject _prefub;
-
         private DestroyObjectComponent[] _itemsDestroy;
         private PrefubInfo[] _prefubsInfo;
-
         const float circleDegrees = 360f;
 
         private void OnDrawGizmos()
@@ -64,10 +61,8 @@ namespace PixelCrew.Components.Movement
             _itemsDestroy = GetComponentsInChildren<DestroyObjectComponent>();
 
             if (_itemsDestroy.Length > 1)
-            {
                 for (var i = 0; i < _itemsDestroy.Length; i++)
                     _itemsDestroy[i].DestroyObject();
-            }
         }
 
         private void Update()

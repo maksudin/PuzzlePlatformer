@@ -10,7 +10,6 @@ namespace PixelCrew.Model
     public class PlayerData
     {
         [SerializeField] private InventoryData _inventory;
-
         [Header("Params")]
         //public int Hp;
         public IntProperty Hp = new IntProperty();

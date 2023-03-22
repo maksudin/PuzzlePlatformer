@@ -10,20 +10,13 @@ namespace PixelCrew.Components.ColliderBased
 
         public bool IsTouchingLayer => _isTouchingLayer;
 
-        private void Awake()
-        {
-            _collider = GetComponent<Collider2D>();
-        }
+        private void Awake() => _collider = GetComponent<Collider2D>();
 
-        private void OnTriggerStay2D(Collider2D collision)
-        {
+        private void OnTriggerStay2D(Collider2D collision) =>
             _isTouchingLayer = _collider.IsTouchingLayers(_layer);
-        }
 
-        private void OnTriggerExit2D(Collider2D collision)
-        {
+        private void OnTriggerExit2D(Collider2D collision) =>
             _isTouchingLayer = _collider.IsTouchingLayers(_layer);
-        }
     }
 }
 

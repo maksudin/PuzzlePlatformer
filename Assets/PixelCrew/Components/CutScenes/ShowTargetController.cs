@@ -7,8 +7,9 @@ namespace Assets.PixelCrew.Components.CutScenes
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private CinemachineVirtualCamera _camera;
-
         private static readonly int ShowKey = Animator.StringToHash("show");
+
+        public void SetState(bool isShown) => _animator.SetBool(ShowKey, isShown);
 
         public void SetPosition(Vector3 targetPosition)
         {
@@ -16,9 +17,5 @@ namespace Assets.PixelCrew.Components.CutScenes
             _camera.transform.position = targetPosition;
         }
 
-        public void SetState(bool isShown)
-        {
-            _animator.SetBool(ShowKey, isShown);
-        }
     }
 }

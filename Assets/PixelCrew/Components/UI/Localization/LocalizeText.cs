@@ -9,7 +9,6 @@ namespace PixelCrew.Components.UI.Localization
     {
         [SerializeField] private string _key;
         [SerializeField] private bool _capitalize;
-
         private Text _text;
 
         protected override void Awake()

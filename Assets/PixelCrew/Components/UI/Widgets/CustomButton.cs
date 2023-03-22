@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace PixelCrew.Components.UI.Widgets
 {
     public class CustomButton : Button
     {
-        [SerializeField] private GameObject _normal;
-        [SerializeField] private GameObject _pressed;
+        [SerializeField] private GameObject _normal, _pressed;
 
         protected override void DoStateTransition(SelectionState state, bool instant)
         {

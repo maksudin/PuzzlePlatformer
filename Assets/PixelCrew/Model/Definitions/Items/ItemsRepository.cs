@@ -18,25 +18,18 @@ namespace PixelCrew.Model.Definitions.Items
     public struct ItemDef : IHaveId
     {
         [SerializeField] private string _id;
-        [SerializeField] private int _maxAmount;
-        [SerializeField] private int _damage;
+        [SerializeField] private int _maxAmount, _damage;
         [Header("Icon params")]
         [SerializeField] private Sprite _icon;
         [SerializeField] private float _iconScale;
-        [Space]
-        [SerializeField] private ItemTag[] _tags;
+        [Space, SerializeField] private ItemTag[] _tags;
 
         public string Id => _id;
         public int MaxAmount => _maxAmount;
-
         public bool IsVoid => string.IsNullOrEmpty(_id);
-
         public Sprite Icon => _icon;
         public float IconScale => _iconScale;
 
-        public bool HasTag(ItemTag tag)
-        {
-            return _tags?.Contains(tag) ?? false;
-        }
+        public bool HasTag(ItemTag tag) => _tags?.Contains(tag) ?? false;
     }
 }

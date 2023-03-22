@@ -9,21 +9,14 @@ namespace PixelCrew.Components.UI.Widgets
     {
         [SerializeField] private Slider _slider;
         [SerializeField] private Text _value;
-
         private FloatPersistentProperty _model;
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
-        private void Start()
-        {
+        private void Start() =>
             _trash.Retain(_slider.onValueChanged.Subscribe(OnSliderValueChanged));
-            //_slider.onValueChanged.AddListener(OnSliderValueChanged);
-        }
 
-        private void OnSliderValueChanged(float value)
-        {
+        private void OnSliderValueChanged(float value) =>
             _model.Value = value;
-        }
 
         public void SetModel(FloatPersistentProperty model)
         {
@@ -39,9 +32,6 @@ namespace PixelCrew.Components.UI.Widgets
             _slider.normalizedValue = newValue;
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }

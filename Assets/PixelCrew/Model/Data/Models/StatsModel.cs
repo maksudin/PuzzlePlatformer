@@ -10,12 +10,9 @@ namespace Assets.PixelCrew.Model.Data.Models
     public class StatsModel : IDisposable
     {
         private readonly PlayerData _data;
-
         public event Action OnChanged;
         public event Action<StatId> OnUpgraded;
-
         public ObservableProperty<StatId> InterfaceSelectedStat = new ObservableProperty<StatId>();
-
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         public StatsModel(PlayerData data)
@@ -47,10 +44,8 @@ namespace Assets.PixelCrew.Model.Data.Models
             OnChanged?.Invoke();
         }
 
-        public float GetValue(StatId id, int level = -1)
-        {
-            return GetLevelDef(id, level).Value;
-        }
+        public float GetValue(StatId id, int level = -1) =>
+             GetLevelDef(id, level).Value;
 
         public StatLevelDef GetLevelDef(StatId id, int level = -1)
         {
@@ -63,10 +58,6 @@ namespace Assets.PixelCrew.Model.Data.Models
         }
 
         public int GetCurrentLevel(StatId id) => _data.Levels.GetLevel(id);
-
-        public void Dispose()
-        {
-            _trash.Dispose();
-        }
+        public void Dispose() => _trash.Dispose();
     }
 }

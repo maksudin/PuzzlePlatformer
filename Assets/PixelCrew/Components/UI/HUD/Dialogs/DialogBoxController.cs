@@ -13,16 +13,12 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
 
-        [Space] [SerializeField] private float _textSpeed = 0.09f;
+        [Space, SerializeField] private float _textSpeed = 0.09f;
 
         [Header("Sounds")]
-        [SerializeField] private AudioClip _typing;
-        [SerializeField] private AudioClip _open;
-        [SerializeField] private AudioClip _close;
-
+        [SerializeField] private AudioClip _typing, _open, _close;
         [SerializeField] private DialogData _testData;
-
-        [Space] [SerializeField] protected DialogContent Content;
+        [Space,SerializeField] protected DialogContent Content;
         
         private DialogData _data;
         private int _currentSentence;
@@ -33,7 +29,6 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
         protected float _defaultTimeScale;
 
         protected Sentence CurrentSentence => _data.Sentences[_currentSentence];
-
         private UnityEvent _onComplete;
 
         private void Start()
@@ -122,19 +117,7 @@ namespace PixelCrew.Components.UI.HUD.Dialogs
             _animator.SetBool(IsOpen, true);
         }
 
-        public void Pause()
-        {
-            Time.timeScale = 0;
-        }
-
-        public void UnPause()
-        {
-            Time.timeScale = _defaultTimeScale;
-        }
-
-        //public void Test()
-        //{
-        //    ShowDialog(_testData, null);
-        //}
+        public void Pause() => Time.timeScale = 0;
+        public void UnPause() => Time.timeScale = _defaultTimeScale;
     }
 }

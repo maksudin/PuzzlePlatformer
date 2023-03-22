@@ -12,10 +12,8 @@ namespace PixelCrew.Components.Health
         [SerializeField] private int _healValue;
         private GameSession _session;
 
-        private void Start()
-        {
+        private void Start() =>
             _session = FindObjectOfType<GameSession>();
-        }
 
         public void TakeDamage(GameObject target)
         {

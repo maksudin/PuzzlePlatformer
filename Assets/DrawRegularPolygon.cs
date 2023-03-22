@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class DrawRegularPolygon : MonoBehaviour
 {
-    [Range(3, 20)]
-    [SerializeField] private int _sideCount = 5;
-    [Range(1, 4)]
-    [SerializeField] private int density = 1;
+    [SerializeField, Range(3, 20)] private int _sideCount = 5;
+    [SerializeField, Range(1, 4)] private int density = 1;
 
     private void OnDrawGizmos()
     {

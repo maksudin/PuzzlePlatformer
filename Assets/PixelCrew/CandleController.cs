@@ -13,15 +13,10 @@ namespace Assets.PixelCrew
         [SerializeField] private Image _candleCooldownImage;
         [SerializeField] private float _candleCooldown = 20f;
         [SerializeField] UnityEvent OnRanOut;
-
-        private float _defaultIntensity;
-        private float _candleCapacity;
+        private float _defaultIntensity, _candleCapacity;
         private Coroutine _currentCoroutine;
 
-        private void Awake()
-        {
-            _defaultIntensity = _light.intensity;
-        }
+        private void Awake() => _defaultIntensity = _light.intensity;
 
         private void OnEnable()
         {

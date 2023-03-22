@@ -30,7 +30,6 @@ namespace PixelCrew.Utils
         }
 
         public float TimeLasts => Mathf.Max(_timesUp - Time.deltaTime, 0);
-
         public bool IsReady => _timesUp <= Time.time;
     }
 }

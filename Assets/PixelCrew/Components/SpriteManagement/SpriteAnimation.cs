@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace PixelCrew.Components.SpriteManagement
@@ -8,23 +6,16 @@ namespace PixelCrew.Components.SpriteManagement
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimation : MonoBehaviour
     {
-        
         [SerializeField] private int _frameRate;
         [SerializeField] private bool _loop;
         [SerializeField] private Sprite[] _sprites;
         [SerializeField] private UnityEvent _onComplete;
 
         private SpriteRenderer _renderer;
-        private float _secondsPerFrame;
+        private float _secondsPerFrame, _nextFrameTime;
         private int _currentSpriteIndex;
-        private float _nextFrameTime;
 
-
-        private void Start()
-        {
-            _renderer = GetComponent<SpriteRenderer>();
-            
-        }
+        private void Start() => _renderer = GetComponent<SpriteRenderer>();
 
         private void OnEnable()
         {
@@ -40,9 +31,7 @@ namespace PixelCrew.Components.SpriteManagement
             if (_currentSpriteIndex >= _sprites.Length)
             {
                 if (_loop)
-                {
                     _currentSpriteIndex = 0;
-                }
                 else
                 {
                     enabled = false;

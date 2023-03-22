@@ -10,10 +10,8 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
     {
         protected Action _closeAction;
 
-        public void OnShowSettings()
-        {
+        public void OnShowSettings() =>
             WindowUtils.CreateWindow("UI/SettingsWindow");
-        }
 
         public void OnStartGame()
         {
@@ -25,16 +23,11 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
             Close();
         }
 
-        public void OnControls()
-        {
+        public void OnControls() =>
             WindowUtils.CreateWindow("UI/ControlsWindow");
-        }
 
-        public void OnLanguages()
-        {
+        public void OnLanguages() =>
             WindowUtils.CreateWindow("UI/LocalizationWindow");
-        }
-
 
         public virtual void OnExit()
         {

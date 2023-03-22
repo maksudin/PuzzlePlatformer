@@ -15,10 +15,8 @@ namespace PixelCrew.Components.UI.Windows.Localization
 
         private LocaleInfo _data;
 
-        private void Start()
-        {
+        private void Start() =>
             LocalizationManager.I.OnLocaleChanged += UpdateSelection;
-        }
 
         public void SetData(LocaleInfo localInfo, int index)
         {
@@ -33,26 +31,15 @@ namespace PixelCrew.Components.UI.Windows.Localization
             _selector.SetActive(isSelected);
         }
 
-
-
-        public void OnSelected()
-        {
+        public void OnSelected() =>
             _onSelected?.Invoke(_data.LocaleId);
-        }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             LocalizationManager.I.OnLocaleChanged -= UpdateSelection;
-
-        }
-
-
     }
 
     [Serializable]
-    public class SelectLocale : UnityEvent<string>
-    {
-    }
+    public class SelectLocale : UnityEvent<string> {}
 
     public class LocaleInfo
     {

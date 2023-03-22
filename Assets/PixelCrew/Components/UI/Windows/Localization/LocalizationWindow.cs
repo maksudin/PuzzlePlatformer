@@ -9,9 +9,7 @@ namespace PixelCrew.Components.UI.Windows.Localization
     {
         [SerializeField] private Transform _container;
         [SerializeField] private LocaleItemWidget _prefab;
-
         private DataGroup<LocaleInfo, LocaleItemWidget> _dataGroup;
-
         private readonly string[] _supportedLocales = { "en", "ru", "es" };
 
         protected override void Start()
@@ -33,10 +31,8 @@ namespace PixelCrew.Components.UI.Windows.Localization
             return data;
         }
 
-        public void OnSelected(string selectedLocale)
-        {
+        public void OnSelected(string selectedLocale) =>
             LocalizationManager.I.SetLocale(selectedLocale);
-        }
 
     }
 }

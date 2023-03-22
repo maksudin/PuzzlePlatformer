@@ -12,11 +12,7 @@ namespace PixelCrew.Model.Data
     public class InventoryData
     {
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
-
         public delegate void OnInventoryChanged(string id, int value);
-
-        // Эквивалент делегату public Action<string, int> OnChanged;
-
         public OnInventoryChanged OnChangedInventory;
         public event Action OnChanged;
 
@@ -118,10 +114,9 @@ namespace PixelCrew.Model.Data
         {
             var count = 0;
             foreach (var item in _inventory)
-            {
                 if (item.Id == id)
                     count += item.Value;
-            }
+
             return count;
         }
 

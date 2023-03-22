@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,24 +8,20 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     public class PlatformPatrol : Patrol
     {
-        private readonly Collider2D[] _collideResult = new Collider2D[2];
-        [Header("Constraints")]
-        [SerializeField] private Vector2 _boxSize = new Vector2(0.18f, 0.57f);
-        [SerializeField] private Vector2 _leftConstraintOffset = new Vector2(-0.31f, -0.97f);
-        [SerializeField] private Vector2 _rightConstraintOffset = new Vector2(0.31f, -0.97f);
+        [Header("Constraints"), SerializeField]
+        private Vector2 _boxSize = new Vector2(0.18f, 0.57f),
+                        _leftConstraintOffset = new Vector2(-0.31f, -0.97f),
+                        _rightConstraintOffset = new Vector2(0.31f, -0.97f);
+
         [Header("Raycast")]
         [SerializeField] private float _raycastDistance = 0.49f;
         [SerializeField] private Vector2 _raycastOffset;
         [SerializeField] private LayerMask _layer;
         [SerializeField] private string[] _tags;
-
         private Creature _creature;
+        private readonly Collider2D[] _collideResult = new Collider2D[2];
 
-        private void Awake()
-        {
-            _creature = GetComponent<Creature>();
-        }
-
+        private void Awake() => _creature = GetComponent<Creature>();
 
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
@@ -47,7 +42,6 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
         {
             while (enabled)
             {
-                
                 _creature.Direction = ChooseDirection(_creature.Direction).normalized;
                 AvoidWall();
                 yield return null;
@@ -62,24 +56,15 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             if (oneGroundExist && twoGroundExist)
             {
                 if (originalDirection.x == 0)
-                {
                     return new Vector2(-1, 0);
-                }
                 return originalDirection;
-
             }
             else if (oneGroundExist)
-            {
                 return new Vector2(-1, 0);
-            }
             else if (twoGroundExist)
-            {
                 return new Vector2(1, 0);
-            }
             else
-            {
                 return Vector2.zero;
-            }
         }
 
         private bool CheckPlatformExists(Vector2 offset, Vector2 boxSize)
@@ -91,11 +76,8 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             {
                 Collider2D overlapResult = _collideResult[i];
                 foreach (var tag in _tags)
-                {
                     if (overlapResult.CompareTag(tag))
                         return true;
-                }
-                
             }
 
             return false;
@@ -109,10 +91,8 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
             if (hit.collider == null) return;
 
             foreach (var tag in _tags)
-            {
                 if (hit.collider.tag == tag)
                     InvertDirection();
-            }
             
         }
 

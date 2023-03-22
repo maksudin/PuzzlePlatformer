@@ -1,7 +1,6 @@
 ﻿using PixelCrew.Components.UI.Widgets;
 using PixelCrew.Components.UI.Windows;
 using PixelCrew.Model;
-using PixelCrew.Model.Definitions;
 using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,7 +22,6 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
         private GameSession _session;
         private CompositeDisposable _trash = new CompositeDisposable();
         private RebindingOperation _rebindingOperation;
-
         private InputAction[] _actions;
 
         protected override void Start()
@@ -126,9 +124,6 @@ namespace Assets.PixelCrew.Components.UI.Windows.Controls
                     });
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
     }
 }

@@ -1,5 +1,4 @@
-﻿using PixelCrew.Utils;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PixelCrew.Effects
 {
@@ -7,14 +6,9 @@ namespace PixelCrew.Effects
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private Transform _container;
-
-        private Bounds _containerBounds;
-        private Bounds _allBounds;
-
-        private Vector3 _boundsToTransformDelta;
-        private Vector3 _containerDelta;
+        private Bounds _containerBounds, _allBounds;
+        private Vector3 _boundsToTransformDelta, _containerDelta, _screenSize;
         private SpriteRenderer[] _sprites;
-        private Vector3 _screenSize;
 
         private void Start()
         {
@@ -22,9 +16,7 @@ namespace PixelCrew.Effects
             //_containerBounds = new Bounds(transform.position, Vector3.one); // моё решение
             _containerBounds = _sprites[0].bounds;
             foreach (var sprite in _sprites)
-            {
                 _containerBounds.Encapsulate(sprite.bounds);
-            }
 
             _allBounds = _containerBounds;
 
@@ -44,14 +36,10 @@ namespace PixelCrew.Effects
             var screenRight = new Vector3(camPosition + _screenSize.x / 2, _containerBounds.center.y);
 
             if (!_allBounds.Contains(screenLeft))
-            {
                 InstantiateContainer(_allBounds.min.x - _containerBounds.extents.x);
-            }
 
             if (!_allBounds.Contains(screenRight))
-            {
                 InstantiateContainer(_allBounds.max.x + _containerBounds.extents.x);
-            }
         }
 
         private void InstantiateContainer(float boundCenterX)

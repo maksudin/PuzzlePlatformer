@@ -7,14 +7,10 @@ namespace Assets.PixelCrew.Creatures.Hero
     {
         private PlayerInput _input;
 
-        private void Start()
-        {
+        private void Start() =>
             _input = FindObjectOfType<PlayerInput>();
-        }
 
-        public void  SetInput(bool isEnabled)
-        {
+        public void SetInput(bool isEnabled) =>
             _input.enabled = isEnabled;
-        }
     }
 }

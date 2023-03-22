@@ -11,25 +11,15 @@ namespace Assets.PixelCrew.Components.UI.LevelsLoader
         private static readonly int Enabled = Animator.StringToHash("Enabled");
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        static void OnAfterSceneLoad()
-        {
-            InitLoader();
-        }
+        static void OnAfterSceneLoad() => InitLoader();
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        private void Awake() => DontDestroyOnLoad(gameObject);
 
-        private static void InitLoader()
-        {
+        private static void InitLoader() =>
             SceneManager.LoadScene("LevelLoader", LoadSceneMode.Additive);
-        }
 
-        public void LoadLevel(string sceneName)
-        {
+        public void LoadLevel(string sceneName) =>
             StartCoroutine(StartAnimation(sceneName));
-        }
 
         private IEnumerator StartAnimation(string sceneName)
         {

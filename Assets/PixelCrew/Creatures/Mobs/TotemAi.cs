@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using PixelCrew.Utils;
 using UnityEngine;
 
 namespace PixelCrew.Creatures.Mobs
@@ -14,15 +13,10 @@ namespace PixelCrew.Creatures.Mobs
         {
             _totemHeads = GetComponentsInChildren<BaseShootingTrap>();
             foreach (var head in _totemHeads)
-            {
                 head.IsTotem = true;
-            }
         }
 
-        private void OnEnable()
-        {
-            RangeAttackLoop();
-        }
+        private void OnEnable() => RangeAttackLoop();
 
         public void RangeAttackLoop()
         {
@@ -41,7 +35,6 @@ namespace PixelCrew.Creatures.Mobs
                     head.RangeAttack();
                     yield return new WaitForSeconds(_cooldown);
                 }
-
             }
 
             StopCoroutine(RangeCouroutine());

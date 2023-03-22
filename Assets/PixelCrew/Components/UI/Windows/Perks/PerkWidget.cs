@@ -9,10 +9,7 @@ namespace PixelCrew.Components.UI.Windows.Perks
     public class PerkWidget : MonoBehaviour, IItemRenderer<PerkDef>
     {
         [SerializeField] private Image _icon;
-        [SerializeField] private GameObject _isSelected;
-        [SerializeField] private GameObject _isLocked;
-        [SerializeField] private GameObject _isUsed;
-
+        [SerializeField] private GameObject _isSelected, _isLocked, _isUsed;
         private GameSession _session;
         private PerkDef _data;
 
@@ -22,15 +19,12 @@ namespace PixelCrew.Components.UI.Windows.Perks
             UpdateView();
         }
 
-        public void OnSelect()
-        {
+        public void OnSelect() =>
             _session.PerksModel.InterfaceSelection.Value = _data.Id;
-        }
 
         public void SetData(PerkDef data, int index)
         {
             _data = data;
-
             if (_session != null)
                 UpdateView();
         }

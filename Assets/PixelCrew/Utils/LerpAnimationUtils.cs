@@ -6,7 +6,8 @@ namespace Assets.PixelCrew.Utils
 {
     public static class LerpAnimationUtils
     {
-        public static Coroutine LerpAnimated(this MonoBehaviour behaviour, float start, float end, float time, Action<float> onFrame)
+        public static Coroutine LerpAnimated(this MonoBehaviour behaviour, float start,
+            float end, float time, Action<float> onFrame)
         {
             return behaviour.StartCoroutine(Animate(start, end, time, onFrame));
         }

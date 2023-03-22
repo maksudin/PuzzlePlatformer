@@ -15,6 +15,5 @@ namespace PixelCrew.Components.Dialogs
 
             _dialogBox.Show(_data);
         }
-
     }
 }

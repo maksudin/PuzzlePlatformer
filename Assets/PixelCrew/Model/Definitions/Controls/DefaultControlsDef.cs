@@ -8,7 +8,6 @@ namespace Assets.PixelCrew.Model.Definitions.Controls
     public class DefaultControlsDef : ScriptableObject
     {
         [SerializeField] private DefaultMappingsDef[] _defaultControls;
-
         public DefaultMappingsDef[] DefaultControls => _defaultControls;
     }
 

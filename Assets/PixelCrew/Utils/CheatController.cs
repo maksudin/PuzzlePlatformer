@@ -10,18 +10,13 @@ namespace PixelCrew.Utils
         [SerializeField] private float _inputTimeToLive;
         [SerializeField] private CheatItem[] _cheats;
         private string _currentInput;
-
         private float _inputTime;
 
-        private void Awake()
-        {
+        private void Awake() =>
             Keyboard.current.onTextInput += OnTextInput;
-        }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() =>
             Keyboard.current.onTextInput -= OnTextInput;
-        }
 
         private void OnTextInput(char inputChar)
         {
@@ -35,13 +30,11 @@ namespace PixelCrew.Utils
         private void FindAnyCheats()
         {
             foreach (CheatItem cheatItem in _cheats)
-            {
                 if (_currentInput.Contains(cheatItem.Name))
                 {
                     cheatItem.Action.Invoke();
                     _currentInput = string.Empty;
                 }
-            }
         }
 
         private void Update()

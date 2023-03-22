@@ -19,13 +19,9 @@ namespace PixelCrew.Components.SpriteManagement
         [SerializeField] private bool _allowNext;
         [SerializeField] private string _startState;
         [SerializeField] private AnimationState[] _animationStates;
-        private int _currentAnimationIndex;
-
+        private int _currentAnimationIndex, _currentSpriteIndex;
         private SpriteRenderer _renderer;
-        private float _secondsPerFrame;
-        private int _currentSpriteIndex;
-        private float _nextFrameTime;
-
+        private float _secondsPerFrame, _nextFrameTime;
         private bool _loop;
         private Sprite[] _sprites;
 
@@ -103,7 +99,6 @@ namespace PixelCrew.Components.SpriteManagement
                     }
 
                     _currentSpriteIndex = 0;
-
                     return;
                 }
             }
