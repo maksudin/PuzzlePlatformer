@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5831992301739315212}
   - component: {fileID: 27822397}
   - component: {fileID: 6898231907963015073}
-  m_Layer: 16
+  m_Layer: 10
   m_Name: TurretHead
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1224935473
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 81894dea8f798d24d97a54b90c4c12d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -164,24 +164,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 2
   _currentHealth: 2
-  _onDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7411660079888175297}
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: hit
-          m_BoolArgument: 0
-        m_CallState: 2
-  _onHeal:
+  OnDamage:
     m_PersistentCalls:
       m_Calls: []
   OnDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHeal:
     m_PersistentCalls:
       m_Calls: []
   OnChange:
@@ -278,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 19312484852337813}
   _prefab: {fileID: 4487260698814028164, guid: f31a2cbc1e55d3e469b599766ca3d3aa, type: 3}
+  _usePool: 0
 --- !u!1 &4151198168930998180
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4833065553553536917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29, y: -0.157, z: 0}
+  m_LocalPosition: {x: -0.54, y: -0.157, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1181078156878882133}
@@ -465,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 467876152175838274}
   _prefab: {fileID: 7483112827352108861, guid: eca88efd1b41fda4aba90822949fe066, type: 3}
+  _usePool: 0
 --- !u!1 &6632573942683553845
 GameObject:
   m_ObjectHideFlags: 0

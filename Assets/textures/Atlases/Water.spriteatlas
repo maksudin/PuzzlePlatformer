@@ -54,6 +54,16 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 624ee79173da77d40a482238caf9c01b, type: 3}
   - {fileID: 21300000, guid: 809327b13e11ac24e8159d44e798ee58, type: 3}
   - {fileID: 21300000, guid: da88e9d23c295cc4eb1ad38020ae30c5, type: 3}
+  - {fileID: 7104506959503668496, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -6288103917847346, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -647429596849776891, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -1711955343381840006, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: 6718054772188457724, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -3275022672190588029, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -3558193415683849541, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: 6686563613726126737, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: 6778847018816691116, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
+  - {fileID: -4478438632184202005, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
   - {fileID: 3538689430123128980, guid: d8df3c380b1858b4188f5683c62dc31d, type: 3}
   - {fileID: 759440405009013545, guid: d8df3c380b1858b4188f5683c62dc31d, type: 3}
   - {fileID: 8506211366736525064, guid: d8df3c380b1858b4188f5683c62dc31d, type: 3}
@@ -66,12 +76,32 @@ SpriteAtlas:
   - {fileID: -6018279857378552221, guid: 8035913abe84eff47ae09fe41250dda6, type: 3}
   - {fileID: -2749089684739404911, guid: 8035913abe84eff47ae09fe41250dda6, type: 3}
   - {fileID: -7718236803453008505, guid: 8035913abe84eff47ae09fe41250dda6, type: 3}
+  - {fileID: 436068532722222212, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 1649192393020575799, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 2895248461379961665, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 4446514367426954430, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 8037479828641716995, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: -1131802689570784725, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 3918516020189676775, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 2224701078577907114, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: -6188755181354846438, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
+  - {fileID: 2785091170336203222, guid: c14bc83b569e4254b8df69d7e5fb213c, type: 3}
   m_PackedSpriteNamesToIndex:
   - 2
   - 3
   - 1
   - 4
   - 1
+  - bubbles(1)_7
+  - bubbles(1)_6
+  - bubbles(1)_5
+  - bubbles(1)_4
+  - bubbles(1)_3
+  - bubbles(1)_2
+  - bubbles(1)_1
+  - bubbles(1)_0
+  - bubbles(1)_9
+  - bubbles(1)_8
   - WaterReflectMedium_3
   - WaterReflectMedium_2
   - WaterReflectMedium_1
@@ -84,5 +114,15 @@ SpriteAtlas:
   - WaterReflectLarge_0
   - WaterReflectLarge_3
   - WaterReflectLarge_2
+  - bubbles_1
+  - bubbles_0
+  - bubbles_3
+  - bubbles_2
+  - bubbles_5
+  - bubbles_4
+  - bubbles_7
+  - bubbles_6
+  - bubbles_9
+  - bubbles_8
   m_Tag: Water
   m_IsVariant: 0
