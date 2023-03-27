@@ -381,6 +381,70 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &4444532016240438405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 109880907562733019}
+  - component: {fileID: 2454438590458286756}
+  - component: {fileID: 7021954487112914566}
+  m_Layer: 17
+  m_Name: WaterCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &109880907562733019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444532016240438405}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7240798278516988268}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2454438590458286756
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444532016240438405}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
+--- !u!114 &7021954487112914566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444532016240438405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec866651f5b9bf48b1504ff9579be1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 16
+  _isTouchingLayer: 0
 --- !u!1 &5599597838914583756
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,11 +552,11 @@ GameObject:
   - component: {fileID: 6980582156258722913}
   m_Layer: 0
   m_Name: Candle
-  m_TagString: Untagged
+  m_TagString: Candle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6017880784729601898
 Transform:
   m_ObjectHideFlags: 0
@@ -5779,6 +5843,7 @@ Transform:
   - {fileID: 4102361203020943663}
   - {fileID: 6017880784729601898}
   - {fileID: 2824285301478772893}
+  - {fileID: 109880907562733019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6054,9 +6119,11 @@ MonoBehaviour:
   _animatorArmed: {fileID: 9100000, guid: c74a40a3dbeef5947b4e65ad14ae75e6, type: 2}
   _animatorDisarmed: {fileID: 9100000, guid: 9205a98f285273a4cb1a91f3bd409167, type: 2}
   _throwSpawner: {fileID: 8526683799489118952}
+  _bubblesSpawner: {fileID: 4742648660168358718}
   _pushForce: 0.66
   AttachedToRope: 0
   _candle: {fileID: 6980582156258722913}
+  _waterCheck: {fileID: 7021954487112914566}
 --- !u!50 &7240798278516988176
 Rigidbody2D:
   serializedVersion: 4

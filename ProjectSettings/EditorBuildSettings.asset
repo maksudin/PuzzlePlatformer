@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelLoader.unity
     guid: e3524de264ca8d647b14eaf1c0625f61
+  - enabled: 1
+    path: Assets/Scenes/TotalFlood.unity
+    guid: 09754650aad43a449b457c37a10bfc67
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: aab7e4d4965fe0b4c8fdb44275b87f51,
       type: 2}

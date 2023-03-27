@@ -45,8 +45,11 @@ namespace PixelCrew.Creatures
         public void SetDirection(Vector2 direction) =>
             Direction = direction;
 
-        protected virtual void Update() =>
+        protected virtual void Update()
+        {
             IsGrounded = GroundCheck.IsTouchingLayer;
+            //IsInWater = WaterCheck.IsTouchingLayer;
+        }
 
         protected virtual void FixedUpdate()
         {

@@ -23,5 +23,4 @@ namespace PixelCrew.Components.ColliderBased
     }
 
     [Serializable] public class EnterEvent : UnityEvent<GameObject> {}
-
 }

@@ -71,10 +71,7 @@ namespace PixelCrew.Model
             // TODO: Save();
         }
 
-        private void OnDestroy()
-        {
-            _trash.Dispose();
-        }
+        private void OnDestroy() => _trash.Dispose();
 
         private void InitModels()
         {

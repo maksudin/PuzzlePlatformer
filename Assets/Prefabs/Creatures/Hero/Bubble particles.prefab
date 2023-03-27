@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3749888312309843318}
   - component: {fileID: 3749888312309843317}
   m_Layer: 0
-  m_Name: bubble particles
+  m_Name: Bubble particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,11 +104,6 @@ MonoBehaviour:
   - {fileID: -3275022672190588029, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
   - {fileID: 6718054772188457724, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
   - {fileID: -1711955343381840006, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
-  - {fileID: -647429596849776891, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
-  - {fileID: -6288103917847346, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
-  - {fileID: 7104506959503668496, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
-  - {fileID: -4478438632184202005, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
-  - {fileID: 6778847018816691116, guid: 3bec52b3807872c48bf62ac3e32b035f, type: 3}
   _onComplete:
     m_PersistentCalls:
       m_Calls:

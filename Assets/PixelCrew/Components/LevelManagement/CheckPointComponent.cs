@@ -1,4 +1,5 @@
-﻿using PixelCrew.Components.GoBased;
+﻿using Assets.PixelCrew;
+using PixelCrew.Components.GoBased;
 using PixelCrew.Model;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,7 @@ namespace PixelCrew.Components.LevelManagement
         [SerializeField] private string _id;
         [SerializeField] private UnityEvent _setChecked, _setUnchecked;
         [SerializeField] private SpawnComponent _heroSpawner;
+        [SerializeField] private bool _showCandle;
         public string Id => _id;
         private GameSession _session;
 
@@ -30,7 +32,15 @@ namespace PixelCrew.Components.LevelManagement
             _setChecked?.Invoke();
         }
 
-        public void SpawnHero() => _heroSpawner.Spawn();
+        public void SpawnHero()
+        {
+            _heroSpawner.Spawn();
+
+            if (_showCandle)
+                FindObjectOfType<CandleController>().TurnOnCandle();
+            else
+                FindObjectOfType<CandleController>().TurnOffCandle();
+        }
     }
 }
 

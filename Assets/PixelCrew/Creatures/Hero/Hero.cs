@@ -50,6 +50,7 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private ParticleSystem _hitParticles;
         [SerializeField] private RuntimeAnimatorController _animatorArmed, _animatorDisarmed;
         [SerializeField] private SpawnComponent _throwSpawner;
+        [SerializeField] private SpawnComponent _bubblesSpawner;
 
         [Header("Rope Params")]
         [SerializeField] private float _pushForce;
@@ -58,15 +59,29 @@ namespace PixelCrew.Creatures.Hero
         [Space]
         [SerializeField, Header("Candle")] private CandleController _candle;
 
+        [SerializeField] private LayerCheck _waterCheck;
+        protected bool IsInWater;
+        protected bool IsInWaterProperty
+        {
+            get { return IsInWater; }
+            set
+            {
+                if (IsInWater != value)
+                {
+                    IsInWater = value;
+                    NotifyIsInWater();
+                }
+            }
+        }
+
         private LevelFramesManager _levelFramesManager;
         private CameraShakeEffect _cameraShake;
-        private bool _emulateGroundCondition;
-        private bool _hasDoubleJump, _isDashing;
+        private bool _emulateGroundCondition, _hasDoubleJump, _isDashing;
         private float _groundTime = 0.1f,
                       _groundTimer = 0.0f;
 
         private Cooldown _superThrowCooldown = new Cooldown();
-        private Coroutine _currentCoroutine;
+        private Coroutine _currentCoroutine, _inWaterCoroutine;
         private GameSession _session;
         private static readonly int RopeAttached = Animator.StringToHash("rope_attached");
         private const string SwordId = "Sword";
@@ -112,6 +127,26 @@ namespace PixelCrew.Creatures.Hero
             Health.SetHealth(health);
         }
 
+        protected override void Update()
+        {
+            IsInWaterProperty = _waterCheck.IsTouchingLayer;
+
+            if (_emulateGroundCondition)
+            {
+                IsGrounded = true;
+                _groundTimer -= Time.deltaTime;
+
+                if (_groundTimer <= 0)
+                {
+                    IsGrounded = false;
+                    _emulateGroundCondition = false;
+                    _groundTimer = _groundTime;
+                }
+            }
+            else
+                base.Update();
+        }
+
         private void OnDestroy()
         {
             if (!_session) return;
@@ -119,6 +154,25 @@ namespace PixelCrew.Creatures.Hero
             _session.Data.Inventory.OnChangedInventory -= AnotherHandler;
             _session.StatsModel.OnUpgraded -= OnHeroUpgraded;
             _levelFramesManager.OnUpperFrameEntered -= UpperFramePush;
+        }
+
+        private void NotifyIsInWater()
+        {
+            if (_inWaterCoroutine != null)
+                StopCoroutine(_inWaterCoroutine);
+
+            if (IsInWater)
+                _inWaterCoroutine = StartCoroutine(SpawnBubbles());
+        }
+
+        public IEnumerator SpawnBubbles()
+        {
+            while(true)
+            {
+                _bubblesSpawner.Spawn();
+                //TakeDamage();
+                yield return new WaitForSeconds(1);
+            }
         }
 
         private void UpperFramePush()
@@ -339,24 +393,6 @@ namespace PixelCrew.Creatures.Hero
             _interactionCheck.Check();
             if (_session.PerksModel.IsHookSupported)
                 _hookCheck.Check();
-        }
-
-        protected override void Update()
-        {
-            if (_emulateGroundCondition)
-            {
-                IsGrounded = true;
-                _groundTimer -= Time.deltaTime;
-
-                if (_groundTimer <= 0)
-                {
-                    IsGrounded = false;
-                    _emulateGroundCondition = false;
-                    _groundTimer = _groundTime;
-                }
-            }
-            else
-                base.Update();
         }
 
         private bool _isHooking;

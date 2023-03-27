@@ -19,6 +19,7 @@ TagManager:
   - PersonalizedDialog
   - GlobalPostEffect
   - Walls
+  - Candle
   layers:
   - Default
   - TransparentFX
