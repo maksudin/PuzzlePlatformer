@@ -25,9 +25,9 @@ namespace PixelCrew.Creatures.Hero
 {
     public class Hero : Creature, ICanAddInInventory
     {
+        [Header("Hero Params")]
         public CapsuleCollider2D HeroCollider;
-
-        [SerializeField, Header("Hero Params")] 
+        [SerializeField] 
         private float _gravityScale = 3,
                       _fallingGravityScale = 5;
         [SerializeField] private Cooldown _throwCooldown;
@@ -170,7 +170,7 @@ namespace PixelCrew.Creatures.Hero
             while(true)
             {
                 _bubblesSpawner.Spawn();
-                //TakeDamage();
+                TakeDamage();
                 yield return new WaitForSeconds(1);
             }
         }
@@ -474,6 +474,7 @@ namespace PixelCrew.Creatures.Hero
         public override void TakeDamage()
         {
             base.TakeDamage();
+            Health.ApplyDamage(1);
 
             if (_cameraShake != null)
                 _cameraShake.Shake();
