@@ -126,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 8131451597482335316, guid: 493dbd2f9a91e2842afe5dda5327845e,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 493dbd2f9a91e2842afe5dda5327845e, type: 3}
@@ -215,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 8131451597482335316, guid: 493dbd2f9a91e2842afe5dda5327845e,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 493dbd2f9a91e2842afe5dda5327845e, type: 3}
