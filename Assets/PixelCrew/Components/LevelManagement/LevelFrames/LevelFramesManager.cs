@@ -7,7 +7,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 {
     public class LevelFramesManager : MonoBehaviour
     {
-        [SerializeField] private LevelFrame[] _levelFrames;
+        private LevelFrame[] _levelFrames;
         private LevelFrame _activeFrame;
         private Transform _heroTransform;
         [SerializeField] private CinemachineVirtualCamera _camera;
@@ -17,6 +17,7 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
         private void Start()
         {
+            _levelFrames = GetComponentsInChildren<LevelFrame>();
             _heroTransform = FindObjectOfType<Hero>().GetComponent<Transform>();
             _cameraConfiner = FindObjectOfType<CinemachineConfiner>();
         }

@@ -34,7 +34,7 @@ namespace PixelCrew.Components.UI.HUD
         private void OnHealthChanged(int newValue, int oldValue)
         {
             var maxHealth = _session.StatsModel.GetValue(StatId.Hp);
-            var value = (float) newValue / maxHealth;
+            float value = newValue == 1? 0.05f : newValue / maxHealth;
             _healthBar.SetProgress(value);
         }
 

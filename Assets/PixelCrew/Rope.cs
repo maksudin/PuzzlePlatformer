@@ -9,6 +9,7 @@ namespace PixelCrew.Components
         [SerializeField] private Transform ropeAnchor;
         [SerializeField] private float _pushForce = 0.15f;
         [SerializeField] private Cooldown _attachCooldown, _detachCooldown;
+        private BoxCollider2D _ropeCollider;
         private LineRenderer _lineRenderer;
         private Hero _hero;
         private Transform _heroTransform;
@@ -21,6 +22,7 @@ namespace PixelCrew.Components
         {
             _lineRenderer = GetComponent<LineRenderer>();
             _ropeRigidBody = GetComponent<Rigidbody2D>();
+            _ropeCollider = GetComponent<BoxCollider2D>();
         }
 
         private void Start()
@@ -35,6 +37,7 @@ namespace PixelCrew.Components
                 return;
 
             _hero.AttachPlayerToRope();
+            _ropeCollider.isTrigger = false;
             _ropeActivated = true;
             _detachCooldown.Reset();
         }
@@ -51,6 +54,7 @@ namespace PixelCrew.Components
                 if (!_detachCooldown.IsReady) return;
 
                 _hero.DetachPlayerFromRope();
+                _ropeCollider.isTrigger = true;
                 _attachCooldown.Reset();
                 _ropeActivated = false;
                 return;
@@ -80,10 +84,8 @@ namespace PixelCrew.Components
             _lineRenderer.SetPosition(1, transform.position);
         }
 
-        private void OnDrawGizmos()
-        {
+        private void OnDrawGizmos() =>
             Gizmos.DrawLine(ropeAnchor.position, transform.position);
-        }
     }
 }
 

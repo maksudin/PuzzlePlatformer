@@ -57,9 +57,9 @@ namespace PixelCrew.Creatures.Hero
         public bool AttachedToRope;
 
         [Space]
-        [SerializeField, Header("Candle")] private CandleController _candle;
-
+        [SerializeField] private CandleController _candle;
         [SerializeField] private LayerCheck _waterCheck;
+
         protected bool IsInWater;
         protected bool IsInWaterProperty
         {
@@ -254,11 +254,16 @@ namespace PixelCrew.Creatures.Hero
                 menu.Close();
         }
 
-        public void AttachPlayerToRope() => AttachedToRope = true;
+        public void AttachPlayerToRope()
+        {
+            AttachedToRope = true;
+            HeroCollider.isTrigger = true;
+        }
 
         public void DetachPlayerFromRope()
         {
             AttachedToRope = false;
+            HeroCollider.isTrigger = false;
             _emulateGroundCondition = true;
         }
 
@@ -471,6 +476,7 @@ namespace PixelCrew.Creatures.Hero
             return base.CalculateJumpVelocity(yVelocity);
         }
 
+        [ContextMenu("Take Damage 1")]
         public override void TakeDamage()
         {
             base.TakeDamage();
