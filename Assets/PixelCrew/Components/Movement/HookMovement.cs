@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using PixelCrew.Creatures.Hero;
+﻿using PixelCrew.Creatures.Hero;
 using UnityEngine;
 
 namespace Assets.PixelCrew.Components.Movement

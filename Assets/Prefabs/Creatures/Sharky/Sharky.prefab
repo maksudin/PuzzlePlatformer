@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1426167678194163971}
   _prefab: {fileID: 6094341395993138808, guid: 7137654ce848155479cf99e918c6726f, type: 3}
+  _usePool: 0
 --- !u!1 &3256403480434360992
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 155697836218686366}
   _prefab: {fileID: 3534118864060757740, guid: c97e057c21dc4c84196c8feb23285c93, type: 3}
+  _usePool: 0
 --- !u!1 &4850498673253693314
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 4858712523583931046}
   _prefab: {fileID: 6094341395993138808, guid: 8db3f1673ab4df34fa49a1479a3b573e, type: 3}
+  _usePool: 0
 --- !u!1 &7240798278031301961
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 7240798278071224467}
   _prefab: {fileID: 6094341395993138808, guid: f99edb90ce8668940af10edbec9e3c7a, type: 3}
+  _usePool: 0
 --- !u!1 &7240798278516988266
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,14 +730,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff8c68f4721f9842986ce829cc4cab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
-  _currentHealth: 1
-  _onDamage:
+  _maxHealth: 3
+  _currentHealth: 3
+  OnDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2532625500328678766}
-        m_MethodName: TakeDamage
+      - m_Target: {fileID: 7240798278516988177}
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2138622318}
+        m_MethodName: OnDie
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240798278516988176}
+        m_MethodName: set_simulated
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7240798278516988271}
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -745,20 +785,6 @@ MonoBehaviour:
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7240798278516988177}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnChange:
     m_PersistentCalls:
       m_Calls: []
@@ -796,11 +822,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 1
-  _speed: 3.33
+  _speed: 2.37
   JumpSpeed: 20
+  AttackParticlesOffset: 0
   _damageVelocity: 5
   Damage: 1
-  AttackParticlesOffset: 0
   GroundCheck: {fileID: 7240798279233525142}
   AttackRange: {fileID: 7240798278031301963}
   Particles: {fileID: 8400781137852015022}
@@ -842,11 +868,12 @@ MonoBehaviour:
   _raycastOffset: {x: 0, y: -0.21}
   _layer:
     serializedVersion: 2
-    m_Bits: 11264
+    m_Bits: 2173952
   _tags:
   - Ground
   - Barrel
   - Spikes
+  - Platforms
 --- !u!114 &1160091870
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -39,8 +39,8 @@ namespace PixelCrew.Model
             else
             {
                 InitModels();
-                LoadHP();
                 DontDestroyOnLoad(this);
+                LoadHP();
                 StartSession(_defaultCheckPoint);
             }
         }

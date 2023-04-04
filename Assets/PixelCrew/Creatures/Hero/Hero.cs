@@ -441,7 +441,7 @@ namespace PixelCrew.Creatures.Hero
 
         protected override float CalculateYVelocity()
         {
-            var velocityY = Rigidbody.velocity.y;
+            float velocityY;
 
             if (AttachedToRope)
             {

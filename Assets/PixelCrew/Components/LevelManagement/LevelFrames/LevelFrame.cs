@@ -12,16 +12,16 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
                     FrameHeightUnits = 1;
 
         [NonSerialized] public float Width, Height;
-        public bool IsActive = false;
-        [NonSerialized] public PolygonCollider2D _polygonCollider;
+        [SerializeField] public bool IsActive = false;
+        [NonSerialized] public PolygonCollider2D PolygonCollider;
 
         private void Start()
         {
             Height = FrameHeightUnits;
             Width = FrameWidthUnits;
-            _polygonCollider = GetComponent<PolygonCollider2D>();
-            if (_polygonCollider != null)
-                _polygonCollider.points = GeneratePolygonVertices(Width, Height);
+            PolygonCollider = GetComponent<PolygonCollider2D>();
+            if (PolygonCollider != null)
+                PolygonCollider.points = GeneratePolygonVertices(Width, Height);
         }
 
         private Vector2[] GeneratePolygonVertices(float width, float height)

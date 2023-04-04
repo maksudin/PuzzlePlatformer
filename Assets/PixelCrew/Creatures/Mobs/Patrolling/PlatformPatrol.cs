@@ -27,13 +27,14 @@ namespace PixelCrew.Creatures.Mobs.Patrolling
         private void OnDrawGizmosSelected()
         {
             Handles.color = Color.blue;
+            var pos = transform.position;
             Handles.DrawLine(
-                new Vector3(transform.position.x + _leftConstraintOffset.x, transform.position.y + _leftConstraintOffset.y, transform.position.z),
-                new Vector3(transform.position.x + _leftConstraintOffset.x, transform.position.y + _leftConstraintOffset.y + _boxSize.y, transform.position.z)
+                new Vector3(pos.x + _leftConstraintOffset.x, pos.y + _leftConstraintOffset.y, pos.z),
+                new Vector3(pos.x + _leftConstraintOffset.x, pos.y + _leftConstraintOffset.y + _boxSize.y, pos.z)
             );
             Handles.DrawLine(
-                new Vector3(transform.position.x + _rightConstraintOffset.x, transform.position.y + _rightConstraintOffset.y, transform.position.z),
-                new Vector3(transform.position.x + _rightConstraintOffset.x, transform.position.y + _rightConstraintOffset.y + _boxSize.y, transform.position.z)
+                new Vector3(pos.x + _rightConstraintOffset.x, pos.y + _rightConstraintOffset.y, pos.z),
+                new Vector3(pos.x + _rightConstraintOffset.x, pos.y + _rightConstraintOffset.y + _boxSize.y, pos.z)
             );
         }
 #endif

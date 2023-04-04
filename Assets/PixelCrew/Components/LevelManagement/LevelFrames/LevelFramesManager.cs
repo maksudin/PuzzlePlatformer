@@ -62,9 +62,9 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
 
         private void SetCameraParams()
         {
-            if (_activeFrame._polygonCollider == null || _cameraConfiner == null) return;
+            if (_activeFrame.PolygonCollider == null || _cameraConfiner == null) return;
             
-            _cameraConfiner.m_BoundingShape2D = _activeFrame._polygonCollider;
+            _cameraConfiner.m_BoundingShape2D = _activeFrame.PolygonCollider;
             _camera.Follow = _heroTransform;
         }
 
