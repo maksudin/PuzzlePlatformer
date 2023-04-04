@@ -13,6 +13,7 @@ namespace PixelCrew.Components.SpriteManagement
         public UnityEvent OnComplete;
     }
 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class StatesSpriteAnimation : MonoBehaviour
     {
         [SerializeField] private int _frameRate;
@@ -53,7 +54,7 @@ namespace PixelCrew.Components.SpriteManagement
         {
             _currentAnimationIndex = FindAnimationIndex(name);
             _currentSpriteIndex = 0;
-            AnimationState state = _animationStates[_currentAnimationIndex];
+            var state = _animationStates[_currentAnimationIndex];
             _loop = state.Loop;
             _sprites = state.Sprites;
 
@@ -68,13 +69,13 @@ namespace PixelCrew.Components.SpriteManagement
                 _currentAnimationIndex = 0;
 
             _currentAnimationIndex++;
-            AnimationState state = _animationStates[_currentAnimationIndex];
+            var state = _animationStates[_currentAnimationIndex];
             SetClip(state.StateName);
         }
 
         private void CompleteEvent()
         {
-            AnimationState state = _animationStates[_currentAnimationIndex];
+            var state = _animationStates[_currentAnimationIndex];
             state.OnComplete?.Invoke();
         }
 
