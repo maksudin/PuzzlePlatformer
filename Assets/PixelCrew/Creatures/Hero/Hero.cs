@@ -175,11 +175,8 @@ namespace PixelCrew.Creatures.Hero
             }
         }
 
-        private void UpperFramePush()
-        {
-            Debug.Log("Upper push");
+        private void UpperFramePush() =>
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, Rigidbody.velocity.y * _upperFramePushForce);
-        }
 
         private void OnHeroUpgraded(StatId statId)
         {
@@ -408,7 +405,7 @@ namespace PixelCrew.Creatures.Hero
             if (_isHooking)
             {
                 var direction = _hookTarget - transform.position;
-                var ease = EasingUtils.EaseInSine(start: 0, end: _hookSpeed, value: 0.67f);
+                float ease = EasingUtils.EaseInSine(start: 0, end: _hookSpeed, value: 0.67f);
                 Rigidbody.MovePosition(transform.position + direction.normalized * ease * Time.fixedDeltaTime);
                 if (Vector3.Distance(transform.position, _hookTarget) < 0.5f || _hookCooldown.IsReady)
                 {
