@@ -38,6 +38,7 @@ namespace PixelCrew.Model
             }
             else
             {
+                // Сессия не существует
                 InitModels();
                 DontDestroyOnLoad(this);
                 LoadHP();
