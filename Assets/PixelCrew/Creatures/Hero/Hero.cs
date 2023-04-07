@@ -323,8 +323,8 @@ namespace PixelCrew.Creatures.Hero
             if (_speedUpCooldown.IsReady)
                 _additionalSpeed = 0f;
 
-            float defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
-            return defaultSpeed + _additionalSpeed;
+            //float defaultSpeed = _session.StatsModel.GetValue(StatId.Speed);
+            return Speed + _additionalSpeed;
         }
 
 
@@ -393,8 +393,8 @@ namespace PixelCrew.Creatures.Hero
         public void Interact()
         {
             _interactionCheck.Check();
-            if (_session.PerksModel.IsHookSupported)
-                _hookCheck.Check();
+            //if (_session.PerksModel.IsHookSupported)
+            _hookCheck.Check();
         }
 
         private bool _isHooking;

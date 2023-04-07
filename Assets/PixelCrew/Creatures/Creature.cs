@@ -12,7 +12,7 @@ namespace PixelCrew.Creatures
     {
         [Header("Creature Params")] 
         [SerializeField] private bool _invertScale;
-        [SerializeField] protected float _speed, JumpSpeed, AttackParticlesOffset;
+        [SerializeField] protected float Speed, JumpSpeed, AttackParticlesOffset;
         [SerializeField] private float _damageVelocity;
         [SerializeField] protected int Damage;
 
@@ -70,7 +70,7 @@ namespace PixelCrew.Creatures
         }
 
         protected virtual float CalculateXVelocity() => Direction.x * CalculateSpeed();
-        protected virtual float CalculateSpeed() => _speed;
+        protected virtual float CalculateSpeed() => Speed;
 
         protected virtual float CalculateYVelocity()
         {

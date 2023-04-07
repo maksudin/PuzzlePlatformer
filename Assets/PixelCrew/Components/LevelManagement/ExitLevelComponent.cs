@@ -7,6 +7,7 @@ namespace PixelCrew.Components.LevelManagement
     {
        [SerializeField] private string _sceneName;
 
+       [ContextMenu("Load Level")]
        public void Exit()
        {
             var loader = FindObjectOfType<LevelLoader>();

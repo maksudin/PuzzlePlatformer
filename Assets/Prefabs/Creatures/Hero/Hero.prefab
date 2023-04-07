@@ -6073,7 +6073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invertScale: 0
-  _speed: 3.83
+  Speed: 3.83
   JumpSpeed: 12.2
   AttackParticlesOffset: 0
   _damageVelocity: 100
