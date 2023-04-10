@@ -8,6 +8,10 @@ using PixelCrew.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// ВНИМАНИЕ!!! Этот Gameobject никогда не оставлять префабом в сцене.
+// Всегда следует делать Unpack Prefab
+// Иначе сессия отвалится при переходе в эту сцену.
+
 namespace PixelCrew.Model
 {
     public class GameSession : MonoBehaviour

@@ -7,20 +7,28 @@ namespace PixelCrew.Components.SpriteManagement
     public class SpriteAnimation : MonoBehaviour
     {
         [SerializeField] private int _frameRate;
-        [SerializeField] private bool _loop;
+        [SerializeField]
+        private bool _loop,
+                     _randomize;
+        
         [SerializeField] private Sprite[] _sprites;
         [SerializeField] private UnityEvent _onComplete;
 
         private SpriteRenderer _renderer;
-        private float _secondsPerFrame, _nextFrameTime;
+        private float _secondsPerFrame, _nextFrameTime, _seed;
         private int _currentSpriteIndex;
 
-        private void Start() => _renderer = GetComponent<SpriteRenderer>();
+        private void Start()
+        {
+            if (_randomize)
+                _seed = Random.value;
+            _renderer = GetComponent<SpriteRenderer>();
+        }
 
         private void OnEnable()
         {
             _secondsPerFrame = 1f / _frameRate;
-            _nextFrameTime = Time.time + _secondsPerFrame;
+            _nextFrameTime = Time.time + _secondsPerFrame + _seed;
             _currentSpriteIndex = 0;
         }
 

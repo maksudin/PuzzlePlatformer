@@ -5016,7 +5016,7 @@ PrefabInstance:
     - target: {fileID: 352547908979269190, guid: e67669cca122cc0458d8980543799874,
         type: 3}
       propertyPath: m_Name
-      value: ShipDoor
+      value: NextLevelDoor
       objectReference: {fileID: 0}
     - target: {fileID: 352547908979269192, guid: e67669cca122cc0458d8980543799874,
         type: 3}
