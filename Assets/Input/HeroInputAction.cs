@@ -115,7 +115,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Up"",
                     ""id"": ""86db51ee-df9c-4578-a0bf-dc032f0de791"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -170,7 +170,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Up"",
                     ""id"": ""65f32f1a-1981-4c88-be73-ae9174542f9b"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -225,7 +225,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""61a3bacd-ffbc-4fd8-8a92-f110ba0aa10b"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

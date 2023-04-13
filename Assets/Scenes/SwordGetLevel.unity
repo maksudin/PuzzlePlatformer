@@ -7455,6 +7455,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3158646100232765765, guid: eba1483f1db5d294da3eba34fe2e1dba,
+        type: 3}
+      propertyPath: m_Text
+      value: Press "Space" to sword slash
+      objectReference: {fileID: 0}
     - target: {fileID: 3158646100539638507, guid: eba1483f1db5d294da3eba34fe2e1dba,
         type: 3}
       propertyPath: m_Name
