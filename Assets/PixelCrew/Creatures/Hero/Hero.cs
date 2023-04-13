@@ -60,8 +60,8 @@ namespace PixelCrew.Creatures.Hero
         [SerializeField] private CandleController _candle;
         [SerializeField] private LayerCheck _waterCheck;
 
-        protected bool IsInWater;
-        protected bool IsInWaterProperty
+        private bool IsInWater;
+        public bool IsInWaterProperty
         {
             get { return IsInWater; }
             set
