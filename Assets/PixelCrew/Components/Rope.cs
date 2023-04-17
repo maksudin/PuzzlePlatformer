@@ -55,9 +55,8 @@ namespace PixelCrew.Components
 
                 _hero.DetachPlayerFromRope();
                 _ropeCollider.isTrigger = true;
-                _attachCooldown.Reset();
                 _ropeActivated = false;
-                return;
+                _attachCooldown.Reset();
             }
         }
 
