@@ -6089,7 +6089,7 @@ MonoBehaviour:
     _value: 1
   _swordBurstAmount: 3
   _allowDoubleJump: 0
-  _upperFramePushForce: 1.93
+  _upperFramePushForce: 1.33
   _hookCheck: {fileID: 288329827505223362}
   _hookSpeed: 31.3
   _hookPushForce: 6.46

@@ -18,7 +18,7 @@ namespace PixelCrew.Components.UI.Windows.MainMenu
             _closeAction = () => 
             {
                 var loader = FindObjectOfType<LevelLoader>();
-                loader.LoadLevel("Level1");
+                loader.LoadLevel("Ropes level");
             };
             Close();
         }
