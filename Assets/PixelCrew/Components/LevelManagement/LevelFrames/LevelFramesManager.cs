@@ -31,19 +31,19 @@ namespace Assets.PixelCrew.Components.LevelManagement.LevelFrames
                 var heroFramePos = frame.transform.InverseTransformPoint(_heroTransform.position);
 
                 if (heroFramePos.x < 0 || heroFramePos.y < 0)
-                    SetFrameParams(activeParams: false, frame);
+                    SetFrameParams(activateFrame: false, frame);
 
                 else if (heroFramePos.x <= frame.Width && heroFramePos.y <= frame.Height)
-                    SetFrameParams(activeParams: true, frame);
+                    SetFrameParams(activateFrame: true, frame);
 
                 else
-                    SetFrameParams(activeParams: false, frame);
+                    SetFrameParams(activateFrame: false, frame);
             }
         }
 
-        private void SetFrameParams(bool activeParams, LevelFrame frame)
+        private void SetFrameParams(bool activateFrame, LevelFrame frame)
         {
-            if (activeParams)
+            if (activateFrame)
             {
                 if (frame.IsActive) return;
                 frame.IsActive = true;
